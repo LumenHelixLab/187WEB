@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OmniQube — 187web Render Matrix</title>
+  <style>
+    :root {
+      --abyssal: #080808;
+      --dark: #1a1a1a;
+      --steel: #4a4a4a;
+      --ash: #cccccc;
+      --widow: #ff0000;
+      --toxic: #39ff14;
+      --mono: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+      --sans: "Inter", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; }
+    body {
+      background: var(--abyssal);
+      color: var(--ash);
+      font-family: var(--mono);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+    .chrome {
+      display: flex; align-items: center; gap: 6px;
+      padding: 12px 16px; border-bottom: 1px solid var(--steel);
+      background: var(--dark);
+    }
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dot-r { background: var(--widow); }
+    .dot-y { background: #ffbd2e; }
+    .dot-g { background: var(--toxic); }
+    .title { margin-left: 8px; font-size: 12px; color: var(--steel); letter-spacing: 0.2em; text-transform: uppercase; }
+    header {
+      padding: 2rem 1.5rem 1rem;
+      max-width: 1100px; margin: 0 auto;
+    }
+    h1 {
+      font-family: var(--sans);
+      font-size: clamp(1.5rem, 1rem + 2vw, 2.4rem);
+      color: #fff;
+      font-weight: 700;
+    }
+    h1 span { color: var(--toxic); }
+    .sub { margin-top: 0.5rem; font-size: 13px; color: var(--steel); }
+    .grid {
+      display: grid;
+      gap: 1rem;
+      padding: 1rem 1.5rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .panel {
+      background: var(--dark);
+      border: 1px solid var(--steel);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .panel-h {
+      padding: 10px 14px;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--toxic);
+      border-bottom: 1px solid var(--steel);
+    }
+    .panel-b { padding: 14px; font-size: 13px; }
+    .metric {
+      display: flex; justify-content: space-between;
+      padding: 6px 0; border-bottom: 1px solid #2a2a2a;
+    }
+    .metric:last-child { border: none; }
+    .metric kbd { color: #fff; font-weight: 600; }
+    .metric val { color: var(--ash); text-align: right; max-width: 60%; word-break: break-word; }
+    .status {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 12px;
+    }
+    .status::before {
+      content: ""; width: 8px; height: 8px; border-radius: 50%;
+      background: var(--steel);
+    }
+    .status.live::before { background: var(--toxic); box-shadow: 0 0 8px var(--toxic); }
+    .status.dead::before { background: var(--widow); }
+    .slider-row { margin: 10px 0; }
+    .slider-row label { display: flex; justify-content: space-between; font-size: 11px; color: var(--steel); margin-bottom: 4px; }
+    .bar {
+      height: 6px; background: #2a2a2a; border-radius: 3px; overflow: hidden;
+    }
+    .bar > i {
+      display: block; height: 100%; background: var(--toxic);
+      transition: width 0.4s ease;
+    }
+    .bar.alert > i { background: var(--widow); }
+    pre {
+      background: #0a0a0a;
+      border: 1px solid var(--steel);
+      border-radius: 6px;
+      padding: 12px;
+      font-size: 11px;
+      overflow-x: auto;
+      max-height: 220px;
+      color: var(--toxic);
+    }
+    .directive {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: #e0e0e0;
+      line-height: 1.6;
+      max-height: 160px;
+      overflow-y: auto;
+    }
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 11px;
+      color: var(--steel);
+      border-top: 1px solid var(--steel);
+    }
+    footer a { color: var(--toxic); }
+  </style>
+</head>
+<body>
+  <div class="chrome">
+    <span class="dot dot-r"></span>
+    <span class="dot dot-y"></span>
+    <span class="dot dot-g"></span>
+    <span class="title">OmniQube · Render Matrix</span>
+    <span style="margin-left:auto" id="conn" class="status dead">disconnected</span>
+  </div>
+
+  <header>
+    <h1>Charlotte <span>Nervous System</span></h1>
+    <p class="sub">Phase I telemetry — compiler JSON streamed via SSE relay :18780</p>
+  </header>
+
+  <div class="grid">
+    <section class="panel">
+      <div class="panel-h">Power &amp; Routing</div>
+      <div class="panel-b" id="routing">
+        <div class="metric"><kbd>power_mode</kbd><val id="v-power">—</val></div>
+        <div class="metric"><kbd>prompt_id</kbd><val id="v-prompt">—</val></div>
+        <div class="metric"><kbd>skill</kbd><val id="v-skill">—</val></div>
+        <div class="metric"><kbd>persona</kbd><val id="v-persona">—</val></div>
+        <div class="metric"><kbd>layer</kbd><val id="v-layer">—</val></div>
+        <div class="metric"><kbd>cwd</kbd><val id="v-cwd">—</val></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-h">Neuro-Toxin Sliders</div>
+      <div class="panel-b">
+        <div class="slider-row">
+          <label><span>toxicity</span><span id="lbl-toxicity">—</span></label>
+          <div class="bar"><i id="bar-toxicity" style="width:0%"></i></div>
+        </div>
+        <div class="slider-row">
+          <label><span>lethality</span><span id="lbl-lethality">—</span></label>
+          <div class="bar" id="wrap-lethality"><i id="bar-lethality" style="width:0%"></i></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" style="grid-column: 1 / -1">
+      <div class="panel-h">Active Directive</div>
+      <div class="panel-b directive" id="v-directive">Awaiting compiler output…</div>
+    </section>
+
+    <section class="panel" style="grid-column: 1 / -1">
+      <div class="panel-h">Raw Compile JSON</div>
+      <div class="panel-b"><pre id="raw">{}</pre></div>
+    </section>
+  </div>
+
+  <footer>
+    187web Ecosystem v2 · <a href="/templates/devtool">Forge API template pole</a> ·
+    relay <code id="relay-url">http://localhost:18780/events</code>
+  </footer>
+
+  <script>
+    const RELAY = (location.search.match(/relay=([^&]+)/) || [])[1]
+      ? decodeURIComponent((location.search.match(/relay=([^&]+)/) || [])[1])
+      : "http://localhost:18780";
+    document.getElementById("relay-url").textContent = RELAY + "/events";
+
+    const lethalityMap = { max: 95, medium: 55, low: 25 };
+
+    function render(d) {
+      const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v ?? "—"; };
+      set("v-power", d.power_mode);
+      set("v-prompt", d.prompt_id);
+      set("v-skill", d.skill);
+      set("v-persona", d.persona);
+      set("v-layer", d.layer_name ? `L${d.layer} ${d.layer_name}` : d.layer);
+      set("v-cwd", d.cwd);
+      set("v-directive", d.directive || "—");
+      document.getElementById("raw").textContent = JSON.stringify(d, null, 2);
+
+      const nt = d.neuro_toxin || {};
+      const tox = parseFloat(nt.toxicity || 0);
+      set("lbl-toxicity", nt.toxicity ?? "—");
+      document.getElementById("bar-toxicity").style.width = Math.min(tox / 1.5 * 100, 100) + "%";
+
+      const leth = nt.lethality || "medium";
+      set("lbl-lethality", leth);
+      const lethPct = lethalityMap[leth] || 50;
+      const barL = document.getElementById("bar-lethality");
+      const wrapL = document.getElementById("wrap-lethality");
+      barL.style.width = lethPct + "%";
+      wrapL.classList.toggle("alert", leth === "max");
+    }
+
+    function setConn(live) {
+      const el = document.getElementById("conn");
+      el.textContent = live ? "live" : "disconnected";
+      el.className = "status " + (live ? "live" : "dead");
+    }
+
+    async function fetchLast() {
+      try {
+        const r = await fetch(RELAY + "/last");
+        const d = await r.json();
+        if (d && d.ecosystem) render(d);
+      } catch (_) {}
+    }
+
+    function connect() {
+      const es = new EventSource(RELAY + "/events");
+      es.onopen = () => setConn(true);
+      es.onerror = () => { setConn(false); es.close(); setTimeout(connect, 3000); };
+      es.onmessage = (e) => {
+        try { render(JSON.parse(e.data)); } catch (_) {}
+      };
+    }
+
+    fetchLast();
+    connect();
+  </script>
+</body>
+</html>

@@ -1,0 +1,374 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===========================================================================
+   Design tokens — the single source of visual truth (skill principle #4).
+   Colors are space-separated RGB channels so Tailwind's <alpha-value> works,
+   e.g. `bg-accent/10`. The palette is a deliberate "warm blueprint": paper +
+   ink + one electric-blue accent — chosen to avoid the templated AI defaults
+   the skill warns about (cream+serif+terracotta / near-black+acid-green).
+   ========================================================================== */
+:root {
+  --bg: 250 250 247; /* warm paper */
+  --surface: 255 255 255;
+  --ink: 17 19 26; /* deep slate near-black */
+  --muted: 91 97 112;
+  --line: 221 219 210; /* warm hairline / blueprint rule */
+
+  --accent: 36 64 230; /* electric blueprint blue */
+  --accent-ink: 255 255 255; /* text on accent (≈8:1 contrast) */
+  --accent-soft: 232 236 255;
+
+  --success: 22 122 84;
+  --danger: 200 38 56;
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 20px;
+}
+
+/* ---------------------------------------------------------------- base ---- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem; /* clears the sticky header on anchor jumps */
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: rgb(var(--bg));
+    color: rgb(var(--ink));
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display), var(--font-sans), sans-serif;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Visible, on-brand focus for every interactive element (a11y, skill #8). */
+  :focus-visible {
+    outline: 2px solid rgb(var(--accent));
+    outline-offset: 2px;
+    border-radius: var(--radius-xs);
+  }
+
+  ::selection {
+    background-color: rgb(var(--accent) / 0.18);
+  }
+}
+
+/* ----------------------------------------------------------- components --- */
+@layer components {
+  .container-x {
+    width: 100%;
+    max-width: 75rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 640px) {
+    .container-x {
+      padding-inline: 2rem;
+    }
+  }
+
+  /* Section eyebrow: small, tracked, accent — with a leading rule tick. */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-display), sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgb(var(--accent));
+  }
+  .eyebrow::before {
+    content: "";
+    width: 1.5rem;
+    height: 1px;
+    background: rgb(var(--accent));
+  }
+
+  /* Faint measured grid for the hero — the signature "blueprint" motif. */
+  .blueprint {
+    background-image:
+      linear-gradient(rgb(var(--line) / 0.7) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(var(--line) / 0.7) 1px, transparent 1px);
+    background-size: 32px 32px;
+    -webkit-mask-image: radial-gradient(115% 85% at 50% 0%, #000 38%, transparent 82%);
+    mask-image: radial-gradient(115% 85% at 50% 0%, #000 38%, transparent 82%);
+  }
+}
+
+/* ------------------------------------------------------------ utilities --- */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
+/* ----------------------------------------------------- motion (skill #6) -- */
+/* Scroll-reveal: invisible until observed, then eased in. Transform/opacity
+   only, so it never causes layout shift (CLS). */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Hero headline load-in. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.55em);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.rise {
+  animation: rise 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Scoring-lens bars grow to their weight when their group scrolls into view. */
+.lens-bar {
+  width: 0;
+  transition: width 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.is-visible .lens-bar {
+  width: var(--w);
+}
+
+/* The whole point of motion: it must yield to user preference. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .lens-bar {
+    width: var(--w);
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ===========================================================================
+   SHOWCASE — the immersive, dark, animated GitHub Pages demo. This is the
+   "flex": a living gallery of the techniques the skill teaches (motion, type,
+   SVG, canvas, micro-interactions). Deliberately a different world from the
+   light "paper blueprint" of the README and docs.
+   ========================================================================== */
+.showcase {
+  --sc-bg: #060713;
+  --sc-ink: #ecedf7;
+  --sc-muted: #9aa1bd;
+  background: var(--sc-bg);
+  color: var(--sc-ink);
+}
+
+/* Animated, panning gradient text. */
+.sc-grad-text {
+  background-image: linear-gradient(100deg, #7c3aed, #22d3ee, #2440e6, #ff4d8d, #7c3aed);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: sc-pan 9s linear infinite;
+}
+@keyframes sc-pan {
+  to {
+    background-position: 220% center;
+  }
+}
+
+/* Frosted glass surface. */
+.sc-glass {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Edge fade for marquees / horizontal scrollers. */
+.sc-mask-x {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.sc-perspective {
+  perspective: 1000px;
+}
+
+/* Infinite marquee (row is duplicated, so -50% loops seamlessly). */
+@keyframes sc-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Slow float + drift for ambient blobs. */
+@keyframes sc-float {
+  50% {
+    transform: translateY(-18px);
+  }
+}
+.sc-float {
+  animation: sc-float 7s ease-in-out infinite;
+}
+
+/* Organic blob morph. */
+@keyframes sc-blob {
+  0%,
+  100% {
+    border-radius: 42% 58% 63% 37% / 42% 44% 56% 58%;
+  }
+  50% {
+    border-radius: 58% 42% 37% 63% / 56% 58% 42% 44%;
+  }
+}
+.sc-blob {
+  animation: sc-blob 16s ease-in-out infinite;
+}
+
+/* Endless rotation (conic rings, orbits). */
+@keyframes sc-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.sc-spin-slow {
+  animation: sc-spin 18s linear infinite;
+}
+
+/* Pulsing glow. */
+@keyframes sc-pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.08);
+  }
+}
+.sc-pulse {
+  animation: sc-pulse 6s ease-in-out infinite;
+}
+
+/* Hero headline: per-word rise, staggered via inline animation-delay. */
+@keyframes sc-rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.9em) rotate(2deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.sc-rise {
+  display: inline-block;
+  animation: sc-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Scroll cue bob. */
+@keyframes sc-cue {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 1;
+  }
+}
+.sc-cue {
+  animation: sc-cue 1.8s ease-in-out infinite;
+}
+
+/* Self-drawing SVG: paths use pathLength="1" so the dash math is normalized.
+   The stroke draws when the wrapping .reveal scrolls into view. */
+.sc-draw-path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+.reveal.is-visible .sc-draw-path {
+  animation: sc-draw 2.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes sc-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Variable-weight hover for the kinetic-type demo. */
+.sc-vweight {
+  transition:
+    font-weight 0.3s ease,
+    letter-spacing 0.3s ease,
+    color 0.3s ease;
+}
+.sc-vweight:hover {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+/* Skeleton shimmer (RESILIENCE.md #1). Neutral base reads on light or dark;
+   the sweep stops under the reduced-motion rule above. */
+.sc-skeleton {
+  position: relative;
+  overflow: hidden;
+  background: rgb(120 124 145 / 0.18);
+}
+.sc-skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.14), transparent);
+  animation: sc-shimmer 1.5s infinite;
+}
+@keyframes sc-shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}

@@ -1,0 +1,27 @@
+# Local PostgreSQL for the 187webdesign starter.
+#   docker compose up -d        # start
+#   npm run db:push             # create tables from prisma/schema.prisma
+#   docker compose down         # stop (add -v to wipe data)
+#
+# Matches the DATABASE_URL in .env.example.
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: onep8seven-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: onep8seven
+    ports:
+      - "5432:5432"
+    volumes:
+      - onep8seven-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d onep8seven"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  onep8seven-data:

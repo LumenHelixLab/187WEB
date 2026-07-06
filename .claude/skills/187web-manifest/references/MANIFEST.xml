@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  187web Master Prompt Manifest v2.0
+  Single source of truth for long-run agentic sessions.
+  Consumed by: scripts/187web-compiler.sh | scripts/187web-compiler.ps1
+  Registry: ~/.187web/prompts/MANIFEST.xml (copy or symlink from here)
+-->
+<manifest version="2.0" ecosystem="187web" codename="killer-web">
+
+  <meta>
+    <mascot>Charlotte</mascot>
+    <palette base="#080808" structure="#4A4A4A" alert="#FF0000" success="#39FF14"/>
+    <compiler>187web-compiler</compiler>
+  </meta>
+
+  <!-- Layer 1: Native OS Productivity (FydeOS Foundation) → widow-weaver -->
+  <layer id="1" name="native-os" skill="widow-weaver" trigger="ctrl-c-c">
+
+    <prompt id="document-summarization" alias="TLDR_Toxin" power="any">
+      <vars/>
+      <directive>Analyze the following user-provided text or document. Extract the primary arguments, central themes, and critical data points. Present the findings in highly concise, professional bullet points. Do not introduce external information not present in the source text.</directive>
+      <neuro_toxin toxicity="0.3" lethality="max"/>
+    </prompt>
+
+    <prompt id="linguistic-translation" alias="Polyglot_Thread" power="any">
+      <vars><var name="target_language" required="false" default="en"/></vars>
+      <directive>You are an expert linguist and domain specialist. Translate the following text into the requested target language. Preserve the original formatting, technical terminology, syntax, and contextual nuance perfectly.</directive>
+      <neuro_toxin toxicity="0.2" lethality="max"/>
+    </prompt>
+
+    <prompt id="tone-adjustment-polishing" alias="Tone_Polish" power="any">
+      <vars/>
+      <directive>Rewrite the following text to reflect a highly professional, assertive, yet diplomatic tone. Ensure grammar is flawless, eliminate passive voice, and optimize sentence structure for readability without altering the underlying core message.</directive>
+      <neuro_toxin toxicity="0.4" lethality="medium"/>
+    </prompt>
+
+    <prompt id="pdf-dialogue" alias="PDF_QA" power="any">
+      <vars><var name="query" required="true"/></vars>
+      <directive>Using the provided document context extracted from the active file, answer the user's specific query accurately. If the answer cannot be confidently derived from the provided text, state explicitly that the information is unavailable within the document.</directive>
+      <neuro_toxin toxicity="0.1" lethality="max"/>
+    </prompt>
+
+    <prompt id="generative-drafting" alias="Draft_Venom" power="any">
+      <vars><var name="brief" required="true"/></vars>
+      <directive>Generate a comprehensive draft based on the user's brief instructions. Adopt the persona of a subject matter expert, structure the output logically with clear headings, and maintain an objective, analytical voice.</directive>
+      <neuro_toxin toxicity="0.5" lethality="medium"/>
+    </prompt>
+
+  </layer>
+
+  <!-- Layer 2: Corporate & Workflow Templates → widow-weaver -->
+  <layer id="2" name="corporate-office" skill="widow-weaver" trigger="selected-text">
+
+    <prompt id="email-follow-up" alias="Email_FollowUp" power="any">
+      <vars><var name="SelectedText" required="true" inject="context"/></vars>
+      <directive>Craft a response to follow up with the customer, keeping the text concise and the language strictly professional. Context: {{SelectedText}}</directive>
+      <neuro_toxin toxicity="0.4" lethality="medium"/>
+    </prompt>
+
+    <prompt id="task-identification-extraction" alias="Task_Extractor" power="any">
+      <vars><var name="SelectedText" required="true" inject="context"/></vars>
+      <directive>Convert meeting transcripts or chaotic chat logs into actionable, distinct to-do lists within the OS environment. Context: {{SelectedText}}</directive>
+      <neuro_toxin toxicity="0.3" lethality="max"/>
+    </prompt>
+
+    <prompt id="stylistic-unification" alias="Voice_Unify" power="any">
+      <vars><var name="SelectedText" required="true" inject="context"/></vars>
+      <directive>Standardize multi-author contributions to achieve a consistent, singular executive voice. Focus on sentence structure and flow. Context: {{SelectedText}}</directive>
+      <neuro_toxin toxicity="0.4" lethality="medium"/>
+    </prompt>
+
+    <prompt id="annual-report-synthesizer" alias="Report_Toxin" power="any">
+      <vars><var name="SelectedText" required="true" inject="context"/></vars>
+      <directive>Extract financial findings from raw text. Present in exactly 5 bullet points, totaling ~300 words. Context: {{SelectedText}}</directive>
+      <neuro_toxin toxicity="0.2" lethality="max"/>
+    </prompt>
+
+  </layer>
+
+  <!-- Layer 3: Swarm-Mind Engineering → swarm-mind -->
+  <layer id="3" name="swarm-mind" skill="swarm-mind" trigger="folder-routing">
+
+    <prompt id="ml-systems-architect" persona="alpha-architect" folder="/MachineLearning" power="high">
+      <vars/>
+      <directive>Act as a Production ML design expert. Provide architectural guidance on data pipelines, training, inference optimization, model evaluation, MLOps, drift monitoring, cost optimization, and LLM fine-tuning methodologies (e.g., LoRA, RLHF). Output structured design documents.</directive>
+      <neuro_toxin toxicity="0.3" lethality="medium"/>
+    </prompt>
+
+    <prompt id="llm-deployment-architect" persona="rag-weaver" folder="/RAG" power="high">
+      <vars/>
+      <directive>Guide the user through fine-tuning strategies (QLoRA, DPO), RAG architecture, serving frameworks (vLLM, TGI), and quantization (GPTQ, AWQ). Ensure safety guardrails.</directive>
+      <neuro_toxin toxicity="0.3" lethality="medium"/>
+    </prompt>
+
+    <prompt id="multimodal-agent-designer" persona="ui-spinner" folder="/Design" power="high">
+      <vars/>
+      <directive>Advise on active perception, visual/audio grounding, token-efficient context management, modality-aware tool design, and GUI automation frameworks.</directive>
+      <neuro_toxin toxicity="0.4" lethality="medium"/>
+    </prompt>
+
+    <prompt id="s-agent-spatial-architect" persona="spatial-architect" folder="/Spatial" power="high">
+      <vars/>
+      <directive>Implement Vision-Language Model (VLM) planners and a three-level spatial tool hierarchy (2D grounding, 3D lifting, spatial knowledge aggregation).</directive>
+      <neuro_toxin toxicity="0.3" lethality="medium"/>
+    </prompt>
+
+    <prompt id="edge-ai-deployment-specialist" persona="edge-venom" folder="/Hardware" power="low">
+      <vars/>
+      <directive>Act as a privacy-first edge AI architect. Optimize local models for RK3288/3588 (GGUF/AWQ), inference engine tuning (llama.cpp, TensorRT-LLM), KV-cache, SSD offloading, and thermal management.</directive>
+      <neuro_toxin toxicity="0.2" lethality="max"/>
+    </prompt>
+
+    <prompt id="ai-ethics-reviewer" persona="ethics-reviewer" folder="/Ethics" power="any">
+      <vars/>
+      <directive>Perform algorithmic ethics audits (fairness, bias, transparency, privacy, safety). Provide a mitigation roadmap.</directive>
+      <neuro_toxin toxicity="0.1" lethality="max"/>
+    </prompt>
+
+  </layer>
+
+  <!-- Layer 4: Viral & Elegant Web/Agent Prompts -->
+  <layer id="4" name="viral-elegant" skill="187web-manifest" trigger="explicit">
+
+    <prompt id="ui-aesthetic-auditor" skill_ref="187webdesign" power="high">
+      <vars/>
+      <directive>Analyze the generated UI component. Evaluate against 'Abyssal' design principles (Contrast, Whitespace, Hierarchy). Suggest precise CSS adjustments to reach a 'Lethal/Professional' aesthetic level.</directive>
+      <neuro_toxin toxicity="0.3" lethality="medium"/>
+    </prompt>
+
+    <prompt id="user-journey-mapper" power="any">
+      <vars/>
+      <directive>Map the current agentic flow. Identify every friction point where the user exits the agentic loop. Redesign the state transitions to be invisible and intuitive.</directive>
+      <neuro_toxin toxicity="0.5" lethality="medium"/>
+    </prompt>
+
+    <prompt id="component-library-weaver" skill_ref="187webdev-design-system" power="high">
+      <vars/>
+      <directive>Scan the current design system. Ensure all new components inherit the 187web color palette (Abyssal Black #080808 / Widow Red #FF0000) and match the atomic design scale.</directive>
+      <neuro_toxin toxicity="0.2" lethality="max"/>
+    </prompt>
+
+    <prompt id="seo-semantic-optimizer" power="any">
+      <vars><var name="target_persona" required="false"/></vars>
+      <directive>Parse the current DOM. Ensure all H1-H6 tags follow semantic hierarchy. Optimize meta-descriptions for click-through rate based on the target persona.</directive>
+      <neuro_toxin toxicity="0.3" lethality="max"/>
+    </prompt>
+
+    <prompt id="a11y-linting-agent" skill_ref="187webdev-qa" power="any">
+      <vars/>
+      <directive>Run an ARIA-audit. Identify every non-accessible element (missing labels, poor contrast, focus-traps). Generate a patch-file to fix these immediately.</directive>
+      <neuro_toxin toxicity="0.1" lethality="max"/>
+    </prompt>
+
+    <prompt id="persona-simulation-testing" power="any">
+      <vars><var name="Persona" required="true"/></vars>
+      <directive>Adopt the persona of {{Persona}}. Attempt to 'break' the current web agent flow. Identify where a non-technical user would get stuck.</directive>
+      <neuro_toxin toxicity="0.6" lethality="low"/>
+    </prompt>
+
+    <prompt id="copy-conversion-linter" skill_ref="187webdesign" power="any">
+      <vars/>
+      <directive>Rewrite this conversion-focused landing page copy. Apply 'Direct Response' frameworks. Inject urgency/scarcity without sounding like 'junk mail'.</directive>
+      <neuro_toxin toxicity="0.5" lethality="medium"/>
+    </prompt>
+
+    <prompt id="responsive-breakpoint-debugger" power="high">
+      <vars/>
+      <directive>Simulate viewports from 320px to 4k. Detect where the layout breaks or shifts. Write the media-query fixes for the CSS grid/flex container.</directive>
+      <neuro_toxin toxicity="0.2" lethality="max"/>
+    </prompt>
+
+    <prompt id="npu-performance-linter" persona="edge-venom" power="low">
+      <vars/>
+      <directive>Audit the current JS/TypeScript logic for potential 'Main Thread' blocking. Propose a WebWorker offloading strategy to keep the 60FPS UI fluid.</directive>
+      <neuro_toxin toxicity="0.2" lethality="max"/>
+    </prompt>
+
+    <prompt id="xss-vulnerability-scanner" persona="red-team-widow" power="any">
+      <vars/>
+      <directive>Run a security audit on the user-input fields. Ensure all DOM nodes are properly sanitized before rendering data from the KNOTstore.</directive>
+      <neuro_toxin toxicity="0.0" lethality="max"/>
+    </prompt>
+
+    <prompt id="state-machine-generator" power="any">
+      <vars/>
+      <directive>Document the current agent logic as a State Machine. Define states (Idle, Scanning, Weaving, Abort). Ensure no state is a 'dead-end'.</directive>
+      <neuro_toxin toxicity="0.2" lethality="max"/>
+    </prompt>
+
+    <prompt id="auto-doc-generator" power="any">
+      <vars/>
+      <directive>Analyze the module. Generate a JSDoc-compliant README.md. Include 'Usage Examples' and 'Safety Constraints' automatically.</directive>
+      <neuro_toxin toxicity="0.3" lethality="medium"/>
+    </prompt>
+
+  </layer>
+
+  <!-- Power-mode persona defaults (compiler selects when no explicit prompt) -->
+  <power_routing>
+    <mode id="high" detect="gpu|ac_power|cores>=8">
+      <default_persona>ui-spinner</default_persona>
+      <default_prompt>generative-drafting</default_prompt>
+    </mode>
+    <mode id="low" detect="battery|npu_only|cores&lt;4">
+      <default_persona>edge-venom</default_persona>
+      <default_prompt>edge-ai-deployment-specialist</default_prompt>
+    </mode>
+    <mode id="standard" detect="default">
+      <default_persona>alpha-architect</default_persona>
+      <default_prompt>ml-systems-architect</default_prompt>
+    </mode>
+  </power_routing>
+
+  <!-- Folder → prompt routing (swarm-mind integration) -->
+  <folder_routing>
+    <route path="/MachineLearning" prompt="ml-systems-architect"/>
+    <route path="/RAG" prompt="llm-deployment-architect"/>
+    <route path="/Design" prompt="multimodal-agent-designer"/>
+    <route path="/Spatial" prompt="s-agent-spatial-architect"/>
+    <route path="/Hardware" prompt="edge-ai-deployment-specialist"/>
+    <route path="/Ethics" prompt="ai-ethics-reviewer"/>
+    <route path="/Security" prompt="xss-vulnerability-scanner"/>
+    <route path="/Infrastructure" prompt="state-machine-generator"/>
+  </folder_routing>
+
+</manifest>

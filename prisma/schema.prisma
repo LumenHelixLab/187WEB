@@ -1,0 +1,24 @@
+// Prisma schema for the 187webdesign starter.
+// Docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/// A waitlist / contact lead captured by the demo's POST /api/lead route.
+/// Intentionally tiny — it exists to make the starter genuinely full-stack
+/// (form -> validated API -> persisted row) without imposing a domain model.
+model Lead {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  message   String?
+  source    String   @default("demo")
+  createdAt DateTime @default(now())
+
+  @@map("leads")
+}
