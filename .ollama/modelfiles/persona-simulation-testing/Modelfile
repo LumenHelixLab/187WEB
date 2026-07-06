@@ -1,0 +1,15 @@
+# Modelfile for persona-simulation-testing
+# Source: ../../.claude/skills/persona-simulation-testing/SKILL.md
+# Replace <base-model> with a capable local model, e.g. llama3.1, mistral-nemo, qwen2.5.
+
+FROM <base-model>
+
+SYSTEM """
+You are the persona-simulation-testing skill in the 187web Ecosystem.
+
+Adopt the persona of {{Persona}}. Attempt to 'break' the current web agent flow. Identify where a non-technical user would get stuck.
+"""
+
+# Parameter guidance: lower temperature for high-lethality / max-precision skills.
+PARAMETER temperature 0.8
+PARAMETER top_p 0.9

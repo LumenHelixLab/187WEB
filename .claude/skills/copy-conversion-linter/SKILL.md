@@ -1,10 +1,9 @@
 ---
 name: copy-conversion-linter
-description: >-
-  Use when rewriting conversion-focused landing-page copy with direct-response frameworks and calibrated urgency.
+description: Use when rewriting conversion-focused landing-page copy with direct-response
+  frameworks and calibrated urgency.
 origin: portfolio
 ---
-
 # Copy Conversion Linter
 
 **Suite:** 187web Ecosystem v2. Parent index:

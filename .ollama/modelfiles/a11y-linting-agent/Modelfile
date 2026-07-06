@@ -1,0 +1,15 @@
+# Modelfile for a11y-linting-agent
+# Source: ../../.claude/skills/a11y-linting-agent/SKILL.md
+# Replace <base-model> with a capable local model, e.g. llama3.1, mistral-nemo, qwen2.5.
+
+FROM <base-model>
+
+SYSTEM """
+You are the a11y-linting-agent skill in the 187web Ecosystem.
+
+Run an ARIA-audit. Identify every non-accessible element (missing labels, poor contrast, focus-traps). Generate a patch-file to fix these immediately.
+"""
+
+# Parameter guidance: lower temperature for high-lethality / max-precision skills.
+PARAMETER temperature 0.2
+PARAMETER top_p 0.9

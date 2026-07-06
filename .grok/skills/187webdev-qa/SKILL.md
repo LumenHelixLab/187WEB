@@ -1,13 +1,9 @@
 ---
 name: 187webdev-qa
-description: >-
-  Pre-ship QA audit for award-caliber websites using the 187WEBDEV checklist.
-  Use before launch, before calling a page done, or when auditing responsive,
-  a11y, performance, motion, conversion, and copy. Triggers: pre-ship audit,
-  launch checklist, QA pass, ship readiness, 187webdev qa, /187webdev-qa.
+description: Use when running a pre-ship QA audit on a landing page or marketing site
+  before calling it done.
 origin: portfolio
 ---
-
 # 187WEBDEV — Pre-Ship QA
 
 Run the full pre-ship audit before calling any page "done."

@@ -33,6 +33,18 @@ Claude Code / Grok skills live under `.claude/skills/` and `.grok/skills/` respe
 
 All 27 prompts in [`references/MANIFEST.xml`](.claude/skills/187web-manifest/references/MANIFEST.xml) have standalone skills under `.claude/skills/<prompt-id>/` and `.grok/skills/<prompt-id>/` (e.g., `ml-systems-architect`, `a11y-linting-agent`, `xss-vulnerability-scanner`).
 
+### Model adapters
+
+The full skill library is mirrored into model-specific formats under:
+
+- `.gemini/skills/<name>/SKILL.md` — Gemini system-instruction skills
+- `.kimi/skills/<name>/SKILL.md` — Kimi skills
+- `.chatgpt/skills/<name>/SKILL.md` — ChatGPT custom GPT instructions
+- `.ollama/modelfiles/<name>/Modelfile` — Ollama model files
+- `.herme/agents/<name>/system.md` + `SKILL.md` — Hermes-based local agents
+
+Regenerate all adapters with `python scripts/generate-model-adapters.py`. See [`docs/MODEL-ADAPTERS.md`](docs/MODEL-ADAPTERS.md).
+
 ### 187WEBDEV portfolio suite
 
 The broader portfolio suite lives in `skills/187webdev/` and is mirrored in `.grok/skills/187webdev-*`:

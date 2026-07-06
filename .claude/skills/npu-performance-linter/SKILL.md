@@ -1,10 +1,9 @@
 ---
 name: npu-performance-linter
-description: >-
-  Use when auditing JavaScript/TypeScript for main-thread blocking and proposing WebWorker offloading to maintain 60fps.
+description: Use when auditing JavaScript/TypeScript for main-thread blocking and
+  proposing WebWorker offloading to maintain 60fps.
 origin: portfolio
 ---
-
 # NPU Performance Linter
 
 **Suite:** 187web Ecosystem v2. Parent index:

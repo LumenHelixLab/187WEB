@@ -1,10 +1,9 @@
 ---
 name: stylistic-unification
-description: >-
-  Use when standardizing multi-author contributions into a consistent executive voice and flow.
+description: Use when standardizing multi-author contributions into a consistent executive
+  voice and flow.
 origin: portfolio
 ---
-
 # Voice Unify
 
 **Suite:** 187web Ecosystem v2. Parent index:

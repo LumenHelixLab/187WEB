@@ -1,10 +1,9 @@
 ---
 name: annual-report-synthesizer
-description: >-
-  Use when extracting financial findings from raw text into exactly five focused bullet points totaling ~300 words.
+description: Use when extracting financial findings from raw text into exactly five
+  focused bullet points totaling ~300 words.
 origin: portfolio
 ---
-
 # Report Toxin
 
 **Suite:** 187web Ecosystem v2. Parent index:

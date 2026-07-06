@@ -1,10 +1,9 @@
 ---
 name: document-summarization
-description: >-
-  Use when the user needs a dense, source-faithful summary of a long document or text, with no external information introduced.
+description: Use when the user needs a dense, source-faithful summary of a long document
+  or text, with no external information introduced.
 origin: portfolio
 ---
-
 # Tldr Toxin
 
 **Suite:** 187web Ecosystem v2. Parent index:

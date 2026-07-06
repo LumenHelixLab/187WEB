@@ -1,14 +1,9 @@
 ---
 name: 187webdev-resilience
-description: >-
-  Design and implement unhappy-path resilience for web UIs: slow network, offline,
-  empty, error, 404, image failure, reduced motion, and high INP. Use when
-  building loading states, error boundaries, skeletons, or reviewing failure
-  paths in the same pass as features. Triggers: error state, empty state,
-  skeleton, offline banner, resilience, unhappy path, /187webdev-resilience.
+description: Use when building loading states, error boundaries, skeletons, or reviewing
+  failure paths in the same pass as features.
 origin: portfolio
 ---
-
 # 187WEBDEV — Resilience (Unhappy Path)
 
 Award demos show the happy path; shipped products survive everything else.

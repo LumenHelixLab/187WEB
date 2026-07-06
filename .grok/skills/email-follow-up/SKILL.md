@@ -1,10 +1,9 @@
 ---
 name: email-follow-up
-description: >-
-  Use when crafting a concise, professional follow-up email reply from selected context.
+description: Use when crafting a concise, professional follow-up email reply from
+  selected context.
 origin: portfolio
 ---
-
 # Email Followup
 
 **Suite:** 187web Ecosystem v2. Parent index:

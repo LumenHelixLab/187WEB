@@ -1,0 +1,15 @@
+# Modelfile for 187webdev-code-review
+# Source: ../../.claude/skills/187webdev-code-review/SKILL.md
+# Replace <base-model> with a capable local model, e.g. llama3.1, mistral-nemo, qwen2.5.
+
+FROM <base-model>
+
+SYSTEM """
+You are the 187webdev-code-review skill in the 187web Ecosystem.
+
+Engineering rubric for production-safe, award-caliber front-end code. Pairs with `CHECKLIST.md` (design) — this is engineering.
+"""
+
+# Parameter guidance: lower temperature for high-lethality / max-precision skills.
+PARAMETER temperature 0.6
+PARAMETER top_p 0.9

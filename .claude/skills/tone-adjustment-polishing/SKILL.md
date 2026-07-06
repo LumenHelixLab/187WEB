@@ -1,10 +1,9 @@
 ---
 name: tone-adjustment-polishing
-description: >-
-  Use when rewriting text for a professional, assertive, diplomatic tone with flawless grammar and active voice.
+description: Use when rewriting text for a professional, assertive, diplomatic tone
+  with flawless grammar and active voice.
 origin: portfolio
 ---
-
 # Tone Polish
 
 **Suite:** 187web Ecosystem v2. Parent index:

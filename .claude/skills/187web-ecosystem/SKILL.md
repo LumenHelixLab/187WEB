@@ -1,16 +1,9 @@
 ---
 name: 187web-ecosystem
-description: >-
-  Top-level index for the 187web Ecosystem v2 ("Killer Web"). Use when you need
-  the full Charlotte integration stack: prompt engineering, inference tuning,
-  specialist personas, autonomous web research, and isolated execution. Defines
-  the brand identity, central nervous system (Obsidian + Claudian), and how the
-  five v2 skills compose. Triggers: 187web ecosystem, Charlotte integration,
-  killer web, widow-weaver, neuro-toxin, swarm-mind, agent-charlotte,
-  silk-sandbox, 187web-manifest, /187web-ecosystem.
+description: 'Use when you need the full Charlotte integration stack: prompt engineering,
+  inference tuning, specialist personas, autonomous web research, and isolated execution.'
 origin: portfolio
 ---
-
 # 187web Ecosystem v2 — Charlotte Integration
 
 **Suite:** The 187web Ecosystem v2 skill index. Child skills:

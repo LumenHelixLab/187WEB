@@ -1,10 +1,9 @@
 ---
 name: linguistic-translation
-description: >-
-  Use when translating text across languages while preserving formatting, technical terminology, and contextual nuance.
+description: Use when translating text across languages while preserving formatting,
+  technical terminology, and contextual nuance.
 origin: portfolio
 ---
-
 # Polyglot Thread
 
 **Suite:** 187web Ecosystem v2. Parent index:

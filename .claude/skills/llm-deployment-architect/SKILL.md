@@ -1,10 +1,9 @@
 ---
 name: llm-deployment-architect
-description: >-
-  Use when architecting RAG pipelines, vector search, LLM serving frameworks, or quantization for deployment.
+description: Use when architecting RAG pipelines, vector search, LLM serving frameworks,
+  or quantization for deployment.
 origin: portfolio
 ---
-
 # Llm Deployment Architect
 
 **Suite:** 187web Ecosystem v2. Parent index:

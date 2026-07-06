@@ -1,10 +1,9 @@
 ---
 name: component-library-weaver
-description: >-
-  Use when weaving new components into the 187web design system and ensuring palette and atomic-scale conformance.
+description: Use when weaving new components into the 187web design system and ensuring
+  palette and atomic-scale conformance.
 origin: portfolio
 ---
-
 # Component Library Weaver
 
 **Suite:** 187web Ecosystem v2. Parent index:

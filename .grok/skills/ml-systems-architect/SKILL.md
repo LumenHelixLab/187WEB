@@ -1,10 +1,9 @@
 ---
 name: ml-systems-architect
-description: >-
-  Use when designing production ML systems, data pipelines, training, inference optimization, MLOps, drift monitoring, or LLM fine-tuning strategy.
+description: Use when designing production ML systems, data pipelines, training, inference
+  optimization, MLOps, drift monitoring, or LLM fine-tuning strategy.
 origin: portfolio
 ---
-
 # Ml Systems Architect
 
 **Suite:** 187web Ecosystem v2. Parent index:

@@ -1,10 +1,9 @@
 ---
 name: a11y-linting-agent
-description: >-
-  Use when auditing a UI for accessibility violations and generating a patch file to fix them.
+description: Use when auditing a UI for accessibility violations and generating a
+  patch file to fix them.
 origin: portfolio
 ---
-
 # A11y Linting Agent
 
 **Suite:** 187web Ecosystem v2. Parent index:

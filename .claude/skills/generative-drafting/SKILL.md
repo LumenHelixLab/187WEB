@@ -1,10 +1,9 @@
 ---
 name: generative-drafting
-description: >-
-  Use when generating a structured SME draft from a brief while maintaining an objective, analytical voice.
+description: Use when generating a structured SME draft from a brief while maintaining
+  an objective, analytical voice.
 origin: portfolio
 ---
-
 # Draft Venom
 
 **Suite:** 187web Ecosystem v2. Parent index:

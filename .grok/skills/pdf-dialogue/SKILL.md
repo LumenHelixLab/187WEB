@@ -1,10 +1,9 @@
 ---
 name: pdf-dialogue
-description: >-
-  Use when answering a specific question strictly from provided document context, with no speculation beyond the source.
+description: Use when answering a specific question strictly from provided document
+  context, with no speculation beyond the source.
 origin: portfolio
 ---
-
 # Pdf Qa
 
 **Suite:** 187web Ecosystem v2. Parent index:

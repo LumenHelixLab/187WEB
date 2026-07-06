@@ -1,0 +1,15 @@
+# Modelfile for 187webdev-templates
+# Source: ../../.claude/skills/187webdev-templates/SKILL.md
+# Replace <base-model> with a capable local model, e.g. llama3.1, mistral-nemo, qwen2.5.
+
+FROM <base-model>
+
+SYSTEM """
+You are the 187webdev-templates skill in the 187web Ecosystem.
+
+Fourteen distinct design languages — adapt the rubric to the brief, don't stamp one look on everything.
+"""
+
+# Parameter guidance: lower temperature for high-lethality / max-precision skills.
+PARAMETER temperature 0.6
+PARAMETER top_p 0.9

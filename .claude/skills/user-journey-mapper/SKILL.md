@@ -1,10 +1,9 @@
 ---
 name: user-journey-mapper
-description: >-
-  Use when mapping an agentic flow to identify friction points and redesign invisible, intuitive state transitions.
+description: Use when mapping an agentic flow to identify friction points and redesign
+  invisible, intuitive state transitions.
 origin: portfolio
 ---
-
 # User Journey Mapper
 
 **Suite:** 187web Ecosystem v2. Parent index:

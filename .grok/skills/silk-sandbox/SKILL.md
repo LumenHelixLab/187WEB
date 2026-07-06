@@ -1,15 +1,8 @@
 ---
 name: silk-sandbox
-description: >-
-  Isolated execution engine for the 187web Ecosystem v2 ("Killer Web"). Runs code
-  from Obsidian markdown fences or agent-generated blocks inside Docker/gVisor
-  sandboxes with syscall monitoring and real-time stdout/stderr capture. Use
-  after widow-weaver or swarm-mind produces executable output. Triggers:
-  silk-sandbox, sandbox execution, run code block, microvm, isolated execution,
-  /silk-sandbox.
+description: Use when working with the silk-sandbox skill.
 origin: portfolio
 ---
-
 # silk-sandbox — Execution Engine
 
 **Suite:** The 187web Ecosystem v2. Parent index:

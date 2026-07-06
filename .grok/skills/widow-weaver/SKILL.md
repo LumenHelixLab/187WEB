@@ -1,16 +1,10 @@
 ---
 name: widow-weaver
-description: >-
-  Native OS prompt engine for the 187web Ecosystem v2 ("Killer Web"). Use when
-  extracting intent from dense text, translating structured documents,
-  polishing tone, extracting tasks, explaining code, solving logic, or
-  refactoring with venom. Composes with neuro-toxin, swarm-mind,
-  agent-charlotte, and silk-sandbox. Triggers: widow-weaver, native prompt
-  engine, TLDR_Toxin, Polyglot_Thread, Tone_Polish, Task_Extractor,
-  Code_Explainer, Logic_Solver, Refactor_Venom, /widow-weaver.
+description: Use when extracting intent from dense text, translating structured documents,
+  polishing tone, extracting tasks, explaining code, solving logic, or refactoring
+  with venom.
 origin: portfolio
 ---
-
 # widow-weaver — Native OS Prompt Engine
 
 **Suite:** The 187web Ecosystem v2. Parent index:

@@ -1,10 +1,9 @@
 ---
 name: ai-ethics-reviewer
-description: >-
-  Use when auditing an AI system for fairness, bias, transparency, privacy, safety, and providing a mitigation roadmap.
+description: Use when auditing an AI system for fairness, bias, transparency, privacy,
+  safety, and providing a mitigation roadmap.
 origin: portfolio
 ---
-
 # Ai Ethics Reviewer
 
 **Suite:** 187web Ecosystem v2. Parent index:

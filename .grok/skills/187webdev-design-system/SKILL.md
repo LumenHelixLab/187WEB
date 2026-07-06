@@ -1,15 +1,9 @@
 ---
 name: 187webdev-design-system
-description: >-
-  Apply the 187WEBDEV warm-blueprint design system: semantic color tokens,
-  Space Grotesk + Inter typography, 8px spacing rhythm, motion rules, and
-  showcase components. Use when building or extending UI in the 187webdesign
-  showcase, implementing tokens in globals.css/Tailwind, or matching the
-  worked example of the 187webdesign skill. Triggers: design system, design
-  tokens, warm blueprint, 187webdesign components, /187webdev-design-system.
+description: Use when building or extending UI in the 187webdesign showcase, implementing
+  tokens in globals.
 origin: portfolio
 ---
-
 # 187WEBDEV — Design System (Warm Blueprint)
 
 The showcase's token-driven system — a worked example of `../187webdesign/SKILL.md`. Read the full spec at `../187webdesign/references/DESIGN-SYSTEM.md`. Live source: `187webdesign/app/globals.css`, `187webdesign/tailwind.config.ts`, `187webdesign/components/`.

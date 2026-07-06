@@ -1,14 +1,9 @@
 ---
 name: 187webdev-trends
-description: >-
-  2026 web design trends vs non-negotiable standards for 187WEBDEV work.
-  Use when choosing a visual pole (dopamine vs calm), citing Core Web Vitals
-  thresholds, WCAG 2.2 AA criteria, or server-first React architecture.
-  Re-verify hard numbers before client deliverables. Triggers: web trends 2026,
-  core web vitals 2026, wcag 2.2, server components, /187webdev-trends.
+description: Use when choosing a visual pole (dopamine vs calm), citing Core Web Vitals
+  thresholds, WCAG 2.
 origin: portfolio
 ---
-
 # 187WEBDEV — Trends & Standards (2026)
 
 Trends are optional spice; standards are non-negotiable. When they conflict, standards win.

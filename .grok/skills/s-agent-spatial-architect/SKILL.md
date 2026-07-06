@@ -1,10 +1,9 @@
 ---
 name: s-agent-spatial-architect
-description: >-
-  Use when building spatial-AI agents with 2D grounding, 3D lifting, and spatial knowledge aggregation.
+description: Use when building spatial-AI agents with 2D grounding, 3D lifting, and
+  spatial knowledge aggregation.
 origin: portfolio
 ---
-
 # S-Agent Spatial Architect
 
 **Suite:** 187web Ecosystem v2. Parent index:

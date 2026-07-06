@@ -1,10 +1,9 @@
 ---
 name: responsive-breakpoint-debugger
-description: >-
-  Use when simulating viewports from 320px to 4K and writing media-query fixes for layout breaks.
+description: Use when simulating viewports from 320px to 4K and writing media-query
+  fixes for layout breaks.
 origin: portfolio
 ---
-
 # Responsive Breakpoint Debugger
 
 **Suite:** 187web Ecosystem v2. Parent index:

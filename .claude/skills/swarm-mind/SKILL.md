@@ -1,16 +1,10 @@
 ---
 name: swarm-mind
-description: >-
-  Engineering & niche persona engine for the 187web Ecosystem v2 ("Killer Web").
-  Use when a task needs a senior specialist in ML systems, RAG/LLM deployment,
-  edge/NPU inference, React/UI architecture, Web3 security, offensive security,
-  or DevOps/SRE. Personas activate by Obsidian vault folder. Composes with
-  widow-weaver, neuro-toxin, agent-charlotte, and silk-sandbox. Triggers:
-  swarm-mind, Alpha-Architect, RAG-Weaver, Edge-Venom, UI-Spinner, Ledger-Spider,
-  Red-Team Widow, SysOp-Widow, /swarm-mind.
+description: Use when a task needs a senior specialist in ML systems, RAG/LLM deployment,
+  edge/NPU inference, React/UI architecture, Web3 security, offensive security, or
+  DevOps/SRE.
 origin: portfolio
 ---
-
 # swarm-mind — Engineering & Niche Personas
 
 **Suite:** The 187web Ecosystem v2. Parent index:

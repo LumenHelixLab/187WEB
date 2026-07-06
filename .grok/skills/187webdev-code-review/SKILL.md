@@ -1,14 +1,9 @@
 ---
 name: 187webdev-code-review
-description: >-
-  Strict front-end code review for award-caliber React/HTML5/JS: server-first
-  components, useEffect cleanup, a11y, INP, static-export safety, and rAF
-  discipline. Use on PRs for marketing sites and landing pages built with the
-  187WEBDEV stack. Pairs with design QA checklist. Triggers: front-end code
-  review, react review, INP, static export, 187webdev review, /187webdev-code-review.
+description: Use when reviewing production front-end code for safety, performance,
+  accessibility, and maintainability before merge.
 origin: portfolio
 ---
-
 # 187WEBDEV — Front-End Code Review
 
 Engineering rubric for production-safe, award-caliber front-end code. Pairs with `CHECKLIST.md` (design) — this is engineering.

@@ -1,10 +1,9 @@
 ---
 name: multimodal-agent-designer
-description: >-
-  Use when designing multimodal agents, GUI automation, visual/audio grounding, or modality-aware tool interfaces.
+description: Use when designing multimodal agents, GUI automation, visual/audio grounding,
+  or modality-aware tool interfaces.
 origin: portfolio
 ---
-
 # Multimodal Agent Designer
 
 **Suite:** 187web Ecosystem v2. Parent index:

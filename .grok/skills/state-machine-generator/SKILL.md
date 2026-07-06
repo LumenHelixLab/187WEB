@@ -1,10 +1,9 @@
 ---
 name: state-machine-generator
-description: >-
-  Use when documenting agent logic as a finite state machine with no dead-end states.
+description: Use when documenting agent logic as a finite state machine with no dead-end
+  states.
 origin: portfolio
 ---
-
 # State Machine Generator
 
 **Suite:** 187web Ecosystem v2. Parent index:

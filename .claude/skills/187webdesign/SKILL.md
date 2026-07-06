@@ -1,17 +1,9 @@
 ---
 name: 187webdesign
-description: >-
-  Best practices for designing and building modern, award-caliber ("killer")
-  websites and landing pages. Use when creating, redesigning, art-directing, or
-  critiquing a marketing site, landing page, or product UI. Covers the
-  award-winning rubric, visual hierarchy, typography, color/contrast, layout and
-  spacing systems, purposeful motion, responsive/mobile, accessibility (WCAG 2.2
-  AA), performance (Core Web Vitals), content/copy, and conversion. Pairs with
-  the frontend-design skill and the 187WEBDEV suite. Triggers: killer website,
-  award-winning landing page, 187webdesign, 187webdev, /187webdesign.
+description: Use when creating, redesigning, art-directing, or critiquing a marketing
+  site, landing page, or product UI.
 origin: portfolio
 ---
-
 # 187WEBdesign — How to Make Killer Websites
 
 **Suite:** Part of the [187WEBDEV suite](../../../../skills/187webdev/README.md). Specialized skills:

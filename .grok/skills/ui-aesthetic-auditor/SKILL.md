@@ -1,10 +1,9 @@
 ---
 name: ui-aesthetic-auditor
-description: >-
-  Use when auditing a generated UI component against the Abyssal design system and prescribing precise CSS adjustments.
+description: Use when auditing a generated UI component against the Abyssal design
+  system and prescribing precise CSS adjustments.
 origin: portfolio
 ---
-
 # UI Aesthetic Auditor
 
 **Suite:** 187web Ecosystem v2. Parent index:

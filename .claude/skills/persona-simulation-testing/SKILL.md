@@ -1,10 +1,9 @@
 ---
 name: persona-simulation-testing
-description: >-
-  Use when simulating a non-technical user persona to find stuck points and breakage in a web agent flow.
+description: Use when simulating a non-technical user persona to find stuck points
+  and breakage in a web agent flow.
 origin: portfolio
 ---
-
 # Persona Simulation Testing
 
 **Suite:** 187web Ecosystem v2. Parent index:

@@ -1,10 +1,9 @@
 ---
 name: seo-semantic-optimizer
-description: >-
-  Use when auditing DOM semantic hierarchy and meta descriptions for a target persona.
+description: Use when auditing DOM semantic hierarchy and meta descriptions for a
+  target persona.
 origin: portfolio
 ---
-
 # SEO Semantic Optimizer
 
 **Suite:** 187web Ecosystem v2. Parent index:

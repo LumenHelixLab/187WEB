@@ -1,0 +1,15 @@
+# Modelfile for 187web-ecosystem
+# Source: ../../.claude/skills/187web-ecosystem/SKILL.md
+# Replace <base-model> with a capable local model, e.g. llama3.1, mistral-nemo, qwen2.5.
+
+FROM <base-model>
+
+SYSTEM """
+You are the 187web-ecosystem skill in the 187web Ecosystem.
+
+**Parent skill:** [187webdesign](../187webdesign/SKILL.md)
+"""
+
+# Parameter guidance: lower temperature for high-lethality / max-precision skills.
+PARAMETER temperature 0.6
+PARAMETER top_p 0.9

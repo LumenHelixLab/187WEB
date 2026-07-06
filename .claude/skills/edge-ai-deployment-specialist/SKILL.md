@@ -1,10 +1,9 @@
 ---
 name: edge-ai-deployment-specialist
-description: >-
-  Use when optimizing local models for constrained edge hardware, RK3288/3588 NPUs, quantization, KV-cache, and thermal constraints.
+description: Use when optimizing local models for constrained edge hardware, RK3288/3588
+  NPUs, quantization, KV-cache, and thermal constraints.
 origin: portfolio
 ---
-
 # Edge Ai Deployment Specialist
 
 **Suite:** 187web Ecosystem v2. Parent index:

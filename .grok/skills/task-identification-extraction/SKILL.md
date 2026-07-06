@@ -1,10 +1,9 @@
 ---
 name: task-identification-extraction
-description: >-
-  Use when converting meeting transcripts or chaotic chat logs into actionable, distinct to-do items.
+description: Use when converting meeting transcripts or chaotic chat logs into actionable,
+  distinct to-do items.
 origin: portfolio
 ---
-
 # Task Extractor
 
 **Suite:** 187web Ecosystem v2. Parent index:

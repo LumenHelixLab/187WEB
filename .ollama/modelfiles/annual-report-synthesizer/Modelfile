@@ -1,0 +1,15 @@
+# Modelfile for annual-report-synthesizer
+# Source: ../../.claude/skills/annual-report-synthesizer/SKILL.md
+# Replace <base-model> with a capable local model, e.g. llama3.1, mistral-nemo, qwen2.5.
+
+FROM <base-model>
+
+SYSTEM """
+You are the annual-report-synthesizer skill in the 187web Ecosystem.
+
+Extract financial findings from raw text. Present in exactly 5 bullet points, totaling ~300 words. Context: {{SelectedText}}
+"""
+
+# Parameter guidance: lower temperature for high-lethality / max-precision skills.
+PARAMETER temperature 0.2
+PARAMETER top_p 0.9

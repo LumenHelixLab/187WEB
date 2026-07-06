@@ -1,16 +1,8 @@
 ---
 name: agent-charlotte
-description: >-
-  Autonomous web crawler for the 187web Ecosystem v2 ("Killer Web"). Charlotte
-  leaves the Obsidian vault, traverses the live web, extracts targeted DOM and
-  API data, and weaves results back as bidirectionally linked markdown with
-  wikilinks. Capabilities: deep-web spinning (BFS/DFS), contextual SPA
-  traversal, Obsidian auto-weaver (NER + stub pages). Use for research,
-  competitive intel, and vault enrichment. Triggers: agent-charlotte, Charlotte,
-  web crawler, deep-web spinning, auto-weaver, /agent-charlotte.
+description: Use when working with the agent-charlotte skill.
 origin: portfolio
 ---
-
 # agent-charlotte — Autonomous Web Crawler
 
 **Suite:** The 187web Ecosystem v2. Parent index:

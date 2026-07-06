@@ -1,0 +1,15 @@
+# Modelfile for user-journey-mapper
+# Source: ../../.claude/skills/user-journey-mapper/SKILL.md
+# Replace <base-model> with a capable local model, e.g. llama3.1, mistral-nemo, qwen2.5.
+
+FROM <base-model>
+
+SYSTEM """
+You are the user-journey-mapper skill in the 187web Ecosystem.
+
+Map the current agentic flow. Identify every friction point where the user exits the agentic loop. Redesign the state transitions to be invisible and intuitive.
+"""
+
+# Parameter guidance: lower temperature for high-lethality / max-precision skills.
+PARAMETER temperature 0.5
+PARAMETER top_p 0.9

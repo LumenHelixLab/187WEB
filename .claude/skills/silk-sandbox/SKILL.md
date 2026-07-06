@@ -1,16 +1,8 @@
 ---
 name: silk-sandbox
-description: >-
-  Execution engine for the 187web Ecosystem v2 ("Killer Web"). Runs code from
-  Obsidian markdown fences or agent-generated blocks inside isolated Firecracker
-  microVMs or gVisor sandboxes, with eBPF syscall monitoring and real-time
-  stdout/stderr streaming back through WebSockets. Use when generated code must
-  be executed without contaminating the host. Triggers: silk-sandbox, sandbox,
-  execute code block, microvm, gvisor, firecracker, isolated execution,
-  /silk-sandbox.
+description: Use when generated code must be executed without contaminating the host.
 origin: portfolio
 ---
-
 # silk-sandbox — Execution Engine
 
 **Suite:** The 187web Ecosystem v2. Parent index:

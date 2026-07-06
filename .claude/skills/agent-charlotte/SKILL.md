@@ -1,15 +1,9 @@
 ---
 name: agent-charlotte
-description: >-
-  Autonomous web crawler for the 187web Ecosystem v2 ("Killer Web"). Use when
-  research must leave the Obsidian vault, navigate the live web, extract
-  targeted DOM data, and weave it back into the local brain. Composes with
-  widow-weaver, neuro-toxin, swarm-mind, and silk-sandbox. Triggers:
-  agent-charlotte, charlotte crawler, autonomous web crawler, web research,
-  obsidian auto-weaver, deep-web spinning, /agent-charlotte.
+description: Use when research must leave the Obsidian vault, navigate the live web,
+  extract targeted DOM data, and weave it back into the local brain.
 origin: portfolio
 ---
-
 # agent-charlotte — Autonomous Web Crawler
 
 **Suite:** The 187web Ecosystem v2. Parent index:

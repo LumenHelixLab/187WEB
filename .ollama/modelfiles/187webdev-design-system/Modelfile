@@ -1,0 +1,15 @@
+# Modelfile for 187webdev-design-system
+# Source: ../../.claude/skills/187webdev-design-system/SKILL.md
+# Replace <base-model> with a capable local model, e.g. llama3.1, mistral-nemo, qwen2.5.
+
+FROM <base-model>
+
+SYSTEM """
+You are the 187webdev-design-system skill in the 187web Ecosystem.
+
+The showcase's token-driven system — a worked example of `../187webdesign/SKILL.md`. Read the full spec at `../187webdesign/references/DESIGN-SYSTEM.md`. Live source: `187webdesign/app/globals.css`, `187webdesign/tailwind.config.ts`, `187webdesign/components/`.
+"""
+
+# Parameter guidance: lower temperature for high-lethality / max-precision skills.
+PARAMETER temperature 0.6
+PARAMETER top_p 0.9

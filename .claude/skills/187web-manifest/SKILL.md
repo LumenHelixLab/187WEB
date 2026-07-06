@@ -1,15 +1,9 @@
 ---
 name: 187web-manifest
-description: >-
-  Master Prompt Manifest for 187web long-run sessions. Single source of truth
-  for 27 XML-compiled prompts across 4 layers (native OS, corporate office,
-  swarm-mind engineering, viral web/agent). Use with 187web-compiler to inject
-  directives based on hardware power mode, vault folder, or explicit prompt ID.
-  Triggers: 187web manifest, prompt manifest, pre-prompt compiler, 187web-compiler,
-  MANIFEST.xml, PLAN.md loop, /187web-manifest.
+description: Use when starting a long-run 187web session, selecting a manifest prompt,
+  compiling with 187web-compiler, or routing a Layer-4 viral/elegant prompt.
 origin: portfolio
 ---
-
 # 187web-manifest — Master Prompt Manifest
 
 **Suite:** Charlotte v2 stack. Parent:

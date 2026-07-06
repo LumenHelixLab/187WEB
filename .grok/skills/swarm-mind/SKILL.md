@@ -1,16 +1,8 @@
 ---
 name: swarm-mind
-description: >-
-  Engineering and niche persona router for the 187web Ecosystem v2 ("Killer Web").
-  Injects senior-level specialist system prompts based on Obsidian folder paths,
-  tags, or frontmatter persona fields. Personas: Alpha-Architect, RAG-Weaver,
-  Edge-Venom, UI-Spinner, Ledger-Spider, Red-Team Widow, SysOp-Widow. Use when
-  domain depth exceeds generalist capacity. Triggers: swarm-mind, persona,
-  Alpha-Architect, RAG-Weaver, Edge-Venom, UI-Spinner, Ledger-Spider,
-  Red-Team Widow, SysOp-Widow, /swarm-mind.
+description: Use when domain depth exceeds generalist capacity.
 origin: portfolio
 ---
-
 # swarm-mind — Engineering & Niche Personas
 
 **Suite:** The 187web Ecosystem v2. Parent index:

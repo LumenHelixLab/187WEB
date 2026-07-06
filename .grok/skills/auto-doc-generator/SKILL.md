@@ -1,10 +1,8 @@
 ---
 name: auto-doc-generator
-description: >-
-  Use when analyzing a module and generating a JSDoc-compliant README.md with usage examples and safety constraints.
+description: Use when analyzing a module and generating a JSDoc-compliant README.
 origin: portfolio
 ---
-
 # Auto Doc Generator
 
 **Suite:** 187web Ecosystem v2. Parent index:

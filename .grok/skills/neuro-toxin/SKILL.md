@@ -1,16 +1,9 @@
 ---
 name: neuro-toxin
-description: >-
-  Inference tuner for the 187web Ecosystem v2 ("Killer Web"). Dynamically
-  controls temperature, top-k/top-p, repetition penalty, Mirostat weave, and
-  context windowing from Obsidian YAML frontmatter or task type. Use when output
-  precision, creativity, or long-generation stability must be dialed before
-  widow-weaver, swarm-mind, agent-charlotte, or silk-sandbox run. Triggers:
-  neuro-toxin, inference tuning, toxicity, lethality, temperature, top_p, top_k,
-  mirostat, context windowing, /neuro-toxin.
+description: Use when output precision, creativity, or long-generation stability must
+  be dialed before widow-weaver, swarm-mind, agent-charlotte, or silk-sandbox run.
 origin: portfolio
 ---
-
 # neuro-toxin — Inference Tuner
 
 **Suite:** The 187web Ecosystem v2. Parent index:
