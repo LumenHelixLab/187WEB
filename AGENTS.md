@@ -27,7 +27,11 @@ Claude Code / Grok skills live under `.claude/skills/` and `.grok/skills/` respe
 | swarm-mind | `.claude/skills/swarm-mind/SKILL.md` | Activating a niche engineering persona based on Obsidian folder |
 | agent-charlotte | `.claude/skills/agent-charlotte/SKILL.md` | Autonomous web crawling and research back into the vault |
 | silk-sandbox | `.claude/skills/silk-sandbox/SKILL.md` | Executing generated code in isolated sandboxes |
-| 187web-manifest | `.claude/skills/187web-manifest/SKILL.md` | Project manifest, build plan, and telemetry conventions |
+| 187web-manifest | `.claude/skills/187web-manifest/SKILL.md` | Project manifest, compiler, and 27 prompt skills |
+
+### Manifest prompt skills
+
+All 27 prompts in [`references/MANIFEST.xml`](.claude/skills/187web-manifest/references/MANIFEST.xml) have standalone skills under `.claude/skills/<prompt-id>/` and `.grok/skills/<prompt-id>/` (e.g., `ml-systems-architect`, `a11y-linting-agent`, `xss-vulnerability-scanner`).
 
 ### 187WEBDEV portfolio suite
 

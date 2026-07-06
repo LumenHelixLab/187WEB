@@ -7,7 +7,7 @@ deliverables and skill ownership.
 
 | Step | Deliverable | Skill / Tool |
 |------|-------------|--------------|
-| 1 | Compiler hook on `cd` (revivescan) | `install-revivescan.ps1` / `.sh` |
+| 1 | Compiler hook on `cd` | `install-compiler-hook.ps1` / `.sh` |
 | 2 | Persona registry at `~/.187web/prompts/` | `references/MANIFEST.xml` |
 | 3 | Telemetry SSE feed | `telemetry-relay.mjs` → `public/omniqube.html` |
 
@@ -52,7 +52,7 @@ deliverables and skill ownership.
 ./scripts/187web-compiler.sh --prompt ui-aesthetic-auditor
 
 # Force low-power persona
-187WEB_POWER_MODE=low ./scripts/187web-compiler.sh
+E187WEB_POWER_MODE=low ./scripts/187web-compiler.sh
 ```
 
 Windows:
@@ -60,7 +60,7 @@ Windows:
 ```powershell
 .\scripts\187web-compiler.ps1 -List
 .\scripts\187web-compiler.ps1 -Prompt ui-aesthetic-auditor
-$env:187WEB_POWER_MODE = 'low'; .\scripts\187web-compiler.ps1
+$env:E187WEB_POWER_MODE = 'low'; .\scripts\187web-compiler.ps1
 ```
 
 ## PLAN.md loop (Phase IV step 10)

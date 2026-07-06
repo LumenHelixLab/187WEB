@@ -77,7 +77,7 @@ findable.
 | **swarm-mind** | Engineering & niche personas | Bring in a specialist persona (architect, RAG weaver, edge venom, UI spinner, ledger spider, red-team widow, sysop widow) | [`.claude/skills/swarm-mind/SKILL.md`](../swarm-mind/SKILL.md) |
 | **agent-charlotte** | Autonomous web crawler | Deep-web spinning, contextual traversal, Obsidian auto-weaving | [`.claude/skills/agent-charlotte/SKILL.md`](../agent-charlotte/SKILL.md) |
 | **silk-sandbox** | Execution engine | MicroVM isolation, syscall monitoring, I/O multiplexing | [`.claude/skills/silk-sandbox/SKILL.md`](../silk-sandbox/SKILL.md) |
-| **187web-manifest** | Master Prompt Manifest | 27 XML prompts, compiler, long-run session routing | [`.claude/skills/187web-manifest/SKILL.md`](../187web-manifest/SKILL.md) |
+| **187web-manifest** | Master Prompt Manifest | 27 XML prompt skills, compiler, long-run session routing | [`.claude/skills/187web-manifest/SKILL.md`](../187web-manifest/SKILL.md) |
 
 ## Invocation / workflow guidance
 
@@ -101,6 +101,13 @@ The skills compose like a kill chain. Default order:
 
 Not every workflow needs all five. For a quick refactor, [`widow-weaver`](../widow-weaver/SKILL.md) +
 [`silk-sandbox`](../silk-sandbox/SKILL.md) is enough. For a complex build, run the full chain.
+
+## Prompt skills
+
+Each of the 27 manifest prompts is also a standalone skill under
+[`.claude/skills/<id>/`](../187web-manifest/SKILL.md). Load a prompt skill
+directly when the user names a specific prompt ID (e.g., `a11y-linting-agent`,
+`xss-vulnerability-scanner`, `ml-systems-architect`).
 
 ## Child skill links
 

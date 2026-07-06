@@ -177,7 +177,7 @@
 
     <prompt id="xss-vulnerability-scanner" persona="red-team-widow" power="any">
       <vars/>
-      <directive>Run a security audit on the user-input fields. Ensure all DOM nodes are properly sanitized before rendering data from the KNOTstore.</directive>
+      <directive>Run a security audit on the user-input fields and DOM rendering paths. Ensure all nodes are properly sanitized before rendering untrusted data.</directive>
       <neuro_toxin toxicity="0.0" lethality="max"/>
     </prompt>
 

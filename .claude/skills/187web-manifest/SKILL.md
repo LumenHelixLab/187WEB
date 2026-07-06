@@ -29,7 +29,7 @@ A11y, XSS, state machines).
 - Starting a long-run session — run compiler, read `PLAN.md`, inject compiled JSON.
 - User names a manifest prompt (`ui-aesthetic-auditor`, `task-identification-extraction`).
 - Hardware is edge/low-power and persona must downgrade automatically.
-- Building OmniQube telemetry or KNOTstore integration pipelines.
+- Building OmniQube telemetry or vault-data integration pipelines.
 
 ## Manifest layers
 
@@ -63,7 +63,7 @@ cp references/MANIFEST.xml ~/.187web/prompts/
 ./scripts/187web-compiler.sh --prompt a11y-linting-agent
 
 # Low-power override
-187WEB_POWER_MODE=low ./scripts/187web-compiler.sh
+E187WEB_POWER_MODE=low ./scripts/187web-compiler.sh
 ```
 
 ### PowerShell (Windows)
@@ -72,7 +72,7 @@ cp references/MANIFEST.xml ~/.187web/prompts/
 .\scripts\187web-compiler.ps1 -List
 .\scripts\187web-compiler.ps1 -Prompt ui-aesthetic-auditor
 .\scripts\187web-compiler.ps1 -Write -Emit   # persist + push to OmniQube relay
-$env:187WEB_POWER_MODE = 'low'; .\scripts\187web-compiler.ps1
+$env:E187WEB_POWER_MODE = 'low'; .\scripts\187web-compiler.ps1
 
 # Full session init (PLAN.md + relay + compile)
 .\scripts\session-init.ps1
@@ -81,8 +81,8 @@ $env:187WEB_POWER_MODE = 'low'; .\scripts\187web-compiler.ps1
 ### Phase I stack (complete)
 
 ```powershell
-# 1. Install revivescan (once)
-.\scripts\install-revivescan.ps1
+# 1. Install compiler hook (once)
+.\scripts\install-compiler-hook.ps1
 
 # 2. Start telemetry relay
 node .\scripts\telemetry-relay.mjs
@@ -111,48 +111,48 @@ node .\scripts\telemetry-relay.mjs
 
 | ID | Alias | Use |
 |----|-------|-----|
-| `document-summarization` | TLDR_Toxin | Dense docs → bullets |
-| `linguistic-translation` | Polyglot_Thread | Translate preserving structure |
-| `tone-adjustment-polishing` | Tone_Polish | Assertive professional rewrite |
-| `pdf-dialogue` | PDF_QA | Q&A against active document |
-| `generative-drafting` | Draft_Venom | SME draft from brief |
+| [`document-summarization`](../document-summarization/SKILL.md) | TLDR_Toxin | Dense docs → bullets |
+| [`linguistic-translation`](../linguistic-translation/SKILL.md) | Polyglot_Thread | Translate preserving structure |
+| [`tone-adjustment-polishing`](../tone-adjustment-polishing/SKILL.md) | Tone_Polish | Assertive professional rewrite |
+| [`pdf-dialogue`](../pdf-dialogue/SKILL.md) | PDF_QA | Q&A against active document |
+| [`generative-drafting`](../generative-drafting/SKILL.md) | Draft_Venom | SME draft from brief |
 
 ### Layer 2 — Corporate Office
 
 | ID | Alias | Vars |
 |----|-------|------|
-| `email-follow-up` | Email_FollowUp | `{{SelectedText}}` |
-| `task-identification-extraction` | Task_Extractor | `{{SelectedText}}` |
-| `stylistic-unification` | Voice_Unify | `{{SelectedText}}` |
-| `annual-report-synthesizer` | Report_Toxin | `{{SelectedText}}` |
+| [`email-follow-up`](../email-follow-up/SKILL.md) | Email_FollowUp | `{{SelectedText}}` |
+| [`task-identification-extraction`](../task-identification-extraction/SKILL.md) | Task_Extractor | `{{SelectedText}}` |
+| [`stylistic-unification`](../stylistic-unification/SKILL.md) | Voice_Unify | `{{SelectedText}}` |
+| [`annual-report-synthesizer`](../annual-report-synthesizer/SKILL.md) | Report_Toxin | `{{SelectedText}}` |
 
 ### Layer 3 — Swarm-Mind
 
 | ID | Persona | Folder |
 |----|---------|--------|
-| `ml-systems-architect` | alpha-architect | `/MachineLearning` |
-| `llm-deployment-architect` | rag-weaver | `/RAG` |
-| `multimodal-agent-designer` | ui-spinner | `/Design` |
-| `s-agent-spatial-architect` | spatial-architect | `/Spatial` |
-| `edge-ai-deployment-specialist` | edge-venom | `/Hardware` |
-| `ai-ethics-reviewer` | ethics-reviewer | `/Ethics` |
+| [`ml-systems-architect`](../ml-systems-architect/SKILL.md) | alpha-architect | `/MachineLearning` |
+| [`llm-deployment-architect`](../llm-deployment-architect/SKILL.md) | rag-weaver | `/RAG` |
+| [`multimodal-agent-designer`](../multimodal-agent-designer/SKILL.md) | ui-spinner | `/Design` |
+| [`s-agent-spatial-architect`](../s-agent-spatial-architect/SKILL.md) | spatial-architect | `/Spatial` |
+| [`edge-ai-deployment-specialist`](../edge-ai-deployment-specialist/SKILL.md) | edge-venom | `/Hardware` |
+| [`ai-ethics-reviewer`](../ai-ethics-reviewer/SKILL.md) | ethics-reviewer | `/Ethics` |
 
 ### Layer 4 — Viral & Elegant
 
 | ID | Pairs with |
 |----|------------|
-| `ui-aesthetic-auditor` | `187webdesign` |
-| `user-journey-mapper` | agent flow design |
-| `component-library-weaver` | `187webdev-design-system` |
-| `seo-semantic-optimizer` | DOM/meta audit |
-| `a11y-linting-agent` | `187webdev-qa` |
-| `persona-simulation-testing` | `{{Persona}}` var |
-| `copy-conversion-linter` | `187webdesign` |
-| `responsive-breakpoint-debugger` | CSS grid/flex |
-| `npu-performance-linter` | `edge-venom` |
-| `xss-vulnerability-scanner` | `red-team-widow` |
-| `state-machine-generator` | Charlotte states |
-| `auto-doc-generator` | JSDoc README |
+| [`ui-aesthetic-auditor`](../ui-aesthetic-auditor/SKILL.md) | `187webdesign` |
+| [`user-journey-mapper`](../user-journey-mapper/SKILL.md) | agent flow design |
+| [`component-library-weaver`](../component-library-weaver/SKILL.md) | `187webdev-design-system` |
+| [`seo-semantic-optimizer`](../seo-semantic-optimizer/SKILL.md) | DOM/meta audit |
+| [`a11y-linting-agent`](../a11y-linting-agent/SKILL.md) | `187webdev-qa` |
+| [`persona-simulation-testing`](../persona-simulation-testing/SKILL.md) | `{{Persona}}` var |
+| [`copy-conversion-linter`](../copy-conversion-linter/SKILL.md) | `187webdesign` |
+| [`responsive-breakpoint-debugger`](../responsive-breakpoint-debugger/SKILL.md) | CSS grid/flex |
+| [`npu-performance-linter`](../npu-performance-linter/SKILL.md) | `edge-venom` |
+| [`xss-vulnerability-scanner`](../xss-vulnerability-scanner/SKILL.md) | `red-team-widow` |
+| [`state-machine-generator`](../state-machine-generator/SKILL.md) | Charlotte states |
+| [`auto-doc-generator`](../auto-doc-generator/SKILL.md) | JSDoc README |
 
 ## Agent workflow (long-run session)
 
@@ -172,7 +172,7 @@ node .\scripts\telemetry-relay.mjs
 | `low` | Battery / NPU-only / &lt;4 cores | edge-venom | edge-ai-deployment-specialist |
 | `standard` | Everything else | alpha-architect | ml-systems-architect |
 
-Override: `187WEB_POWER_MODE=high|low|standard`
+Override: `E187WEB_POWER_MODE=high|low|standard`
 
 ## Integration map
 
@@ -183,7 +183,7 @@ MANIFEST.xml
     ├→ widow-weaver (Layer 1–2)
     ├→ swarm-mind (Layer 3)
     ├→ 187WEBDEV suite (Layer 4 UI prompts)
-    ├→ agent-charlotte (KNOTstore, web relay)
+    ├→ agent-charlotte (web crawler, vault relay)
     └→ silk-sandbox (safety sentinel)
          ↓
     OmniQube Render Matrix (WebSocket telemetry)
@@ -192,10 +192,10 @@ MANIFEST.xml
 ## .zshrc hook (Phase I)
 
 ```bash
-# 187web revivescan — recompile persona on directory change
-_187web_revivescan() {
+# 187web compiler hook — recompile persona on directory change
+_187web_compiler_hook() {
   command -v 187web-compiler.sh >/dev/null 2>&1 || return 0
-  187web-compiler.sh --quiet > "${HOME}/.187web/last-compile.json" 2>/dev/null &
+  187web-compiler.sh --quiet --write --emit >/dev/null 2>&1 &
 }
 # Add to chpwd_functions (zsh) or PROMPT_COMMAND (bash)
 ```

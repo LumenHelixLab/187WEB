@@ -1,11 +1,26 @@
 #!/usr/bin/env bash
-# 187web-compiler — pre-prompt-compiler for Master Prompt Manifest v2.0
-# Detects power mode, routes folder → persona, emits JSON for agent injection.
+# 187web-compiler.sh — Master Prompt Manifest compiler v2.1
+#
+# Grounded inputs (real files / real hardware signals):
+#   - CPU parallelism: getconf _NPROCESSORS_ONLN / nproc
+#   - Battery state: /sys/class/power_supply/BAT0/status (Linux)
+#   - GPU presence: nvidia-smi -L (NVIDIA only)
+#   - Working directory: $PWD or $E187WEB_CWD (maps to folder_routing rules)
+#   - Manifest file: ~/.187web/prompts/MANIFEST.xml or fallback references/MANIFEST.xml
+#
+# Selection precedence:
+#   1. --prompt <id>
+#   2. folder_routing match from manifest
+#   3. power_routing default for detected power mode
+#   4. first prompt that accepts the current power mode
+#
+# Output: JSON to stdout; optionally persisted to ~/.187web/last-compile.json
+#         and POSTed to the telemetry relay.
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SKILL_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
-MANIFEST="${HOME}/.187web/prompts/MANIFEST.xml"
+REGISTRY="${HOME}/.187web/prompts/MANIFEST.xml"
 FALLBACK="${SKILL_DIR}/references/MANIFEST.xml"
 
 PROMPT_ID=""
@@ -13,6 +28,7 @@ LIST_ONLY=0
 QUIET=0
 DO_WRITE=0
 DO_EMIT=0
+MANIFEST=""
 RELAY_URL="${E187WEB_RELAY_URL:-http://localhost:18780}"
 CWD="${PWD}"
 
@@ -28,13 +44,13 @@ Options:
   --list          List all prompt IDs and exit
   --quiet         Suppress stderr diagnostics
   --write         Persist JSON to ~/.187web/last-compile.json
-  --emit          POST JSON to telemetry relay (localhost:18780)
+  --emit          POST JSON to telemetry relay (also implies --write)
   --manifest <p>  Override manifest XML path
   -h, --help      Show this help
 
 Environment:
-  187WEB_POWER_MODE   Force high|low|standard
-  187WEB_CWD          Override working directory for folder routing
+  E187WEB_POWER_MODE   Force high|low|standard
+  E187WEB_CWD         Override working directory for folder routing
   E187WEB_RELAY_URL   Telemetry relay base URL
 
 Output: JSON to stdout (OmniQube / agent injection)
@@ -65,9 +81,11 @@ persist_and_emit() {
   fi
   if [[ "$DO_EMIT" -eq 1 ]]; then
     if command -v curl >/dev/null 2>&1; then
-      curl -sf -X POST -H "Content-Type: application/json" -d "$json" "${RELAY_URL}/compile" >/dev/null \
-        && log "emitted to ${RELAY_URL}/compile" \
-        || log "emit failed (relay offline?)"
+      if curl -sf -X POST -H "Content-Type: application/json" -d "$json" "${RELAY_URL}/compile" >/dev/null; then
+        log "emitted to ${RELAY_URL}/compile"
+      else
+        log "emit failed (relay offline?)"
+      fi
     else
       log "emit skipped: curl not found"
     fi
@@ -75,40 +93,44 @@ persist_and_emit() {
   printf '%s\n' "$json"
 }
 
-# Resolve manifest
-if [[ ! -f "$MANIFEST" ]]; then
-  if [[ -f "$FALLBACK" ]]; then
-    MANIFEST="$FALLBACK"
-    log "Using fallback manifest: $MANIFEST"
-  else
-    echo '{"error":"MANIFEST.xml not found"}' >&2
-    exit 1
-  fi
+# Resolve manifest path
+if [[ -n "$MANIFEST" ]]; then
+  : # user override
+elif [[ -f "$REGISTRY" ]]; then
+  MANIFEST="$REGISTRY"
+  log "Using registry manifest: $MANIFEST"
+elif [[ -f "$FALLBACK" ]]; then
+  MANIFEST="$FALLBACK"
+  log "Using fallback manifest: $MANIFEST"
+else
+  echo '{"error":"MANIFEST.xml not found"}' >&2
+  exit 1
 fi
 
-CWD="${187WEB_CWD:-$CWD}"
+CWD="${E187WEB_CWD:-$CWD}"
 
 # --- Power mode detection ---
 detect_power_mode() {
-  if [[ -n "${187WEB_POWER_MODE:-}" ]]; then
-    echo "${187WEB_POWER_MODE}"
+  if [[ -n "${E187WEB_POWER_MODE:-}" ]]; then
+    echo "${E187WEB_POWER_MODE}"
     return
   fi
 
   local cores
-  cores="$(getconf _NPROCESSORS_ONLN 2>/dev/null || echo 4)"
+  cores="$(getconf _NPROCESSORS_ONLN 2>/dev/null || nproc 2>/dev/null || echo 4)"
 
-  # Battery check (Linux)
+  # Battery check (Linux only)
+  local bat="Unknown"
   if [[ -f /sys/class/power_supply/BAT0/status ]]; then
-    local bat
     bat="$(cat /sys/class/power_supply/BAT0/status 2>/dev/null || echo Unknown)"
-    if [[ "$bat" == "Discharging" && "$cores" -lt 8 ]]; then
-      echo "low"
-      return
-    fi
   fi
 
-  # GPU hint
+  if [[ "$bat" == "Discharging" && "$cores" -lt 8 ]]; then
+    echo "low"
+    return
+  fi
+
+  # GPU hint (NVIDIA)
   if command -v nvidia-smi >/dev/null 2>&1; then
     if nvidia-smi -L >/dev/null 2>&1 && [[ "$cores" -ge 8 ]]; then
       echo "high"
@@ -129,8 +151,19 @@ POWER_MODE="$(detect_power_mode)"
 log "power_mode=$POWER_MODE cwd=$CWD"
 
 # --- Python XML compiler (preferred) ---
-if command -v python3 >/dev/null 2>&1; then
-  JSON_OUT="$(python3 - "$MANIFEST" "$POWER_MODE" "$CWD" "$PROMPT_ID" "$LIST_ONLY" <<'PY'
+detect_python() {
+  for cmd in python3 python; do
+    if "$cmd" -V >/dev/null 2>&1; then
+      command -v "$cmd"
+      return 0
+    fi
+  done
+  return 1
+}
+
+if detect_python >/dev/null 2>&1; then
+  PYTHON_BIN="$(detect_python)"
+  JSON_OUT="$($PYTHON_BIN - "$MANIFEST" "$POWER_MODE" "$CWD" "$PROMPT_ID" "$LIST_ONLY" <<'PY'
 import sys, json, xml.etree.ElementTree as ET
 from pathlib import PurePosixPath
 
@@ -139,17 +172,16 @@ list_only = list_only == "1"
 tree = ET.parse(manifest_path)
 root = tree.getroot()
 
-def prompt_entry(p):
+def prompt_entry(layer_id, layer_name, layer_skill, p):
     nt = p.find("neuro_toxin")
-    neuro = {}
-    if nt is not None:
-        neuro = {k: v for k, v in nt.attrib.items()}
-    vars_ = [v.attrib.get("name") for v in p.findall("./vars/var")]
+    neuro = {k: v for k, v in nt.attrib.items()} if nt is not None else {}
+    vars_ = [v.attrib.get("name") for v in p.findall("./vars/var") if v.attrib.get("name")]
     return {
         "id": p.attrib.get("id"),
         "alias": p.attrib.get("alias"),
-        "layer": p.attrib.get("layer_id") or p.getparent_layer,
-        "skill": p.attrib.get("skill") or p.attrib.get("skill_ref") or "",
+        "layer": layer_id,
+        "layer_name": layer_name,
+        "skill": p.attrib.get("skill") or p.attrib.get("skill_ref") or layer_skill,
         "persona": p.attrib.get("persona", ""),
         "power": p.attrib.get("power", "any"),
         "directive": (p.findtext("directive") or "").strip(),
@@ -157,30 +189,28 @@ def prompt_entry(p):
         "neuro_toxin": neuro,
     }
 
-# Index prompts by layer
 all_prompts = []
 for layer in root.findall("layer"):
     lid = layer.attrib.get("id", "")
     lname = layer.attrib.get("name", "")
     lskill = layer.attrib.get("skill", "")
     for p in layer.findall("prompt"):
-        entry = prompt_entry(p)
-        entry["layer"] = lid
-        entry["layer_name"] = lname
-        if not entry["skill"]:
-            entry["skill"] = lskill
-        all_prompts.append(entry)
+        entry = prompt_entry(lid, lname, lskill, p)
+        if entry["id"]:
+            all_prompts.append(entry)
 
 if list_only:
     print(json.dumps({"prompts": [p["id"] for p in all_prompts]}, indent=2))
     sys.exit(0)
 
-# Folder routing
 selected_id = prompt_id
+norm_cwd = cwd.replace("\\", "/")
+
+# Folder routing
 if not selected_id:
     for route in root.findall("./folder_routing/route"):
         path = route.attrib.get("path", "")
-        if path and path.rstrip("/") in cwd.replace("\\", "/"):
+        if path and path.rstrip("/") in norm_cwd:
             selected_id = route.attrib.get("prompt", "")
             break
 
@@ -188,24 +218,18 @@ if not selected_id:
 if not selected_id:
     for mode in root.findall("./power_routing/mode"):
         if mode.attrib.get("id") == power_mode:
-            selected_id = mode.findtext("default_prompt", "").strip()
+            selected_id = (mode.findtext("default_prompt") or "").strip()
             break
 
-# Power filter: prefer prompts matching power or "any"
 def power_ok(p):
-    pw = p.get("power", "any")
-    return pw in ("any", power_mode)
+    return p.get("power", "any") in ("any", power_mode)
 
-candidates = [p for p in all_prompts if p["id"] == selected_id]
+candidates = [p for p in all_prompts if p["id"] == selected_id and power_ok(p)]
+if not candidates:
+    candidates = [p for p in all_prompts if p["id"] == selected_id]
 if not candidates:
     pool = [p for p in all_prompts if power_ok(p)]
-    # Fallback by power routing default persona layer
-    for mode in root.findall("./power_routing/mode"):
-        if mode.attrib.get("id") == power_mode:
-            fallback = mode.findtext("default_prompt", "").strip()
-            candidates = [p for p in all_prompts if p["id"] == fallback]
-            break
-    if not candidates and pool:
+    if pool:
         candidates = [pool[0]]
 
 if not candidates:
@@ -228,20 +252,18 @@ out = {
     "vars": chosen.get("vars"),
     "neuro_toxin": chosen.get("neuro_toxin"),
     "compiler": "187web-compiler.sh",
-    "compiled_at": __import__("datetime").datetime.utcnow().isoformat() + "Z",
+    "compiled_at": __import__("datetime").datetime.now(__import__("datetime").timezone.utc).isoformat().replace("+00:00", "Z"),
 }
 print(json.dumps(out, indent=2))
 PY
-  )
+  )"
   persist_and_emit "$JSON_OUT"
   exit $?
 fi
 
-# --- Grep fallback (no python3) ---
+# --- Grep fallback (no Python) ---
 if [[ "$LIST_ONLY" -eq 1 ]]; then
-  grep -oP 'id="\K[^"]+' "$MANIFEST" | grep -v '^[0-9]*$' | sort -u | \
-    python3 -c "import sys,json; print(json.dumps({'prompts':[l.strip() for l in sys.stdin]},indent=2))" 2>/dev/null || \
-    grep -o 'id="[^"]*"' "$MANIFEST" | sed 's/id="//;s/"//'
+  grep -oE 'id="[^"]+"' "$MANIFEST" | grep -oE '"[^"]+"' | tr -d '"' | sort -u
   exit 0
 fi
 
@@ -261,9 +283,10 @@ DIRECTIVE="$(awk -v id="$PROMPT_ID" '
 JSON_OUT="$(cat <<EOF
 {
   "ecosystem": "187web",
+  "manifest_version": "2.0",
   "power_mode": "$POWER_MODE",
   "prompt_id": "$PROMPT_ID",
-  "directive": $(python3 -c "import json,sys; print(json.dumps(sys.stdin.read()))" <<< "$DIRECTIVE" 2>/dev/null || echo "\"$DIRECTIVE\""),
+  "directive": "$DIRECTIVE",
   "compiler": "187web-compiler.sh",
   "fallback": true
 }

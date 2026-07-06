@@ -33,7 +33,7 @@ function Write-Log($msg) {
 }
 
 function Get-PowerMode {
-    if ($env:187WEB_POWER_MODE) { return $env:187WEB_POWER_MODE }
+    if ($env:E187WEB_POWER_MODE) { return $env:E187WEB_POWER_MODE }
 
     $cores = [Environment]::ProcessorCount
     $onBattery = $false
@@ -56,7 +56,7 @@ function Get-PowerMode {
 }
 
 $powerMode = Get-PowerMode
-$cwd = if ($env:187WEB_CWD) { $env:187WEB_CWD } else { (Get-Location).Path }
+$cwd = if ($env:E187WEB_CWD) { $env:E187WEB_CWD } else { (Get-Location).Path }
 Write-Log "power_mode=$powerMode cwd=$cwd"
 
 [xml]$xml = Get-Content -Path $ManifestPath -Encoding UTF8

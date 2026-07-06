@@ -8,7 +8,7 @@
 
 | Step | Status | Deliverable |
 |------|--------|-------------|
-| 1 | done | Revivescan hook — `install-revivescan.ps1` / `.sh` |
+| 1 | done | Compiler hook — `install-compiler-hook.ps1` / `.sh` |
 | 2 | done | Registry `~/.187web/prompts/MANIFEST.xml` |
 | 3 | done | OmniQube + `telemetry-relay.mjs` SSE bridge |
 
@@ -61,7 +61,7 @@ _None._
 
 ### 2026-07-06 (b)
 
-- **Phase I complete:** OmniQube Render Matrix, SSE telemetry relay, revivescan installers, `-Write`/`-Emit` compiler flags.
+- **Phase I complete:** OmniQube Render Matrix, SSE telemetry relay, compiler-hook installers, `-Write`/`-Emit` compiler flags.
 - **PHASE-ROADMAP.md:** Phases II–IV mapped to Vault → Nimbus → Lattice Lab template poles.
 - **Next:** Phase II step 4 — KNOTstore scaffold (`lib/knotstore/`).
 

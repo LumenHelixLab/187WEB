@@ -16,11 +16,11 @@ agentic stack.
 | **Template pole** | **Forge API** (devtool) — terminal dark, mono, live data |
 | **Design language** | Abyssal `#080808` + Toxic `#39FF14` + Widow `#FF0000` |
 | **Signature component** | **Render Matrix** — OmniQube telemetry panel |
-| **Shared primitives** | Compiler JSON, SSE relay, revivescan hook |
+| **Shared primitives** | Compiler JSON, SSE relay, compiler hook |
 
 **Shipped:**
 - `MANIFEST.xml` registry · `187web-compiler` · `telemetry-relay.mjs`
-- `public/omniqube.html` · `install-revivescan` · `session-init.ps1`
+- `public/omniqube.html` · `install-compiler-hook` · `session-init.ps1`
 
 ---
 

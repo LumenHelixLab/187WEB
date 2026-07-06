@@ -14,8 +14,10 @@ origin: portfolio
 # 187web Ecosystem v2 — Charlotte Integration
 
 **Suite:** The 187web Ecosystem v2 skill index. Child skills:
-`187web-manifest` · `widow-weaver` · `neuro-toxin` · `swarm-mind` ·
-`agent-charlotte` · `silk-sandbox`
+[`187web-manifest`](../187web-manifest/SKILL.md) · [`widow-weaver`](../widow-weaver/SKILL.md) · [`neuro-toxin`](../neuro-toxin/SKILL.md) · [`swarm-mind`](../swarm-mind/SKILL.md) ·
+[`agent-charlotte`](../agent-charlotte/SKILL.md) · [`silk-sandbox`](../silk-sandbox/SKILL.md)
+
+**Parent skill:** [187webdesign](../187webdesign/SKILL.md)
 
 The 187web Ecosystem v2 is the "Killer Web" stack: excellent, precise, highly
 effective execution with zero wasted overhead. It is organized around
@@ -70,44 +72,51 @@ findable.
 
 | Skill | Role | When to use | Path |
 |-------|------|-------------|------|
-| **widow-weaver** | Native OS prompt engine | Extract intent, polish tone, explain code, solve logic, refactor with venom | [`.claude/skills/widow-weaver/SKILL.md`](./widow-weaver/SKILL.md) |
-| **neuro-toxin** | Inference tuner | Tune toxicity/temperature, top-k/top-p, repetition penalty, Mirostat weave, context windowing | `.claude/skills/neuro-toxin/SKILL.md` |
-| **swarm-mind** | Engineering & niche personas | Bring in a specialist persona (architect, RAG weaver, edge venom, UI spinner, ledger spider, red-team widow, sysop widow) | `.claude/skills/swarm-mind/SKILL.md` |
-| **agent-charlotte** | Autonomous web crawler | Deep-web spinning, contextual traversal, Obsidian auto-weaving | `.claude/skills/agent-charlotte/SKILL.md` |
-| **silk-sandbox** | Execution engine | MicroVM isolation, syscall monitoring, I/O multiplexing | `.claude/skills/silk-sandbox/SKILL.md` |
-| **187web-manifest** | Master Prompt Manifest | 27 XML prompts, compiler, long-run session routing | [`.claude/skills/187web-manifest/SKILL.md`](./187web-manifest/SKILL.md) |
+| **widow-weaver** | Native OS prompt engine | Extract intent, polish tone, explain code, solve logic, refactor with venom | [`.claude/skills/widow-weaver/SKILL.md`](../widow-weaver/SKILL.md) |
+| **neuro-toxin** | Inference tuner | Tune toxicity/temperature, top-k/top-p, repetition penalty, Mirostat weave, context windowing | [`.claude/skills/neuro-toxin/SKILL.md`](../neuro-toxin/SKILL.md) |
+| **swarm-mind** | Engineering & niche personas | Bring in a specialist persona (architect, RAG weaver, edge venom, UI spinner, ledger spider, red-team widow, sysop widow) | [`.claude/skills/swarm-mind/SKILL.md`](../swarm-mind/SKILL.md) |
+| **agent-charlotte** | Autonomous web crawler | Deep-web spinning, contextual traversal, Obsidian auto-weaving | [`.claude/skills/agent-charlotte/SKILL.md`](../agent-charlotte/SKILL.md) |
+| **silk-sandbox** | Execution engine | MicroVM isolation, syscall monitoring, I/O multiplexing | [`.claude/skills/silk-sandbox/SKILL.md`](../silk-sandbox/SKILL.md) |
+| **187web-manifest** | Master Prompt Manifest | 27 XML prompt skills, compiler, long-run session routing | [`.claude/skills/187web-manifest/SKILL.md`](../187web-manifest/SKILL.md) |
 
 ## Invocation / workflow guidance
 
 The skills compose like a kill chain. Default order:
 
-0. **187web-manifest** — Compile the session: run `187web-compiler`, read
+0. **[187web-manifest](../187web-manifest/SKILL.md)** — Compile the session: run `187web-compiler`, read
    `PLAN.md`, inject the routed directive and neuro-toxin profile.
-1. **widow-weaver** — Understand and sharpen the request. Use
+1. **[widow-weaver](../widow-weaver/SKILL.md)** — Understand and sharpen the request. Use
    `TLDR_Toxin`, `Polyglot_Thread`, `Tone_Polish`, `Task_Extractor`,
    `Code_Explainer`, `Logic_Solver`, or `Refactor_Venom` to extract the real
    intent and produce a clean task statement.
-2. **neuro-toxin** — Tune the inference environment. Dial
+2. **[neuro-toxin](../neuro-toxin/SKILL.md)** — Tune the inference environment. Dial
    toxicity/temperature, top-k/top-p lethality, repetition penalty, Mirostat
    weave, and context windowing to match the desired output precision.
-3. **swarm-mind** — Call a specialist persona when the work needs domain
+3. **[swarm-mind](../swarm-mind/SKILL.md)** — Call a specialist persona when the work needs domain
    depth (architecture, RAG, edge cases, UI, ledger, red-team, sysop).
-4. **agent-charlotte** — Send Charlotte crawling for research, references,
+4. **[agent-charlotte](../agent-charlotte/SKILL.md)** — Send Charlotte crawling for research, references,
    or data to auto-weave into Obsidian.
-5. **silk-sandbox** — Execute code or commands in an isolated MicroVM with
+5. **[silk-sandbox](../silk-sandbox/SKILL.md)** — Execute code or commands in an isolated MicroVM with
    syscall monitoring and I/O multiplexing.
 
-Not every workflow needs all five. For a quick refactor, `widow-weaver` +
-`silk-sandbox` is enough. For a complex build, run the full chain.
+Not every workflow needs all five. For a quick refactor, [`widow-weaver`](../widow-weaver/SKILL.md) +
+[`silk-sandbox`](../silk-sandbox/SKILL.md) is enough. For a complex build, run the full chain.
+
+## Prompt skills
+
+Each of the 27 manifest prompts is also a standalone skill under
+[`.claude/skills/<id>/`](../187web-manifest/SKILL.md). Load a prompt skill
+directly when the user names a specific prompt ID (e.g., `a11y-linting-agent`,
+`xss-vulnerability-scanner`, `ml-systems-architect`).
 
 ## Child skill links
 
-- [187web-manifest — Master Prompt Manifest](./187web-manifest/SKILL.md)
-- [widow-weaver — Native OS prompt engine](./widow-weaver/SKILL.md)
-- [neuro-toxin — Inference tuner](./neuro-toxin/SKILL.md)
-- [swarm-mind — Engineering & niche personas](./swarm-mind/SKILL.md)
-- [agent-charlotte — Autonomous web crawler](./agent-charlotte/SKILL.md)
-- [silk-sandbox — Execution engine](./silk-sandbox/SKILL.md)
+- [187web-manifest — Master Prompt Manifest](../187web-manifest/SKILL.md)
+- [widow-weaver — Native OS prompt engine](../widow-weaver/SKILL.md)
+- [neuro-toxin — Inference tuner](../neuro-toxin/SKILL.md)
+- [swarm-mind — Engineering & niche personas](../swarm-mind/SKILL.md)
+- [agent-charlotte — Autonomous web crawler](../agent-charlotte/SKILL.md)
+- [silk-sandbox — Execution engine](../silk-sandbox/SKILL.md)
 
 ---
 

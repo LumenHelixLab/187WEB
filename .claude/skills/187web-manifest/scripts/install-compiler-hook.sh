@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
-# install-revivescan.sh — Phase I zsh/bash hook: recompile on cd
+# install-compiler-hook.sh — install the 187web compiler hook into ~/.bashrc or ~/.zshrc
+# The hook recompiles the active manifest prompt whenever the working directory changes.
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 COMPILER="${SCRIPT_DIR}/187web-compiler.sh"
-MARKER="# 187web revivescan"
+MARKER="# 187web compiler hook"
 
 usage() {
-  echo "Usage: install-revivescan.sh [--uninstall]"
+  echo "Usage: install-compiler-hook.sh [--uninstall]"
 }
 
 UNINSTALL=0
@@ -27,15 +28,15 @@ if [[ "$UNINSTALL" -eq 1 ]]; then
   if [[ -f "$RC" ]] && grep -q "$MARKER" "$RC"; then
     sed -i.bak "/$MARKER/,/^$/d" "$RC" 2>/dev/null || \
       sed -i '' "/$MARKER/,/^$/d" "$RC"
-    echo "Removed revivescan from $RC"
+    echo "Removed 187web compiler hook from $RC"
   else
-    echo "No revivescan hook in $RC"
+    echo "No 187web compiler hook in $RC"
   fi
   exit 0
 fi
 
 if [[ -f "$RC" ]] && grep -q "$MARKER" "$RC"; then
-  echo "Revivescan already installed in $RC"
+  echo "187web compiler hook already installed in $RC"
   exit 0
 fi
 
@@ -44,16 +45,16 @@ chmod +x "$COMPILER"
 cat >>"$RC" <<EOF
 
 $MARKER
-_187web_revivescan() {
+_187web_compiler_hook() {
   command -v "$COMPILER" >/dev/null 2>&1 || return 0
   "$COMPILER" --quiet --write --emit >/dev/null 2>&1 &
 }
 if [[ -n "\${ZSH_VERSION:-}" ]]; then
-  chpwd_functions+=(_187web_revivescan)
+  chpwd_functions+=(_187web_compiler_hook)
 else
-  PROMPT_COMMAND="_187web_revivescan;\${PROMPT_COMMAND:-:}"
+  PROMPT_COMMAND="_187web_compiler_hook;\${PROMPT_COMMAND:-:}"
 fi
 EOF
 
-echo "Installed revivescan → $RC"
+echo "Installed 187web compiler hook → $RC"
 echo "Reload: source $RC"
