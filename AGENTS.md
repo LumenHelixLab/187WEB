@@ -33,6 +33,12 @@ Claude Code / Grok skills live under `.claude/skills/` and `.grok/skills/` respe
 
 All 27 prompts in [`references/MANIFEST.xml`](.claude/skills/187web-manifest/references/MANIFEST.xml) have standalone skills under `.claude/skills/<prompt-id>/` and `.grok/skills/<prompt-id>/` (e.g., `ml-systems-architect`, `a11y-linting-agent`, `xss-vulnerability-scanner`).
 
+### CLI installer
+
+- **Web page:** [`/install`](app/install/page.tsx) — cross-platform marketing + documentation.
+- **Docs:** [`docs/INSTALL.md`](docs/INSTALL.md).
+- **Installers:** [`install.sh`](install.sh) (Linux/macOS/Git Bash) and [`install.ps1`](install.ps1) (Windows).
+
 ### Model adapters
 
 The full skill library is mirrored into model-specific formats under:
