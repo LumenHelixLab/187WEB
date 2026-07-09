@@ -16,6 +16,8 @@
 
 Claude Code / Grok skills live under `.claude/skills/` and `.grok/skills/` respectively. They are mirrored one-to-one.
 
+Every first-class skill follows the universal contract in `docs/SKILL-CONTRACT.md` and includes a `SKILL.md`, `references/`, and `templates/` under `.claude/skills/<name>/`.
+
 ### Active skill suite
 
 | Skill | Path | Load when |
@@ -24,8 +26,11 @@ Claude Code / Grok skills live under `.claude/skills/` and `.grok/skills/` respe
 | 187web-ecosystem v2 | `.claude/skills/187web-ecosystem/SKILL.md` | You need the full Charlotte / Killer Web skill array |
 | **187repo** | `.claude/skills/187repo/SKILL.md` | Short-name orchestration, repo generation, GitHub deploy, installer |
 | **187craft** | `.claude/skills/187craft/SKILL.md` | Short-name design + frontend execution |
-| **187vibe** | `.claude/skills/187vibe/SKILL.md` | Short-name delight, community, research, and execution layers |
-| **187launch** | `.claude/skills/187launch/SKILL.md` | Go-to-market intelligence and early-user acquisition *(new)* |
+| **187vibe** | `.claude/skills/187vibe/SKILL.md` | Short-name delight, community, and execution layers |
+| **187launch** | `.claude/skills/187launch/SKILL.md` | Go-to-market intelligence and early-user acquisition |
+| **187free** | `.claude/skills/187free/SKILL.md` | No-cost/free-tier/open-source/local-first solution scouting |
+| **187research** | `.claude/skills/187research/SKILL.md` | Research-grade source routing, evidence discipline, and reproducible labs |
+| **187seo** | `.claude/skills/187seo/SKILL.md` | Policy-aware SEO, AEO, GEO, structured data, and search analytics |
 | widow-weaver | `.claude/skills/widow-weaver/SKILL.md` | Text/document processing: extraction, translation, tone polish, task extraction, code explanation, logic solving, refactoring |
 | neuro-toxin | `.claude/skills/neuro-toxin/SKILL.md` | Tuning LLM inference parameters from Obsidian YAML frontmatter |
 | swarm-mind | `.claude/skills/swarm-mind/SKILL.md` | Activating a niche engineering persona based on Obsidian folder |
