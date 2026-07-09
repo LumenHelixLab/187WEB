@@ -25,7 +25,10 @@ Claude Code / Grok skills live under `.claude/skills/` and `.grok/skills/` respe
 | **187repo** | `.claude/skills/187repo/SKILL.md` | Short-name orchestration, repo generation, GitHub deploy, installer |
 | **187craft** | `.claude/skills/187craft/SKILL.md` | Short-name design + frontend execution |
 | **187vibe** | `.claude/skills/187vibe/SKILL.md` | Short-name delight, community, research, and execution layers |
-| **187launch** | `.claude/skills/187launch/SKILL.md` | Go-to-market intelligence and early-user acquisition *(new)* |
+| **187launch** | `.claude/skills/187launch/SKILL.md` | Go-to-market intelligence and early-user acquisition |
+| **187repo-eval** | `.claude/skills/187repo-eval/SKILL.md` | Repo / package / tool integration scorecard for the 187web suite *(new)* |
+| **187free** | `.claude/skills/187free/SKILL.md` | No-cost, free-tier, open-source, local-first solution scouting *(new)* |
+| **187research** | `.claude/skills/187research/SKILL.md` | Research-grade source routing, evidence discipline, and reproducible labs *(new)* |
 | widow-weaver | `.claude/skills/widow-weaver/SKILL.md` | Text/document processing: extraction, translation, tone polish, task extraction, code explanation, logic solving, refactoring |
 | neuro-toxin | `.claude/skills/neuro-toxin/SKILL.md` | Tuning LLM inference parameters from Obsidian YAML frontmatter |
 | swarm-mind | `.claude/skills/swarm-mind/SKILL.md` | Activating a niche engineering persona based on Obsidian folder |

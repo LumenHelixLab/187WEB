@@ -23,6 +23,13 @@ The 187web ecosystem does not exist in a vacuum; its "web" is your Obsidian Know
 
 Here is how the foundational AI tools, personas, and architectures operate as highly focused skills directly within the Obsidian/Claudian brain.
 
+### **Skill 0: 187repo-eval, 187free, 187research (Suite Expansion)**
+
+* **187repo-eval:** Gate for evaluating third-party repos, packages, and tools for adoption into the 187web suite. Produces a scored Markdown scorecard with an `adopt` / `adopt-with-guardrails` / `watch` / `reject` recommendation.
+* **187free:** No-cost solution engine for free-tier, open-source, local-first, and public-API tooling across hosting, databases, auth, AI, accessibility, and client-budget projects.
+* **187research:** Research-grade lab engine for scholarly/biomedical/mathematical/software source routing, evidence classification, reproducible labs, and publication-ready artifacts. Always pairs with 187free for no-cost lab hosting.
+* **Obsidian Integration:** A portable vault pack lives under `docs/187suite-vault/` and can be copied into any Obsidian vault as `_system/`, `_templates/`, and dashboards.
+
 ### **Skill 1: widow-weaver (The Core Prompt & Vault Engine)**
 
 * **187web Function:** An AI skill dedicated to spinning complex, highly-tuned system prompts and seamlessly integrating the output into the Obsidian vault.  
