@@ -8,6 +8,7 @@ skill: 187seo
 - **URL:** {{ url }}
 - **Created:** {{ date }}
 - **Owner:** {{ owner }}
+- **Mode:** {{ mode | default('structured-data planning') }}
 
 ## Schema types
 
@@ -41,6 +42,8 @@ skill: 187seo
 
 {{ notes }}
 
-## Risks
+## Risk / spam review
 
-{{ risks }}
+- Misleading markup checks passed:
+- Policy flags:
+- {{ risks }}

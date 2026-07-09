@@ -9,6 +9,7 @@ skill: 187seo
 - **Target URL:** {{ url }}
 - **Created:** {{ date }}
 - **Author / SME:** {{ author }}
+- **Mode:** {{ mode | default('content-brief + keyword strategy') }}
 
 ## Audience and persona
 
@@ -64,3 +65,8 @@ skill: 187seo
 
 - **Publish by:** {{ date }}
 - **Refresh cadence:** {{ cadence }}
+
+## Risk / spam review
+
+- Policy flags (e.g., claims, comparisons, medical/financial/YMYL):
+- Required review:

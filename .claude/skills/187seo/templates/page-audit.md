@@ -9,6 +9,7 @@ skill: 187seo
 - **Audited:** {{ date }}
 - **Target keyword:** {{ target_keyword }}
 - **Search intent:** {{ search_intent }}
+- **Mode:** {{ mode | default('page-level SEO audit') }}
 
 ## On-page checklist
 
@@ -54,3 +55,8 @@ skill: 187seo
 1. {{ action }}
 2. {{ action }}
 3. {{ action }}
+
+## Risk / spam review
+
+- Policy flags:
+- Required review:

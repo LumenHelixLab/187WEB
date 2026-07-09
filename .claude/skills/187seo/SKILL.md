@@ -75,18 +75,21 @@ Always align with Google's Search Essentials and treat accessibility as an SEO i
 
 ## Integration points
 
-- **Obsidian/Claudian:** outputs use `templates/site-audit.md`, `page-audit.md`, `content-brief.md`, `schema-plan.md`, `search-console-analysis.md`.
+- **Obsidian/Claudian:** outputs use `templates/site-audit.md`, `templates/page-audit.md`, `templates/content-brief.md`, `templates/schema-plan.md`, `templates/search-console-analysis.md`.
 - **Claude Code:** load `.claude/skills/187seo/SKILL.md`.
+- **MCP:** future 187SEO audit server.
 - **CLI:** future `187repo.sh seo` / `187seo.sh`.
 - **Adapters:** mirrored by `python scripts/generate-model-adapters.py`.
 
 ## Templates
 
-- [`templates/site-audit.md`](templates/site-audit.md)
-- [`templates/page-audit.md`](templates/page-audit.md)
-- [`templates/content-brief.md`](templates/content-brief.md)
-- [`templates/schema-plan.md`](templates/schema-plan.md)
-- [`templates/search-console-analysis.md`](templates/search-console-analysis.md)
+| Template | When to use |
+|---|---|
+| [`templates/site-audit.md`](templates/site-audit.md) | Full-site technical, content, and off-site audit. |
+| [`templates/page-audit.md`](templates/page-audit.md) | Single-page on-page SEO review. |
+| [`templates/content-brief.md`](templates/content-brief.md) | Keyword-driven content plan before writing. |
+| [`templates/schema-plan.md`](templates/schema-plan.md) | Structured-data rollout plan. |
+| [`templates/search-console-analysis.md`](templates/search-console-analysis.md) | Interpreting Search Console / analytics performance. |
 
 ## Dashboards / UI representation
 

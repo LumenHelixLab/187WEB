@@ -9,6 +9,7 @@ skill: 187seo
 - **Audited:** {{ date }}
 - **Platform:** {{ platform }}
 - **Auditor:** {{ auditor }}
+- **Mode:** {{ mode | default('technical + content + off-site audit') }}
 
 ## Executive summary
 

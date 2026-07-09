@@ -8,6 +8,7 @@ skill: 187seo
 - **Property:** {{ url }}
 - **Date range:** {{ start_date }} – {{ end_date }}
 - **Analyst:** {{ analyst }}
+- **Mode:** {{ mode | default('Search Console + analytics review') }}
 
 ## Performance summary
 
@@ -54,3 +55,9 @@ skill: 187seo
 ## Follow-up date
 
 {{ follow_up_date }}
+
+## Risk / spam review
+
+- Manual actions or security issues:
+- Policy flags:
+- Required review:
