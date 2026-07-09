@@ -6,7 +6,7 @@ name: Deploy showcase to GitHub Pages
 
 on:
   push:
-    branches: [master]
+    branches: [main]
   workflow_dispatch:
 
 # Allow this workflow to publish to Pages.
