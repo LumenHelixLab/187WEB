@@ -2,13 +2,15 @@ import type { Metadata } from "next";
 import { Showcase } from "@/components/showcase/Showcase";
 
 export const metadata: Metadata = {
-  title: "Live demo — killer design in motion",
+  title: "187SUITE — Killer Web Design Solutions",
   description:
-    "An immersive, animated demo of the 187webDESIGN skill — kinetic type, generative canvas, self-drawing SVG, 3D tilt, and magnetic micro-interactions.",
+    "187REPO orchestrates, 187CRAFT designs, 187VIBE delights, and 187LAUNCH ships. The short-name command surface for the 187web ecosystem.",
+  openGraph: {
+    title: "187SUITE — Killer Web Design Solutions",
+    description: "187REPO orchestrates, 187CRAFT designs, 187VIBE delights, and 187LAUNCH ships.",
+  },
 };
 
-// The GitHub Pages showcase: a self-contained, client-animated experience.
-// Deliberately distinct from the README and docs — this page is the proof.
 export default function HomePage() {
   return <Showcase />;
 }
