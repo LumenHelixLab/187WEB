@@ -41,7 +41,7 @@ npm run format
 
 ## ◆ The one house rule
 
-**If your change touches the UI, run the [pre-ship checklist](./.claude/skills/187webdesign/references/CHECKLIST.md) and note what you verified in the PR.** This repo's whole premise is that it's built to its own standard. At minimum confirm:
+**If your change touches the UI, run the [pre-ship checklist](./.claude/skills/187webdesign/references/CHECKLIST.md) and note what you verified in the PR.** This repo's whole premise is that it's not enough to be functional — it has to be polished.
 
 - Responsive at 360 / 768 / 1280.
 - Keyboard operable with a visible focus state.
@@ -61,6 +61,17 @@ npm run format
 
 <br>
 
+## ◆ Licensing note
+
+By contributing, you agree that your contributions may be distributed under the repository license in [LICENSE](./LICENSE).
+
+- Commercial use requires prior written permission from **Lumen Helix Solutions**.
+- **Knotstore intellectual property is excluded** from the repository license and remains reserved.
+
+See [LICENSE-INFO.md](./LICENSE-INFO.md) for a plain-English explanation.
+
+<br>
+
 ## ◆ Commits & PRs
 
 - Write clear, imperative commit messages ("Add lead rate-limiting", not "fixes").
@@ -77,6 +88,6 @@ Open a GitHub issue with steps to reproduce, expected vs actual, and environment
 
 <div align="center">
 
-<strong>187SUITE</strong> — <a href="LICENSE">MIT</a> © 2026 Lumen Helix Solutions
+<strong>187SUITE</strong> — <a href="LICENSE">Custom noncommercial license + reserved Knotstore IP</a> © 2026 Lumen Helix Solutions
 
 </div>
