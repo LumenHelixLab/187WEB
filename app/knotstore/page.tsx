@@ -1,23 +1,23 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import { KNOTstore } from "@/lib/knotstore";
 import { KNOTRecord, KNOTStats } from "@/lib/knotstore/types";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 
 export default function KnotstorePage() {
-  const [stats, setStats] = useState<KNOTStats | null>(null);
-  const [records, setRecords] = useState<KNOTRecord[]>([]);
-
-  useEffect(() => {
-    const store = KNOTstore({ backend: "hybrid", path: "/tmp/knotstore-preview" });
+  const previewPath = join(tmpdir(), "knotstore-preview");
+  const store = KNOTstore({ backend: "hybrid", path: previewPath });
+  let stats: KNOTStats | null = null;
+  let records: KNOTRecord[] = [];
+  try {
     store.open();
-    setStats(store.stats());
-    setRecords(store.query({ limit: 10 }));
+    stats = store.stats();
+    records = store.query({ limit: 10 });
+  } finally {
     store.close();
-  }, []);
+  }
 
   return (
-    <div className="min-h-screen bg-[#071A2B] text-white">
+    <main className="min-h-screen bg-[#071A2B] text-white">
       <header className="mx-auto max-w-6xl px-6 pb-12 pt-16">
         <span className="inline-flex items-center gap-2 rounded-full bg-[#3DDC97]/10 px-3 py-1 text-xs font-semibold text-[#3DDC97] ring-1 ring-[#3DDC97]/30">
           Agentic memory layer
@@ -48,10 +48,18 @@ export default function KnotstorePage() {
           <table className="w-full text-left text-sm">
             <thead className="bg-white/[0.04] text-white/50">
               <tr>
-                <th className="px-5 py-3">ID</th>
-                <th className="px-5 py-3">Kind</th>
-                <th className="px-5 py-3">Title</th>
-                <th className="px-5 py-3">KNOT hash</th>
+                <th scope="col" className="px-5 py-3">
+                  ID
+                </th>
+                <th scope="col" className="px-5 py-3">
+                  Kind
+                </th>
+                <th scope="col" className="px-5 py-3">
+                  Title
+                </th>
+                <th scope="col" className="px-5 py-3">
+                  KNOT hash
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -75,6 +83,6 @@ export default function KnotstorePage() {
           </table>
         </div>
       </section>
-    </div>
+    </main>
   );
 }
