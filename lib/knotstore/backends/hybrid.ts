@@ -1,12 +1,14 @@
 import { KNOTLink, KNOTQuery, KNOTRecord, KNOTStats } from "../types";
+import { BaseBackend } from "./base";
 import { SqliteBackend } from "./sqlite";
 import { KnotPointBackend } from "./knot-points";
 
-export class HybridBackend {
+export class HybridBackend extends BaseBackend {
   private sqlite: SqliteBackend;
   private points: KnotPointBackend;
 
   constructor(dbPath: string, pointsPath: string) {
+    super();
     this.sqlite = new SqliteBackend(dbPath);
     this.points = new KnotPointBackend(pointsPath);
   }
@@ -36,10 +38,9 @@ export class HybridBackend {
     const sql = this.sqlite.get(id);
     const pt = this.points.get(id);
     if (!sql && !pt) return null;
-    return {
-      ...(sql ?? pt!),
-      knotHash: pt?.knotHash ?? sql?.knotHash,
-    };
+    if (!sql) return pt!;
+    if (!pt) return sql;
+    return { ...sql, knotHash: pt.knotHash };
   }
 
   query(filter: KNOTQuery): KNOTRecord[] {
@@ -55,7 +56,25 @@ export class HybridBackend {
   }
 
   getLinks(id: string): { outgoing: KNOTLink[]; incoming: KNOTLink[] } {
-    return this.sqlite.getLinks(id);
+    const sLinks = this.sqlite.getLinks(id);
+    const pLinks = this.points.getLinks(id);
+    const linkKey = (l: KNOTLink) => `${l.sourceId}|${l.targetId}|${l.rel ?? ""}`;
+    const merge = (a: KNOTLink[], b: KNOTLink[]) => {
+      const seen = new Set<string>();
+      const out: KNOTLink[] = [];
+      for (const link of [...a, ...b]) {
+        const key = linkKey(link);
+        if (!seen.has(key)) {
+          seen.add(key);
+          out.push(link);
+        }
+      }
+      return out;
+    };
+    return {
+      outgoing: merge(sLinks.outgoing, pLinks.outgoing),
+      incoming: merge(sLinks.incoming, pLinks.incoming),
+    };
   }
 
   stats(): KNOTStats {
