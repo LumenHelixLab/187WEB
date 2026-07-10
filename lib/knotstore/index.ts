@@ -2,6 +2,7 @@ import { KNOTstoreBackend, KNOTstoreOptions } from "./types";
 import { SqliteBackend } from "./backends/sqlite";
 import { KnotPointBackend } from "./backends/knot-points";
 import { HybridBackend } from "./backends/hybrid";
+import { KNOTstoreError } from "./errors";
 
 export * from "./types";
 export * from "./errors";
@@ -18,6 +19,9 @@ export function KNOTstore(options: KNOTstoreOptions): KNOTstoreBackend {
         (options.path ?? "knotstore") + ".jsonl",
       );
     default:
-      throw new Error(`Unknown backend: ${(options as KNOTstoreOptions).backend}`);
+      throw new KNOTstoreError(
+        "EINVALID",
+        `Unknown backend: ${(options as KNOTstoreOptions).backend}`,
+      );
   }
 }
