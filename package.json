@@ -6,7 +6,7 @@
   "description": "187WEB — a killer AI-powered web suite. A heavily-documented full-stack Next.js starter that ships the 187WEBDEV skill set and demonstrates it with a live, award-caliber showcase site.",
   "author": "Lumen Helix Solutions",
   "engines": {
-    "node": ">=18.18.0"
+    "node": ">=20.0.0"
   },
   "scripts": {
     "dev": "next dev",
