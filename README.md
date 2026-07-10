@@ -212,6 +212,7 @@ npm run db:seed             # (optional) a few sample leads
 │  ├─ 187demo/page.tsx          # demo abilities index
 │  ├─ install/page.tsx          # cross-platform installer page
 │  ├─ 187ai-eye/page.tsx        # Local Brain command UI
+│  ├─ knotstore/page.tsx        # Vault-style KNOTstore preview
 │  ├─ 187free/page.tsx          # no-cost stack showcase
 │  ├─ 187research/page.tsx      # research lab showcase
 │  ├─ 187seo/page.tsx           # SEO showcase
@@ -231,6 +232,15 @@ npm run db:seed             # (optional) a few sample leads
 │  ├─ 187-command-reference.json
 │  └─ 187-command-grammar.json
 ├─ lib/                         # content, db, validation
+│  └─ knotstore/                # pluggable agentic data layer
+│     ├─ index.ts
+│     ├─ types.ts
+│     ├─ errors.ts
+│     ├─ backends/
+│     │  ├─ sqlite.ts
+│     │  ├─ knot-points.ts
+│     │  └─ hybrid.ts
+│     └─ README.md
 ├─ prisma/                      # schema + seed
 ├─ docs/                        # getting-started · architecture · design-system · deployment
 ├─ scripts/                     # 187 CLI, 187repo, 187power, 187init installers, shell completions

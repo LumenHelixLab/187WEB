@@ -30,8 +30,8 @@ A killer AI-powered web suite: spin sharper sites, ship smarter systems.
 
 | Step | Status | Template pole | Deliverable |
 |------|--------|---------------|-------------|
-| 4 | next | **Vault** (fintech) | KNOTstore DB — `lib/knotstore/` |
-| 5 | pending | **Vault** (fintech) | Silk-Sandbox pre-flight middleware |
+| 4 | done | **Vault** (fintech) | KNOTstore DB — `lib/knotstore/` |
+| 5 | next | **Vault** (fintech) | Silk-Sandbox pre-flight middleware |
 | 6 | pending | **Vault** (fintech) | Web-Relay authenticated browser tokens |
 
 ## Phase III — Killer UI
@@ -81,3 +81,8 @@ _None._
 
 - Manifest skill shipped: `187web-manifest` with compiler + XML registry.
 - Compiler verified: `power_mode=high`, 27 prompt IDs indexed.
+
+### 2026-07-09
+
+- **Phase II step 4 complete:** KNOTstore scaffold with SQLite, KNOT point, and hybrid backends, plus `/knotstore` preview page.
+- **Next:** Phase II step 5 — Safety Sentinel pre-flight middleware.

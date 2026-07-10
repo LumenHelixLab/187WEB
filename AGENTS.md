@@ -154,6 +154,8 @@ npm run db:seed
 - `/install` is the cross-platform CLI installer page + documentation.
 - `/187repo` is the slash-command reference for the 187SKILLS suite.
 - `/187ai-eye` serves **187aiEYE** — standalone Local Brain command UI (multi-agent rail + module toggles).
+- `/knotstore` is the Vault-style KNOTstore preview page.
+- `lib/knotstore/` is the pluggable agentic data layer (SQLite, KNOT point, hybrid backends).
 - `/187free`, `/187research`, `/187seo`, `/187revenue`, `/187docs`, `/187learn`, `/187test`, `/187access`, `/187version`, `/187publish` are skill showcase pages.
 - `/templates` lists 14 industry templates.
 - `/resilience` demos unhappy-path states.
