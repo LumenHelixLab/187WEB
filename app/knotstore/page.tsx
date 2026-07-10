@@ -17,7 +17,7 @@ export default function KnotstorePage() {
   }
 
   return (
-    <main className="min-h-screen bg-[#071A2B] text-white">
+    <div className="min-h-screen bg-[#071A2B] text-white">
       <header className="mx-auto max-w-6xl px-6 pb-12 pt-16">
         <span className="inline-flex items-center gap-2 rounded-full bg-[#3DDC97]/10 px-3 py-1 text-xs font-semibold text-[#3DDC97] ring-1 ring-[#3DDC97]/30">
           Agentic memory layer
@@ -83,6 +83,6 @@ export default function KnotstorePage() {
           </table>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
