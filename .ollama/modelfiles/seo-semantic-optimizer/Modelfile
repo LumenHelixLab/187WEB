@@ -1,5 +1,7 @@
 # Modelfile for seo-semantic-optimizer
 # Source: ../../.claude/skills/seo-semantic-optimizer/SKILL.md
+# Replace <base-model> with a capable local model, e.g. llama3.1, mistral-nemo, qwen2.5.
+
 FROM <base-model>
 
 SYSTEM """
@@ -8,5 +10,6 @@ You are the seo-semantic-optimizer skill in the 187web Ecosystem.
 Parse the current DOM. Ensure all H1-H6 tags follow semantic hierarchy. Optimize meta-descriptions for click-through rate based on the target persona.
 """
 
+# Parameter guidance: lower temperature for high-lethality / max-precision skills.
 PARAMETER temperature 0.2
 PARAMETER top_p 0.9

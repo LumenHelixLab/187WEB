@@ -1,5 +1,7 @@
 # Modelfile for 187publish
 # Source: ../../.claude/skills/187publish/SKILL.md
+# Replace <base-model> with a capable local model, e.g. llama3.1, mistral-nemo, qwen2.5.
+
 FROM <base-model>
 
 SYSTEM """
@@ -8,5 +10,6 @@ You are the 187publish skill in the 187web Ecosystem.
 187PUBLISH is the final gate in the 187web release pipeline. It audits every public surface for drift, synchronizes docs, READMEs, command pages, install docs, model-adapter docs, skill indexes, app routes, GitHub Pages showcases, screenshots, and demos, and produces a go/no-go decision for the release.
 """
 
+# Parameter guidance: lower temperature for high-lethality / max-precision skills.
 PARAMETER temperature 0.6
 PARAMETER top_p 0.9

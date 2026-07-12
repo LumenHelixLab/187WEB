@@ -5,7 +5,7 @@ description: >-
 model_adapter: grok
 ---
 
-> **Grok adapter: load as repository skill instructions.** Canonical source: [`../../.claude/skills/agent-charlotte/SKILL.md`](../../.claude/skills/agent-charlotte/SKILL.md).
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/agent-charlotte/SKILL.md`](../../.claude/skills/agent-charlotte/SKILL.md).
 
 # agent-charlotte — DEPRECATED
 

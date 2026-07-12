@@ -3,9 +3,11 @@ name: 187webdev-trends
 description: >-
   Use when choosing a visual pole (dopamine vs calm), citing Core Web Vitals thresholds, WCAG 2.
 model_adapter: gemini
+system_instruction: >-
+  Trends are optional spice; standards are non-negotiable. When they conflict, standards win.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/187webdev-trends/SKILL.md`](../../.claude/skills/187webdev-trends/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/187webdev-trends/SKILL.md`](../../.claude/skills/187webdev-trends/SKILL.md).
 
 # 187WEBDEV — Trends & Standards (2026)
 

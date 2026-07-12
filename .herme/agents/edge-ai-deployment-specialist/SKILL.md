@@ -5,7 +5,7 @@ description: >-
 model_adapter: hermes
 ---
 
-> **Hermes adapter: use system.md as the system message.** Canonical source: [`../../.claude/skills/edge-ai-deployment-specialist/SKILL.md`](../../.claude/skills/edge-ai-deployment-specialist/SKILL.md).
+> **Hermes adapter:** Use `system.md` as the system message for Hermes-based local LLMs (Ollama, lm-studio, etc.). Source: [`../../.claude/skills/edge-ai-deployment-specialist/SKILL.md`](../../.claude/skills/edge-ai-deployment-specialist/SKILL.md).
 
 # Edge Ai Deployment Specialist
 

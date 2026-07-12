@@ -3,9 +3,11 @@ name: tone-adjustment-polishing
 description: >-
   Use when rewriting text for a professional, assertive, diplomatic tone with flawless grammar and active voice.
 model_adapter: gemini
+system_instruction: >-
+  Rewrite the following text to reflect a highly professional, assertive, yet diplomatic tone. Ensure grammar is flawless, eliminate passive voice, and optimize sentence structure for readability without altering the underlying core message.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/tone-adjustment-polishing/SKILL.md`](../../.claude/skills/tone-adjustment-polishing/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/tone-adjustment-polishing/SKILL.md`](../../.claude/skills/tone-adjustment-polishing/SKILL.md).
 
 # Tone Polish
 

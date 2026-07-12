@@ -3,9 +3,11 @@ name: natasha-scout
 description: >-
   Use for compliant web and repository research with attribution, rate limits, and no authentication or paywall bypass (NATASHA SCOUT module).
 model_adapter: gemini
+system_instruction: >-
+  Gathers context from **public or authorized** sources and returns attributed findings for Local Brain / FUSE. Prefer quality over breadth.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/natasha-scout/SKILL.md`](../../.claude/skills/natasha-scout/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/natasha-scout/SKILL.md`](../../.claude/skills/natasha-scout/SKILL.md).
 
 # natasha-scout — SCOUT (Compliant Research)
 

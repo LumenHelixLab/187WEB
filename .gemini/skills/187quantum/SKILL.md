@@ -3,9 +3,11 @@ name: 187quantum
 description: >-
   Use for quantum algorithm selection, circuit design, optimization, resource estimation, and claim-disciplined audits (no unsupported advantage claims).
 model_adapter: gemini
+system_instruction: >-
+  NATASHA domain skill for quantum algorithms and circuits. Qiskit is V1 baseline.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/187quantum/SKILL.md`](../../.claude/skills/187quantum/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/187quantum/SKILL.md`](../../.claude/skills/187quantum/SKILL.md).
 
 # 187QUANTUM
 

@@ -3,9 +3,11 @@ name: 187include
 description: >-
   Inclusive language, pronoun-safe systems, LGBTQ+ inclusion, identity-field design, anti-bias review, and community safety language.
 model_adapter: gemini
+system_instruction: >-
+  187INCLUDE is the suite-wide inclusion engine for 187web projects. It reviews copy, forms, identity fields, names, pronouns, and community language for LGBTQ+ inclusion, anti-bias safety, and identity-safe UX. It is the canonical home for the `pronouns` alias and works across every public and internal surface that touches people’s identities.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/187include/SKILL.md`](../../.claude/skills/187include/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/187include/SKILL.md`](../../.claude/skills/187include/SKILL.md).
 
 # 187INCLUDE — Inclusion & Identity Safety Engine
 

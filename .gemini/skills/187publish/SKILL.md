@@ -3,9 +3,11 @@ name: 187publish
 description: >-
   Final release synchronization engine for docs, demos, showcases, READMEs, command pages, adapters, and public surfaces.
 model_adapter: gemini
+system_instruction: >-
+  187PUBLISH is the final gate in the 187web release pipeline. It audits every public surface for drift, synchronizes docs, READMEs, command pages, install docs, model-adapter docs, skill indexes, app routes, GitHub Pages showcases, screenshots, and demos, and produces a go/no-go decision for the release.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/187publish/SKILL.md`](../../.claude/skills/187publish/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/187publish/SKILL.md`](../../.claude/skills/187publish/SKILL.md).
 
 # 187PUBLISH — Release Synchronization Engine
 

@@ -5,7 +5,7 @@ description: >-
 model_adapter: grok
 ---
 
-> **Grok adapter: load as repository skill instructions.** Canonical source: [`../../.claude/skills/copy-conversion-linter/SKILL.md`](../../.claude/skills/copy-conversion-linter/SKILL.md).
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/copy-conversion-linter/SKILL.md`](../../.claude/skills/copy-conversion-linter/SKILL.md).
 
 # Copy Conversion Linter
 

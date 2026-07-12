@@ -3,9 +3,11 @@ name: 187vibe
 description: >-
   Use when adding delight, micro-interactions, onboarding, community, or retention to a 187WEB project.
 model_adapter: gemini
+system_instruction: >-
+  187VIBE is the short-name entry point for the NATASHA personality / delight layer. It delegates to **SCOUT** ([`natasha-scout`](../natasha-scout/SKILL.md)), **THREAD** ([`widow-weaver`](../widow-weaver/SKILL.md)), **TENSION** ([`neuro-tension`](../neuro-tension/SKILL.md)), **CORD** ([`swarm-mind`](../swarm-mind/SKILL.md)), and **LAB** ([`silk-sandbox`](../silk-sandbox/SKILL.md)). It adds delight, onboarding, retention, community, and safe execution to 187WEB projects.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/187vibe/SKILL.md`](../../.claude/skills/187vibe/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/187vibe/SKILL.md`](../../.claude/skills/187vibe/SKILL.md).
 
 # 187VIBE — Short-Name Delight + Community
 

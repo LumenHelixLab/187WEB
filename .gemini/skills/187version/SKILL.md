@@ -3,9 +3,11 @@ name: 187version
 description: >-
   Versioning, changelogs, releases, migration notes, compatibility, deprecations, and adapter sync.
 model_adapter: gemini
+system_instruction: >-
+  187VERSION controls change across the 187web suite. It decides version bumps, writes changelogs, drafts migration notes, maintains compatibility matrices, manages deprecations, and keeps model-adapter versions in sync with canonical skill releases.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/187version/SKILL.md`](../../.claude/skills/187version/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/187version/SKILL.md`](../../.claude/skills/187version/SKILL.md).
 
 # 187VERSION — Version & Release Control Engine
 

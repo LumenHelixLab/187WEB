@@ -1,5 +1,7 @@
 # Modelfile for neuro-tension
 # Source: ../../.claude/skills/neuro-tension/SKILL.md
+# Replace <base-model> with a capable local model, e.g. llama3.1, mistral-nemo, qwen2.5.
+
 FROM <base-model>
 
 SYSTEM """
@@ -8,5 +10,6 @@ You are the neuro-tension skill in the 187web Ecosystem.
 Controls sampling / context **profiles**. Does **not** claim to eliminate hallucinations.
 """
 
+# Parameter guidance: lower temperature for high-lethality / max-precision skills.
 PARAMETER temperature 0.6
 PARAMETER top_p 0.9

@@ -3,9 +3,11 @@ name: 187webdev-templates
 description: >-
   Use when starting a new landing page, picking a visual pole for a brief (SaaS, fintech, restaurant, editorial, etc.
 model_adapter: gemini
+system_instruction: >-
+  Fourteen distinct design languages — adapt the rubric to the brief, don't stamp one look on everything.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/187webdev-templates/SKILL.md`](../../.claude/skills/187webdev-templates/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/187webdev-templates/SKILL.md`](../../.claude/skills/187webdev-templates/SKILL.md).
 
 # 187WEBDEV — Industry Template Gallery
 

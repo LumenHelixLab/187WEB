@@ -5,7 +5,7 @@ description: >-
 model_adapter: hermes
 ---
 
-> **Hermes adapter: use system.md as the system message.** Canonical source: [`../../.claude/skills/187docs/SKILL.md`](../../.claude/skills/187docs/SKILL.md).
+> **Hermes adapter:** Use `system.md` as the system message for Hermes-based local LLMs (Ollama, lm-studio, etc.). Source: [`../../.claude/skills/187docs/SKILL.md`](../../.claude/skills/187docs/SKILL.md).
 
 # 187DOCS — Documentation Architecture Engine
 

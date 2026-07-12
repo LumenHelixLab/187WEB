@@ -3,9 +3,11 @@ name: neuro-tension
 description: >-
   Use when setting inference profiles (exact, analytical, brainstorm, critic, synthesis, repo-ingestion, local-npu) or legacy neuro-toxin dose parameters.
 model_adapter: gemini
+system_instruction: >-
+  Controls sampling / context **profiles**. Does **not** claim to eliminate hallucinations.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/neuro-tension/SKILL.md`](../../.claude/skills/neuro-tension/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/neuro-tension/SKILL.md`](../../.claude/skills/neuro-tension/SKILL.md).
 
 # neuro-tension — TENSION (Inference Profile Controller)
 

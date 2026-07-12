@@ -3,9 +3,11 @@ name: 187webdev-qa
 description: >-
   Use when running a pre-ship QA audit on a landing page or marketing site before calling it done.
 model_adapter: gemini
+system_instruction: >-
+  Run the full pre-ship audit before calling any page "done."
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/187webdev-qa/SKILL.md`](../../.claude/skills/187webdev-qa/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/187webdev-qa/SKILL.md`](../../.claude/skills/187webdev-qa/SKILL.md).
 
 # 187WEBDEV — Pre-Ship QA
 

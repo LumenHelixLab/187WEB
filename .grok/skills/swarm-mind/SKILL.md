@@ -5,7 +5,7 @@ description: >-
 model_adapter: grok
 ---
 
-> **Grok adapter: load as repository skill instructions.** Canonical source: [`../../.claude/skills/swarm-mind/SKILL.md`](../../.claude/skills/swarm-mind/SKILL.md).
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/swarm-mind/SKILL.md`](../../.claude/skills/swarm-mind/SKILL.md).
 
 # swarm-mind — Engineering & Niche Personas
 

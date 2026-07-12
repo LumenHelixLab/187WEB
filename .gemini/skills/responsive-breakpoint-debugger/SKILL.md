@@ -3,9 +3,11 @@ name: responsive-breakpoint-debugger
 description: >-
   Use when simulating viewports from 320px to 4K and writing media-query fixes for layout breaks.
 model_adapter: gemini
+system_instruction: >-
+  Simulate viewports from 320px to 4k. Detect where the layout breaks or shifts. Write the media-query fixes for the CSS grid/flex container.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/responsive-breakpoint-debugger/SKILL.md`](../../.claude/skills/responsive-breakpoint-debugger/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/responsive-breakpoint-debugger/SKILL.md`](../../.claude/skills/responsive-breakpoint-debugger/SKILL.md).
 
 # Responsive Breakpoint Debugger
 

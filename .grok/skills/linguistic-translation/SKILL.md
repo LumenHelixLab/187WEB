@@ -5,7 +5,7 @@ description: >-
 model_adapter: grok
 ---
 
-> **Grok adapter: load as repository skill instructions.** Canonical source: [`../../.claude/skills/linguistic-translation/SKILL.md`](../../.claude/skills/linguistic-translation/SKILL.md).
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/linguistic-translation/SKILL.md`](../../.claude/skills/linguistic-translation/SKILL.md).
 
 # Polyglot Thread
 

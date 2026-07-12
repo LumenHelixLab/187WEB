@@ -5,7 +5,7 @@ description: >-
 model_adapter: grok
 ---
 
-> **Grok adapter: load as repository skill instructions.** Canonical source: [`../../.claude/skills/187seo/SKILL.md`](../../.claude/skills/187seo/SKILL.md).
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/187seo/SKILL.md`](../../.claude/skills/187seo/SKILL.md).
 
 # 187SEO — Policy-Aware Search Engine Optimization
 

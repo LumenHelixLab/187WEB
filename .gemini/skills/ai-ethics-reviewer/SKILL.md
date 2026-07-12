@@ -3,9 +3,11 @@ name: ai-ethics-reviewer
 description: >-
   Use when auditing an AI system for fairness, bias, transparency, privacy, safety, and providing a mitigation roadmap.
 model_adapter: gemini
+system_instruction: >-
+  Perform algorithmic ethics audits (fairness, bias, transparency, privacy, safety). Provide a mitigation roadmap.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/ai-ethics-reviewer/SKILL.md`](../../.claude/skills/ai-ethics-reviewer/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/ai-ethics-reviewer/SKILL.md`](../../.claude/skills/ai-ethics-reviewer/SKILL.md).
 
 # Ai Ethics Reviewer
 

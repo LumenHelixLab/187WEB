@@ -5,7 +5,7 @@ description: >-
 model_adapter: grok
 ---
 
-> **Grok adapter: load as repository skill instructions.** Canonical source: [`../../.claude/skills/persona-simulation-testing/SKILL.md`](../../.claude/skills/persona-simulation-testing/SKILL.md).
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/persona-simulation-testing/SKILL.md`](../../.claude/skills/persona-simulation-testing/SKILL.md).
 
 # Persona Simulation Testing
 

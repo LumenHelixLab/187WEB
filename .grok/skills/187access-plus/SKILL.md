@@ -5,7 +5,7 @@ description: >-
 model_adapter: grok
 ---
 
-> **Grok adapter: load as repository skill instructions.** Canonical source: [`../../.claude/skills/187access-plus/SKILL.md`](../../.claude/skills/187access-plus/SKILL.md).
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/187access-plus/SKILL.md`](../../.claude/skills/187access-plus/SKILL.md).
 
 # 187ACCESS+ — Accessibility & Inclusion Engine
 

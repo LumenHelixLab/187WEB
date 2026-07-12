@@ -5,7 +5,7 @@ description: >-
 model_adapter: kimi
 ---
 
-> **Kimi adapter: load via the Kimi Skill tool or skills directory.** Canonical source: [`../../.claude/skills/ml-systems-architect/SKILL.md`](../../.claude/skills/ml-systems-architect/SKILL.md).
+> **Kimi adapter:** Load via the Kimi Skill tool or place in your Kimi skills directory. Source: [`../../.claude/skills/ml-systems-architect/SKILL.md`](../../.claude/skills/ml-systems-architect/SKILL.md).
 
 # Ml Systems Architect
 

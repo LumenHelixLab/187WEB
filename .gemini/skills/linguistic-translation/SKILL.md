@@ -3,9 +3,11 @@ name: linguistic-translation
 description: >-
   Use when translating text across languages while preserving formatting, technical terminology, and contextual nuance.
 model_adapter: gemini
+system_instruction: >-
+  You are an expert linguist and domain specialist. Translate the following text into the requested target language. Preserve the original formatting, technical terminology, syntax, and contextual nuance perfectly.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/linguistic-translation/SKILL.md`](../../.claude/skills/linguistic-translation/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/linguistic-translation/SKILL.md`](../../.claude/skills/linguistic-translation/SKILL.md).
 
 # Polyglot Thread
 

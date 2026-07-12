@@ -3,9 +3,11 @@ name: 187webdev-resilience
 description: >-
   Use when building loading states, error boundaries, skeletons, or reviewing failure paths in the same pass as features.
 model_adapter: gemini
+system_instruction: >-
+  Award demos show the happy path; shipped products survive everything else.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/187webdev-resilience/SKILL.md`](../../.claude/skills/187webdev-resilience/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/187webdev-resilience/SKILL.md`](../../.claude/skills/187webdev-resilience/SKILL.md).
 
 # 187WEBDEV — Resilience (Unhappy Path)
 

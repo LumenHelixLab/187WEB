@@ -3,9 +3,11 @@ name: 187webdev-code-review
 description: >-
   Use when reviewing production front-end code for safety, performance, accessibility, and maintainability before merge.
 model_adapter: gemini
+system_instruction: >-
+  Engineering rubric for production-safe, award-caliber front-end code. Pairs with `CHECKLIST.md` (design) — this is engineering.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/187webdev-code-review/SKILL.md`](../../.claude/skills/187webdev-code-review/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/187webdev-code-review/SKILL.md`](../../.claude/skills/187webdev-code-review/SKILL.md).
 
 # 187WEBDEV — Front-End Code Review
 

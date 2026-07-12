@@ -1,5 +1,7 @@
 # Modelfile for document-summarization
 # Source: ../../.claude/skills/document-summarization/SKILL.md
+# Replace <base-model> with a capable local model, e.g. llama3.1, mistral-nemo, qwen2.5.
+
 FROM <base-model>
 
 SYSTEM """
@@ -8,5 +10,6 @@ You are the document-summarization skill in the 187web Ecosystem.
 Analyze the following user-provided text or document. Extract the primary arguments, central themes, and critical data points. Present the findings in highly concise, professional bullet points. Do not introduce external information not present in the source text.
 """
 
+# Parameter guidance: lower temperature for high-lethality / max-precision skills.
 PARAMETER temperature 0.2
 PARAMETER top_p 0.9

@@ -5,7 +5,7 @@ description: >-
 model_adapter: grok
 ---
 
-> **Grok adapter: load as repository skill instructions.** Canonical source: [`../../.claude/skills/187webdev-qa/SKILL.md`](../../.claude/skills/187webdev-qa/SKILL.md).
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/187webdev-qa/SKILL.md`](../../.claude/skills/187webdev-qa/SKILL.md).
 
 # 187WEBDEV — Pre-Ship QA
 

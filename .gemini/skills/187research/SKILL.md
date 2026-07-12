@@ -3,9 +3,11 @@ name: 187research
 description: >-
   Research-grade source routing, evidence discipline, reproducible computational labs, and scholarly/biomedical/mathematical/software database routing for publication-ready artifacts.
 model_adapter: gemini
+system_instruction: >-
+  187RESEARCH is the Lumen Helix research-grade lab engine. It routes research questions through appropriate scientific, mathematical, biomedical, software, and scholarly databases; classifies claims; builds reproducible lab artifacts; generates professional and collegiate-quality interactive labs; and converts findings into source-backed notes, demos, papers, specs, and product paths.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/187research/SKILL.md`](../../.claude/skills/187research/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/187research/SKILL.md`](../../.claude/skills/187research/SKILL.md).
 
 # 187RESEARCH — Research-Grade Lab Engine
 

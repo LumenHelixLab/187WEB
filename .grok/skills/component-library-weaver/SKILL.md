@@ -5,7 +5,7 @@ description: >-
 model_adapter: grok
 ---
 
-> **Grok adapter: load as repository skill instructions.** Canonical source: [`../../.claude/skills/component-library-weaver/SKILL.md`](../../.claude/skills/component-library-weaver/SKILL.md).
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/component-library-weaver/SKILL.md`](../../.claude/skills/component-library-weaver/SKILL.md).
 
 # Component Library Weaver
 

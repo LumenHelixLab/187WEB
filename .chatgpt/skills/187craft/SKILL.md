@@ -5,7 +5,7 @@ description: >-
 model_adapter: chatgpt
 ---
 
-> **ChatGPT adapter: use as custom GPT or system instructions.** Canonical source: [`../../.claude/skills/187craft/SKILL.md`](../../.claude/skills/187craft/SKILL.md).
+> **ChatGPT adapter:** Use the markdown below as the custom GPT / system instructions. Source: [`../../.claude/skills/187craft/SKILL.md`](../../.claude/skills/187craft/SKILL.md).
 
 # 187CRAFT — Short-Name Design + Frontend
 

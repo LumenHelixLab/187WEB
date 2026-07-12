@@ -5,7 +5,7 @@ description: >-
 model_adapter: grok
 ---
 
-> **Grok adapter: load as repository skill instructions.** Canonical source: [`../../.claude/skills/email-follow-up/SKILL.md`](../../.claude/skills/email-follow-up/SKILL.md).
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/email-follow-up/SKILL.md`](../../.claude/skills/email-follow-up/SKILL.md).
 
 # Email Followup
 

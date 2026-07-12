@@ -5,7 +5,7 @@ description: >-
 model_adapter: grok
 ---
 
-> **Grok adapter: load as repository skill instructions.** Canonical source: [`../../.claude/skills/token-web/SKILL.md`](../../.claude/skills/token-web/SKILL.md).
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/token-web/SKILL.md`](../../.claude/skills/token-web/SKILL.md).
 
 # token-web — COMPRESS
 

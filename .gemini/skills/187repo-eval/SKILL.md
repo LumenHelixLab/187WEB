@@ -3,9 +3,11 @@ name: 187repo-eval
 description: >-
   Use when evaluating a repository, package, or third-party tool for adoption into the 187web suite.
 model_adapter: gemini
+system_instruction: >-
+  - User says "evaluate repo", "repo review", "integration scorecard", "should we adopt", or "187repo eval". - A new dependency, scaffold, library, or service is being considered for a 187web project. - You need a documented yes/no/watch decision with evidence.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/187repo-eval/SKILL.md`](../../.claude/skills/187repo-eval/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/187repo-eval/SKILL.md`](../../.claude/skills/187repo-eval/SKILL.md).
 
 # 187REPO-EVAL — Repo Integration Scorecard
 

@@ -5,7 +5,7 @@ description: >-
 model_adapter: grok
 ---
 
-> **Grok adapter: load as repository skill instructions.** Canonical source: [`../../.claude/skills/a11y-linting-agent/SKILL.md`](../../.claude/skills/a11y-linting-agent/SKILL.md).
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/a11y-linting-agent/SKILL.md`](../../.claude/skills/a11y-linting-agent/SKILL.md).
 
 # A11y Linting Agent
 

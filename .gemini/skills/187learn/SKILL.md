@@ -3,9 +3,11 @@ name: 187learn
 description: >-
   Design courses, study plans, curricula, lessons, workshops, learning paths, and accessible learning experiences.
 model_adapter: gemini
+system_instruction: >-
+  187LEARN designs courses, study plans, curricula, lessons, workshops, microlearning, project-based learning, instructor guides, student guides, and accessible learning experiences for 187web projects. It translates knowledge into sequenced, measurable, learner-centered artifacts that can feed docs, SEO, revenue, and testing workflows.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/187learn/SKILL.md`](../../.claude/skills/187learn/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/187learn/SKILL.md`](../../.claude/skills/187learn/SKILL.md).
 
 # 187LEARN — Learning Experience Engine
 

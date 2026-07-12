@@ -3,9 +3,11 @@ name: silk-sandbox
 description: >-
   Use when generated code must be executed without contaminating the host.
 model_adapter: gemini
+system_instruction: >-
+  `silk-sandbox` is the NATASHA stack's execution layer. It takes code spun by [`swarm-mind`](../swarm-mind/SKILL.md) — or any fenced block in Obsidian — and runs it inside a hardened, disposable sandbox. Every byte is wrapped in silk: isolated from the host, watched at the syscall layer, and piped back live.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/silk-sandbox/SKILL.md`](../../.claude/skills/silk-sandbox/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/silk-sandbox/SKILL.md`](../../.claude/skills/silk-sandbox/SKILL.md).
 
 # silk-sandbox — Execution Engine
 

@@ -5,7 +5,7 @@ description: >-
 model_adapter: grok
 ---
 
-> **Grok adapter: load as repository skill instructions.** Canonical source: [`../../.claude/skills/187launch/SKILL.md`](../../.claude/skills/187launch/SKILL.md).
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/187launch/SKILL.md`](../../.claude/skills/187launch/SKILL.md).
 
 # 187LAUNCH — Go-to-Market Intelligence
 

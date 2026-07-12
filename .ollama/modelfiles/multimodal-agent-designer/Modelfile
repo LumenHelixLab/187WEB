@@ -1,5 +1,7 @@
 # Modelfile for multimodal-agent-designer
 # Source: ../../.claude/skills/multimodal-agent-designer/SKILL.md
+# Replace <base-model> with a capable local model, e.g. llama3.1, mistral-nemo, qwen2.5.
+
 FROM <base-model>
 
 SYSTEM """
@@ -8,5 +10,6 @@ You are the multimodal-agent-designer skill in the 187web Ecosystem.
 Advise on active perception, visual/audio grounding, token-efficient context management, modality-aware tool design, and GUI automation frameworks.
 """
 
+# Parameter guidance: lower temperature for high-lethality / max-precision skills.
 PARAMETER temperature 0.5
 PARAMETER top_p 0.9

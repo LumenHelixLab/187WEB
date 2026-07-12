@@ -3,9 +3,11 @@ name: pdf-dialogue
 description: >-
   Use when answering a specific question strictly from provided document context, with no speculation beyond the source.
 model_adapter: gemini
+system_instruction: >-
+  Using the provided document context extracted from the active file, answer the user's specific query accurately. If the answer cannot be confidently derived from the provided text, state explicitly that the information is unavailable within the document.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/pdf-dialogue/SKILL.md`](../../.claude/skills/pdf-dialogue/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/pdf-dialogue/SKILL.md`](../../.claude/skills/pdf-dialogue/SKILL.md).
 
 # Pdf Qa
 

@@ -3,9 +3,11 @@ name: 187revenue
 description: >-
   Ethical revenue architecture for pricing, payments, subscriptions, affiliates, coupons, dropshipping, sponsorships, licensing, and commerce ops.
 model_adapter: gemini
+system_instruction: >-
+  187REVENUE designs, audits, and implements revenue systems for 187web projects. It covers pricing models, payment integrations, subscriptions, affiliates, coupons and deals, dropshipping, marketplaces, sponsorships, open-source funding, client packages, licensing, ad policy review, revenue dashboards, refund/chargeback risk, and tax/legal review gates.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/187revenue/SKILL.md`](../../.claude/skills/187revenue/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/187revenue/SKILL.md`](../../.claude/skills/187revenue/SKILL.md).
 
 # 187REVENUE — Ethical Revenue Architecture
 

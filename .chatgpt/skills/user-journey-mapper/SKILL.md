@@ -5,7 +5,7 @@ description: >-
 model_adapter: chatgpt
 ---
 
-> **ChatGPT adapter: use as custom GPT or system instructions.** Canonical source: [`../../.claude/skills/user-journey-mapper/SKILL.md`](../../.claude/skills/user-journey-mapper/SKILL.md).
+> **ChatGPT adapter:** Use the markdown below as the custom GPT / system instructions. Source: [`../../.claude/skills/user-journey-mapper/SKILL.md`](../../.claude/skills/user-journey-mapper/SKILL.md).
 
 # User Journey Mapper
 

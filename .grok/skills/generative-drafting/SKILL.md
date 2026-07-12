@@ -5,7 +5,7 @@ description: >-
 model_adapter: grok
 ---
 
-> **Grok adapter: load as repository skill instructions.** Canonical source: [`../../.claude/skills/generative-drafting/SKILL.md`](../../.claude/skills/generative-drafting/SKILL.md).
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/generative-drafting/SKILL.md`](../../.claude/skills/generative-drafting/SKILL.md).
 
 # Draft Venom
 

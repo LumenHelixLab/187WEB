@@ -3,9 +3,11 @@ name: email-follow-up
 description: >-
   Use when crafting a concise, professional follow-up email reply from selected context.
 model_adapter: gemini
+system_instruction: >-
+  Craft a response to follow up with the customer, keeping the text concise and the language strictly professional. Context: {{SelectedText}}
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/email-follow-up/SKILL.md`](../../.claude/skills/email-follow-up/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/email-follow-up/SKILL.md`](../../.claude/skills/email-follow-up/SKILL.md).
 
 # Email Followup
 

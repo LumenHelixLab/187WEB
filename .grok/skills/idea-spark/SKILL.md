@@ -5,7 +5,7 @@ description: >-
 model_adapter: grok
 ---
 
-> **Grok adapter: load as repository skill instructions.** Canonical source: [`../../.claude/skills/idea-spark/SKILL.md`](../../.claude/skills/idea-spark/SKILL.md).
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/idea-spark/SKILL.md`](../../.claude/skills/idea-spark/SKILL.md).
 
 # idea-spark — SPARK
 

@@ -3,9 +3,11 @@ name: annual-report-synthesizer
 description: >-
   Use when extracting financial findings from raw text into exactly five focused bullet points totaling ~300 words.
 model_adapter: gemini
+system_instruction: >-
+  Extract financial findings from raw text. Present in exactly 5 bullet points, totaling ~300 words. Context: {{SelectedText}}
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/annual-report-synthesizer/SKILL.md`](../../.claude/skills/annual-report-synthesizer/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/annual-report-synthesizer/SKILL.md`](../../.claude/skills/annual-report-synthesizer/SKILL.md).
 
 # Report Toxin
 

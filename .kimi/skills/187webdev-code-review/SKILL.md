@@ -5,7 +5,7 @@ description: >-
 model_adapter: kimi
 ---
 
-> **Kimi adapter: load via the Kimi Skill tool or skills directory.** Canonical source: [`../../.claude/skills/187webdev-code-review/SKILL.md`](../../.claude/skills/187webdev-code-review/SKILL.md).
+> **Kimi adapter:** Load via the Kimi Skill tool or place in your Kimi skills directory. Source: [`../../.claude/skills/187webdev-code-review/SKILL.md`](../../.claude/skills/187webdev-code-review/SKILL.md).
 
 # 187WEBDEV — Front-End Code Review
 

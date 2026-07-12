@@ -3,9 +3,11 @@ name: ui-aesthetic-auditor
 description: >-
   Use when auditing a generated UI component against the Abyssal design system and prescribing precise CSS adjustments.
 model_adapter: gemini
+system_instruction: >-
+  Analyze the generated UI component. Evaluate against 'Abyssal' design principles (Contrast, Whitespace, Hierarchy). Suggest precise CSS adjustments to reach a 'Lethal/Professional' aesthetic level.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/ui-aesthetic-auditor/SKILL.md`](../../.claude/skills/ui-aesthetic-auditor/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/ui-aesthetic-auditor/SKILL.md`](../../.claude/skills/ui-aesthetic-auditor/SKILL.md).
 
 # UI Aesthetic Auditor
 

@@ -39,5 +39,6 @@ Higher autonomy is never implied. It must be requested through an explicit mode 
 
 - [docs/187SKILLS.md](187SKILLS.md) — full skill roster and command grammar.
 - [docs/187-NAMES.md](187-NAMES.md) — alias table, modes, and depths.
-- [docs/187-MODULES.md](187-MODULES.md) — THREAD, TUNE, CORD, CHAR, LAB.
-- [docs/187-CHAR.md](187-CHAR.md) — the shared scout module.
+- [docs/187-MODULES.md](187-MODULES.md) — THREAD, COMPRESS, TENSION, SPARK, CORD, SCOUT, LAB, FUSE.
+- [docs/187-CHAR.md](187-CHAR.md) — legacy scout doc (maps to SCOUT).
+- [docs/NATASHA-AGENTIC-HANDOFFS.md](NATASHA-AGENTIC-HANDOFFS.md) — HANDOFF workflow support.

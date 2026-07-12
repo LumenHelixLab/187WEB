@@ -3,9 +3,11 @@ name: state-machine-generator
 description: >-
   Use when documenting agent logic as a finite state machine with no dead-end states.
 model_adapter: gemini
+system_instruction: >-
+  Document the current agent logic as a State Machine. Define states (Idle, Scanning, Weaving, Abort). Ensure no state is a 'dead-end'.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/state-machine-generator/SKILL.md`](../../.claude/skills/state-machine-generator/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/state-machine-generator/SKILL.md`](../../.claude/skills/state-machine-generator/SKILL.md).
 
 # State Machine Generator
 

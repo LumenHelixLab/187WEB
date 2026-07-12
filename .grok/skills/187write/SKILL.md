@@ -5,7 +5,7 @@ description: >-
 model_adapter: grok
 ---
 
-> **Grok adapter: load as repository skill instructions.** Canonical source: [`../../.claude/skills/187write/SKILL.md`](../../.claude/skills/187write/SKILL.md).
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/187write/SKILL.md`](../../.claude/skills/187write/SKILL.md).
 
 # 187WRITE — Suite-Wide Editorial Engine
 

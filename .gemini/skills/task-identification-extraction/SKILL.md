@@ -3,9 +3,11 @@ name: task-identification-extraction
 description: >-
   Use when converting meeting transcripts or chaotic chat logs into actionable, distinct to-do items.
 model_adapter: gemini
+system_instruction: >-
+  Convert meeting transcripts or chaotic chat logs into actionable, distinct to-do lists within the OS environment. Context: {{SelectedText}}
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/task-identification-extraction/SKILL.md`](../../.claude/skills/task-identification-extraction/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/task-identification-extraction/SKILL.md`](../../.claude/skills/task-identification-extraction/SKILL.md).
 
 # Task Extractor
 

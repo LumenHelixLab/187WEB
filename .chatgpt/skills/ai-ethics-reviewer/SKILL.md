@@ -5,7 +5,7 @@ description: >-
 model_adapter: chatgpt
 ---
 
-> **ChatGPT adapter: use as custom GPT or system instructions.** Canonical source: [`../../.claude/skills/ai-ethics-reviewer/SKILL.md`](../../.claude/skills/ai-ethics-reviewer/SKILL.md).
+> **ChatGPT adapter:** Use the markdown below as the custom GPT / system instructions. Source: [`../../.claude/skills/ai-ethics-reviewer/SKILL.md`](../../.claude/skills/ai-ethics-reviewer/SKILL.md).
 
 # Ai Ethics Reviewer
 

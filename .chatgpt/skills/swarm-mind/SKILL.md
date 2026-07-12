@@ -5,7 +5,7 @@ description: >-
 model_adapter: chatgpt
 ---
 
-> **ChatGPT adapter: use as custom GPT or system instructions.** Canonical source: [`../../.claude/skills/swarm-mind/SKILL.md`](../../.claude/skills/swarm-mind/SKILL.md).
+> **ChatGPT adapter:** Use the markdown below as the custom GPT / system instructions. Source: [`../../.claude/skills/swarm-mind/SKILL.md`](../../.claude/skills/swarm-mind/SKILL.md).
 
 # swarm-mind — Engineering & Niche Personas
 

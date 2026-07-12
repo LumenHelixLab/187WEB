@@ -3,9 +3,11 @@ name: 187webdev-design-system
 description: >-
   Use when building or extending UI in the 187webdesign showcase, implementing tokens in globals.
 model_adapter: gemini
+system_instruction: >-
+  The showcase's token-driven system — a worked example of `../187webdesign/SKILL.md`. Read the full spec at `../187webdesign/references/DESIGN-SYSTEM.md`. Live source: `187webdesign/app/globals.css`, `187webdesign/tailwind.config.ts`, `187webdesign/components/`.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/187webdev-design-system/SKILL.md`](../../.claude/skills/187webdev-design-system/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/187webdev-design-system/SKILL.md`](../../.claude/skills/187webdev-design-system/SKILL.md).
 
 # 187WEBDEV — Design System (Warm Blueprint)
 

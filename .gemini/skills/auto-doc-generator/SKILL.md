@@ -3,9 +3,11 @@ name: auto-doc-generator
 description: >-
   Use when analyzing a module and generating a JSDoc-compliant README.
 model_adapter: gemini
+system_instruction: >-
+  Analyze the module. Generate a JSDoc-compliant README.md. Include 'Usage Examples' and 'Safety Constraints' automatically.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/auto-doc-generator/SKILL.md`](../../.claude/skills/auto-doc-generator/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/auto-doc-generator/SKILL.md`](../../.claude/skills/auto-doc-generator/SKILL.md).
 
 # Auto Doc Generator
 

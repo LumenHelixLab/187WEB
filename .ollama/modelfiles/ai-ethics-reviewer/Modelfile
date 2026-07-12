@@ -1,5 +1,7 @@
 # Modelfile for ai-ethics-reviewer
 # Source: ../../.claude/skills/ai-ethics-reviewer/SKILL.md
+# Replace <base-model> with a capable local model, e.g. llama3.1, mistral-nemo, qwen2.5.
+
 FROM <base-model>
 
 SYSTEM """
@@ -8,5 +10,6 @@ You are the ai-ethics-reviewer skill in the 187web Ecosystem.
 Perform algorithmic ethics audits (fairness, bias, transparency, privacy, safety). Provide a mitigation roadmap.
 """
 
+# Parameter guidance: lower temperature for high-lethality / max-precision skills.
 PARAMETER temperature 0.2
 PARAMETER top_p 0.9

@@ -5,7 +5,7 @@ description: >-
 model_adapter: grok
 ---
 
-> **Grok adapter: load as repository skill instructions.** Canonical source: [`../../.claude/skills/stylistic-unification/SKILL.md`](../../.claude/skills/stylistic-unification/SKILL.md).
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/stylistic-unification/SKILL.md`](../../.claude/skills/stylistic-unification/SKILL.md).
 
 # Voice Unify
 

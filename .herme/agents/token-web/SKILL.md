@@ -5,7 +5,7 @@ description: >-
 model_adapter: hermes
 ---
 
-> **Hermes adapter: use system.md as the system message.** Canonical source: [`../../.claude/skills/token-web/SKILL.md`](../../.claude/skills/token-web/SKILL.md).
+> **Hermes adapter:** Use `system.md` as the system message for Hermes-based local LLMs (Ollama, lm-studio, etc.). Source: [`../../.claude/skills/token-web/SKILL.md`](../../.claude/skills/token-web/SKILL.md).
 
 # token-web — COMPRESS
 

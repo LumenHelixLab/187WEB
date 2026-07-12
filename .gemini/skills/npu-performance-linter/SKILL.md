@@ -3,9 +3,11 @@ name: npu-performance-linter
 description: >-
   Use when auditing JavaScript/TypeScript for main-thread blocking and proposing WebWorker offloading to maintain 60fps.
 model_adapter: gemini
+system_instruction: >-
+  Audit the current JS/TypeScript logic for potential 'Main Thread' blocking. Propose a WebWorker offloading strategy to keep the 60FPS UI fluid.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/npu-performance-linter/SKILL.md`](../../.claude/skills/npu-performance-linter/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/npu-performance-linter/SKILL.md`](../../.claude/skills/npu-performance-linter/SKILL.md).
 
 # NPU Performance Linter
 

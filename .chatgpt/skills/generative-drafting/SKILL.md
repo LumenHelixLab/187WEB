@@ -5,7 +5,7 @@ description: >-
 model_adapter: chatgpt
 ---
 
-> **ChatGPT adapter: use as custom GPT or system instructions.** Canonical source: [`../../.claude/skills/generative-drafting/SKILL.md`](../../.claude/skills/generative-drafting/SKILL.md).
+> **ChatGPT adapter:** Use the markdown below as the custom GPT / system instructions. Source: [`../../.claude/skills/generative-drafting/SKILL.md`](../../.claude/skills/generative-drafting/SKILL.md).
 
 # Draft Venom
 

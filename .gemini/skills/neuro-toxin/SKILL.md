@@ -3,9 +3,11 @@ name: neuro-toxin
 description: >-
   DEPRECATED. Routes to neuro-tension (TENSION). Do not use for new work.
 model_adapter: gemini
+system_instruction: >-
+  **Status:** deprecated as of 2026-07-12. **Replacement:** [`neuro-tension`](../neuro-tension/SKILL.md) (module **TENSION** / legacy **TUNE**). **Migration:** [`docs/migrations/CHARLOTTE-TO-NATASHA.md`](../../../docs/migrations/CHARLOTTE-TO-NATASHA.md).
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/neuro-toxin/SKILL.md`](../../.claude/skills/neuro-toxin/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/neuro-toxin/SKILL.md`](../../.claude/skills/neuro-toxin/SKILL.md).
 
 # neuro-toxin — DEPRECATED
 

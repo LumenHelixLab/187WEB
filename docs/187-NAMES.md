@@ -39,10 +39,11 @@ Alias | Resolves to
 | `ver` / `v` | 187VERSION |
 | `pub` / `sync` | 187PUBLISH |
 | `th` / `thread` | THREAD |
-| `tu` / `tune` | TUNE |
+| `tu` / `tension` / `tune` | TENSION (legacy alias: TUNE) |
 | `co` / `cord` | CORD |
-| `ch` / `char` | CHAR |
+| `ch` / `scout` / `char` | SCOUT (legacy alias: CHAR) |
 | `lb` / `lab` | LAB |
+| `handoff` / `ash` | agentic-sprint-handoff (HANDOFF artifact) |
 
 ## Workflow modes
 

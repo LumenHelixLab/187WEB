@@ -3,9 +3,11 @@ name: stylistic-unification
 description: >-
   Use when standardizing multi-author contributions into a consistent executive voice and flow.
 model_adapter: gemini
+system_instruction: >-
+  Standardize multi-author contributions to achieve a consistent, singular executive voice. Focus on sentence structure and flow. Context: {{SelectedText}}
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/stylistic-unification/SKILL.md`](../../.claude/skills/stylistic-unification/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/stylistic-unification/SKILL.md`](../../.claude/skills/stylistic-unification/SKILL.md).
 
 # Voice Unify
 

@@ -5,7 +5,7 @@ description: >-
 model_adapter: grok
 ---
 
-> **Grok adapter: load as repository skill instructions.** Canonical source: [`../../.claude/skills/npu-performance-linter/SKILL.md`](../../.claude/skills/npu-performance-linter/SKILL.md).
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/npu-performance-linter/SKILL.md`](../../.claude/skills/npu-performance-linter/SKILL.md).
 
 # NPU Performance Linter
 

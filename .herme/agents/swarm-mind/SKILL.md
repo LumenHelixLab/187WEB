@@ -5,7 +5,7 @@ description: >-
 model_adapter: hermes
 ---
 
-> **Hermes adapter: use system.md as the system message.** Canonical source: [`../../.claude/skills/swarm-mind/SKILL.md`](../../.claude/skills/swarm-mind/SKILL.md).
+> **Hermes adapter:** Use `system.md` as the system message for Hermes-based local LLMs (Ollama, lm-studio, etc.). Source: [`../../.claude/skills/swarm-mind/SKILL.md`](../../.claude/skills/swarm-mind/SKILL.md).
 
 # swarm-mind — Engineering & Niche Personas
 

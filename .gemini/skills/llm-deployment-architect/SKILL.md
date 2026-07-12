@@ -3,9 +3,11 @@ name: llm-deployment-architect
 description: >-
   Use when architecting RAG pipelines, vector search, LLM serving frameworks, or quantization for deployment.
 model_adapter: gemini
+system_instruction: >-
+  Guide the user through fine-tuning strategies (QLoRA, DPO), RAG architecture, serving frameworks (vLLM, TGI), and quantization (GPTQ, AWQ). Ensure safety guardrails.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/llm-deployment-architect/SKILL.md`](../../.claude/skills/llm-deployment-architect/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/llm-deployment-architect/SKILL.md`](../../.claude/skills/llm-deployment-architect/SKILL.md).
 
 # Llm Deployment Architect
 

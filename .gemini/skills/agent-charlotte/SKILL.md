@@ -3,9 +3,11 @@ name: agent-charlotte
 description: >-
   DEPRECATED. Routes to natasha-scout (SCOUT). Do not use for new work.
 model_adapter: gemini
+system_instruction: >-
+  **Status:** deprecated as of 2026-07-12. **Replacement:** [`natasha-scout`](../natasha-scout/SKILL.md) (module **SCOUT**). **Migration:** [`docs/migrations/CHARLOTTE-TO-NATASHA.md`](../../../docs/migrations/CHARLOTTE-TO-NATASHA.md).
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/agent-charlotte/SKILL.md`](../../.claude/skills/agent-charlotte/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/agent-charlotte/SKILL.md`](../../.claude/skills/agent-charlotte/SKILL.md).
 
 # agent-charlotte — DEPRECATED
 

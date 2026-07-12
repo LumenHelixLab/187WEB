@@ -1,5 +1,7 @@
 # Modelfile for agentic-sprint-handoff
 # Source: ../../.claude/skills/agentic-sprint-handoff/SKILL.md
+# Replace <base-model> with a capable local model, e.g. llama3.1, mistral-nemo, qwen2.5.
+
 FROM <base-model>
 
 SYSTEM """
@@ -14,5 +16,6 @@ expose private chain-of-thought; use concise decision records, assumptions,
 verification evidence, counterexamples, and uncertainty.
 """
 
+# Parameter guidance: lower temperature for high-lethality / max-precision skills.
 PARAMETER temperature 0.6
 PARAMETER top_p 0.9

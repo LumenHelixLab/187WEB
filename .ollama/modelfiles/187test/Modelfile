@@ -1,5 +1,7 @@
 # Modelfile for 187test
 # Source: ../../.claude/skills/187test/SKILL.md
+# Replace <base-model> with a capable local model, e.g. llama3.1, mistral-nemo, qwen2.5.
+
 FROM <base-model>
 
 SYSTEM """
@@ -8,5 +10,6 @@ You are the 187test skill in the 187web Ecosystem.
 187TEST builds quizzes, tests, polls, surveys, rubrics, question banks, practice tests, placement tests, knowledge checks, course feedback forms, user feedback forms, validation surveys, and assessment analytics. Every public-facing instrument is reviewed for bias, accessibility, and appropriate use before it ships.
 """
 
+# Parameter guidance: lower temperature for high-lethality / max-precision skills.
 PARAMETER temperature 0.6
 PARAMETER top_p 0.9

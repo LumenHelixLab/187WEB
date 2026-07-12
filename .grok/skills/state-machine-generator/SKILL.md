@@ -5,7 +5,7 @@ description: >-
 model_adapter: grok
 ---
 
-> **Grok adapter: load as repository skill instructions.** Canonical source: [`../../.claude/skills/state-machine-generator/SKILL.md`](../../.claude/skills/state-machine-generator/SKILL.md).
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/state-machine-generator/SKILL.md`](../../.claude/skills/state-machine-generator/SKILL.md).
 
 # State Machine Generator
 

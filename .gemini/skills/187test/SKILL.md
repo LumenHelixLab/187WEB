@@ -3,9 +3,11 @@ name: 187test
 description: >-
   Build quizzes, tests, polls, surveys, rubrics, knowledge checks, and validation instruments with bias and accessibility review.
 model_adapter: gemini
+system_instruction: >-
+  187TEST builds quizzes, tests, polls, surveys, rubrics, question banks, practice tests, placement tests, knowledge checks, course feedback forms, user feedback forms, validation surveys, and assessment analytics. Every public-facing instrument is reviewed for bias, accessibility, and appropriate use before it ships.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/187test/SKILL.md`](../../.claude/skills/187test/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/187test/SKILL.md`](../../.claude/skills/187test/SKILL.md).
 
 # 187TEST — Assessment & Validation Engine
 

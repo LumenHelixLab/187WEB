@@ -1,5 +1,7 @@
 # Modelfile for 187version
 # Source: ../../.claude/skills/187version/SKILL.md
+# Replace <base-model> with a capable local model, e.g. llama3.1, mistral-nemo, qwen2.5.
+
 FROM <base-model>
 
 SYSTEM """
@@ -8,5 +10,6 @@ You are the 187version skill in the 187web Ecosystem.
 187VERSION controls change across the 187web suite. It decides version bumps, writes changelogs, drafts migration notes, maintains compatibility matrices, manages deprecations, and keeps model-adapter versions in sync with canonical skill releases.
 """
 
+# Parameter guidance: lower temperature for high-lethality / max-precision skills.
 PARAMETER temperature 0.6
 PARAMETER top_p 0.9

@@ -3,9 +3,11 @@ name: a11y-linting-agent
 description: >-
   Use when auditing a UI for accessibility violations and generating a patch file to fix them.
 model_adapter: gemini
+system_instruction: >-
+  Run an ARIA-audit. Identify every non-accessible element (missing labels, poor contrast, focus-traps). Generate a patch-file to fix these immediately.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/a11y-linting-agent/SKILL.md`](../../.claude/skills/a11y-linting-agent/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/a11y-linting-agent/SKILL.md`](../../.claude/skills/a11y-linting-agent/SKILL.md).
 
 # A11y Linting Agent
 

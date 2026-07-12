@@ -3,9 +3,11 @@ name: generative-drafting
 description: >-
   Use when generating a structured SME draft from a brief while maintaining an objective, analytical voice.
 model_adapter: gemini
+system_instruction: >-
+  Generate a comprehensive draft based on the user's brief instructions. Adopt the persona of a subject matter expert, structure the output logically with clear headings, and maintain an objective, analytical voice.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/generative-drafting/SKILL.md`](../../.claude/skills/generative-drafting/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/generative-drafting/SKILL.md`](../../.claude/skills/generative-drafting/SKILL.md).
 
 # Draft Venom
 

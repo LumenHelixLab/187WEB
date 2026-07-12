@@ -3,9 +3,11 @@ name: document-summarization
 description: >-
   Use when the user needs a dense, source-faithful summary of a long document or text, with no external information introduced.
 model_adapter: gemini
+system_instruction: >-
+  Analyze the following user-provided text or document. Extract the primary arguments, central themes, and critical data points. Present the findings in highly concise, professional bullet points. Do not introduce external information not present in the source text.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/document-summarization/SKILL.md`](../../.claude/skills/document-summarization/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/document-summarization/SKILL.md`](../../.claude/skills/document-summarization/SKILL.md).
 
 # Tldr Toxin
 

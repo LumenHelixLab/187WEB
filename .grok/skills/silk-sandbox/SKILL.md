@@ -5,7 +5,7 @@ description: >-
 model_adapter: grok
 ---
 
-> **Grok adapter: load as repository skill instructions.** Canonical source: [`../../.claude/skills/silk-sandbox/SKILL.md`](../../.claude/skills/silk-sandbox/SKILL.md).
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/silk-sandbox/SKILL.md`](../../.claude/skills/silk-sandbox/SKILL.md).
 
 # silk-sandbox — Execution Engine
 

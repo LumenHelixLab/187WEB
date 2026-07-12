@@ -5,7 +5,7 @@ description: >-
 model_adapter: kimi
 ---
 
-> **Kimi adapter: load via the Kimi Skill tool or skills directory.** Canonical source: [`../../.claude/skills/generative-drafting/SKILL.md`](../../.claude/skills/generative-drafting/SKILL.md).
+> **Kimi adapter:** Load via the Kimi Skill tool or place in your Kimi skills directory. Source: [`../../.claude/skills/generative-drafting/SKILL.md`](../../.claude/skills/generative-drafting/SKILL.md).
 
 # Draft Venom
 

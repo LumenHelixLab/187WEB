@@ -5,7 +5,7 @@ description: >-
 model_adapter: grok
 ---
 
-> **Grok adapter: load as repository skill instructions.** Canonical source: [`../../.claude/skills/187vibe/SKILL.md`](../../.claude/skills/187vibe/SKILL.md).
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/187vibe/SKILL.md`](../../.claude/skills/187vibe/SKILL.md).
 
 # 187VIBE — Short-Name Delight + Community
 

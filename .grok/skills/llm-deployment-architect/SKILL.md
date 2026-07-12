@@ -5,7 +5,7 @@ description: >-
 model_adapter: grok
 ---
 
-> **Grok adapter: load as repository skill instructions.** Canonical source: [`../../.claude/skills/llm-deployment-architect/SKILL.md`](../../.claude/skills/llm-deployment-architect/SKILL.md).
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/llm-deployment-architect/SKILL.md`](../../.claude/skills/llm-deployment-architect/SKILL.md).
 
 # Llm Deployment Architect
 

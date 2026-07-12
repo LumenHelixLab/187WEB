@@ -3,9 +3,11 @@ name: seo-semantic-optimizer
 description: >-
   Use when auditing DOM semantic hierarchy and meta descriptions for a target persona.
 model_adapter: gemini
+system_instruction: >-
+  Parse the current DOM. Ensure all H1-H6 tags follow semantic hierarchy. Optimize meta-descriptions for click-through rate based on the target persona.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/seo-semantic-optimizer/SKILL.md`](../../.claude/skills/seo-semantic-optimizer/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/seo-semantic-optimizer/SKILL.md`](../../.claude/skills/seo-semantic-optimizer/SKILL.md).
 
 # SEO Semantic Optimizer
 

@@ -3,9 +3,11 @@ name: multimodal-agent-designer
 description: >-
   Use when designing multimodal agents, GUI automation, visual/audio grounding, or modality-aware tool interfaces.
 model_adapter: gemini
+system_instruction: >-
+  Advise on active perception, visual/audio grounding, token-efficient context management, modality-aware tool design, and GUI automation frameworks.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/multimodal-agent-designer/SKILL.md`](../../.claude/skills/multimodal-agent-designer/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/multimodal-agent-designer/SKILL.md`](../../.claude/skills/multimodal-agent-designer/SKILL.md).
 
 # Multimodal Agent Designer
 

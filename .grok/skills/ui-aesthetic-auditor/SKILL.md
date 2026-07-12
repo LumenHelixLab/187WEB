@@ -5,7 +5,7 @@ description: >-
 model_adapter: grok
 ---
 
-> **Grok adapter: load as repository skill instructions.** Canonical source: [`../../.claude/skills/ui-aesthetic-auditor/SKILL.md`](../../.claude/skills/ui-aesthetic-auditor/SKILL.md).
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/ui-aesthetic-auditor/SKILL.md`](../../.claude/skills/ui-aesthetic-auditor/SKILL.md).
 
 # UI Aesthetic Auditor
 

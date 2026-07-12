@@ -5,7 +5,7 @@ description: >-
 model_adapter: grok
 ---
 
-> **Grok adapter: load as repository skill instructions.** Canonical source: [`../../.claude/skills/multimodal-agent-designer/SKILL.md`](../../.claude/skills/multimodal-agent-designer/SKILL.md).
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/multimodal-agent-designer/SKILL.md`](../../.claude/skills/multimodal-agent-designer/SKILL.md).
 
 # Multimodal Agent Designer
 

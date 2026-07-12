@@ -5,7 +5,7 @@ description: >-
 model_adapter: grok
 ---
 
-> **Grok adapter: load as repository skill instructions.** Canonical source: [`../../.claude/skills/neuro-tension/SKILL.md`](../../.claude/skills/neuro-tension/SKILL.md).
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/neuro-tension/SKILL.md`](../../.claude/skills/neuro-tension/SKILL.md).
 
 # neuro-tension — TENSION (Inference Profile Controller)
 

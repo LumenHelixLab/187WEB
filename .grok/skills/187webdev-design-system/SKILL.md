@@ -5,7 +5,7 @@ description: >-
 model_adapter: grok
 ---
 
-> **Grok adapter: load as repository skill instructions.** Canonical source: [`../../.claude/skills/187webdev-design-system/SKILL.md`](../../.claude/skills/187webdev-design-system/SKILL.md).
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/187webdev-design-system/SKILL.md`](../../.claude/skills/187webdev-design-system/SKILL.md).
 
 # 187WEBDEV — Design System (Warm Blueprint)
 

@@ -3,9 +3,11 @@ name: 187craft
 description: >-
   Use when designing, building, or auditing UI/UX for a 187WEB project.
 model_adapter: gemini
+system_instruction: >-
+  187CRAFT is the short-name entry point for the mature 187WEB design layer. It delegates to [`187webdesign`](../187webdesign/SKILL.md), [`187webdev-design-system`](../187webdev-design-system/SKILL.md), [`187webdev-qa`](../187webdev-qa/SKILL.md), and [`187webdev-code-review`](../187webdev-code-review/SKILL.md). It does not replace them; it provides a fast, conversational trigger for design, UX, frontend, component, and pre-ship audit work.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/187craft/SKILL.md`](../../.claude/skills/187craft/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/187craft/SKILL.md`](../../.claude/skills/187craft/SKILL.md).
 
 # 187CRAFT — Short-Name Design + Frontend
 

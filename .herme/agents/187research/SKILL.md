@@ -5,7 +5,7 @@ description: >-
 model_adapter: hermes
 ---
 
-> **Hermes adapter: use system.md as the system message.** Canonical source: [`../../.claude/skills/187research/SKILL.md`](../../.claude/skills/187research/SKILL.md).
+> **Hermes adapter:** Use `system.md` as the system message for Hermes-based local LLMs (Ollama, lm-studio, etc.). Source: [`../../.claude/skills/187research/SKILL.md`](../../.claude/skills/187research/SKILL.md).
 
 # 187RESEARCH — Research-Grade Lab Engine
 

@@ -5,7 +5,7 @@ description: >-
 model_adapter: grok
 ---
 
-> **Grok adapter: load as repository skill instructions.** Canonical source: [`../../.claude/skills/edge-ai-deployment-specialist/SKILL.md`](../../.claude/skills/edge-ai-deployment-specialist/SKILL.md).
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/edge-ai-deployment-specialist/SKILL.md`](../../.claude/skills/edge-ai-deployment-specialist/SKILL.md).
 
 # Edge Ai Deployment Specialist
 

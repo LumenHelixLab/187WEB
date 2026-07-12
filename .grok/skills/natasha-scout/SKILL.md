@@ -5,7 +5,7 @@ description: >-
 model_adapter: grok
 ---
 
-> **Grok adapter: load as repository skill instructions.** Canonical source: [`../../.claude/skills/natasha-scout/SKILL.md`](../../.claude/skills/natasha-scout/SKILL.md).
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/natasha-scout/SKILL.md`](../../.claude/skills/natasha-scout/SKILL.md).
 
 # natasha-scout — SCOUT (Compliant Research)
 

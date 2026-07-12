@@ -3,9 +3,11 @@ name: user-journey-mapper
 description: >-
   Use when mapping an agentic flow to identify friction points and redesign invisible, intuitive state transitions.
 model_adapter: gemini
+system_instruction: >-
+  Map the current agentic flow. Identify every friction point where the user exits the agentic loop. Redesign the state transitions to be invisible and intuitive.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/user-journey-mapper/SKILL.md`](../../.claude/skills/user-journey-mapper/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/user-journey-mapper/SKILL.md`](../../.claude/skills/user-journey-mapper/SKILL.md).
 
 # User Journey Mapper
 

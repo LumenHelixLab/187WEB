@@ -5,7 +5,7 @@ description: >-
 model_adapter: hermes
 ---
 
-> **Hermes adapter: use system.md as the system message.** Canonical source: [`../../.claude/skills/seo-semantic-optimizer/SKILL.md`](../../.claude/skills/seo-semantic-optimizer/SKILL.md).
+> **Hermes adapter:** Use `system.md` as the system message for Hermes-based local LLMs (Ollama, lm-studio, etc.). Source: [`../../.claude/skills/seo-semantic-optimizer/SKILL.md`](../../.claude/skills/seo-semantic-optimizer/SKILL.md).
 
 # SEO Semantic Optimizer
 

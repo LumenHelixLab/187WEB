@@ -5,7 +5,7 @@ description: >-
 model_adapter: grok
 ---
 
-> **Grok adapter: load as repository skill instructions.** Canonical source: [`../../.claude/skills/ml-systems-architect/SKILL.md`](../../.claude/skills/ml-systems-architect/SKILL.md).
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/ml-systems-architect/SKILL.md`](../../.claude/skills/ml-systems-architect/SKILL.md).
 
 # Ml Systems Architect
 

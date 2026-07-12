@@ -3,9 +3,13 @@ name: widow-weaver
 description: >-
   Use when extracting intent from dense text, translating structured documents, polishing tone, extracting tasks, explaining code, solving logic, or refactoring with venom.
 model_adapter: gemini
+system_instruction: >-
+  **Strict developer directive.** Isolate high-weight semantic nodes. Discard
+  attention sinks and redundant context. Output must be strictly bounded to key
+  architectural decisions, blockers, and quantitative metrics.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/widow-weaver/SKILL.md`](../../.claude/skills/widow-weaver/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/widow-weaver/SKILL.md`](../../.claude/skills/widow-weaver/SKILL.md).
 
 # widow-weaver — Native OS Prompt Engine
 

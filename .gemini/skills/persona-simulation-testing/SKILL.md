@@ -3,9 +3,11 @@ name: persona-simulation-testing
 description: >-
   Use when simulating a non-technical user persona to find stuck points and breakage in a web agent flow.
 model_adapter: gemini
+system_instruction: >-
+  Adopt the persona of {{Persona}}. Attempt to 'break' the current web agent flow. Identify where a non-technical user would get stuck.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/persona-simulation-testing/SKILL.md`](../../.claude/skills/persona-simulation-testing/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/persona-simulation-testing/SKILL.md`](../../.claude/skills/persona-simulation-testing/SKILL.md).
 
 # Persona Simulation Testing
 

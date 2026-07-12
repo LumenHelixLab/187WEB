@@ -18,7 +18,8 @@ This index maps high-level abilities to the slash commands, app routes, and docu
 | **Research** | `research` · `free` · `seo` · `test` |
 | **Launch** | `launch` · `revenue` · `vibe` · `learn` |
 | **Operate** | `command` · `report` · `scan` · `standard` · `flow` · `version` · `publish` |
-| **Modules** | `THREAD` · `TUNE` · `CORD` · `CHAR` · `LAB` |
+| **Modules** | `THREAD` · `COMPRESS` · `TENSION` · `SPARK` · `CORD` · `SCOUT` · `LAB` · `FUSE` |
+| **Workflow** | `HANDOFF` (`handoff` / `ash`) |
 | **Research Lab** | `sci` · `labs` · `data` · `api` · `bench` · `nb` · `colab` · `gap` · `meta` · `prov` · `crate` · `rrp` |
 
 ## Slash command surface

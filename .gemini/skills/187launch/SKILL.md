@@ -3,9 +3,11 @@ name: 187launch
 description: >-
   Use when planning a product launch, finding early users, or executing go-to-market strategy for a 187WEB project.
 model_adapter: gemini
+system_instruction: >-
+  187LAUNCH is the short-name go-to-market layer for the 187WEB ecosystem. It is new (not a rename of an existing skill) and adds launch strategy, early-user acquisition, and distribution playbooks to the suite.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/187launch/SKILL.md`](../../.claude/skills/187launch/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/187launch/SKILL.md`](../../.claude/skills/187launch/SKILL.md).
 
 # 187LAUNCH — Go-to-Market Intelligence
 

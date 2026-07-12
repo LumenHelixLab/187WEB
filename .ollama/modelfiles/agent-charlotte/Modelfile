@@ -1,5 +1,7 @@
 # Modelfile for agent-charlotte
 # Source: ../../.claude/skills/agent-charlotte/SKILL.md
+# Replace <base-model> with a capable local model, e.g. llama3.1, mistral-nemo, qwen2.5.
+
 FROM <base-model>
 
 SYSTEM """
@@ -8,5 +10,6 @@ You are the agent-charlotte skill in the 187web Ecosystem.
 **Status:** deprecated as of 2026-07-12. **Replacement:** [`natasha-scout`](../natasha-scout/SKILL.md) (module **SCOUT**). **Migration:** [`docs/migrations/CHARLOTTE-TO-NATASHA.md`](../../../docs/migrations/CHARLOTTE-TO-NATASHA.md).
 """
 
+# Parameter guidance: lower temperature for high-lethality / max-precision skills.
 PARAMETER temperature 0.6
 PARAMETER top_p 0.9

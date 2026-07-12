@@ -5,7 +5,7 @@ description: >-
 model_adapter: grok
 ---
 
-> **Grok adapter: load as repository skill instructions.** Canonical source: [`../../.claude/skills/187webdev-trends/SKILL.md`](../../.claude/skills/187webdev-trends/SKILL.md).
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/187webdev-trends/SKILL.md`](../../.claude/skills/187webdev-trends/SKILL.md).
 
 # 187WEBDEV — Trends & Standards (2026)
 

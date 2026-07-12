@@ -2,8 +2,10 @@
 /**
  * Verify that every canonical .claude/skills/<name>/SKILL.md has a matching
  * adapter in .gemini, .kimi, .chatgpt, .grok, .ollama, and .herme.
+ *
+ * Gemini adapters must preserve system_instruction fidelity.
  */
-import { readdirSync, existsSync } from "node:fs";
+import { readdirSync, existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { projectRoot } from "./lib/suite-constants.mjs";
@@ -30,6 +32,18 @@ for (const skill of dirs) {
     if (!existsSync(path)) {
       console.error(`❌ missing adapter: ${adapter.dir}/${skill}/${adapter.file}`);
       errors++;
+      continue;
+    }
+    if (adapter.dir === ".gemini/skills") {
+      const text = readFileSync(path, "utf8");
+      if (!text.includes("system_instruction:")) {
+        console.error(`❌ gemini fidelity: missing system_instruction in ${adapter.dir}/${skill}/${adapter.file}`);
+        errors++;
+      }
+      if (!text.includes("model_adapter: gemini")) {
+        console.error(`❌ gemini fidelity: missing model_adapter: gemini in ${adapter.dir}/${skill}/${adapter.file}`);
+        errors++;
+      }
     }
   }
 }

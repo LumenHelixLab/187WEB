@@ -5,7 +5,7 @@ description: >-
 model_adapter: grok
 ---
 
-> **Grok adapter: load as repository skill instructions.** Canonical source: [`../../.claude/skills/annual-report-synthesizer/SKILL.md`](../../.claude/skills/annual-report-synthesizer/SKILL.md).
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/annual-report-synthesizer/SKILL.md`](../../.claude/skills/annual-report-synthesizer/SKILL.md).
 
 # Report Toxin
 

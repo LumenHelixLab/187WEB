@@ -3,9 +3,11 @@ name: s-agent-spatial-architect
 description: >-
   Use when building spatial-AI agents with 2D grounding, 3D lifting, and spatial knowledge aggregation.
 model_adapter: gemini
+system_instruction: >-
+  Implement Vision-Language Model (VLM) planners and a three-level spatial tool hierarchy (2D grounding, 3D lifting, spatial knowledge aggregation).
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/s-agent-spatial-architect/SKILL.md`](../../.claude/skills/s-agent-spatial-architect/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/s-agent-spatial-architect/SKILL.md`](../../.claude/skills/s-agent-spatial-architect/SKILL.md).
 
 # S-Agent Spatial Architect
 

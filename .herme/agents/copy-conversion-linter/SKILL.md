@@ -5,7 +5,7 @@ description: >-
 model_adapter: hermes
 ---
 
-> **Hermes adapter: use system.md as the system message.** Canonical source: [`../../.claude/skills/copy-conversion-linter/SKILL.md`](../../.claude/skills/copy-conversion-linter/SKILL.md).
+> **Hermes adapter:** Use `system.md` as the system message for Hermes-based local LLMs (Ollama, lm-studio, etc.). Source: [`../../.claude/skills/copy-conversion-linter/SKILL.md`](../../.claude/skills/copy-conversion-linter/SKILL.md).
 
 # Copy Conversion Linter
 

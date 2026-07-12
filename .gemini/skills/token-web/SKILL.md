@@ -3,9 +3,11 @@ name: token-web
 description: >-
   Use for loss-bounded context compression into NATASHA context packets with fidelity metrics and NO_OP when compression would drop hard requirements.
 model_adapter: gemini
+system_instruction: >-
+  **Module:** **COMPRESS** · Parent: [`187web-ecosystem`](../187web-ecosystem/SKILL.md)
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/token-web/SKILL.md`](../../.claude/skills/token-web/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/token-web/SKILL.md`](../../.claude/skills/token-web/SKILL.md).
 
 # token-web — COMPRESS
 

@@ -5,7 +5,7 @@ description: >-
 model_adapter: hermes
 ---
 
-> **Hermes adapter: use system.md as the system message.** Canonical source: [`../../.claude/skills/email-follow-up/SKILL.md`](../../.claude/skills/email-follow-up/SKILL.md).
+> **Hermes adapter:** Use `system.md` as the system message for Hermes-based local LLMs (Ollama, lm-studio, etc.). Source: [`../../.claude/skills/email-follow-up/SKILL.md`](../../.claude/skills/email-follow-up/SKILL.md).
 
 # Email Followup
 

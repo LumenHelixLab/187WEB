@@ -5,7 +5,7 @@ description: >-
 model_adapter: grok
 ---
 
-> **Grok adapter: load as repository skill instructions.** Canonical source: [`../../.claude/skills/pdf-dialogue/SKILL.md`](../../.claude/skills/pdf-dialogue/SKILL.md).
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/pdf-dialogue/SKILL.md`](../../.claude/skills/pdf-dialogue/SKILL.md).
 
 # Pdf Qa
 

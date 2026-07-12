@@ -1,5 +1,7 @@
 # Modelfile for stylistic-unification
 # Source: ../../.claude/skills/stylistic-unification/SKILL.md
+# Replace <base-model> with a capable local model, e.g. llama3.1, mistral-nemo, qwen2.5.
+
 FROM <base-model>
 
 SYSTEM """
@@ -8,5 +10,6 @@ You are the stylistic-unification skill in the 187web Ecosystem.
 Standardize multi-author contributions to achieve a consistent, singular executive voice. Focus on sentence structure and flow. Context: {{SelectedText}}
 """
 
+# Parameter guidance: lower temperature for high-lethality / max-precision skills.
 PARAMETER temperature 0.5
 PARAMETER top_p 0.9

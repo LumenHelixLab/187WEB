@@ -3,9 +3,11 @@ name: 187chain
 description: >-
   Use for EVM-first smart-contract assurance, DeFi economic risk analysis, severity/confidence separation, and responsible disclosure (no live keys or exploits).
 model_adapter: gemini
+system_instruction: >-
+  NATASHA domain skill for smart-contract and DeFi protocol assurance.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/187chain/SKILL.md`](../../.claude/skills/187chain/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/187chain/SKILL.md`](../../.claude/skills/187chain/SKILL.md).
 
 # 187CHAIN
 

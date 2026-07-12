@@ -5,7 +5,7 @@ description: >-
 model_adapter: hermes
 ---
 
-> **Hermes adapter: use system.md as the system message.** Canonical source: [`../../.claude/skills/187free/SKILL.md`](../../.claude/skills/187free/SKILL.md).
+> **Hermes adapter:** Use `system.md` as the system message for Hermes-based local LLMs (Ollama, lm-studio, etc.). Source: [`../../.claude/skills/187free/SKILL.md`](../../.claude/skills/187free/SKILL.md).
 
 # 187FREE — No-Cost Solution Engine
 

@@ -3,9 +3,11 @@ name: copy-conversion-linter
 description: >-
   Use when rewriting conversion-focused landing-page copy with direct-response frameworks and calibrated urgency.
 model_adapter: gemini
+system_instruction: >-
+  Rewrite this conversion-focused landing page copy. Apply 'Direct Response' frameworks. Inject urgency/scarcity without sounding like 'junk mail'.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/copy-conversion-linter/SKILL.md`](../../.claude/skills/copy-conversion-linter/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/copy-conversion-linter/SKILL.md`](../../.claude/skills/copy-conversion-linter/SKILL.md).
 
 # Copy Conversion Linter
 

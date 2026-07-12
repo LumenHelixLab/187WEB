@@ -5,7 +5,7 @@ description: >-
 model_adapter: grok
 ---
 
-> **Grok adapter: load as repository skill instructions.** Canonical source: [`../../.claude/skills/task-identification-extraction/SKILL.md`](../../.claude/skills/task-identification-extraction/SKILL.md).
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/task-identification-extraction/SKILL.md`](../../.claude/skills/task-identification-extraction/SKILL.md).
 
 # Task Extractor
 

@@ -3,9 +3,11 @@ name: 187write
 description: >-
   Suite-wide content writing and editorial engine for copy, scripts, tutorials, SEO drafts, accessible language, and claim-safe rewrites.
 model_adapter: gemini
+system_instruction: >-
+  187WRITE is the Lumen Helix suite-wide content writing and editorial engine. It produces and polishes content briefs, editorial style guides, voice-unified copy, plain-language rewrites, technical explanations, tutorial prose, course scripts, SEO content drafts, product copy, landing-page copy, newsletter drafts, social-post drafts, claim-safe rewrites, and accessible language. It is called by `187docs`, `187learn`, `187seo`, `187revenue`, `187launch`, and `187research` for any public-facing prose.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/187write/SKILL.md`](../../.claude/skills/187write/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/187write/SKILL.md`](../../.claude/skills/187write/SKILL.md).
 
 # 187WRITE — Suite-Wide Editorial Engine
 

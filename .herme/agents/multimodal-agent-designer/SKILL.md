@@ -5,7 +5,7 @@ description: >-
 model_adapter: hermes
 ---
 
-> **Hermes adapter: use system.md as the system message.** Canonical source: [`../../.claude/skills/multimodal-agent-designer/SKILL.md`](../../.claude/skills/multimodal-agent-designer/SKILL.md).
+> **Hermes adapter:** Use `system.md` as the system message for Hermes-based local LLMs (Ollama, lm-studio, etc.). Source: [`../../.claude/skills/multimodal-agent-designer/SKILL.md`](../../.claude/skills/multimodal-agent-designer/SKILL.md).
 
 # Multimodal Agent Designer
 

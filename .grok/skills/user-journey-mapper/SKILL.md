@@ -5,7 +5,7 @@ description: >-
 model_adapter: grok
 ---
 
-> **Grok adapter: load as repository skill instructions.** Canonical source: [`../../.claude/skills/user-journey-mapper/SKILL.md`](../../.claude/skills/user-journey-mapper/SKILL.md).
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/user-journey-mapper/SKILL.md`](../../.claude/skills/user-journey-mapper/SKILL.md).
 
 # User Journey Mapper
 

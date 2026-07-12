@@ -5,7 +5,7 @@ description: >-
 model_adapter: chatgpt
 ---
 
-> **ChatGPT adapter: use as custom GPT or system instructions.** Canonical source: [`../../.claude/skills/edge-ai-deployment-specialist/SKILL.md`](../../.claude/skills/edge-ai-deployment-specialist/SKILL.md).
+> **ChatGPT adapter:** Use the markdown below as the custom GPT / system instructions. Source: [`../../.claude/skills/edge-ai-deployment-specialist/SKILL.md`](../../.claude/skills/edge-ai-deployment-specialist/SKILL.md).
 
 # Edge Ai Deployment Specialist
 

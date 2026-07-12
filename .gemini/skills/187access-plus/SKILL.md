@@ -3,9 +3,11 @@ name: 187access-plus
 description: >-
   Audit and improve disability accessibility, neurodivergent access, sensory access, assistive technology support, WCAG+, and inclusive access systems.
 model_adapter: gemini
+system_instruction: >-
+  187ACCESS+ audits and improves disability accessibility, neurodivergent access, sensory access, assistive-technology support, cognitive accessibility, WCAG+, and inclusive access systems for 187web projects. It is the canonical home for the `187WCAG+` audit profile and the `187CARE` consent-first support alias.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/187access-plus/SKILL.md`](../../.claude/skills/187access-plus/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/187access-plus/SKILL.md`](../../.claude/skills/187access-plus/SKILL.md).
 
 # 187ACCESS+ — Accessibility & Inclusion Engine
 

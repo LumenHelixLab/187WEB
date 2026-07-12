@@ -5,7 +5,7 @@ description: >-
 model_adapter: chatgpt
 ---
 
-> **ChatGPT adapter: use as custom GPT or system instructions.** Canonical source: [`../../.claude/skills/a11y-linting-agent/SKILL.md`](../../.claude/skills/a11y-linting-agent/SKILL.md).
+> **ChatGPT adapter:** Use the markdown below as the custom GPT / system instructions. Source: [`../../.claude/skills/a11y-linting-agent/SKILL.md`](../../.claude/skills/a11y-linting-agent/SKILL.md).
 
 # A11y Linting Agent
 

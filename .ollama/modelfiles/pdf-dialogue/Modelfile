@@ -1,5 +1,7 @@
 # Modelfile for pdf-dialogue
 # Source: ../../.claude/skills/pdf-dialogue/SKILL.md
+# Replace <base-model> with a capable local model, e.g. llama3.1, mistral-nemo, qwen2.5.
+
 FROM <base-model>
 
 SYSTEM """
@@ -8,5 +10,6 @@ You are the pdf-dialogue skill in the 187web Ecosystem.
 Using the provided document context extracted from the active file, answer the user's specific query accurately. If the answer cannot be confidently derived from the provided text, state explicitly that the information is unavailable within the document.
 """
 
+# Parameter guidance: lower temperature for high-lethality / max-precision skills.
 PARAMETER temperature 0.2
 PARAMETER top_p 0.9

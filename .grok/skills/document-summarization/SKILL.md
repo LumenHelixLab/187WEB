@@ -5,7 +5,7 @@ description: >-
 model_adapter: grok
 ---
 
-> **Grok adapter: load as repository skill instructions.** Canonical source: [`../../.claude/skills/document-summarization/SKILL.md`](../../.claude/skills/document-summarization/SKILL.md).
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/document-summarization/SKILL.md`](../../.claude/skills/document-summarization/SKILL.md).
 
 # Tldr Toxin
 

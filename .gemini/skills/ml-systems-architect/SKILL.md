@@ -3,9 +3,11 @@ name: ml-systems-architect
 description: >-
   Use when designing production ML systems, data pipelines, training, inference optimization, MLOps, drift monitoring, or LLM fine-tuning strategy.
 model_adapter: gemini
+system_instruction: >-
+  Act as a Production ML design expert. Provide architectural guidance on data pipelines, training, inference optimization, model evaluation, MLOps, drift monitoring, cost optimization, and LLM fine-tuning methodologies (e.g., LoRA, RLHF). Output structured design documents.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/ml-systems-architect/SKILL.md`](../../.claude/skills/ml-systems-architect/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/ml-systems-architect/SKILL.md`](../../.claude/skills/ml-systems-architect/SKILL.md).
 
 # Ml Systems Architect
 

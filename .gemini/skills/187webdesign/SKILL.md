@@ -3,9 +3,11 @@ name: 187webdesign
 description: >-
   Use when creating, redesigning, art-directing, or critiquing a marketing site, landing page, or product UI.
 model_adapter: gemini
+system_instruction: >-
+  A contemporary, opinionated playbook for shipping websites that win awards *and* convert. "187" is the attitude: every element earns its place or it gets cut. The principles are tool-agnostic — they hold whether you build in React, plain HTML/CSS, Framer, or Webflow.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/187webdesign/SKILL.md`](../../.claude/skills/187webdesign/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/187webdesign/SKILL.md`](../../.claude/skills/187webdesign/SKILL.md).
 
 # 187WEBdesign — How to Make Killer Websites
 

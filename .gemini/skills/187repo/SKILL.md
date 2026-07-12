@@ -3,9 +3,11 @@ name: 187repo
 description: >-
   Use when generating a new repository, deploying to GitHub, creating an installer site, or routing the 187SKILLS suite.
 model_adapter: gemini
+system_instruction: >-
+  187REPO is the short-name entry point for the mature 187WEB ecosystem. It delegates to [`187web-ecosystem`](../187web-ecosystem/SKILL.md) (NATASHA v3 orchestration) and [`187web-manifest`](../187web-manifest/SKILL.md) (manifest compiler + 27 prompts). Think of it as the fast alias: it loads the existing skills and adds repo-generation, deployment, and installer conventions.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/187repo/SKILL.md`](../../.claude/skills/187repo/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/187repo/SKILL.md`](../../.claude/skills/187repo/SKILL.md).
 
 # 187REPO — Short-Name Orchestrator
 

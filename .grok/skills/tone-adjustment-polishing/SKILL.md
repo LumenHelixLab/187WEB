@@ -5,7 +5,7 @@ description: >-
 model_adapter: grok
 ---
 
-> **Grok adapter: load as repository skill instructions.** Canonical source: [`../../.claude/skills/tone-adjustment-polishing/SKILL.md`](../../.claude/skills/tone-adjustment-polishing/SKILL.md).
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/tone-adjustment-polishing/SKILL.md`](../../.claude/skills/tone-adjustment-polishing/SKILL.md).
 
 # Tone Polish
 

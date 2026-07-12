@@ -3,9 +3,11 @@ name: component-library-weaver
 description: >-
   Use when weaving new components into the 187web design system and ensuring palette and atomic-scale conformance.
 model_adapter: gemini
+system_instruction: >-
+  Scan the current design system. Ensure all new components inherit the 187web color palette (Abyssal Black #080808 / Widow Red #FF0000) and match the atomic design scale.
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/component-library-weaver/SKILL.md`](../../.claude/skills/component-library-weaver/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/component-library-weaver/SKILL.md`](../../.claude/skills/component-library-weaver/SKILL.md).
 
 # Component Library Weaver
 

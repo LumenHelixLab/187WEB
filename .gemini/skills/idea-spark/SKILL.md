@@ -3,9 +3,11 @@ name: idea-spark
 description: >-
   Use for bounded divergent brainstorming with critic and convergence stages (NATASHA SPARK). Not for brand redesign.
 model_adapter: gemini
+system_instruction: >-
+  **Module:** **SPARK** · Parent: [`187web-ecosystem`](../187web-ecosystem/SKILL.md)
 ---
 
-> **Gemini adapter: load as a system instruction.** Canonical source: [`../../.claude/skills/idea-spark/SKILL.md`](../../.claude/skills/idea-spark/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/idea-spark/SKILL.md`](../../.claude/skills/idea-spark/SKILL.md).
 
 # idea-spark — SPARK
 
