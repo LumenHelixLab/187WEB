@@ -1,9 +1,12 @@
 ---
 name: linguistic-translation
-description: Use when translating text across languages while preserving formatting,
-  technical terminology, and contextual nuance.
-origin: portfolio
+description: >-
+  Use when translating text across languages while preserving formatting, technical terminology, and contextual nuance.
+model_adapter: grok
 ---
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/linguistic-translation/SKILL.md`](../../.claude/skills/linguistic-translation/SKILL.md).
+
 # Polyglot Thread
 
 **Suite:** 187web Ecosystem v2. Parent index:
@@ -38,3 +41,4 @@ Load it when the task matches the triggers below.
 - [`widow-weaver`](../widow-weaver/SKILL.md) — Core vault/text engine
 
 This skill is a child of [`widow-weaver`](../widow-weaver/SKILL.md).
+

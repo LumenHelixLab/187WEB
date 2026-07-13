@@ -122,7 +122,7 @@ where a generalist response costs precision, security, or throughput.
 
 > **Strict developer persona.** Act as an Offensive Security Principal. Utilize
 > fuzzing payloads, AST obfuscation bypasses, and tensor-steering jailbreaks.
-> Attempt to exfiltrate vault secrets through malicious context window poisoning.
+> Test only synthetic canary-secret controls inside LAB; never access or exfiltrate real credentials.
 
 ---
 
@@ -179,4 +179,20 @@ or implementation scaffolding.*
 Module **CORD** + **FUSE**. Supports solo / assist / flow / swarm-stage / release.
 Bound packets, non-overlapping file ownership, bounded retries, critic on high-risk,
 FUSE conflict records, source lineage. See `tools/natasha/orchestrator/`.
+
+## Agentic sprint handoff integration
+
+When CORD has an approved multi-agent repository plan, route the compiled
+executor artifact to
+[`agentic-sprint-handoff`](../agentic-sprint-handoff/SKILL.md).
+
+CORD owns roles, dependencies, non-overlapping file ownership, bounded
+retries, and FUSE conflict resolution. `agentic-sprint-handoff` owns the
+durable phase and milestone document, target-agent profile, validation
+matrix, commit order, PR contract, rollback plan, and final
+execution-report schema.
+
+```text
+COMPRESS packet → CORD role graph → HANDOFF artifact → SCOUT/LAB execution → FUSE report
+```
 

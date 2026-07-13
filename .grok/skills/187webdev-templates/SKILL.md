@@ -1,9 +1,12 @@
 ---
 name: 187webdev-templates
-description: Use when starting a new landing page, picking a visual pole for a brief
-  (SaaS, fintech, restaurant, editorial, etc.
-origin: portfolio
+description: >-
+  Use when starting a new landing page, picking a visual pole for a brief (SaaS, fintech, restaurant, editorial, etc.
+model_adapter: grok
 ---
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/187webdev-templates/SKILL.md`](../../.claude/skills/187webdev-templates/SKILL.md).
+
 # 187WEBDEV — Industry Template Gallery
 
 Fourteen distinct design languages — adapt the rubric to the brief, don't stamp one look on everything.

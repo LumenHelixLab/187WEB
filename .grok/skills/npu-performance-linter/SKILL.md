@@ -1,9 +1,12 @@
 ---
 name: npu-performance-linter
-description: Use when auditing JavaScript/TypeScript for main-thread blocking and
-  proposing WebWorker offloading to maintain 60fps.
-origin: portfolio
+description: >-
+  Use when auditing JavaScript/TypeScript for main-thread blocking and proposing WebWorker offloading to maintain 60fps.
+model_adapter: grok
 ---
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/npu-performance-linter/SKILL.md`](../../.claude/skills/npu-performance-linter/SKILL.md).
+
 # NPU Performance Linter
 
 **Suite:** 187web Ecosystem v2. Parent index:
@@ -34,3 +37,4 @@ Load it when the task matches the triggers below.
 - [`neuro-toxin`](../neuro-toxin/SKILL.md) — Inference tuning
 
 This skill is part of the 187web manifest Layer-4 prompt library.
+

@@ -43,3 +43,8 @@ __pycache__/
 *.pyc
 *.tmp
 
+
+# Agentic sprint handoff apply backups / local extract
+*.bak-agentic-handoff
+.handoff/
+

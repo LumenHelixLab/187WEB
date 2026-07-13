@@ -1,9 +1,12 @@
 ---
 name: edge-ai-deployment-specialist
-description: Use when optimizing local models for constrained edge hardware, RK3288/3588
-  NPUs, quantization, KV-cache, and thermal constraints.
-origin: portfolio
+description: >-
+  Use when optimizing local models for constrained edge hardware, RK3288/3588 NPUs, quantization, KV-cache, and thermal constraints.
+model_adapter: grok
 ---
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/edge-ai-deployment-specialist/SKILL.md`](../../.claude/skills/edge-ai-deployment-specialist/SKILL.md).
+
 # Edge Ai Deployment Specialist
 
 **Suite:** 187web Ecosystem v2. Parent index:
@@ -33,3 +36,4 @@ Load it when the task matches the triggers below.
 - [`swarm-mind`](../swarm-mind/SKILL.md) — Persona routing
 
 This skill is a child of [`swarm-mind`](../swarm-mind/SKILL.md).
+

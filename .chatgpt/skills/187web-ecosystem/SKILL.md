@@ -71,6 +71,16 @@ Wired into an **Obsidian Local Brain** (Claudian). Skills read active pane / fro
 | **FUSE** | Evidence-weighted synthesis | Contract under CORD | — |
 | **187web-manifest** | Prompt compiler / long-run routing | [`187web-manifest`](../187web-manifest/SKILL.md) | — |
 
+### NATASHA workflow support skills
+
+| Skill | Role | Trigger |
+|---|---|---|
+| [`agentic-sprint-handoff`](../agentic-sprint-handoff/SKILL.md) | Compile approved architecture into phased, milestoned, executor-ready multi-agent handoffs | `/187 handoff`, `/187 ash`, target-agent handoff |
+
+HANDOFF is a **CORD output artifact** (workflow support), not a ninth core
+module or brand layer. Invoke after roles and ownership are set, before
+delegating to an external coding agent or extended SCOUT/LAB execution.
+
 ### Domain skills (Phase 4–5 land full trees; index reserved)
 
 | Skill | Role |
@@ -118,7 +128,7 @@ Deprecated: `char`, `ch`, `agent-charlotte` → route to **SCOUT** with deprecat
 2. **THREAD** — extract intent / Verification Record  
 3. **TENSION** — inference profile  
 4. **SPARK** — only if design options unresolved  
-5. **CORD** — specialist subagents + ownership  
+5. **CORD** — specialist subagents + ownership; compile **HANDOFF** artifact when delegating  
 6. **SCOUT** — authorized research  
 7. **LAB** — isolated execute / verify  
 8. **FUSE** — evidence-weighted synthesis  
@@ -135,6 +145,8 @@ Not every step is required. THREAD + LAB covers many refactors.
 - Prefer module skill when user names THREAD/TENSION/SCOUT/etc.  
 - Prefer this index when multi-module or “NATASHA” / “full stack”.  
 - Deprecated skills must not be recommended as primary for new work.
+
+- Route phased, milestoned, target-agent execution briefs to `agentic-sprint-handoff`.  
 
 ## Safety / ethics guardrails
 

@@ -1,9 +1,12 @@
 ---
 name: state-machine-generator
-description: Use when documenting agent logic as a finite state machine with no dead-end
-  states.
-origin: portfolio
+description: >-
+  Use when documenting agent logic as a finite state machine with no dead-end states.
+model_adapter: grok
 ---
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/state-machine-generator/SKILL.md`](../../.claude/skills/state-machine-generator/SKILL.md).
+
 # State Machine Generator
 
 **Suite:** 187web Ecosystem v2. Parent index:
@@ -32,3 +35,4 @@ Load it when the task matches the triggers below.
 - [`187web-manifest`](../187web-manifest/SKILL.md) — Session planning
 
 This skill is part of the 187web manifest Layer-4 prompt library.
+

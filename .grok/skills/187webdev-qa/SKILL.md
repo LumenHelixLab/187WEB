@@ -1,9 +1,12 @@
 ---
 name: 187webdev-qa
-description: Use when running a pre-ship QA audit on a landing page or marketing site
-  before calling it done.
-origin: portfolio
+description: >-
+  Use when running a pre-ship QA audit on a landing page or marketing site before calling it done.
+model_adapter: grok
 ---
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/187webdev-qa/SKILL.md`](../../.claude/skills/187webdev-qa/SKILL.md).
+
 # 187WEBDEV — Pre-Ship QA
 
 Run the full pre-ship audit before calling any page "done."

@@ -34,13 +34,14 @@ Claude Code / Grok skills live under `.claude/skills/` and `.grok/skills/` respe
 | Skill | Path | Load when |
 |---|---|---|
 | 187webdesign (core) | `.claude/skills/187webdesign/SKILL.md` | Building/redesigning/art-directing any marketing site or landing page |
-| 187web-ecosystem v2 | `.claude/skills/187web-ecosystem/SKILL.md` | Routing the full 187SKILLS suite or the Charlotte / Killer Web skill array |
+| 187web-ecosystem v3 | `.claude/skills/187web-ecosystem/SKILL.md` | Routing the full 187SKILLS suite or the NATASHA multi-agent stack |
 | **187COMMAND** | `.claude/skills/187command/SKILL.md` | Direct user intent to the right skill or alias |
 | **187REPORT** | `.claude/skills/187report/SKILL.md` | Explain, summarize, and report status |
 | **187SCAN** | `.claude/skills/187scan/SKILL.md` | Inspect, audit, and detect issues |
 | **187KIT** | `.claude/skills/187kit/SKILL.md` | Equip templates, scaffolds, and design tokens |
 | **187STANDARD** | `.claude/skills/187standard/SKILL.md` | Judge output against standards and checklists |
 | **187FLOW** | `.claude/skills/187flow/SKILL.md` | Plan, route, and sequence multi-step work |
+| **agentic-sprint-handoff** | `.claude/skills/agentic-sprint-handoff/SKILL.md` | Phased, milestoned multi-agent coding handoffs for Claude Code, Kimi, Grok, Codex, and local agents |
 | **187REPO** | `.claude/skills/187repo/SKILL.md` | Short-name orchestration, repo generation, GitHub deploy, installer |
 | **187CRAFT** | `.claude/skills/187craft/SKILL.md` | Short-name design + frontend execution |
 | **187VIBE** | `.claude/skills/187vibe/SKILL.md` | Short-name delight, community, and execution layers |
@@ -60,15 +61,18 @@ Claude Code / Grok skills live under `.claude/skills/` and `.grok/skills/` respe
 | **187PUBLISH** | `.claude/skills/187publish/SKILL.md` | Final release synchronization of docs, demos, showcases, public surfaces |
 | 187web-manifest | `.claude/skills/187web-manifest/SKILL.md` | Project manifest, compiler, and 27 prompt skills |
 
-### Charlotte modules
+### NATASHA modules
 
 | Module | Modern alias | Legacy alias | Purpose |
 |---|---|---|---|
 | **THREAD** | `thread` / `th` | `widow-weaver` | Prompt shaping, intent extraction, rewrite, refactor |
-| **TUNE** | `tune` / `tu` | `neuro-toxin` | Model behavior, output profile, inference settings |
+| **COMPRESS** | `compress` / `cmp` | — | Loss-bounded token and context distillation |
+| **SPARK** | `spark` / `brainstorm` | — | Bounded divergent ideation and decision records |
+| **TENSION** | `tension` / `tu` | `neuro-toxin` (deprecated) | Inference profile and model behavior tuning |
 | **CORD** | `cord` / `co` | `swarm-mind` | Coordinated role dispatch, expert persona routing |
-| **CHAR** | `char` / `ch` | `agent-charlotte` | Shared scout for web/source/context help |
+| **SCOUT** | `scout` / `ch` | `agent-charlotte` (deprecated) | Compliant web/source/repository research |
 | **LAB** | `lab` / `lb` | `silk-sandbox` | Local action box, isolated execution/test workspace |
+| **FUSE** | — | — | Evidence-weighted synthesis and conflict resolution under CORD |
 
 See `docs/187-MODULES.md` for module templates and `docs/187-NAMES.md` for the full alias table.
 
@@ -108,6 +112,7 @@ The full skill library is mirrored into model-specific formats under:
 - `.gemini/skills/<name>/SKILL.md` — Gemini system-instruction skills
 - `.kimi/skills/<name>/SKILL.md` — Kimi skills
 - `.chatgpt/skills/<name>/SKILL.md` — ChatGPT custom GPT instructions
+- `.grok/skills/<name>/SKILL.md` — Grok skills generated from canonical Claude skills
 - `.ollama/modelfiles/<name>/Modelfile` — Ollama model files
 - `.herme/agents/<name>/system.md` + `SKILL.md` — Hermes-based local agents
 

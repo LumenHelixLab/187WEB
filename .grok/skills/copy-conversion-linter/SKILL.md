@@ -1,9 +1,12 @@
 ---
 name: copy-conversion-linter
-description: Use when rewriting conversion-focused landing-page copy with direct-response
-  frameworks and calibrated urgency.
-origin: portfolio
+description: >-
+  Use when rewriting conversion-focused landing-page copy with direct-response frameworks and calibrated urgency.
+model_adapter: grok
 ---
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/copy-conversion-linter/SKILL.md`](../../.claude/skills/copy-conversion-linter/SKILL.md).
+
 # Copy Conversion Linter
 
 **Suite:** 187web Ecosystem v2. Parent index:
@@ -32,3 +35,4 @@ Load it when the task matches the triggers below.
 - [`187webdesign`](../187webdesign/SKILL.md) — Conversion copy
 
 This skill is part of the 187web manifest Layer-4 prompt library.
+

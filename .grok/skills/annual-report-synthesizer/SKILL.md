@@ -1,9 +1,12 @@
 ---
 name: annual-report-synthesizer
-description: Use when extracting financial findings from raw text into exactly five
-  focused bullet points totaling ~300 words.
-origin: portfolio
+description: >-
+  Use when extracting financial findings from raw text into exactly five focused bullet points totaling ~300 words.
+model_adapter: grok
 ---
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/annual-report-synthesizer/SKILL.md`](../../.claude/skills/annual-report-synthesizer/SKILL.md).
+
 # Report Toxin
 
 **Suite:** 187web Ecosystem v2. Parent index:
@@ -38,3 +41,4 @@ Load it when the task matches the triggers below.
 - [`widow-weaver`](../widow-weaver/SKILL.md) — Core vault/text engine
 
 This skill is a child of [`widow-weaver`](../widow-weaver/SKILL.md).
+

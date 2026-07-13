@@ -1,9 +1,12 @@
 ---
 name: stylistic-unification
-description: Use when standardizing multi-author contributions into a consistent executive
-  voice and flow.
-origin: portfolio
+description: >-
+  Use when standardizing multi-author contributions into a consistent executive voice and flow.
+model_adapter: grok
 ---
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/stylistic-unification/SKILL.md`](../../.claude/skills/stylistic-unification/SKILL.md).
+
 # Voice Unify
 
 **Suite:** 187web Ecosystem v2. Parent index:
@@ -38,3 +41,4 @@ Load it when the task matches the triggers below.
 - [`widow-weaver`](../widow-weaver/SKILL.md) — Core vault/text engine
 
 This skill is a child of [`widow-weaver`](../widow-weaver/SKILL.md).
+

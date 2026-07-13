@@ -76,6 +76,20 @@ npm run dev
 | Research-grade labs | Ship reproducible experiments, dataset cards, API contracts, benchmarks, and Research Release Packets via /187 research, /187 labs, /187 data, and /187 crate. |
 | KNOTstore memory layer | Pluggable agentic memory with SQLite, KNOT-point, and hybrid backends, plus a Vault-style preview at /knotstore. |
 
+## First-class skills
+
+Public slash-command surfaces in the 187 suite:
+
+| Domain | Skills |
+|--------|--------|
+| Build & ship | **187REPO**, **187CRAFT**, **187VIBE**, **187LAUNCH**, **187FREE** |
+| Research & standards | **187RESEARCH**, **187SEO**, **187REVENUE**, **187DOCS** |
+| Learn & access | **187LEARN**, **187TEST**, **187ACCESS+** |
+| Release | **187VERSION**, **187PUBLISH** |
+| NATASHA multi-agent | **187NATASHA**, **187QUANTUM**, **187CHAIN** |
+
+Workflow support includes `/187 handoff` (`agentic-sprint-handoff`) for phased multi-agent coding handoffs. See [docs/NATASHA-AGENTIC-HANDOFFS.md](docs/NATASHA-AGENTIC-HANDOFFS.md).
+
 ## Architecture
 
 ```

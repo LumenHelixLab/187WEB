@@ -1,9 +1,12 @@
 ---
 name: 187webdev-trends
-description: Use when choosing a visual pole (dopamine vs calm), citing Core Web Vitals
-  thresholds, WCAG 2.
-origin: portfolio
+description: >-
+  Use when choosing a visual pole (dopamine vs calm), citing Core Web Vitals thresholds, WCAG 2.
+model_adapter: grok
 ---
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/187webdev-trends/SKILL.md`](../../.claude/skills/187webdev-trends/SKILL.md).
+
 # 187WEBDEV — Trends & Standards (2026)
 
 Trends are optional spice; standards are non-negotiable. When they conflict, standards win.

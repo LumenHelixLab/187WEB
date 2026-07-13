@@ -1,9 +1,12 @@
 ---
 name: generative-drafting
-description: Use when generating a structured SME draft from a brief while maintaining
-  an objective, analytical voice.
-origin: portfolio
+description: >-
+  Use when generating a structured SME draft from a brief while maintaining an objective, analytical voice.
+model_adapter: grok
 ---
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/generative-drafting/SKILL.md`](../../.claude/skills/generative-drafting/SKILL.md).
+
 # Draft Venom
 
 **Suite:** 187web Ecosystem v2. Parent index:
@@ -38,3 +41,4 @@ Load it when the task matches the triggers below.
 - [`widow-weaver`](../widow-weaver/SKILL.md) — Core vault/text engine
 
 This skill is a child of [`widow-weaver`](../widow-weaver/SKILL.md).
+

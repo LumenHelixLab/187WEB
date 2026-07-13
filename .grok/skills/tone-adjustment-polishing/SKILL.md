@@ -1,9 +1,12 @@
 ---
 name: tone-adjustment-polishing
-description: Use when rewriting text for a professional, assertive, diplomatic tone
-  with flawless grammar and active voice.
-origin: portfolio
+description: >-
+  Use when rewriting text for a professional, assertive, diplomatic tone with flawless grammar and active voice.
+model_adapter: grok
 ---
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/tone-adjustment-polishing/SKILL.md`](../../.claude/skills/tone-adjustment-polishing/SKILL.md).
+
 # Tone Polish
 
 **Suite:** 187web Ecosystem v2. Parent index:
@@ -32,3 +35,4 @@ Load it when the task matches the triggers below.
 - [`widow-weaver`](../widow-weaver/SKILL.md) — Core vault/text engine
 
 This skill is a child of [`widow-weaver`](../widow-weaver/SKILL.md).
+

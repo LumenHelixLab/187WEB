@@ -137,6 +137,14 @@
     },
     {
       "category": "Control Plane",
+      "cmd": "/187 handoff <target>",
+      "alias": "handoff",
+      "id": "AGENTIC-HANDOFF",
+      "status": "workflow",
+      "purpose": "Compile an approved plan into a phased, milestoned multi-agent coding handoff."
+    },
+    {
+      "category": "Control Plane",
       "cmd": "/187 kern",
       "alias": "kern",
       "id": "187KERNEL",
@@ -283,9 +291,9 @@
       "category": "Modules",
       "cmd": "/187 tu",
       "alias": "tu",
-      "id": "TUNE",
+      "id": "TENSION",
       "status": "module",
-      "purpose": "Output profile and model behavior tuning."
+      "purpose": "Inference profile and model behavior tuning."
     },
     {
       "category": "Modules",
@@ -299,9 +307,9 @@
       "category": "Modules",
       "cmd": "/187 ch",
       "alias": "ch",
-      "id": "CHAR",
+      "id": "SCOUT",
       "status": "module",
-      "purpose": "Charlotte assisted research with compact Q&A stop."
+      "purpose": "NATASHA compliant source and repository research."
     },
     {
       "category": "Modules",

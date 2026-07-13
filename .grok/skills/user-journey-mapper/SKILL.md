@@ -1,9 +1,12 @@
 ---
 name: user-journey-mapper
-description: Use when mapping an agentic flow to identify friction points and redesign
-  invisible, intuitive state transitions.
-origin: portfolio
+description: >-
+  Use when mapping an agentic flow to identify friction points and redesign invisible, intuitive state transitions.
+model_adapter: grok
 ---
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/user-journey-mapper/SKILL.md`](../../.claude/skills/user-journey-mapper/SKILL.md).
+
 # User Journey Mapper
 
 **Suite:** 187web Ecosystem v2. Parent index:
@@ -32,3 +35,4 @@ Load it when the task matches the triggers below.
 - [`187webdesign`](../187webdesign/SKILL.md) — Agent flow design
 
 This skill is part of the 187web manifest Layer-4 prompt library.
+

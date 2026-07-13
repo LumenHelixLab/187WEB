@@ -1,8 +1,11 @@
 ---
 name: 187repo-eval
-description: Use when evaluating a repository, package, or third-party tool for adoption into the 187web suite.
-origin: portfolio
+description: >-
+  Use when evaluating a repository, package, or third-party tool for adoption into the 187web suite.
+model_adapter: grok
 ---
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/187repo-eval/SKILL.md`](../../.claude/skills/187repo-eval/SKILL.md).
 
 # 187REPO-EVAL — Repo Integration Scorecard
 
@@ -66,3 +69,4 @@ Runs an 11-category rubric over the candidate repo/tool and produces a Markdown 
 ## Tone
 
 Surgical, evidence-first, no hype. Every score needs a source or observation.
+

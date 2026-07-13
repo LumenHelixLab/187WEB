@@ -1,12 +1,15 @@
 ---
 name: 187webdesign
-description: Use when creating, redesigning, art-directing, or critiquing a marketing
-  site, landing page, or product UI.
-origin: portfolio
+description: >-
+  Use when creating, redesigning, art-directing, or critiquing a marketing site, landing page, or product UI.
+model_adapter: grok
 ---
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/187webdesign/SKILL.md`](../../.claude/skills/187webdesign/SKILL.md).
+
 # 187WEBdesign — How to Make Killer Websites
 
-**Suite:** Part of the [187WEBDEV suite](../187webdev/README.md). Specialized skills:
+**Suite:** Part of the [187WEBDEV suite](../../../../skills/187webdev/README.md). Specialized skills:
 `187webdev-qa` (pre-ship) · `187webdev-trends` · `187webdev-resilience` ·
 `187webdev-templates` · `187webdev-code-review` · `187webdev-design-system`
 
@@ -170,6 +173,9 @@ with no point of view · cluttered hero with no clear focus or CTA · lorem
 placeholder shipped as real · inconsistent spacing and missing interactive
 states · style with no usability behind it.
 
+## Related skills
+- **[187web Ecosystem v2](../187web-ecosystem/SKILL.md)** — the Charlotte "Killer Web" integration stack (prompt engineering, inference tuning, specialist personas, autonomous web research, and isolated execution). Load it when a task spans multiple layers of the stack.
+
 ## Resources
 - Awwwards evaluation system — the rubric above: https://www.awwwards.com/about-evaluation/
 - Web.dev Core Web Vitals (LCP/INP/CLS thresholds & fixes): https://web.dev/vitals/
@@ -183,3 +189,4 @@ states · style with no usability behind it.
 - `references/CODE-REVIEW.md` — a React/HTML5/JS review rubric (hooks cleanup, a11y, INP, static-export safety) + this repo's findings.
 - `references/DESIGN-SYSTEM.md` — warm-blueprint token system (worked example); load `187webdev-design-system` when implementing UI.
 - Live demos: `/` (immersive showcase), `/templates` (gallery), `/resilience` (failure-mode demos).
+

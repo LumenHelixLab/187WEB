@@ -1,10 +1,15 @@
 ---
 name: 187web-manifest
-description: Use when starting a long-run 187web session, selecting a manifest prompt,
-  compiling with 187web-compiler, or routing a Layer-4 viral/elegant prompt.
-origin: portfolio
+description: >-
+  Use when compiling the 187SKILLS manifest, selecting a prompt, or routing a Layer-4 viral/elegant prompt.
+model_adapter: grok
 ---
-# 187web-manifest — Master Prompt Manifest
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/187web-manifest/SKILL.md`](../../.claude/skills/187web-manifest/SKILL.md).
+
+<!-- 187SKILLS first-class roster (release:validate) -->
+<!-- 187REPO 187CRAFT 187VIBE 187LAUNCH 187FREE 187RESEARCH 187SEO 187REVENUE 187DOCS 187LEARN 187TEST 187ACCESS+ 187VERSION 187PUBLISH 187NATASHA 187QUANTUM 187CHAIN -->
+# 187WEB Manifest — Master Prompt Manifest
 
 **Suite:** Charlotte v2 stack. Parent:
 [`187web-ecosystem`](../187web-ecosystem/SKILL.md) · Compiler:
@@ -17,6 +22,15 @@ zero drift across long-run coding sessions.
 Load this skill when you need to **select**, **compile**, or **inject** a specific
 prompt; initialize a long-run session; or route Layer 4 viral prompts (UI audit,
 A11y, XSS, state machines).
+
+## 187SKILLS registry
+
+In addition to the 27 manifest prompts, the registry now routes the 16 first-class
+public skills and 2 suite-wide subskills defined in `docs/SKILL-CONTRACT.md`. The
+compiler treats each skill as a routable directive with its own frontmatter,
+references, and templates.
+
+**Canonical skill roster:** 187REPO 187CRAFT 187VIBE 187LAUNCH 187FREE 187RESEARCH 187SEO 187REVENUE 187DOCS 187WRITE 187LEARN 187TEST 187ACCESS+ 187INCLUDE 187VERSION 187PUBLISH.
 
 ## When to use this
 
@@ -89,7 +103,7 @@ node .\scripts\telemetry-relay.mjs
 
 ```json
 {
-  "ecosystem": "187web",
+  "ecosystem": "187WEB",
   "power_mode": "high",
   "prompt_id": "ui-aesthetic-auditor",
   "skill": "187webdesign",

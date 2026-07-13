@@ -1,9 +1,12 @@
 ---
 name: persona-simulation-testing
-description: Use when simulating a non-technical user persona to find stuck points
-  and breakage in a web agent flow.
-origin: portfolio
+description: >-
+  Use when simulating a non-technical user persona to find stuck points and breakage in a web agent flow.
+model_adapter: grok
 ---
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/persona-simulation-testing/SKILL.md`](../../.claude/skills/persona-simulation-testing/SKILL.md).
+
 # Persona Simulation Testing
 
 **Suite:** 187web Ecosystem v2. Parent index:
@@ -38,3 +41,4 @@ Load it when the task matches the triggers below.
 - [`agent-charlotte`](../agent-charlotte/SKILL.md) — Agentic simulation
 
 This skill is part of the 187web manifest Layer-4 prompt library.
+

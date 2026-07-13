@@ -1,8 +1,11 @@
 ---
 name: 187free
-description: No-cost, free-tier, open-source, local-first, public-API, and bootstrap solution scouting for software, research, accessibility, civic, education, and client projects.
-origin: portfolio
+description: >-
+  No-cost, free-tier, open-source, local-first, public-API, and bootstrap solution scouting for software, research, accessibility, civic, education, and client projects.
+model_adapter: grok
 ---
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/187free/SKILL.md`](../../.claude/skills/187free/SKILL.md).
 
 # 187FREE — No-Cost Solution Engine
 
@@ -152,3 +155,4 @@ For disability, legal, medical, civic, invention, client, or private research pr
 - [`templates/187free-public-api-note.md`](templates/187free-public-api-note.md)
 - [`templates/187free-gotcha-report.md`](templates/187free-gotcha-report.md)
 - [`templates/187free-launch-checklist.md`](templates/187free-launch-checklist.md)
+

@@ -73,10 +73,11 @@ deep
 | `/187 ver` | `ver` | `187VERSION` | core | SemVer, changelog, release notes, migration notes. |
 | `/187 pub` | `pub` | `187PUBLISH` | core | Sync README, docs, demo, adapters, public launch surface. |
 | `/187 th` | `th` | `THREAD` | module | Prompt shaping, intent extraction, rewrite/refactor. |
-| `/187 tu` | `tu` | `TUNE` | module | Output profile and model behavior tuning. |
+| `/187 tu` | `tu` | `TENSION` | module | Inference profile and model behavior tuning (legacy: TUNE). |
 | `/187 co` | `co` | `CORD` | module | Expert role dispatch and specialist routing. |
-| `/187 ch` | `ch` | `CHAR` | module | Charlotte assisted research with compact Q&A stop. |
+| `/187 ch` | `ch` | `SCOUT` | module | Compliant research / source scout (legacy: CHAR). |
 | `/187 lb` | `lb` | `LAB` | module | Local action box for commands, tests, and isolated runs. |
+| `/187 handoff` | `handoff` / `ash` | `AGENTIC-HANDOFF` | workflow | Compile CORD plan into phased multi-agent coding handoff. |
 | `/187 sci` | `sci` | `187SCI` | research | Scientific claim discipline and release gates. |
 | `/187 labs` | `labs` | `187LABS` | research | Experiment protocols, lab templates, run logs. |
 | `/187 data` | `data` | `187DATA` | research | Dataset cards, schemas, provenance, public DB workflows. |

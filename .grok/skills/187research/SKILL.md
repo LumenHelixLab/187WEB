@@ -1,8 +1,11 @@
 ---
 name: 187research
-description: Research-grade source routing, evidence discipline, reproducible computational labs, and scholarly/biomedical/mathematical/software database routing for publication-ready artifacts.
-origin: portfolio
+description: >-
+  Research-grade source routing, evidence discipline, reproducible computational labs, and scholarly/biomedical/mathematical/software database routing for publication-ready artifacts.
+model_adapter: grok
 ---
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/187research/SKILL.md`](../../.claude/skills/187research/SKILL.md).
 
 # 187RESEARCH — Research-Grade Lab Engine
 
@@ -188,3 +191,4 @@ For medical, clinical, legal, civic, disability, client, invention, or private r
 - [`templates/187research-publication-brief.md`](templates/187research-publication-brief.md)
 - [`templates/187research-lab-demo-spec.md`](templates/187research-lab-demo-spec.md)
 - [`templates/187research-citation-map.md`](templates/187research-citation-map.md)
+

@@ -1,142 +1,177 @@
 ---
 name: 187web-ecosystem
-description: 'Use when you need the full Charlotte integration stack: prompt engineering,
-  inference tuning, specialist personas, autonomous web research, and isolated execution.'
-origin: portfolio
+description: >-
+  Use when routing across the full 187SKILLS suite or the NATASHA multi-agent integration stack (THREAD, COMPRESS, TENSION, SPARK, CORD, SCOUT, LAB, FUSE).
+model_adapter: grok
 ---
-# 187web Ecosystem v2 — Charlotte Integration
 
-**Suite:** The 187web Ecosystem v2 skill index. Child skills:
-[`187web-manifest`](../187web-manifest/SKILL.md) · [`widow-weaver`](../widow-weaver/SKILL.md) · [`neuro-toxin`](../neuro-toxin/SKILL.md) · [`swarm-mind`](../swarm-mind/SKILL.md) ·
-[`agent-charlotte`](../agent-charlotte/SKILL.md) · [`silk-sandbox`](../silk-sandbox/SKILL.md)
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/187web-ecosystem/SKILL.md`](../../.claude/skills/187web-ecosystem/SKILL.md).
+
+<!-- 187SKILLS first-class roster (release:validate) -->
+<!-- 187REPO 187CRAFT 187VIBE 187LAUNCH 187FREE 187RESEARCH 187SEO 187REVENUE 187DOCS 187LEARN 187TEST 187ACCESS+ 187VERSION 187PUBLISH 187NATASHA 187QUANTUM 187CHAIN -->
+# 187WEB Ecosystem v3.0 — NATASHA Integration
+
+**Suite:** 187WEB multi-agent operating layer. Core modules:
+
+**THREAD** · **COMPRESS** · **TENSION** · **SPARK** · **CORD** · **SCOUT** · **LAB** · **FUSE**
+
+Domain skills (installable packs): **187QUANTUM** · **187CHAIN**
+
+**Operator:** **NATASHA** — the 187WEB Black Widow orchestration architecture.  
+**Charlotte** is reserved for a separate technology. See
+[`docs/migrations/CHARLOTTE-TO-NATASHA.md`](../../../docs/migrations/CHARLOTTE-TO-NATASHA.md).
 
 **Parent skill:** [187webdesign](../187webdesign/SKILL.md)
 
-The 187web Ecosystem v2 is the "Killer Web" stack: excellent, precise, highly
-effective execution with zero wasted overhead. It is organized around
-**Charlotte** — a stylized Black Widow representing lethal precision and web
-mastery — and five specialized skills that mirror her web: extraction, tuning,
-persona, research, and execution.
-
 Load this skill first when the task spans more than one layer of the stack.
-For single-layer work, jump directly to the child skill.
+For single-layer work, jump directly to the module skill.
 
 ## When to use this
 
-Orchestrating a multi-stage workflow inside the 187web Ecosystem; setting the
-overall tone, palette, or nervous-system behavior; or deciding which Charlotte
-skill owns the next move. If the prompt mentions "Killer Web," "Charlotte,"
-"widow," or any v2 skill name, start here.
+- Multi-stage workflows that need compression, specialist routing, research, and isolated execution.
+- Setting Local Brain / vault behavior and module ownership.
+- User mentions NATASHA, Killer Web, THREAD/TENSION/CORD/SCOUT/LAB, or suite-wide orchestration.
+- Pack install: `natasha` or `qchain-lab`.
 
-## Brand identity
+## When not to use this
 
-The ecosystem speaks in tight, intentional language. No filler. Every token
-must earn its place.
+- Single-skill work already clearly routed (load that skill only).
+- Visual rebrand or mascot redesign (forbidden; preserve approved branding).
+- Live-chain signing, secret exfiltration, or unauthorized offensive activity.
+
+## Brand identity (preserve; do not re-art-direct)
 
 | Token | Hex | Role |
 |-------|-----|------|
-| **Abyssal Black** | `#080808` | Deepest base, void canvas, primary background |
-| **Dark Grey** | `#1A1A1A` | Surfaces, cards, panels |
-| **Steel Grey** | `#4A4A4A` | Structural borders, dividers, tertiary elements |
-| **Ash** | `#CCCCCC` | Secondary text, muted UI, quiet labels |
-| **Widow Red** | `#FF0000` | Critical alerts, kill switches, errors |
-| **Toxic Avenger Green** | `#39FF14` | Success states, execution confirmation, live signals |
+| **Abyssal Black** | `#080808` | Primary background |
+| **Dark Grey** | `#1A1A1A` | Surfaces |
+| **Steel Grey** | `#4A4A4A` | Borders |
+| **Ash** | `#CCCCCC` | Secondary text |
+| **Signal Red** | `#FF0000` | Critical / stop |
+| **Signal Green** | `#39FF14` | Success / live |
 
-**Vibe:** Lethal efficiency, highly calculated, no wasted overhead.
-**Mascot:** Charlotte — the Black Widow. Lethal precision, total web mastery.
+**Vibe:** Precise efficiency, no wasted overhead.  
+**Operator architecture:** NATASHA (not Charlotte).
 
 ## Central nervous system: Obsidian Local Brain
 
-The ecosystem is wired into an **Obsidian "Local Brain"** powered by
-**Claudian**. Skills dynamically read context from the active Obsidian pane and
-vault frontmatter, then output aggressively linked, bidirectional markdown
-files.
+Wired into an **Obsidian Local Brain** (Claudian). Skills read active pane / frontmatter and write densely linked markdown. Optional KNOTstore-compatible provenance for run records (does not alter KNOTstore licensing).
 
-Under the hood, the nervous system uses local REST APIs and WebSockets to:
+## NATASHA module array (v3)
 
-- Monitor filesystem mutations in the active vault.
-- Maintain a persistent graph representation of notes, tasks, and outputs.
-- Bidirectionally link every generated artifact back to its source context.
+| Module | Role | Canonical skill | Legacy alias |
+|--------|------|-----------------|--------------|
+| **THREAD** | Structural prompt / document engine | [`widow-weaver`](../widow-weaver/SKILL.md) | widow-weaver |
+| **COMPRESS** | Loss-bounded token/context distillation | [`token-web`](../token-web/SKILL.md) | — (new; Phase 2 expands) |
+| **TENSION** | Inference-profile controller | [`neuro-tension`](../neuro-tension/SKILL.md) | `neuro-toxin` (deprecated) |
+| **SPARK** | Bounded divergent brainstorming | [`idea-spark`](../idea-spark/SKILL.md) | — (new; Phase 2 expands) |
+| **CORD** | Multi-agent / subagent orchestration + FUSE | [`swarm-mind`](../swarm-mind/SKILL.md) | swarm-mind |
+| **SCOUT** | Compliant source research | [`natasha-scout`](../natasha-scout/SKILL.md) | `agent-charlotte` / CHAR (deprecated) |
+| **LAB** | Isolated execution & verification | [`silk-sandbox`](../silk-sandbox/SKILL.md) | silk-sandbox |
+| **FUSE** | Evidence-weighted synthesis | Contract under CORD | — |
+| **187web-manifest** | Prompt compiler / long-run routing | [`187web-manifest`](../187web-manifest/SKILL.md) | — |
 
-Treat every output as a node in the web: link it, tag it, and make it
-findable.
+### NATASHA workflow support skills
 
-## Skill array (v2)
+| Skill | Role | Trigger |
+|---|---|---|
+| [`agentic-sprint-handoff`](../agentic-sprint-handoff/SKILL.md) | Compile approved architecture into phased, milestoned, executor-ready multi-agent handoffs | `/187 handoff`, `/187 ash`, target-agent handoff |
 
-| Skill | Role | When to use | Path |
-|-------|------|-------------|------|
-| **widow-weaver** | Native OS prompt engine | Extract intent, polish tone, explain code, solve logic, refactor with venom | [`.claude/skills/widow-weaver/SKILL.md`](../widow-weaver/SKILL.md) |
-| **neuro-toxin** | Inference tuner | Tune toxicity/temperature, top-k/top-p, repetition penalty, Mirostat weave, context windowing | [`.claude/skills/neuro-toxin/SKILL.md`](../neuro-toxin/SKILL.md) |
-| **swarm-mind** | Engineering & niche personas | Bring in a specialist persona (architect, RAG weaver, edge venom, UI spinner, ledger spider, red-team widow, sysop widow) | [`.claude/skills/swarm-mind/SKILL.md`](../swarm-mind/SKILL.md) |
-| **agent-charlotte** | Autonomous web crawler | Deep-web spinning, contextual traversal, Obsidian auto-weaving | [`.claude/skills/agent-charlotte/SKILL.md`](../agent-charlotte/SKILL.md) |
-| **silk-sandbox** | Execution engine | MicroVM isolation, syscall monitoring, I/O multiplexing | [`.claude/skills/silk-sandbox/SKILL.md`](../silk-sandbox/SKILL.md) |
-| **187web-manifest** | Master Prompt Manifest | 27 XML prompt skills, compiler, long-run session routing | [`.claude/skills/187web-manifest/SKILL.md`](../187web-manifest/SKILL.md) |
+HANDOFF is a **CORD output artifact** (workflow support), not a ninth core
+module or brand layer. Invoke after roles and ownership are set, before
+delegating to an external coding agent or extended SCOUT/LAB execution.
+
+### Domain skills (Phase 4–5 land full trees; index reserved)
+
+| Skill | Role |
+|-------|------|
+| `187quantum` | Quantum algorithms & circuits |
+| `187chain` | Smart-contract & DeFi assurance |
 
 ## Short-name aliases
 
-For faster discovery, the ecosystem also exposes four short-name entry skills
-that delegate back to the mature skills above:
-
 | Short name | Maps to | Use when |
 |---|---|---|
-| [`187repo`](../187repo/SKILL.md) | `187web-ecosystem` + `187web-manifest` | Repo generation, deploy, installer, orchestration |
-| [`187craft`](../187craft/SKILL.md) | `187webdesign` + 187webdev-* suite | Design, UX, frontend, QA |
-| [`187vibe`](../187vibe/SKILL.md) | `agent-charlotte`, `widow-weaver`, `neuro-toxin`, `swarm-mind`, `silk-sandbox` | Delight, research, tuning, execution |
-| [`187launch`](../187launch/SKILL.md) | `187launch` *(new)* | Go-to-market, Product Hunt, early users |
+| [`187repo`](../187repo/SKILL.md) | ecosystem + manifest | Repo generation, deploy, installer |
+| [`187craft`](../187craft/SKILL.md) | 187webdesign + webdev suite | Design, UX, frontend, QA |
+| [`187vibe`](../187vibe/SKILL.md) | SCOUT, THREAD, TENSION, CORD, LAB | Delight, research, tuning, execution |
+| [`187launch`](../187launch/SKILL.md) | 187launch | Go-to-market |
 
-Load the short-name skill when the user says "187", "187repo", "187craft",
-"187vibe", "187launch", or any related launch/deploy/design keyword.
+## 187SKILLS public suite map
 
-## Invocation / workflow guidance
+Unchanged public suite skills (repo, craft, vibe, launch, free, research, seo, revenue, docs, write, learn, test, access-plus, include, version, publish, command, report, scan, kit, standard, flow) remain first-class. See prior suite tables in routing docs; NATASHA modules compose *under* or *alongside* them.
 
-The skills compose like a kill chain. Default order:
+## Command grammar
 
-0. **[187web-manifest](../187web-manifest/SKILL.md)** — Compile the session: run `187web-compiler`, read
-   `PLAN.md`, inject the routed directive and neuro-toxin profile.
-1. **[widow-weaver](../widow-weaver/SKILL.md)** — Understand and sharpen the request. Use
-   `TLDR_Toxin`, `Polyglot_Thread`, `Tone_Polish`, `Task_Extractor`,
-   `Code_Explainer`, `Logic_Solver`, or `Refactor_Venom` to extract the real
-   intent and produce a clean task statement.
-2. **[neuro-toxin](../neuro-toxin/SKILL.md)** — Tune the inference environment. Dial
-   toxicity/temperature, top-k/top-p lethality, repetition penalty, Mirostat
-   weave, and context windowing to match the desired output precision.
-3. **[swarm-mind](../swarm-mind/SKILL.md)** — Call a specialist persona when the work needs domain
-   depth (architecture, RAG, edge cases, UI, ledger, red-team, sysop).
-4. **[agent-charlotte](../agent-charlotte/SKILL.md)** — Send Charlotte crawling for research, references,
-   or data to auto-weave into Obsidian.
-5. **[silk-sandbox](../silk-sandbox/SKILL.md)** — Execute code or commands in an isolated MicroVM with
-   syscall monitoring and I/O multiplexing.
+```text
+187 <alias> [target] [mode] [depth]
+```
 
-Not every workflow needs all five. For a quick refactor, [`widow-weaver`](../widow-weaver/SKILL.md) +
-[`silk-sandbox`](../silk-sandbox/SKILL.md) is enough. For a complex build, run the full chain.
+Recommended NATASHA aliases (CLI Phase 6 finalizes):
 
-## Prompt skills
+```text
+natasha | nt → 187web-ecosystem
+compress | cmp → token-web
+spark | brainstorm → idea-spark
+tension → neuro-tension
+scout → natasha-scout
+quantum | quant → 187quantum
+chain | web3 | defi → 187chain
+```
 
-Each of the 27 manifest prompts is also a standalone skill under
-[`.claude/skills/<id>/`](../187web-manifest/SKILL.md). Load a prompt skill
-directly when the user names a specific prompt ID (e.g., `a11y-linting-agent`,
-`xss-vulnerability-scanner`, `ml-systems-architect`).
+Deprecated: `char`, `ch`, `agent-charlotte` → route to **SCOUT** with deprecation notice.
 
-## Optional modules
+## Default kill chain (composition order)
 
-| Module | When to enable | Reference |
-|--------|----------------|-----------|
-| **Observability** | OTel traces, Langfuse, eval/security pillars | [`references/OBSERVABILITY-4.7.md`](references/OBSERVABILITY-4.7.md) |
-| **187aiEYE UI** | Standalone command surface for the Local Brain | `/187ai-eye` in 187webdesign |
+0. **187web-manifest** — session compile / PLAN.md  
+1. **COMPRESS** — bound context packet when oversized  
+2. **THREAD** — extract intent / Verification Record  
+3. **TENSION** — inference profile  
+4. **SPARK** — only if design options unresolved  
+5. **CORD** — specialist subagents + ownership; compile **HANDOFF** artifact when delegating  
+6. **SCOUT** — authorized research  
+7. **LAB** — isolated execute / verify  
+8. **FUSE** — evidence-weighted synthesis  
 
-Observability defaults to `off`. Enable via vault YAML `observability.mode` or `E187WEB_OBSERVABILITY=minimal|full`. The `agent-charlotte` crawl extension is independent (`charlotte_crawl: true`).
+Not every step is required. THREAD + LAB covers many refactors.
 
-## Child skill links
+## Input / output contract (orchestrator)
 
-- [187web-manifest — Master Prompt Manifest](../187web-manifest/SKILL.md)
-- [widow-weaver — Native OS prompt engine](../widow-weaver/SKILL.md)
-- [neuro-toxin — Inference tuner](../neuro-toxin/SKILL.md)
-- [swarm-mind — Engineering & niche personas](../swarm-mind/SKILL.md)
-- [agent-charlotte — Autonomous web crawler](../agent-charlotte/SKILL.md)
-- [silk-sandbox — Execution engine](../silk-sandbox/SKILL.md)
+**Input:** mission, constraints, owned files, autonomy ceiling, evidence.  
+**Output:** NATASHA context packet fields, module handoffs, FUSE record, provenance.
+
+## Routing rules
+
+- Prefer module skill when user names THREAD/TENSION/SCOUT/etc.  
+- Prefer this index when multi-module or “NATASHA” / “full stack”.  
+- Deprecated skills must not be recommended as primary for new work.
+
+- Route phased, milestoned, target-agent execution briefs to `agentic-sprint-handoff`.  
+
+## Safety / ethics guardrails
+
+- No fingerprint spoofing, auth bypass, paywall bypass, or anti-bot evasion.  
+- No real secret exfiltration; synthetic canaries only in LAB.  
+- No live exploits, live signing, or investment advice (chain/quantum modules).  
+- Human-in-the-loop when autonomy or authorization is unclear.  
+- Do not recolor or regenerate approved brand artwork.
+
+## Integration points
+
+- **Obsidian/Claudian:** Local Brain vault templates (Phase 6).  
+- **Claude Code:** `.claude/skills/`.  
+- **Grok / adapters:** regenerate from `.claude` via `npm run adapters:generate`.  
+- **CLI:** `187` grammar; pack install Phase 6.  
+- **Docs:** `docs/NATASHA-ARCHITECTURE.md` (Phase 6), migration doc now.
+
+## Acceptance tests
+
+1. Prompt “run NATASHA stack” → routes to this skill, modules listed without Charlotte operator.  
+2. Prompt “CHAR research” → deprecation → SCOUT / natasha-scout.  
+3. Prompt “neuro-toxin dose” → deprecation → neuro-tension.  
+4. Prompt single “a11y audit” → does not force full NATASHA chain.
 
 ---
 
-*This skill is the ecosystem index. It contains no implementation code or
-runtime scaffolding — only brand, architecture, composition rules, and
-pointers to the child skills.*
+*Ecosystem index only — contracts and pointers, not runtime scaffolding.*
+

@@ -1,9 +1,12 @@
 ---
 name: multimodal-agent-designer
-description: Use when designing multimodal agents, GUI automation, visual/audio grounding,
-  or modality-aware tool interfaces.
-origin: portfolio
+description: >-
+  Use when designing multimodal agents, GUI automation, visual/audio grounding, or modality-aware tool interfaces.
+model_adapter: grok
 ---
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/multimodal-agent-designer/SKILL.md`](../../.claude/skills/multimodal-agent-designer/SKILL.md).
+
 # Multimodal Agent Designer
 
 **Suite:** 187web Ecosystem v2. Parent index:
@@ -33,3 +36,4 @@ Load it when the task matches the triggers below.
 - [`swarm-mind`](../swarm-mind/SKILL.md) — Persona routing
 
 This skill is a child of [`swarm-mind`](../swarm-mind/SKILL.md).
+

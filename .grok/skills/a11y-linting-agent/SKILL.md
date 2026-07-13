@@ -1,9 +1,12 @@
 ---
 name: a11y-linting-agent
-description: Use when auditing a UI for accessibility violations and generating a
-  patch file to fix them.
-origin: portfolio
+description: >-
+  Use when auditing a UI for accessibility violations and generating a patch file to fix them.
+model_adapter: grok
 ---
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/a11y-linting-agent/SKILL.md`](../../.claude/skills/a11y-linting-agent/SKILL.md).
+
 # A11y Linting Agent
 
 **Suite:** 187web Ecosystem v2. Parent index:
@@ -32,3 +35,4 @@ Load it when the task matches the triggers below.
 - [`187webdev-qa`](../187webdev-qa/SKILL.md) — Pre-ship quality gate
 
 This skill is part of the 187web manifest Layer-4 prompt library.
+

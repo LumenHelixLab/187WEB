@@ -1,9 +1,12 @@
 ---
 name: email-follow-up
-description: Use when crafting a concise, professional follow-up email reply from
-  selected context.
-origin: portfolio
+description: >-
+  Use when crafting a concise, professional follow-up email reply from selected context.
+model_adapter: grok
 ---
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/email-follow-up/SKILL.md`](../../.claude/skills/email-follow-up/SKILL.md).
+
 # Email Followup
 
 **Suite:** 187web Ecosystem v2. Parent index:
@@ -38,3 +41,4 @@ Load it when the task matches the triggers below.
 - [`widow-weaver`](../widow-weaver/SKILL.md) — Core vault/text engine
 
 This skill is a child of [`widow-weaver`](../widow-weaver/SKILL.md).
+

@@ -1,9 +1,12 @@
 ---
 name: 187webdev-resilience
-description: Use when building loading states, error boundaries, skeletons, or reviewing
-  failure paths in the same pass as features.
-origin: portfolio
+description: >-
+  Use when building loading states, error boundaries, skeletons, or reviewing failure paths in the same pass as features.
+model_adapter: grok
 ---
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/187webdev-resilience/SKILL.md`](../../.claude/skills/187webdev-resilience/SKILL.md).
+
 # 187WEBDEV — Resilience (Unhappy Path)
 
 Award demos show the happy path; shipped products survive everything else.

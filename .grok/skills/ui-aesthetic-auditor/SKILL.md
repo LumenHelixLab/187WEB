@@ -1,9 +1,12 @@
 ---
 name: ui-aesthetic-auditor
-description: Use when auditing a generated UI component against the Abyssal design
-  system and prescribing precise CSS adjustments.
-origin: portfolio
+description: >-
+  Use when auditing a generated UI component against the Abyssal design system and prescribing precise CSS adjustments.
+model_adapter: grok
 ---
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/ui-aesthetic-auditor/SKILL.md`](../../.claude/skills/ui-aesthetic-auditor/SKILL.md).
+
 # UI Aesthetic Auditor
 
 **Suite:** 187web Ecosystem v2. Parent index:
@@ -33,3 +36,4 @@ Load it when the task matches the triggers below.
 - [`187webdev-design-system`](../187webdev-design-system/SKILL.md) — Tokens and components
 
 This skill is part of the 187web manifest Layer-4 prompt library.
+

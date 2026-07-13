@@ -1,9 +1,12 @@
 ---
 name: ml-systems-architect
-description: Use when designing production ML systems, data pipelines, training, inference
-  optimization, MLOps, drift monitoring, or LLM fine-tuning strategy.
-origin: portfolio
+description: >-
+  Use when designing production ML systems, data pipelines, training, inference optimization, MLOps, drift monitoring, or LLM fine-tuning strategy.
+model_adapter: grok
 ---
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/ml-systems-architect/SKILL.md`](../../.claude/skills/ml-systems-architect/SKILL.md).
+
 # Ml Systems Architect
 
 **Suite:** 187web Ecosystem v2. Parent index:
@@ -33,3 +36,4 @@ Load it when the task matches the triggers below.
 - [`swarm-mind`](../swarm-mind/SKILL.md) — Persona routing
 
 This skill is a child of [`swarm-mind`](../swarm-mind/SKILL.md).
+

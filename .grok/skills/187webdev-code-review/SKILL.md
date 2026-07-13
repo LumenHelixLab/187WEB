@@ -1,9 +1,12 @@
 ---
 name: 187webdev-code-review
-description: Use when reviewing production front-end code for safety, performance,
-  accessibility, and maintainability before merge.
-origin: portfolio
+description: >-
+  Use when reviewing production front-end code for safety, performance, accessibility, and maintainability before merge.
+model_adapter: grok
 ---
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/187webdev-code-review/SKILL.md`](../../.claude/skills/187webdev-code-review/SKILL.md).
+
 # 187WEBDEV — Front-End Code Review
 
 Engineering rubric for production-safe, award-caliber front-end code. Pairs with `CHECKLIST.md` (design) — this is engineering.

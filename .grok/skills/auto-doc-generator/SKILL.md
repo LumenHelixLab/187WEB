@@ -1,8 +1,12 @@
 ---
 name: auto-doc-generator
-description: Use when analyzing a module and generating a JSDoc-compliant README.
-origin: portfolio
+description: >-
+  Use when analyzing a module and generating a JSDoc-compliant README.
+model_adapter: grok
 ---
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/auto-doc-generator/SKILL.md`](../../.claude/skills/auto-doc-generator/SKILL.md).
+
 # Auto Doc Generator
 
 **Suite:** 187web Ecosystem v2. Parent index:
@@ -31,3 +35,4 @@ Load it when the task matches the triggers below.
 - [`187webdesign`](../187webdesign/SKILL.md) — Module documentation
 
 This skill is part of the 187web manifest Layer-4 prompt library.
+

@@ -1,15 +1,17 @@
 ---
 name: widow-weaver
-description: Use when extracting intent from dense text, translating structured documents,
-  polishing tone, extracting tasks, explaining code, solving logic, or refactoring
-  with venom.
-origin: portfolio
+description: >-
+  Use when extracting intent from dense text, translating structured documents, polishing tone, extracting tasks, explaining code, solving logic, or refactoring with venom.
+model_adapter: grok
 ---
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/widow-weaver/SKILL.md`](../../.claude/skills/widow-weaver/SKILL.md).
+
 # widow-weaver — Native OS Prompt Engine
 
 **Suite:** The 187web Ecosystem v2. Parent index:
 [`187web-ecosystem`](../187web-ecosystem/SKILL.md) · Siblings:
-`neuro-toxin` · `swarm-mind` · `agent-charlotte` · `silk-sandbox`
+[neuro-tension](../neuro-tension/SKILL.md) · [swarm-mind](../swarm-mind/SKILL.md) · [natasha-scout](../natasha-scout/SKILL.md) · [silk-sandbox](../silk-sandbox/SKILL.md)
 
 `widow-weaver` is the central prompt engine of the Killer Web stack. It turns
 raw input — PDFs, transcripts, drafts, notes, code, logic puzzles, legacy
@@ -19,6 +21,28 @@ overhead. Every transformation is bounded by a strict directive.
 Load this skill first when the task starts with text, documents, or code that
 must be understood, condensed, translated, polished, decomposed, explained,
 solved, or refactored before any other layer of the stack acts.
+
+
+## NATASHA THREAD (v3)
+
+Module **THREAD**. Parent: [`187web-ecosystem`](../187web-ecosystem/SKILL.md).
+
+v3 aliases: `TLDR_Distill` (= TLDR_Toxin), `Polyglot_Thread`, `Tone_Polish`,
+`Task_Extractor`, `Code_Explainer`, `Logic_Solver`, `Refactor_Venom`.
+
+### Verification Record
+
+For Logic_Solver / high-risk reasoning emit:
+
+1. Assumptions
+2. Derivation summary (not private scratchpad)
+3. Invariants
+4. Edge cases
+5. Tests
+6. Uncertainty
+
+Do not require hidden chain-of-thought dumps.
+
 
 ## When to use this
 
@@ -43,9 +67,8 @@ solved, or refactored before any other layer of the stack acts.
 threads into 3–5 high-density bullets.
 
 **When to use it.** Before any planning or execution step where the source
-material is too large to hold in context. Use it to feed
-[`agent-charlotte`](../agent-charlotte/SKILL.md) research or
-[`swarm-mind`](../swarm-mind/SKILL.md) specialist personas.
+material is too large to hold in context. Use it to feed research to
+[natasha-scout](../natasha-scout/SKILL.md) or to [swarm-mind](../swarm-mind/SKILL.md) specialist personas.
 
 > **Strict developer directive.** Isolate high-weight semantic nodes. Discard
 > attention sinks and redundant context. Output must be strictly bounded to key
@@ -68,7 +91,7 @@ multilingual content where structure is as important as meaning.
 
 > **Strict developer directive.** Parse input as an Abstract Syntax Tree (AST).
 > Translate text nodes exclusively. Retain exact character boundaries for all
-> fenced code blocks, LaTeX boundaries (`$`, `$$`), and Frontmatter YAML.
+> fenced code blocks, LaTeX boundaries (`$`, `$$`), and frontmatter YAML.
 > Idempotent output required.
 
 **Input/output guidance.**
@@ -108,7 +131,7 @@ nervous system described in [`187web-ecosystem`](../187web-ecosystem/SKILL.md).
 
 > **Strict developer directive.** Identify temporal commitments and actionable
 > directives via dependency mapping. Construct a Directed Acyclic Graph (DAG) of
-> tasks and format as standard GitHub-flavored markdown tasks.
+> tasks and format as standard GitHub-flavored Markdown tasks.
 
 **Input/output guidance.**
 - Input: Markdown note containing action language, deadlines, owners, or
@@ -124,7 +147,7 @@ nervous system described in [`187web-ecosystem`](../187web-ecosystem/SKILL.md).
 explanations with complexity analysis.
 
 **When to use it.** Onboarding, code review, debugging, or preparing a
-refactoring plan. Use before [`Refactor_Venom`](#7-design-weaver--refactor_venom).
+refactoring plan. Use before [`Refactor_Venom`](#7-design-weaver-refactor_venom).
 
 > **Strict developer directive.** Analyze for Big-O asymptotic time/space
 > complexity, identify potential memory leaks, unhandled exceptions, and race
@@ -173,7 +196,7 @@ tests, or modernizing a legacy module before shipping.
 **Input/output guidance.**
 - Input: legacy code, module, or repository snippet.
 - Output: refactored code with clear interfaces, separated concerns, pattern
-  labels, and a note on how to unit-test each unit.
+  labels, and a note on how to unit-test each component.
 
 ---
 
@@ -189,7 +212,7 @@ A raw 40-page requirements PDF lands in the vault:
    them while keeping all tables and code intact.
 4. **Run `Refactor_Venom`.** When the legacy code tied to the spec is
    identified, refactor it into SOLID, test-ready units.
-5. **Hand off to `silk-sandbox`.** Execute tests in isolation.
+5. **Hand off to [`silk-sandbox`](../silk-sandbox/SKILL.md).** Execute tests in isolation.
 
 For a quick polish, `Tone_Polish` alone is enough. For a hard problem,
 `Logic_Solver` must run before any code is written.
@@ -198,3 +221,4 @@ For a quick polish, `Tone_Polish` alone is enough. For a hard problem,
 
 *This skill defines prompt-engine behavior only. It contains no runtime code or
 implementation scaffolding.*
+

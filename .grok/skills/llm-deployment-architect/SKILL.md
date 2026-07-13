@@ -1,9 +1,12 @@
 ---
 name: llm-deployment-architect
-description: Use when architecting RAG pipelines, vector search, LLM serving frameworks,
-  or quantization for deployment.
-origin: portfolio
+description: >-
+  Use when architecting RAG pipelines, vector search, LLM serving frameworks, or quantization for deployment.
+model_adapter: grok
 ---
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/llm-deployment-architect/SKILL.md`](../../.claude/skills/llm-deployment-architect/SKILL.md).
+
 # Llm Deployment Architect
 
 **Suite:** 187web Ecosystem v2. Parent index:
@@ -33,3 +36,4 @@ Load it when the task matches the triggers below.
 - [`swarm-mind`](../swarm-mind/SKILL.md) — Persona routing
 
 This skill is a child of [`swarm-mind`](../swarm-mind/SKILL.md).
+

@@ -1,9 +1,12 @@
 ---
 name: ai-ethics-reviewer
-description: Use when auditing an AI system for fairness, bias, transparency, privacy,
-  safety, and providing a mitigation roadmap.
-origin: portfolio
+description: >-
+  Use when auditing an AI system for fairness, bias, transparency, privacy, safety, and providing a mitigation roadmap.
+model_adapter: grok
 ---
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/ai-ethics-reviewer/SKILL.md`](../../.claude/skills/ai-ethics-reviewer/SKILL.md).
+
 # Ai Ethics Reviewer
 
 **Suite:** 187web Ecosystem v2. Parent index:
@@ -33,3 +36,4 @@ Load it when the task matches the triggers below.
 - [`swarm-mind`](../swarm-mind/SKILL.md) — Persona routing
 
 This skill is a child of [`swarm-mind`](../swarm-mind/SKILL.md).
+

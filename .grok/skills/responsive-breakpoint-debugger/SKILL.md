@@ -1,9 +1,12 @@
 ---
 name: responsive-breakpoint-debugger
-description: Use when simulating viewports from 320px to 4K and writing media-query
-  fixes for layout breaks.
-origin: portfolio
+description: >-
+  Use when simulating viewports from 320px to 4K and writing media-query fixes for layout breaks.
+model_adapter: grok
 ---
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/responsive-breakpoint-debugger/SKILL.md`](../../.claude/skills/responsive-breakpoint-debugger/SKILL.md).
+
 # Responsive Breakpoint Debugger
 
 **Suite:** 187web Ecosystem v2. Parent index:
@@ -33,3 +36,4 @@ Load it when the task matches the triggers below.
 - [`187webdev-qa`](../187webdev-qa/SKILL.md) — Visual regression gate
 
 This skill is part of the 187web manifest Layer-4 prompt library.
+

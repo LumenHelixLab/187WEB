@@ -2,18 +2,27 @@
 """Generate model-specific adaptations of the 187web skill library.
 
 Reads canonical skills from .claude/skills/ and emits:
-  - .gemini/skills/<name>/SKILL.md
+  - .gemini/skills/<name>/SKILL.md   (preserves system_instruction)
   - .kimi/skills/<name>/SKILL.md
   - .chatgpt/skills/<name>/SKILL.md
+  - .grok/skills/<name>/SKILL.md
   - .ollama/modelfiles/<name>/Modelfile
   - .herme/agents/<name>/system.md
   - .herme/agents/<name>/SKILL.md
 
 Each adapter preserves the source content and adds model-specific framing.
+
+Optional filters (shrink blast radius):
+  --skills name1,name2
+  --adapters gemini,kimi,chatgpt,grok,ollama,herme
 """
+from __future__ import annotations
+
+import argparse
 import re
 import sys
 from pathlib import Path
+
 from yaml import safe_load
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -22,6 +31,7 @@ OUT_ROOTS = {
     "gemini": ROOT / ".gemini/skills",
     "kimi": ROOT / ".kimi/skills",
     "chatgpt": ROOT / ".chatgpt/skills",
+    "grok": ROOT / ".grok/skills",
     "ollama": ROOT / ".ollama/modelfiles",
     "herme": ROOT / ".herme/agents",
 }
@@ -33,8 +43,7 @@ def parse_skill(path: Path):
         raise ValueError(f"{path}: missing frontmatter")
     _, rest = text.split("---", 1)
     fm_text, body = rest.split("---", 1)
-    frontmatter = safe_load(fm_text)
-    return frontmatter, body.lstrip("\n")
+    return safe_load(fm_text), body.lstrip("\n")
 
 
 def extract_system_prompt(body: str, default_name: str) -> str:
@@ -44,7 +53,7 @@ def extract_system_prompt(body: str, default_name: str) -> str:
         return "\n".join(line.lstrip("> ").strip() for line in m.group(1).splitlines())
 
     # 2. Any blockquote starting with **Strict developer directive.**
-    m = re.search(r"> \*\*Strict developer directive\.\*\*\s*(.*(?:\n> .*)*)", body)
+    m = re.search(r"> \*\*Strict developer directive\.\*\*\s*(.*(?:\n>.*)*)", body)
     if m:
         return "\n".join(line.lstrip("> ").strip() for line in m.group(0).splitlines())
 
@@ -61,7 +70,6 @@ def extract_system_prompt(body: str, default_name: str) -> str:
 
 
 def temperature_from_body(body: str) -> float:
-    # Derive a sensible temperature from neuro_toxin / lethality hints
     text = body.lower()
     if re.search(r"lethality[^\n]*max", text):
         return 0.2
@@ -120,6 +128,20 @@ model_adapter: chatgpt
 '''
 
 
+def grok_file(name: str, desc: str, body: str) -> str:
+    return f'''---
+name: {name}
+description: >-
+  {folded(desc)}
+model_adapter: grok
+---
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/{name}/SKILL.md`](../../.claude/skills/{name}/SKILL.md).
+
+{body}
+'''
+
+
 def ollama_file(name: str, system: str, temp: float) -> str:
     return f'''# Modelfile for {name}
 # Source: ../../.claude/skills/{name}/SKILL.md
@@ -162,18 +184,78 @@ model_adapter: hermes
 '''
 
 
-def main():
+def emit_skill(name: str, desc: str, system: str, body: str, temp: float, adapters: set[str], counts: dict) -> None:
+    if "gemini" in adapters:
+        out = OUT_ROOTS["gemini"] / name / "SKILL.md"
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(gemini_file(name, desc, system, body), encoding="utf-8")
+        counts["gemini"] += 1
+
+    if "kimi" in adapters:
+        out = OUT_ROOTS["kimi"] / name / "SKILL.md"
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(kimi_file(name, desc, body), encoding="utf-8")
+        counts["kimi"] += 1
+
+    if "chatgpt" in adapters:
+        out = OUT_ROOTS["chatgpt"] / name / "SKILL.md"
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(chatgpt_file(name, desc, body), encoding="utf-8")
+        counts["chatgpt"] += 1
+
+    if "grok" in adapters:
+        out = OUT_ROOTS["grok"] / name / "SKILL.md"
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(grok_file(name, desc, body), encoding="utf-8")
+        counts["grok"] += 1
+
+    if "ollama" in adapters:
+        out = OUT_ROOTS["ollama"] / name / "Modelfile"
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(ollama_file(name, system, temp), encoding="utf-8")
+        counts["ollama"] += 1
+
+    if "herme" in adapters:
+        agent_dir = OUT_ROOTS["herme"] / name
+        agent_dir.mkdir(parents=True, exist_ok=True)
+        (agent_dir / "system.md").write_text(herme_system_file(name, system), encoding="utf-8")
+        (agent_dir / "SKILL.md").write_text(herme_skill_file(name, desc, body), encoding="utf-8")
+        counts["herme"] += 1
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--skills",
+        default="",
+        help="Comma-separated skill directory names to emit (default: all)",
+    )
+    parser.add_argument(
+        "--adapters",
+        default="",
+        help="Comma-separated adapters to emit (default: all)",
+    )
+    args = parser.parse_args()
+
+    only_skills = {s.strip() for s in args.skills.split(",") if s.strip()} or None
+    adapters = {a.strip() for a in args.adapters.split(",") if a.strip()} or set(OUT_ROOTS)
+    unknown = adapters - set(OUT_ROOTS)
+    if unknown:
+        raise SystemExit(f"Unknown adapters: {', '.join(sorted(unknown))}")
+
     counts = {k: 0 for k in OUT_ROOTS}
     errors = 0
 
     for skill_dir in sorted(SOURCE.iterdir()):
+        if only_skills is not None and skill_dir.name not in only_skills:
+            continue
         src = skill_dir / "SKILL.md"
         if not src.is_file():
             continue
         try:
             fm, body = parse_skill(src)
-        except Exception as e:
-            print(f"skip {skill_dir.name}: {e}", file=sys.stderr)
+        except Exception as exc:
+            print(f"skip {skill_dir.name}: {exc}", file=sys.stderr)
             errors += 1
             continue
 
@@ -181,41 +263,12 @@ def main():
         desc = fm.get("description", f"Use when working with the {name} skill.")
         system = extract_system_prompt(body, name)
         temp = temperature_from_body(body)
-
-        # Gemini
-        out = OUT_ROOTS["gemini"] / name / "SKILL.md"
-        out.parent.mkdir(parents=True, exist_ok=True)
-        out.write_text(gemini_file(name, desc, system, body), encoding="utf-8")
-        counts["gemini"] += 1
-
-        # Kimi
-        out = OUT_ROOTS["kimi"] / name / "SKILL.md"
-        out.parent.mkdir(parents=True, exist_ok=True)
-        out.write_text(kimi_file(name, desc, body), encoding="utf-8")
-        counts["kimi"] += 1
-
-        # ChatGPT
-        out = OUT_ROOTS["chatgpt"] / name / "SKILL.md"
-        out.parent.mkdir(parents=True, exist_ok=True)
-        out.write_text(chatgpt_file(name, desc, body), encoding="utf-8")
-        counts["chatgpt"] += 1
-
-        # Ollama
-        out = OUT_ROOTS["ollama"] / name / "Modelfile"
-        out.parent.mkdir(parents=True, exist_ok=True)
-        out.write_text(ollama_file(name, system, temp), encoding="utf-8")
-        counts["ollama"] += 1
-
-        # Herme
-        agent_dir = OUT_ROOTS["herme"] / name
-        agent_dir.mkdir(parents=True, exist_ok=True)
-        (agent_dir / "system.md").write_text(herme_system_file(name, system), encoding="utf-8")
-        (agent_dir / "SKILL.md").write_text(herme_skill_file(name, desc, body), encoding="utf-8")
-        counts["herme"] += 1
+        emit_skill(name, desc, system, body, temp, adapters, counts)
 
     print("Generated model adapters:")
-    for k, v in counts.items():
-        print(f"  {k}: {v}")
+    for key, value in counts.items():
+        if value:
+            print(f"  {key}: {value}")
     if errors:
         print(f"{errors} errors", file=sys.stderr)
         sys.exit(1)

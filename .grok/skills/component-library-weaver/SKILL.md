@@ -1,9 +1,12 @@
 ---
 name: component-library-weaver
-description: Use when weaving new components into the 187web design system and ensuring
-  palette and atomic-scale conformance.
-origin: portfolio
+description: >-
+  Use when weaving new components into the 187web design system and ensuring palette and atomic-scale conformance.
+model_adapter: grok
 ---
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/component-library-weaver/SKILL.md`](../../.claude/skills/component-library-weaver/SKILL.md).
+
 # Component Library Weaver
 
 **Suite:** 187web Ecosystem v2. Parent index:
@@ -32,3 +35,4 @@ Load it when the task matches the triggers below.
 - [`187webdev-design-system`](../187webdev-design-system/SKILL.md) — Atomic design system
 
 This skill is part of the 187web manifest Layer-4 prompt library.
+

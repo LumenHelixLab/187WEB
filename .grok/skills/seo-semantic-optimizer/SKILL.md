@@ -1,9 +1,12 @@
 ---
 name: seo-semantic-optimizer
-description: Use when auditing DOM semantic hierarchy and meta descriptions for a
-  target persona.
-origin: portfolio
+description: >-
+  Use when auditing DOM semantic hierarchy and meta descriptions for a target persona.
+model_adapter: grok
 ---
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/seo-semantic-optimizer/SKILL.md`](../../.claude/skills/seo-semantic-optimizer/SKILL.md).
+
 # SEO Semantic Optimizer
 
 **Suite:** 187web Ecosystem v2. Parent index:
@@ -38,3 +41,4 @@ Load it when the task matches the triggers below.
 - [`187webdesign`](../187webdesign/SKILL.md) — DOM/meta audit
 
 This skill is part of the 187web manifest Layer-4 prompt library.
+

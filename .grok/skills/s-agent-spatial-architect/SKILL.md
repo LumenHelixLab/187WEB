@@ -1,9 +1,12 @@
 ---
 name: s-agent-spatial-architect
-description: Use when building spatial-AI agents with 2D grounding, 3D lifting, and
-  spatial knowledge aggregation.
-origin: portfolio
+description: >-
+  Use when building spatial-AI agents with 2D grounding, 3D lifting, and spatial knowledge aggregation.
+model_adapter: grok
 ---
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/s-agent-spatial-architect/SKILL.md`](../../.claude/skills/s-agent-spatial-architect/SKILL.md).
+
 # S-Agent Spatial Architect
 
 **Suite:** 187web Ecosystem v2. Parent index:
@@ -33,3 +36,4 @@ Load it when the task matches the triggers below.
 - [`swarm-mind`](../swarm-mind/SKILL.md) — Persona routing
 
 This skill is a child of [`swarm-mind`](../swarm-mind/SKILL.md).
+
