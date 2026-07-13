@@ -1,11 +1,17 @@
 # 187WEB
 
 <p align="center">
-  <img src="docs/assets/header.png" alt="187WEB header" width="100%">
+  <img src="docs/assets/header.png" alt="187WEB — A killer AI-powered web suite" width="100%">
 </p>
 
 <p align="center">
-  <img src="docs/assets/logo.svg" alt="187WEB logo" width="120">
+  <img src="docs/assets/187orblogo.png" alt="187WEB primary brand mark" width="220">
+</p>
+
+<p align="center">
+  <img src="docs/assets/lumenhelixlab-text-logo.png" alt="LumenHelix Lab" height="28">
+  &nbsp;&nbsp;
+  <img src="docs/assets/lumenhelix-logo-bulb.png" alt="LumenHelix" height="40">
 </p>
 
 <h3 align="center">A killer AI-powered web suite.</h3>
@@ -15,10 +21,17 @@
 <p align="center">
   <a href="https://lumenhelixlab.github.io/187WEB/">Launch Page</a>
   <span> · </span>
-  <a href="https://github.com/lumenhelixlab/187WEB">GitHub</a>
+  <a href="https://github.com/LumenHelixLab/187WEB">GitHub</a>
   <span> · </span>
   <a href="https://lumenhelix.com">LumenHelix</a>
 </p>
+
+<details>
+<summary>NATASHA technical blueprint (mascot geometry)</summary>
+<p align="center">
+  <img src="docs/assets/natasha-tech-blueprint.png" alt="187WEB NATASHA technical blueprint" width="80%">
+</p>
+</details>
 
 ---
 

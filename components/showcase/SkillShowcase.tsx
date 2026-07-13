@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandOrb, NatashaBlueprint } from "@/components/BrandMark";
 import { CopyButton } from "@/components/CopyButton";
 import { EcosystemFooter, EcosystemHeader } from "@/components/ecosystem/Chrome";
 import { Reveal } from "@/components/Reveal";
@@ -52,6 +53,15 @@ export function SkillShowcase({ skill }: { skill: SkillShowcaseData }) {
       <section className="relative overflow-hidden border-b border-white/10 px-6 pb-16 pt-12 sm:pb-24 sm:pt-20">
         <div className="container-x relative">
           <div className="mx-auto max-w-4xl text-center">
+            {skill.id === "natasha" ? (
+              <div className="mx-auto mb-10 max-w-3xl overflow-hidden rounded-2xl border border-[#39FF14]/25 bg-black/40 p-2 shadow-[0_0_60px_rgba(57,255,20,0.12)]">
+                <NatashaBlueprint priority className="rounded-xl" />
+              </div>
+            ) : (
+              <div className="mb-8 flex justify-center">
+                <BrandOrb size="lg" alt="" className="h-20 w-20 drop-shadow-[0_0_28px_rgba(57,255,20,0.3)]" />
+              </div>
+            )}
             <p
               className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em]"
               style={{ color: skill.color }}

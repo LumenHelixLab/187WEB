@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandOrb, HeaderLockup, LabWordmark } from "@/components/BrandMark";
 import { Reveal } from "@/components/Reveal";
 import { CommandPalette } from "@/components/187/CommandPalette";
 import { AbilityTabs } from "./AbilityTabs";
@@ -10,7 +11,7 @@ const FIRST_CLASS_ROSTER = "187REPO 187CRAFT 187VIBE 187LAUNCH 187FREE 187RESEAR
 void FIRST_CLASS_ROSTER;
 
 
-const REPO = "https://github.com/lumenhelixlab/187WEB";
+const REPO = "https://github.com/LumenHelixLab/187WEB";
 
 function uniqueByStatus(status: CommandEntry["status"]) {
   const seen = new Set<string>();
@@ -52,8 +53,8 @@ function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <nav className="sc-glass mx-auto mt-4 flex max-w-6xl items-center justify-between rounded-full px-5 py-2.5">
-        <a href="#top" className="flex items-center gap-2 font-bold tracking-tight text-white">
-          <span className="grid h-7 w-7 place-items-center rounded-md bg-[#39FF14] text-xs text-[#05060A]">187</span>
+        <a href="#top" className="flex items-center gap-2.5 font-bold tracking-tight text-white">
+          <BrandOrb size="xs" alt="" className="h-8 w-8 drop-shadow-[0_0_12px_rgba(57,255,20,0.45)]" />
           <span className="hidden sm:inline">187WEB</span>
         </a>
         <div className="hidden items-center gap-7 text-sm text-white/60 md:flex">
@@ -84,9 +85,18 @@ export function Showcase() {
       <div className="pointer-events-none absolute inset-0 opacity-10" style={{ backgroundImage: "linear-gradient(rgba(57,255,20,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(57,255,20,0.15) 1px, transparent 1px)", backgroundSize: "40px 40px", maskImage: "radial-gradient(120% 100% at 50% 0%, #000 40%, transparent 85%)", WebkitMaskImage: "radial-gradient(120% 100% at 50% 0%, #000 40%, transparent 85%)" }} aria-hidden="true" />
       <Header />
 
-      <section id="top" className="relative px-6 pb-20 pt-32 sm:pb-28 sm:pt-40">
+      <section id="top" className="relative px-6 pb-20 pt-28 sm:pb-28 sm:pt-36">
         <div className="container-x relative">
           <div className="mx-auto max-w-5xl text-center">
+            <div className="mx-auto mb-8 flex max-w-3xl flex-col items-center gap-5">
+              <BrandOrb
+                size="xl"
+                alt="187WEB primary brand mark"
+                priority
+                className="h-28 w-28 drop-shadow-[0_0_40px_rgba(57,255,20,0.35)] sm:h-36 sm:w-36"
+              />
+              <HeaderLockup priority className="max-w-3xl drop-shadow-[0_0_24px_rgba(0,0,0,0.65)]" />
+            </div>
             <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#39FF14]"><span className="h-px w-6 bg-[#39FF14]" aria-hidden="true" />187WEB</p>
             <h1 className="mt-6 text-[clamp(2.75rem,1.4rem+6vw,6rem)] font-bold leading-[0.92] tracking-tight text-white">
               Type one command. <span className="text-[#39FF14]">Ship the whole surface.</span>
@@ -201,7 +211,12 @@ export function Showcase() {
 
       <footer className="border-t border-white/10 bg-[#05060A] px-6 py-12">
         <div className="container-x flex flex-col items-center justify-between gap-4 sm:flex-row">
-          <p className="text-sm text-white/50">© {new Date().getFullYear()} Lumen Helix Solutions · 187WEB · Custom Noncommercial License with Reserved Knotstore IP</p>
+          <div className="flex flex-col items-center gap-2 sm:items-start">
+            <LabWordmark height={18} className="opacity-90" />
+            <p className="text-sm text-white/50">
+              © {new Date().getFullYear()} LumenHelix Lab · 187WEB · Custom Noncommercial License with Reserved Knotstore IP
+            </p>
+          </div>
           <div className="flex flex-wrap items-center justify-center gap-6">
             <Link href="/187" className="text-sm text-white/50 transition hover:text-white">/187 Reference</Link>
             <Link href="/install" className="text-sm text-white/50 transition hover:text-white">Install</Link>

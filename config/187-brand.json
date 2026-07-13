@@ -1,10 +1,27 @@
 {
   "brand": "187WEB",
+  "org": "LumenHelix Lab",
   "primary_tagline": "A killer AI-powered web suite: spin sharper sites, ship smarter systems.",
   "secondary_descriptor": "An AI-powered suite of web tools to die for.",
   "seo_description": "187WEB is a killer AI-powered web suite for building sharper sites and shipping smarter systems with AI-assisted skills for repos, design, docs, launch, research, SEO, revenue, testing, accessibility, versioning, and publishing.",
+  "assets": {
+    "orb": "public/images/187web_primary_brand_mark_iconic_mascot_logo.png",
+    "header_lockup": "public/images/187web_header_text_lockup.png",
+    "blueprint": "public/images/187web_technical_blueprint_coordinate_grid.png",
+    "lumenhelix_bulb": "public/images/lumenhelix-logo-bulb.png",
+    "lab_wordmark": "public/images/lumenhelixlab-text-logo.png",
+    "docs_orb": "docs/assets/187orblogo.png",
+    "docs_header": "docs/assets/header.png",
+    "docs_blueprint": "docs/assets/natasha-tech-blueprint.png",
+    "docs_bulb": "docs/assets/lumenhelix-logo-bulb.png",
+    "docs_lab_wordmark": "docs/assets/lumenhelixlab-text-logo.png"
+  },
   "usage_rules": [
-    "Use 187WEB as the canonical brand everywhere.",
+    "Use 187WEB as the canonical product brand everywhere.",
+    "Use the spider orb as the primary product mark (headers, favicon contexts, cards).",
+    "Use the 187WEB header lockup for heroes and README headers.",
+    "Use the NATASHA technical blueprint for multi-agent / NATASHA surfaces and vibe boards.",
+    "Use the DNA lightbulb and LUMENhelix /lab wordmark for LumenHelix Lab org attribution.",
     "Do not use 187SUITE as the main product name.",
     "Use suite only as a descriptor, not the product identity.",
     "Use 187WEB in all caps with no space.",

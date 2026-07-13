@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,
-  authors: [{ name: "Lumen Helix Solutions" }],
+  authors: [{ name: "LumenHelix Lab" }],
   openGraph: {
     type: "website",
     title: `${siteConfig.name} — ${siteConfig.tagline}`,

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { BrandOrb, LabWordmark } from "@/components/BrandMark";
 
 /**
  * Shared header/footer chrome for the dark-green "ecosystem" pages
@@ -7,7 +8,7 @@ import type { ReactNode } from "react";
  * per page; pages differ only in nav items and the primary CTA target.
  */
 
-const REPO_URL = "https://github.com/lumenhelixlab/187WEB";
+const REPO_URL = "https://github.com/LumenHelixLab/187WEB";
 
 type NavItem = { href: string; label: string };
 type Cta = { href: string; label: string };
@@ -61,10 +62,8 @@ export function EcosystemHeader({
             aria-label="187WEB home"
             className="flex items-center gap-2 text-lg font-bold tracking-tight text-white"
           >
-            <span className="grid h-7 w-7 place-items-center rounded-md bg-[#39FF14] text-xs text-[#05060A]">
-              187
-            </span>
-            <span className="hidden sm:inline">WEB</span>
+            <BrandOrb size="xs" alt="" className="h-8 w-8" />
+            <span className="hidden sm:inline">187WEB</span>
           </Link>
 
           <nav aria-label={navLabel} className="hidden items-center gap-8 md:flex">
@@ -147,9 +146,12 @@ export function EcosystemFooter({ secondary }: { secondary: Cta }) {
     <footer className="border-t border-white/10 bg-[#0A0C14]">
       <div className="container-x py-12">
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-          <p className="text-sm text-[#d6deeb]/50">
-            © {new Date().getFullYear()} Lumen Helix Solutions · MIT License
-          </p>
+          <div className="flex flex-col items-center gap-2 sm:items-start">
+            <LabWordmark height={18} className="opacity-90" />
+            <p className="text-sm text-[#d6deeb]/50">
+              © {new Date().getFullYear()} LumenHelix Lab · 187WEB
+            </p>
+          </div>
           <div className="flex items-center gap-6">
             <a
               href={REPO_URL}
