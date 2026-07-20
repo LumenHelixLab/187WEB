@@ -27,73 +27,42 @@ function skillTagline(skill: SuiteSkill): string {
   return found?.tagline ?? skill.name;
 }
 
-function skillBullets(skill: SuiteSkill): string[] {
+function skillExample(skill: SuiteSkill): string {
   const found = skillShowcaseIndex.get(skill.id);
-  if (!found) return [];
-  return [...found.useCases.slice(0, 1), ...found.outputs.slice(0, 2)].slice(0, 3);
+  const useCase = found?.useCases[0] ?? "";
+  const output = found?.outputs[0] ?? "";
+  return useCase || output ? `${useCase} → ${output}` : skillTagline(skill);
 }
 
-function skillTemplates(skill: SuiteSkill): string[] {
-  const found = skillShowcaseIndex.get(skill.id);
-  return found?.templates?.map((t) => t.name).slice(0, 3) ?? [];
-}
-
-function SkillDocsCard({ skill, index }: { skill: SuiteSkill; index: number }) {
+function VisualSkillCard({ skill, index }: { skill: SuiteSkill; index: number }) {
   const color = skillColor(skill);
   const trigger = skillTrigger(skill);
-  const tagline = skillTagline(skill);
-  const bullets = skillBullets(skill);
-  const templates = skillTemplates(skill);
+  const example = skillExample(skill);
+  const alias = skill.id.slice(0, 2).toUpperCase();
 
   return (
     <Reveal delay={index * 40}>
       <Link
         href={`/187${skill.id}`}
-        className="group flex h-full flex-col rounded-2xl border border-white/10 bg-[#0A0C14] p-5 transition hover:-translate-y-1 hover:border-[#39FF14]/30"
+        className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0A0C14] p-5 transition hover:-translate-y-1 hover:border-white/20"
         style={{ boxShadow: `0 0 0 1px rgba(255,255,255,0.04), 0 24px 60px -24px ${color}22` }}
       >
         <div className="flex items-start justify-between gap-3">
-          <div>
-            <h3 className="font-bold text-white">{skill.name}</h3>
-            <p className="text-sm" style={{ color }}>{tagline}</p>
-          </div>
-          <span
-            className="grid h-8 w-8 flex-shrink-0 place-items-center rounded-lg text-xs font-bold text-[#050608]"
+          <div
+            className="grid h-11 w-11 place-items-center rounded-xl text-sm font-bold text-[#050608]"
             style={{ backgroundColor: color }}
           >
-            {skill.id.slice(0, 2).toUpperCase()}
-          </span>
-        </div>
-
-        <div className="mt-4 space-y-3">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-wider text-white/40">Trigger</p>
-            <code className="mt-1 block rounded bg-white/5 px-2 py-1 text-xs text-[#39FF14]">{trigger}</code>
+            {alias}
           </div>
-          {bullets.length > 0 && (
-            <ul className="space-y-1.5">
-              {bullets.map((bullet) => (
-                <li key={bullet} className="flex items-start gap-2 text-sm text-white/70">
-                  <span style={{ color }}>›</span>
-                  {bullet}
-                </li>
-              ))}
-            </ul>
-          )}
-          {templates.length > 0 && (
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-white/40">Templates</p>
-              <div className="mt-1 flex flex-wrap gap-1.5">
-                {templates.map((name) => (
-                  <code key={name} className="rounded bg-white/5 px-2 py-0.5 text-xs text-white/70">{name}</code>
-                ))}
-              </div>
-            </div>
-          )}
+          <code className="rounded bg-white/5 px-2 py-1 text-xs text-[#39FF14]">{trigger}</code>
         </div>
-
+        <h3 className="mt-4 font-bold text-white">{skill.name}</h3>
+        <p className="text-sm" style={{ color }}>
+          {skillTagline(skill)}
+        </p>
+        <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-white/60">{example}</p>
         <div className="mt-auto flex items-center gap-1 pt-5 text-sm font-medium" style={{ color }}>
-          <span>Open {skill.name}</span>
+          <span>Explore {skill.name}</span>
           <svg
             className="h-4 w-4 transition group-hover:translate-x-1"
             viewBox="0 0 24 24"
@@ -110,14 +79,14 @@ function SkillDocsCard({ skill, index }: { skill: SuiteSkill; index: number }) {
   );
 }
 
-function SkillDocsGrid() {
+function VisualSkillGrid() {
   return (
     <section id="docs-grid" className="relative px-6 py-20 sm:py-28">
       <div className="container-x">
         <Reveal className="mx-auto mb-12 max-w-3xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#39FF14]">Skill docs</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#39FF14]">Visual skill gallery</p>
           <h2 className="mt-4 text-[clamp(2rem,1.2rem+3vw,3.5rem)] font-bold tracking-tight text-white">
-            Every skill, documented
+            Every skill, one card away
           </h2>
           <p className="mt-4 text-white/60">
             First-class skills plus subskills. Each card links to a dedicated page with triggers, outputs, routing, and templates.
@@ -126,7 +95,91 @@ function SkillDocsGrid() {
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {PUBLIC_SKILLS.map((skill, i) => (
-            <SkillDocsCard key={skill.id} skill={skill} index={i} />
+            <VisualSkillCard key={skill.id} skill={skill} index={i} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ScreenshotCard({
+  title,
+  color,
+  lines,
+  index,
+}: {
+  title: string;
+  color: string;
+  lines: string[];
+  index: number;
+}) {
+  return (
+    <Reveal delay={index * 100}>
+      <div
+        className="flex h-full flex-col rounded-2xl border border-white/10 bg-[#0A0C14] p-1 transition hover:-translate-y-1"
+        style={{ boxShadow: `0 0 0 1px rgba(255,255,255,0.04), 0 24px 60px -24px ${color}22` }}
+      >
+        <div className="flex items-center gap-2 rounded-t-xl bg-[#05060A] px-4 py-3">
+          <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: color }} />
+          <span className="text-xs font-semibold text-white/70">{title}</span>
+        </div>
+        <div className="flex-1 space-y-2 rounded-b-xl bg-black/40 p-4">
+          {lines.map((line) => (
+            <div
+              key={line}
+              className="rounded-lg px-3 py-2 text-xs font-mono text-[#39FF14]"
+              style={{ backgroundColor: `${color}10` }}
+            >
+              {line}
+            </div>
+          ))}
+        </div>
+      </div>
+    </Reveal>
+  );
+}
+
+function MotionExamplesStrip() {
+  const examples = [
+    {
+      title: "187SEO Audit",
+      color: "#a855f7",
+      lines: ["/187seo audit /pricing", "→ 0 critical, 2 warnings", "→ schema plan generated", "→ quick wins prioritized"],
+    },
+    {
+      title: "187RESEARCH Lab",
+      color: "#6366f1",
+      lines: ["/187research climate-models", "→ source routes mapped", "→ evidence ladder built", "→ ro-crate ready"],
+    },
+    {
+      title: "187LAUNCH Checklist",
+      color: "#f59e0b",
+      lines: ["/187launch plan ph", "→ ICP + timeline", "→ asset plan drafted", "→ PH post scheduled"],
+    },
+    {
+      title: "187PUBLISH Gate",
+      color: "#14b8a6",
+      lines: ["/187publish gate", "→ surface inventory clean", "→ drift repair list", "→ GO with 2 fixes"],
+    },
+  ];
+
+  return (
+    <section id="motion-examples" className="relative border-y border-white/10 bg-[#080808]/80 px-6 py-20 sm:py-28">
+      <div className="container-x">
+        <Reveal className="mx-auto mb-12 max-w-3xl text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#39FF14]">Motion + examples</p>
+          <h2 className="mt-4 text-[clamp(2rem,1.2rem+3vw,3.5rem)] font-bold tracking-tight text-white">
+            Sample outputs
+          </h2>
+          <p className="mt-4 text-white/60">
+            Stylized previews of what each skill returns when invoked through the /187 surface.
+          </p>
+        </Reveal>
+
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {examples.map((example, i) => (
+            <ScreenshotCard key={example.title} {...example} index={i} />
           ))}
         </div>
       </div>
@@ -144,10 +197,11 @@ function ShowcaseHero() {
             187WEB
           </p>
           <h1 className="mt-6 text-[clamp(2.75rem,1.4rem+6vw,6rem)] font-bold leading-[0.92] tracking-tight text-white">
-            Examples + docs for <span className="text-[#39FF14]">every skill.</span>
+            187WEB <span className="text-[#39FF14]">Ability Showcase.</span>
           </h1>
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-white/65">
-            Showcase is the documentation surface for the 187WEB ecosystem: real command triggers, output contracts, templates, and end-to-end scenarios for every first-class skill and subskill.
+            A visual gallery of the 187WEB command surface: real triggers, output contracts, scenario chains, and
+            end-to-end demos for every first-class skill and subskill.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             <Link
@@ -181,20 +235,29 @@ export function Showcase() {
         <div className="container-x">
           <Reveal className="mx-auto mb-12 max-w-3xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#39FF14]">187 Abilities</p>
-            <h2 className="mt-4 text-[clamp(2rem,1.2rem+3vw,3.5rem)] font-bold tracking-tight text-white">What 187WEB actually does</h2>
-            <p className="mt-4 text-white/60">Every card is a skill you can invoke, inspect, and compose. Click through to see triggers, outputs, routing, and templates.</p>
+            <h2 className="mt-4 text-[clamp(2rem,1.2rem+3vw,3.5rem)] font-bold tracking-tight text-white">
+              What 187WEB actually does
+            </h2>
+            <p className="mt-4 text-white/60">
+              Every card is a skill you can invoke, inspect, and compose. Click through to see triggers, outputs,
+              routing, and templates.
+            </p>
           </Reveal>
           <AbilityTabs />
         </div>
       </section>
 
-      <SkillDocsGrid />
+      <MotionExamplesStrip />
+
+      <VisualSkillGrid />
 
       <section id="scenarios" className="relative border-y border-white/10 bg-[#0A0C14] px-6 py-20 sm:py-28">
         <div className="container-x">
           <Reveal className="mx-auto mb-12 max-w-3xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#39FF14]">Scenario demos</p>
-            <h2 className="mt-4 text-[clamp(2rem,1.2rem+3vw,3.5rem)] font-bold tracking-tight text-white">Real chains, real artifacts</h2>
+            <h2 className="mt-4 text-[clamp(2rem,1.2rem+3vw,3.5rem)] font-bold tracking-tight text-white">
+              Real chains, real artifacts
+            </h2>
             <p className="mt-4 text-white/60">Four end-to-end examples showing how 187 skills chain into outcomes.</p>
           </Reveal>
           <ScenarioDemo />
@@ -205,8 +268,12 @@ export function Showcase() {
         <div className="container-x">
           <Reveal className="mx-auto mb-12 max-w-3xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#39FF14]">Command surface</p>
-            <h2 className="mt-4 text-[clamp(2rem,1.2rem+3vw,3.5rem)] font-bold tracking-tight text-white">Browse by category, click a skill page</h2>
-            <p className="mt-4 text-white/60">Commands that have dedicated skill pages link through to full trigger, output, and template documentation.</p>
+            <h2 className="mt-4 text-[clamp(2rem,1.2rem+3vw,3.5rem)] font-bold tracking-tight text-white">
+              Browse by category, click a skill page
+            </h2>
+            <p className="mt-4 text-white/60">
+              Commands that have dedicated skill pages link through to full trigger, output, and template documentation.
+            </p>
           </Reveal>
           <CommandTeaser />
         </div>
