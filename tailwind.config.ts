@@ -55,6 +55,11 @@ const config: Config = {
       },
     },
   },
+  variants: {
+    extend: {
+      animation: ["motion-safe", "motion-reduce"],
+    },
+  },
   plugins: [],
 };
 
