@@ -43,7 +43,6 @@ export const natashaModules: NatashaModule[] = [
   {
     id: "SCOUT",
     alias: "ch",
-    legacy: "agent-charlotte / CHAR",
     purpose: "Compliant web, source, and repository research",
     color: "#3b82f6",
   },
