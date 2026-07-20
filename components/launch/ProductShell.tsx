@@ -1,10 +1,17 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { brandAssets } from "@/lib/brand-assets";
 import { WebHiveBackground } from "./WebHiveBackground";
 
 const REPO = "https://github.com/LumenHelixLab/187WEB";
+
+const WebHiveThreeBackground = dynamic(
+  () => import("./WebHiveThreeBackground").then((mod) => mod.WebHiveThreeBackground),
+  { ssr: false }
+);
 
 function Header() {
   return (
@@ -21,7 +28,7 @@ function Header() {
         </Link>
         <div className="hidden items-center gap-6 text-sm text-white/60 md:flex">
           <Link href="/#skills" className="transition hover:text-[#39FF14]">Skills</Link>
-          <Link href="/#natasha" className="transition hover:text-[#39FF14]">NATASHA</Link>
+          <Link href="/#agents" className="transition hover:text-[#39FF14]">Agents</Link>
           <Link href="/187" className="transition hover:text-[#39FF14]">/187</Link>
           <Link href="/showcase" className="transition hover:text-[#39FF14]">Showcase</Link>
           <Link href="/install" className="transition hover:text-[#39FF14]">Install</Link>
@@ -77,9 +84,19 @@ export function ProductShell({
   children: React.ReactNode;
   className?: string;
 }) {
+  const [reducedMotion, setReducedMotion] = useState(true);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+
   return (
     <div className={`relative min-h-screen overflow-x-hidden bg-[#050608] text-[#ECEDF7] ${className}`.trim()}>
-      <WebHiveBackground />
+      {reducedMotion ? <WebHiveBackground /> : <WebHiveThreeBackground />}
       <Header />
       <main className="relative z-10">{children}</main>
       <Footer />
