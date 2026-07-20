@@ -4,7 +4,7 @@ import Link from "next/link";
 import { NatashaBlueprint } from "@/components/BrandMark";
 import { Reveal } from "@/components/Reveal";
 import { skillShowcaseIndex, type SkillShowcaseData } from "@/lib/skill-showcase-data";
-import { FIRST_CLASS_SKILLS, type SuiteSkill } from "@/scripts/lib/suite-constants.mjs";
+import { FIRST_CLASS_SKILLS, type SuiteSkill } from "@/lib/first-class-skills";
 
 const DEPARTMENT_COLORS: Record<string, string> = {
   repo: "#f43f5e",
