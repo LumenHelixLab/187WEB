@@ -1023,6 +1023,51 @@ export const skillShowcases: SkillShowcaseData[] = [
     related: ["access", "include", "seo", "launch"],
   },
   {
+    id: "create",
+    name: "187CREATE",
+    tagline: "Growth-first creation",
+    color: "#39FF14",
+    description:
+      "187CREATE is Kali's growth-first creation skill. It builds landing pages, ad creatives, influencer kits, and conversion-focused surfaces that plug directly into the 187WEB suite.",
+    triggers: [
+      "create a landing page",
+      "spin up ad creative",
+      "design an influencer kit",
+      "optimize a conversion surface",
+      "build a growth MVP",
+    ],
+    useCases: [
+      "Rapid landing pages for campaigns and launches",
+      "Ad creative variants and conversion copy",
+      "Influencer / partner asset kits",
+      "Growth MVPs that later hand off to 187CRAFT for systemization",
+    ],
+    outputs: [
+      "Shipped growth page or component set",
+      "Campaign brief with copy and asset checklist",
+      "Conversion checklist and A/B candidate list",
+      "Handoff notes for 187CRAFT / 187PUBLISH",
+    ],
+    related: ["craft", "vibe", "launch", "publish", "seo", "revenue"],
+    routesTo: [
+      { name: "187CRAFT", when: "Systemize a successful MVP into a design system" },
+      { name: "187PUBLISH", when: "Run the publish gate before going live" },
+      { name: "187SEO", when: "Optimize discoverability of the growth surface" },
+    ],
+    templates: [
+      {
+        name: "Landing page MVP",
+        when:
+          "Create a one-section landing page for [offer] targeting [audience]. Include headline, subhead, social proof placeholder, CTA, and accessibility checks.",
+      },
+      {
+        name: "Ad creative brief",
+        when:
+          "Generate three ad-creative variants for [channel] promoting [offer]. Each variant needs headline, hook, visual direction, and CTA.",
+      },
+    ],
+  },
+  {
     id: "vibe",
     name: "187VIBE",
     tagline: "Delight + community",

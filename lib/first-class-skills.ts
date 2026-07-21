@@ -16,6 +16,7 @@ export type SuiteSkill = {
 export const FIRST_CLASS_SKILLS: SuiteSkill[] = [
   { id: "repo", name: "187REPO", route: null, docs: null },
   { id: "craft", name: "187CRAFT", route: null, docs: null },
+  { id: "create", name: "187CREATE", route: "create", docs: "187CREATE" },
   { id: "vibe", name: "187VIBE", route: null, docs: null },
   { id: "launch", name: "187LAUNCH", route: null, docs: null },
   { id: "free", name: "187FREE", route: "free", docs: "187FREE" },
