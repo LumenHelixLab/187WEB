@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { CommandPalette } from "@/components/187/CommandPalette";
 import { CommandReference } from "@/components/187/CommandReference";
 import { AbilityTabs } from "@/components/showcase/AbilityTabs";
 import { ScenarioDemo } from "@/components/showcase/ScenarioDemo";
 import { ProductShell } from "@/components/launch/ProductShell";
-const FIRST_CLASS_ROSTER = "187REPO 187CRAFT 187VIBE 187LAUNCH 187FREE 187RESEARCH 187SEO 187REVENUE 187DOCS 187LEARN 187TEST 187ACCESS+ 187VERSION 187PUBLISH 187NATASHA 187QUANTUM 187CHAIN 187WRITE 187INCLUDE";
+const FIRST_CLASS_ROSTER = "187REPO 187CRAFT 187VIBE 187LAUNCH 187FREE 187RESEARCH 187SEO 187REVENUE 187DOCS 187LEARN 187TEST 187ACCESS+ 187VERSION 187PUBLISH 187NATASHA 187QUANTUM 187CHAIN 187WRITE 187INCLUDE+";
 void FIRST_CLASS_ROSTER;
 
 
@@ -19,7 +20,7 @@ export default function CommandReferencePage() {
       <div className="px-6 py-16">
         {/*! FIRST_CLASS_ROSTER preserved for CI: 187REPO 187CRAFT 187VIBE 187LAUNCH 187FREE
           187RESEARCH 187SEO 187REVENUE 187DOCS 187LEARN 187TEST 187ACCESS+
-          187VERSION 187PUBLISH 187WRITE 187INCLUDE */}
+          187VERSION 187PUBLISH 187WRITE 187INCLUDE+ */}
         <div className="container-x">
           <section className="py-12">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#39FF14]">187WEB command surface</p>
@@ -29,6 +30,14 @@ export default function CommandReferencePage() {
             <p className="mt-6 max-w-3xl text-lg leading-8 text-white/65">
               Use <code className="rounded bg-white/10 px-1.5 py-0.5 font-mono text-[#39FF14]">/187</code> to select one skill, one agent, one ability, one module, one research profile, one install pack, or the full suite. Browse by category, explore individual skill pages, or see how commands chain into real outcomes.
             </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link
+                href="/187plusplus"
+                className="sc-glow inline-flex h-11 items-center justify-center rounded border border-[#39FF14]/30 bg-[#39FF14]/5 px-5 text-sm font-semibold text-[#39FF14] transition hover:bg-[#39FF14]/10"
+              >
+                /187++ access &amp; inclusion sweep
+              </Link>
+            </div>
           </section>
 
           <CommandPalette />

@@ -1,21 +1,23 @@
 import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
+import { Tooltip } from "@/components/Tooltip";
 import { CommandPalette } from "@/components/187/CommandPalette";
 import { AbilityTabs } from "./AbilityTabs";
 import { ScenarioDemo } from "./ScenarioDemo";
 import { CommandTeaser } from "./CommandTeaser";
 import { DesignMotionLab } from "./DesignMotionLab";
 import { ProductShell } from "@/components/launch/ProductShell";
-import { skillShowcaseIndex } from "@/lib/skill-showcase-data";
+import { AccessIncludeCTA } from "@/components/launch/AccessIncludeCTA";
+import { skillShowcaseIndex, skillColorValue, skillIsRainbow, skillRainbowTextClass } from "@/lib/skill-showcase-data";
 import { PUBLIC_SKILLS, type SuiteSkill } from "@/lib/first-class-skills";
 
-const FIRST_CLASS_ROSTER = "187REPO 187CRAFT 187VIBE 187LAUNCH 187FREE 187RESEARCH 187SEO 187REVENUE 187DOCS 187LEARN 187TEST 187ACCESS+ 187VERSION 187PUBLISH 187NATASHA 187QUANTUM 187CHAIN 187WRITE 187INCLUDE";
+const FIRST_CLASS_ROSTER = "187REPO 187CRAFT 187VIBE 187LAUNCH 187FREE 187RESEARCH 187SEO 187REVENUE 187DOCS 187LEARN 187TEST 187ACCESS+ 187VERSION 187PUBLISH 187NATASHA 187QUANTUM 187CHAIN 187WRITE 187INCLUDE+";
 void FIRST_CLASS_ROSTER;
 
 function skillColor(skill: SuiteSkill): string {
   const found = skillShowcaseIndex.get(skill.id);
   if (found && found.name === "187NATASHA") return "#f43f5e";
-  return found?.color ?? "#39FF14";
+  return skillColorValue(found?.color ?? "#39FF14");
 }
 
 function skillTrigger(skill: SuiteSkill): string {
@@ -40,42 +42,62 @@ function VisualSkillCard({ skill, index }: { skill: SuiteSkill; index: number })
   const trigger = skillTrigger(skill);
   const example = skillExample(skill);
   const alias = skill.id.slice(0, 2).toUpperCase();
+  const meta = skillShowcaseIndex.get(skill.id);
 
   return (
     <Reveal delay={index * 40}>
-      <Link
-        href={`/187${skill.id}`}
-        className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0A0C14] p-5 transition hover:-translate-y-1 hover:border-white/20"
-        style={{ boxShadow: `0 0 0 1px rgba(255,255,255,0.04), 0 24px 60px -24px ${color}22` }}
+      <Tooltip
+        content={
+          <>
+            <strong className="text-white">{skill.name}</strong> — {meta?.description ?? example}{" "}
+            <Link href={`/187${skill.id}`} className="mt-2 block text-[#39FF14] underline">
+              Open {skill.name} →
+            </Link>
+          </>
+        }
       >
-        <div className="flex items-start justify-between gap-3">
-          <div
-            className="grid h-11 w-11 place-items-center rounded-xl text-sm font-bold text-[#050608]"
-            style={{ backgroundColor: color }}
-          >
-            {alias}
+        <Link
+          href={`/187${skill.id}`}
+          className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0A0C14] p-5 transition hover:-translate-y-1 hover:border-white/20"
+          style={{ boxShadow: `0 0 0 1px rgba(255,255,255,0.04), 0 24px 60px -24px ${color}22` }}
+        >
+          <div className="flex items-start justify-between gap-3">
+            <div
+              className={`grid h-11 w-11 place-items-center rounded-xl text-sm font-bold ${
+                skillIsRainbow(meta?.color ?? "") ? "text-white" : "text-[#050608]"
+              }`}
+              style={skillIsRainbow(meta?.color ?? "") ? {} : { backgroundColor: color }}
+            >
+              {skillIsRainbow(meta?.color ?? "") ? (
+                <span className="bg-gradient-to-r from-red-500 via-yellow-500 via-green-500 via-blue-500 to-purple-500 bg-clip-text text-transparent">
+                  {alias}
+                </span>
+              ) : (
+                alias
+              )}
+            </div>
+            <code className="rounded bg-white/5 px-2 py-1 text-xs text-[#39FF14]">{trigger}</code>
           </div>
-          <code className="rounded bg-white/5 px-2 py-1 text-xs text-[#39FF14]">{trigger}</code>
-        </div>
-        <h3 className="mt-4 font-bold text-white">{skill.name}</h3>
-        <p className="text-sm" style={{ color }}>
-          {skillTagline(skill)}
-        </p>
-        <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-white/60">{example}</p>
-        <div className="mt-auto flex items-center gap-1 pt-5 text-sm font-medium" style={{ color }}>
-          <span>Explore {skill.name}</span>
-          <svg
-            className="h-4 w-4 transition group-hover:translate-x-1"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <path d="M5 12h14" />
-            <path d="m12 5 7 7-7 7" />
-          </svg>
-        </div>
-      </Link>
+          <h3 className="mt-4 font-bold text-white">{skill.name}</h3>
+          <p className={`text-sm ${skillIsRainbow(meta?.color ?? "") ? skillRainbowTextClass() : ""}`} style={skillIsRainbow(meta?.color ?? "") ? undefined : { color }}>
+            {skillTagline(skill)}
+          </p>
+          <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-white/60">{example}</p>
+          <div className="mt-auto flex items-center gap-1 pt-5 text-sm font-medium" style={{ color }}>
+            <span>Explore {skill.name}</span>
+            <svg
+              className="h-4 w-4 transition group-hover:translate-x-1"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </div>
+        </Link>
+      </Tooltip>
     </Reveal>
   );
 }
@@ -198,7 +220,7 @@ function ShowcaseHero() {
             187WEB
           </p>
           <h1 className="mt-6 text-[clamp(2.75rem,1.4rem+6vw,6rem)] font-bold leading-[0.92] tracking-tight text-white">
-            187WEB <span className="text-[#39FF14]">Ability Showcase.</span>
+            187WEB <span className="sc-grad-text">Ability Showcase.</span>
           </h1>
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-white/65">
             A visual gallery of the 187WEB command surface: real triggers, output contracts, scenario chains, and
@@ -207,7 +229,7 @@ function ShowcaseHero() {
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             <Link
               href="#docs-grid"
-              className="inline-flex h-12 items-center justify-center rounded bg-[#39FF14] px-6 text-sm font-semibold text-[#05060A] transition hover:brightness-110"
+              className="sc-glow sc-glow-pulse inline-flex h-12 items-center justify-center rounded bg-[#39FF14] px-6 text-sm font-semibold text-[#050608] transition hover:brightness-110"
             >
               Browse all skills
             </Link>
@@ -231,6 +253,8 @@ export function Showcase() {
   return (
     <ProductShell>
       <ShowcaseHero />
+
+      <AccessIncludeCTA />
 
       <section id="abilities" className="relative border-y border-white/10 bg-[#0A0C14] px-6 py-20 sm:py-28">
         <div className="container-x">

@@ -3,11 +3,14 @@
 import { useState } from "react";
 import Link from "next/link";
 import { brandAssets } from "@/lib/brand-assets";
-import { skillShowcases, type SkillShowcaseData } from "@/lib/skill-showcase-data";
+import { skillShowcases, type SkillShowcaseData, skillColorValue, skillIsRainbow, skillRainbowTextClass } from "@/lib/skill-showcase-data";
+import { COMMANDS } from "@/components/187/command-data";
 import { CommandPalette } from "@/components/187/CommandPalette";
 import { Reveal } from "@/components/Reveal";
+import { Tooltip } from "@/components/Tooltip";
 import { ProductShell } from "./ProductShell";
 import { AgentDepartments } from "./AgentDepartments";
+import { AccessIncludeCTA } from "./AccessIncludeCTA";
 import { natashaModules, quickStats, installSnippets } from "./launch-data";
 
 const REPO = "https://github.com/LumenHelixLab/187WEB";
@@ -29,9 +32,31 @@ function OutcomePill({ children }: { children: React.ReactNode }) {
   );
 }
 
+function HeroOrbs() {
+  return (
+    <>
+      <div
+        className="sc-float sc-pulse pointer-events-none absolute -left-20 top-1/4 h-64 w-64 rounded-full bg-[#39FF14]/10 blur-3xl"
+        aria-hidden="true"
+      />
+      <div
+        className="sc-float pointer-events-none absolute -right-16 top-1/3 h-56 w-56 rounded-full bg-[#a855f7]/15 blur-3xl"
+        style={{ animationDelay: "1.5s" }}
+        aria-hidden="true"
+      />
+      <div
+        className="sc-pulse pointer-events-none absolute left-1/3 top-0 h-40 w-40 rounded-full bg-[#22d3ee]/10 blur-3xl"
+        style={{ animationDelay: "0.75s" }}
+        aria-hidden="true"
+      />
+    </>
+  );
+}
+
 function Hero() {
   return (
     <section id="top" className="relative px-6 pb-16 pt-28 sm:pb-24 sm:pt-36">
+      <HeroOrbs />
       <div className="container-x relative">
         <div className="mx-auto max-w-5xl text-center">
           <Reveal>
@@ -59,7 +84,7 @@ function Hero() {
 
           <Reveal delay={200}>
             <h1 className="mt-8 text-[clamp(2.5rem,1.2rem+6vw,5.5rem)] font-bold leading-[0.95] tracking-tight text-white">
-              Type one command. <span className="text-[#39FF14]">Ship the whole surface.</span>
+              Type one command. <span className="sc-grad-text">Ship the whole surface.</span>
             </h1>
           </Reveal>
 
@@ -84,7 +109,7 @@ function Hero() {
             <div className="mt-10 flex flex-wrap justify-center gap-3">
               <Link
                 href="/187"
-                className="inline-flex h-12 items-center justify-center rounded bg-[#39FF14] px-6 text-sm font-semibold text-[#050608] transition hover:brightness-110"
+                className="sc-glow sc-glow-pulse inline-flex h-12 items-center justify-center rounded bg-[#39FF14] px-6 text-sm font-semibold text-[#050608] transition hover:brightness-110"
               >
                 Explore /187 Commands
               </Link>
@@ -128,6 +153,43 @@ function StatsStrip() {
                 <div className="mt-1 text-sm font-medium uppercase tracking-wider text-white/50">{stat.label}</div>
               </div>
             </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function MarqueeStrip() {
+  const items = [
+    "187REPO",
+    "187CRAFT",
+    "187VIBE",
+    "187LAUNCH",
+    "187FREE",
+    "187RESEARCH",
+    "187SEO",
+    "187REVENUE",
+    "187DOCS",
+    "187LEARN",
+    "187TEST",
+    "187ACCESS+",
+    "187INCLUDE+",
+    "187VERSION",
+    "187PUBLISH",
+    "187NATASHA",
+    "187QUANTUM",
+    "187CHAIN",
+  ];
+  return (
+    <section className="relative overflow-hidden border-y border-white/10 bg-[#050608] py-4">
+      <div className="sc-mask-x">
+        <div className="sc-marquee flex w-max items-center gap-8 whitespace-nowrap">
+          {[...items, ...items].map((item, i) => (
+            <span key={`${item}-${i}`} className="flex items-center gap-8 text-sm font-semibold uppercase tracking-wider text-white/40">
+              {item}
+              <span className="h-1.5 w-1.5 rounded-full bg-[#39FF14]/60" aria-hidden="true" />
+            </span>
           ))}
         </div>
       </div>
@@ -211,51 +273,76 @@ function SkillCard({ skill, index }: { skill: SkillShowcaseData; index: number }
   const alias = skill.triggers[0]?.replace("/187", "").trim() ?? skill.id;
   const useCase = skill.useCases[0] ?? "";
   const output = skill.outputs[0] ?? "";
+  const solidColor = skillColorValue(skill.color);
+  const taglineClass = skillIsRainbow(skill.color) ? skillRainbowTextClass() : "";
+
   return (
     <Reveal delay={index * 40}>
-      <Link
-        href={`/187${skill.id}`}
-        className="group flex h-full flex-col rounded-2xl border border-white/10 bg-[#0A0C14] p-5 transition hover:-translate-y-1 hover:border-[#39FF14]/30"
-        style={{ boxShadow: `0 0 0 1px rgba(255,255,255,0.03), 0 24px 60px -24px ${skill.color}22` }}
+      <Tooltip
+        content={
+          <>
+            <strong className="text-white">{skill.name}</strong> — {skill.description}{" "}
+            <Link href={`/187${skill.id}`} className="mt-2 block text-[#39FF14] underline">
+              Open {skill.name} →
+            </Link>
+          </>
+        }
       >
-        <div className="flex items-start justify-between gap-3">
-          <div>
-            <h3 className="font-bold text-white">{skill.name}</h3>
-            <p className="text-sm" style={{ color: skill.color }}>
-              {skill.tagline}
+        <Link
+          href={`/187${skill.id}`}
+          className="group flex h-full flex-col rounded-2xl border border-white/10 bg-[#0A0C14] p-5 transition hover:-translate-y-1 hover:border-[#39FF14]/30"
+          style={{ boxShadow: `0 0 0 1px rgba(255,255,255,0.03), 0 24px 60px -24px ${solidColor}22` }}
+        >
+          <div className="flex items-start justify-between gap-3">
+            <div>
+              <h3 className="font-bold text-white">{skill.name}</h3>
+              <p className={`text-sm ${taglineClass}`} style={skillIsRainbow(skill.color) ? undefined : { color: solidColor }}>
+                {skill.tagline}
+              </p>
+            </div>
+            <span
+              className={`grid h-9 w-9 flex-shrink-0 place-items-center rounded-lg text-xs font-bold ${
+                skillIsRainbow(skill.color) ? "text-white" : "text-[#050608]"
+              }`}
+              style={skillIsRainbow(skill.color) ? {} : { backgroundColor: solidColor }}
+            >
+              {skillIsRainbow(skill.color) ? (
+                <span className="bg-gradient-to-r from-red-500 via-yellow-500 via-green-500 via-blue-500 to-purple-500 bg-clip-text text-transparent">
+                  {alias.slice(0, 2).toUpperCase()}
+                </span>
+              ) : (
+                alias.slice(0, 2).toUpperCase()
+              )}
+            </span>
+          </div>
+          <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-white/60">{skill.description}</p>
+          <div className="mt-4 space-y-2">
+            <code className="block rounded bg-white/5 px-2 py-1 text-xs text-[#39FF14]">/187 {alias}</code>
+            <p className="text-xs text-white/40">
+              <span className="text-white/60">Use case:</span> {useCase}
+            </p>
+            <p className="text-xs text-white/40">
+              <span className="text-white/60">Delivers:</span> {output}
             </p>
           </div>
-          <span
-            className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-lg text-xs font-bold text-[#050608]"
-            style={{ backgroundColor: skill.color }}
+          <div
+            className="mt-auto flex items-center gap-1 pt-4 text-sm font-medium"
+            style={{ color: solidColor }}
           >
-            {alias.slice(0, 2).toUpperCase()}
-          </span>
-        </div>
-        <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-white/60">{skill.description}</p>
-        <div className="mt-4 space-y-2">
-          <code className="block rounded bg-white/5 px-2 py-1 text-xs text-[#39FF14]">/187 {alias}</code>
-          <p className="text-xs text-white/40">
-            <span className="text-white/60">Use case:</span> {useCase}
-          </p>
-          <p className="text-xs text-white/40">
-            <span className="text-white/60">Delivers:</span> {output}
-          </p>
-        </div>
-        <div className="mt-auto flex items-center gap-1 pt-4 text-sm font-medium" style={{ color: skill.color }}>
-          <span>Explore {skill.name}</span>
-          <svg
-            className="h-4 w-4 transition group-hover:translate-x-1"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <path d="M5 12h14" />
-            <path d="m12 5 7 7-7 7" />
-          </svg>
-        </div>
-      </Link>
+            <span>Explore {skill.name}</span>
+            <svg
+              className="h-4 w-4 transition group-hover:translate-x-1"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </div>
+        </Link>
+      </Tooltip>
     </Reveal>
   );
 }
@@ -403,6 +490,14 @@ const COMMAND_CHIPS = [
   "/187 th",
 ];
 
+function commandPurpose(chip: string): string {
+  const cmd = chip.replace("/187 ", "").trim();
+  return (
+    COMMANDS.find((c) => c.cmd === chip || c.alias === cmd)?.purpose ??
+    `Run ${chip}`
+  );
+}
+
 function CommandSurface() {
   const [commandInput, setCommandInput] = useState("/187 ");
   return (
@@ -422,14 +517,15 @@ function CommandSurface() {
           <div className="mx-auto max-w-4xl">
             <div className="mb-4 flex flex-wrap justify-center gap-2">
               {COMMAND_CHIPS.map((chip) => (
-                <button
-                  key={chip}
-                  type="button"
-                  onClick={() => setCommandInput(chip)}
-                  className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-white/70 transition hover:border-[#39FF14]/40 hover:text-[#39FF14]"
-                >
-                  {chip}
-                </button>
+                <Tooltip key={chip} content={commandPurpose(chip)}>
+                  <button
+                    type="button"
+                    onClick={() => setCommandInput(chip)}
+                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-white/70 transition hover:border-[#39FF14]/40 hover:text-[#39FF14]"
+                  >
+                    {chip}
+                  </button>
+                </Tooltip>
               ))}
             </div>
             <CommandPalette value={commandInput} onChange={setCommandInput} className="border-[#39FF14]/20" />
@@ -440,10 +536,29 @@ function CommandSurface() {
   );
 }
 
+function DrawingAccent() {
+  return (
+    <div className="pointer-events-none absolute inset-x-0 bottom-0 flex justify-center" aria-hidden="true">
+      <Reveal>
+        <svg width="200" height="40" viewBox="0 0 200 40" fill="none" className="opacity-40">
+          <path
+            className="sc-draw-path"
+            d="M0 20 C 40 0, 80 40, 120 20 S 180 0, 200 20"
+            stroke="#39FF14"
+            strokeWidth="1.5"
+            pathLength="1"
+          />
+        </svg>
+      </Reveal>
+    </div>
+  );
+}
+
 function InstallSection() {
   const [tab, setTab] = useState<keyof typeof installSnippets>("macos");
   return (
     <section id="install" className="relative px-6 py-20 sm:py-28">
+      <DrawingAccent />
       <div className="container-x">
         <Reveal className="mx-auto mb-10 max-w-3xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#39FF14]">Install</p>
@@ -495,9 +610,11 @@ export function LaunchPage() {
     <ProductShell>
       <Hero />
       <StatsStrip />
+      <MarqueeStrip />
       <BrandIntelligence />
       <SkillsGrid />
       <AgentDepartments />
+      <AccessIncludeCTA />
       <NatashaModules />
       <ResearchLab />
       <CommandSurface />
