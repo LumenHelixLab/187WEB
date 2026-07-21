@@ -11,9 +11,9 @@ import { ProductShell } from "./ProductShell";
 import { AgentDepartments } from "./AgentDepartments";
 import { AccessIncludeCTA } from "./AccessIncludeCTA";
 import { SkillCardsGrid } from "./SkillCardsGrid";
+import { HeroJazz } from "./HeroJazz";
 import { charlotteModules, quickStats, installSnippets } from "./launch-data";
 
-const REPO = "https://github.com/LumenHelixLab/187WEB";
 const RESEARCH_LAB_COMMANDS = [
   "/187 research",
   "/187 labs",
@@ -58,12 +58,12 @@ function Hero() {
     <section id="top" className="relative px-6 pb-16 pt-28 sm:pb-24 sm:pt-36">
       <HeroOrbs />
       <div className="container-x relative">
-        <div className="mx-auto max-w-5xl text-center">
-          {/* Primary brand stack: large blueprint mascot → wordmark → tagline */}
-          <Reveal>
+        <HeroJazz>
+          <div className="mx-auto max-w-5xl text-center">
             <div className="relative mx-auto flex max-w-3xl flex-col items-center">
               {/* eslint-disable-next-line @next/next/no-img-element -- basePath-safe static export */}
               <img
+                data-hero-badge
                 src={brandAssets.heroBadge}
                 alt="187WEB"
                 width={1024}
@@ -74,6 +74,7 @@ function Hero() {
               />
               {/* eslint-disable-next-line @next/next/no-img-element -- basePath-safe static export */}
               <img
+                data-hero-word
                 src={brandAssets.wordmark}
                 alt="187WEB wordmark"
                 width={800}
@@ -81,71 +82,80 @@ function Hero() {
                 decoding="async"
                 className="mt-5 h-auto w-full max-w-md object-contain sm:mt-7 sm:max-w-lg md:max-w-xl"
               />
-              <p className="brand-hero-tagline mt-5 max-w-xl text-center sm:mt-6">
+              <p data-hero-tag className="brand-hero-tagline mt-5 max-w-xl text-center sm:mt-6">
                 a Killer{" "}
                 <span className="sc-grad-text">AI-Powered</span>{" "}
                 <span className="text-[#39FF14]">WEB</span> Toolkit Suite
               </p>
             </div>
-          </Reveal>
 
-          <Reveal delay={200}>
             <KineticHeadline
               as="h1"
               text="Type one command."
               accent="Ship the whole surface."
               className="mt-10 text-[clamp(2.5rem,1.2rem+6vw,5.5rem)] font-bold leading-[0.95] tracking-tight text-white sm:mt-12"
             />
-          </Reveal>
 
-          <Reveal delay={300}>
             <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-white/65">
               187WEB is a command-driven AI web suite that turns intent into research-grade pages, design systems, docs,
               launch plans, and publish gates — each skill usable alone or chained through the{" "}
               <code className="text-[#39FF14]">/187</code> command surface.
             </p>
-          </Reveal>
 
-          <Reveal delay={400}>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <OutcomePill>Launch a landing page this afternoon</OutcomePill>
-              <OutcomePill>Find a free stack for any MVP</OutcomePill>
-              <OutcomePill>Ship a reproducible research lab</OutcomePill>
-              <OutcomePill>Audit before you publish</OutcomePill>
+              <span data-hero-pill>
+                <OutcomePill>Launch a landing page this afternoon</OutcomePill>
+              </span>
+              <span data-hero-pill>
+                <OutcomePill>Find a free stack for any MVP</OutcomePill>
+              </span>
+              <span data-hero-pill>
+                <OutcomePill>Ship a reproducible research lab</OutcomePill>
+              </span>
+              <span data-hero-pill>
+                <OutcomePill>Audit before you publish</OutcomePill>
+              </span>
             </div>
-          </Reveal>
 
-          <Reveal delay={500}>
             <div className="mt-10 flex flex-wrap justify-center gap-3">
               <Link
+                data-hero-cta
                 href="/187"
-                className="sc-glow sc-glow-pulse inline-flex h-12 items-center justify-center rounded bg-[#39FF14] px-6 text-sm font-semibold text-[#050608] transition hover:brightness-110"
+                className="sc-glow sc-glow-pulse inline-flex h-12 items-center justify-center rounded bg-[#39FF14] px-6 text-sm font-semibold text-[#050608] will-change-transform"
               >
                 Explore /187 Commands
               </Link>
               <Link
-                href="/showcase"
-                className="inline-flex h-12 items-center justify-center rounded border border-[#39FF14]/30 bg-[#39FF14]/5 px-6 text-sm font-semibold text-[#39FF14] transition hover:bg-[#39FF14]/10"
+                data-hero-cta
+                href="/brain"
+                className="inline-flex h-12 items-center justify-center rounded border border-[#39FF14]/30 bg-[#39FF14]/5 px-6 text-sm font-semibold text-[#39FF14] will-change-transform"
               >
-                Open Showcase
+                Local brain / Obsidian
               </Link>
               <Link
-                href="/install"
-                className="inline-flex h-12 items-center justify-center rounded border border-white/10 bg-white/5 px-6 text-sm font-semibold text-white transition hover:bg-white/10"
+                data-hero-cta
+                href="/showcase"
+                className="inline-flex h-12 items-center justify-center rounded border border-white/10 bg-white/5 px-6 text-sm font-semibold text-white will-change-transform"
               >
-                Install / Select Skills
+                Motion showcase
               </Link>
-              <a
-                href={REPO}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="inline-flex h-12 items-center justify-center rounded border border-white/10 bg-white/5 px-6 text-sm font-semibold text-white transition hover:bg-white/10"
+              <Link
+                data-hero-cta
+                href="/187motion"
+                className="inline-flex h-12 items-center justify-center rounded border border-white/10 bg-white/5 px-6 text-sm font-semibold text-white will-change-transform"
               >
-                GitHub Repo
-              </a>
+                187MOTION
+              </Link>
+              <Link
+                data-hero-cta
+                href="/install"
+                className="inline-flex h-12 items-center justify-center rounded border border-white/10 bg-white/5 px-6 text-sm font-semibold text-white will-change-transform"
+              >
+                Install
+              </Link>
             </div>
-          </Reveal>
-        </div>
+          </div>
+        </HeroJazz>
       </div>
     </section>
   );

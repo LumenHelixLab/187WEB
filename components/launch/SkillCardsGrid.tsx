@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 import {
@@ -11,6 +11,8 @@ import {
   skillRainbowTextClass,
 } from "@/lib/skill-showcase-data";
 import { KineticHeadline } from "@/components/type/KineticHeadline";
+import { gsap, registerGsap } from "@/lib/motion/gsap";
+import { useReducedMotion } from "@/lib/motion/useReducedMotion";
 
 /** Group skills for filter chips — keeps the grid manageable. */
 const FILTERS: { id: string; label: string; match: (s: SkillShowcaseData) => boolean }[] = [
@@ -53,6 +55,7 @@ function SkillCard({ skill, index }: { skill: SkillShowcaseData; index: number }
     <Reveal delay={Math.min(index, 12) * 35}>
       <Link
         href={`/187${skill.id}`}
+        data-skill-card
         className="group flex h-full flex-col rounded-2xl border border-white/10 bg-[#0A0C14] p-5 transition hover:-translate-y-1 hover:border-[#39FF14]/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#39FF14]"
         style={{ boxShadow: `0 0 0 1px rgba(255,255,255,0.03), 0 24px 60px -24px ${solidColor}22` }}
         aria-label={`${skill.name}: ${skill.tagline}. Open skill page.`}
@@ -126,6 +129,8 @@ function SkillCard({ skill, index }: { skill: SkillShowcaseData; index: number }
 export function SkillCardsGrid() {
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState("all");
+  const gridRef = useRef<HTMLDivElement>(null);
+  const reduced = useReducedMotion();
 
   const visible = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -139,6 +144,21 @@ export function SkillCardsGrid() {
       return hay.includes(q);
     });
   }, [query, filter]);
+
+  useEffect(() => {
+    if (reduced || !gridRef.current) return;
+    registerGsap();
+    const cards = gridRef.current.querySelectorAll("[data-skill-card]");
+    if (!cards.length) return;
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        cards,
+        { y: 18, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.45, stagger: 0.03, ease: "power2.out" }
+      );
+    }, gridRef);
+    return () => ctx.revert();
+  }, [visible, reduced]);
 
   return (
     <section id="skills" className="relative px-6 py-20 sm:py-28">
@@ -211,7 +231,7 @@ export function SkillCardsGrid() {
             </button>
           </div>
         ) : (
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div ref={gridRef} className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {visible.map((skill, i) => (
               <SkillCard key={skill.id} skill={skill} index={i} />
             ))}
