@@ -203,6 +203,17 @@
 }
 
 /* Animated, panning gradient text. */
+/* Home hero brand tagline under wordmark */
+.brand-hero-tagline {
+  font-family: var(--font-display), var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(0.95rem, 0.7rem + 1.1vw, 1.35rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  color: rgba(236, 237, 247, 0.78);
+  text-wrap: balance;
+}
+
 .sc-grad-text {
   background-image: linear-gradient(100deg, #7c3aed, #22d3ee, #2440e6, #ff4d8d, #7c3aed);
   background-size: 220% auto;

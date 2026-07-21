@@ -11,15 +11,7 @@ import { Tooltip } from "@/components/Tooltip";
 import { ProductShell } from "./ProductShell";
 import { AgentDepartments } from "./AgentDepartments";
 import { AccessIncludeCTA } from "./AccessIncludeCTA";
-import { AgentMascotRoster } from "./AgentMascot";
 import { charlotteModules, quickStats, installSnippets } from "./launch-data";
-import { natashaKit, yelenaKit, charlotteKit, kaliKit, xavierKit } from "@/lib/agents";
-
-const HERO_AGENTS = [natashaKit, yelenaKit, charlotteKit, kaliKit, xavierKit].map((a) => ({
-  slug: a.slug,
-  name: a.name,
-  color: a.color,
-}));
 
 const REPO = "https://github.com/LumenHelixLab/187WEB";
 const RESEARCH_LAB_COMMANDS = [
@@ -67,26 +59,38 @@ function Hero() {
       <HeroOrbs />
       <div className="container-x relative">
         <div className="mx-auto max-w-5xl text-center">
-          <Reveal delay={100}>
-            <div className="relative mx-auto max-w-5xl">
-              <p className="mb-6 text-center text-[10px] font-semibold uppercase tracking-[0.22em] text-white/45">
-                Color-coded crew mascots
+          {/* Primary brand stack: large blueprint mascot → wordmark → tagline */}
+          <Reveal>
+            <div className="relative mx-auto flex max-w-3xl flex-col items-center">
+              {/* eslint-disable-next-line @next/next/no-img-element -- basePath-safe static export */}
+              <img
+                src={brandAssets.mascotBlueprint}
+                alt="187WEB blueprint mascot"
+                width={720}
+                height={720}
+                decoding="async"
+                fetchPriority="high"
+                className="h-auto w-full max-w-[18rem] object-contain sm:max-w-[22rem] md:max-w-[26rem] lg:max-w-[28rem]"
+              />
+              {/* eslint-disable-next-line @next/next/no-img-element -- basePath-safe static export */}
+              <img
+                src={brandAssets.wordmark}
+                alt="187WEB"
+                width={800}
+                height={200}
+                decoding="async"
+                className="mt-6 h-auto w-full max-w-md object-contain sm:mt-8 sm:max-w-lg md:max-w-xl"
+              />
+              <p className="brand-hero-tagline mt-5 max-w-xl text-center sm:mt-6">
+                a Killer{" "}
+                <span className="sc-grad-text">AI-Powered</span>{" "}
+                <span className="text-[#39FF14]">WEB</span> Toolkit Suite
               </p>
-              <AgentMascotRoster agents={HERO_AGENTS} />
-              {/* Site wordmark sits below the roster — separate asset, not merged into mascots */}
-              <div className="mx-auto mt-10 flex max-w-md justify-center">
-                {/* eslint-disable-next-line @next/next/no-img-element -- basePath-safe static export */}
-                <img
-                  src={brandAssets.wordmarkTagline}
-                  alt="187WEB — A killer AI-powered web suite"
-                  className="h-12 w-auto max-w-full object-contain sm:h-14"
-                />
-              </div>
             </div>
           </Reveal>
 
           <Reveal delay={200}>
-            <h1 className="mt-8 text-[clamp(2.5rem,1.2rem+6vw,5.5rem)] font-bold leading-[0.95] tracking-tight text-white">
+            <h1 className="mt-10 text-[clamp(2.5rem,1.2rem+6vw,5.5rem)] font-bold leading-[0.95] tracking-tight text-white sm:mt-12">
               Type one command. <span className="sc-grad-text">Ship the whole surface.</span>
             </h1>
           </Reveal>

@@ -18,6 +18,10 @@ export const brandAssets = {
   headerLockup: withBase("/images/187web_lockup_horizontal.png"),
   /** Wordmark + tagline strip for hero / sampler surfaces */
   wordmarkTagline: withBase("/images/187web_wordmark_tagline.png"),
+  /** Clean 187WEB wordmark (hero primary) */
+  wordmark: withBase("/images/187web_wordmark.png"),
+  /** Red blueprint mascot — large hero figure */
+  mascotBlueprint: withBase("/images/187web_mascot_blueprint.png"),
   /** NATASHA technical blueprint — mascot geometry / vibe board */
   blueprint: withBase("/images/187web_technical_blueprint_coordinate_grid.png"),
   /** LumenHelix DNA lightbulb — org mark */
