@@ -6,6 +6,7 @@ import { Reveal } from "@/components/Reveal";
 import { Tooltip } from "@/components/Tooltip";
 import { skillShowcaseIndex, type SkillShowcaseData } from "@/lib/skill-showcase-data";
 import { FIRST_CLASS_SKILLS, SUBSKILLS, type SuiteSkill } from "@/lib/first-class-skills";
+import { natashaKit, yelenaKit, charlotteKit, kaliKit, xavierKit, type AgentKit } from "@/lib/agents";
 
 /**
  * Top-level 187WEB agent ecosystem.
@@ -22,62 +23,7 @@ import { FIRST_CLASS_SKILLS, SUBSKILLS, type SuiteSkill } from "@/lib/first-clas
  * class skill when triggered, or appeal to XAVIER for a council or SkillChain.
  */
 
-type AgentConfig = {
-  slug: string;
-  name: string;
-  tagline: string;
-  color: string;
-  skillIds: string[];
-  overview: string;
-};
-
-const AGENTS: AgentConfig[] = [
-  {
-    slug: "natasha",
-    name: "NATASHA",
-    tagline: "External + post-launch security",
-    color: "#f43f5e",
-    skillIds: ["natasha", "chain", "test"],
-    overview:
-      "NATASHA handles external and post-launch security: threat-surface audits, contract and chain assurance, and test-driven validation after ship. She shares the security workload with YELENA and can call XAVIER for a council when a post-launch incident escalates.",
-  },
-  {
-    slug: "yelena",
-    name: "YELENA",
-    tagline: "Pre-launch internal safety gates",
-    color: "#facc15",
-    skillIds: ["natasha", "test", "access-plus", "include"],
-    overview:
-      "YELENA owns pre-launch internal security and safety gates: access checks, inclusion review, test-driven CI gates, and release readiness. She frees CHARLOTTE and KALI to build applications while standing ready to jump in when a safety review is triggered.",
-  },
-  {
-    slug: "charlotte",
-    name: "CHARLOTTE",
-    tagline: "Application orchestration",
-    color: "#3b82f6",
-    skillIds: ["repo", "craft", "vibe", "launch", "write", "research"],
-    overview:
-      "CHARLOTTE orchestrates application work: design systems, repo scaffolding, launch planning, plain-language copy, and research-backed recycling. Security is handled by NATASHA and YELENA, so she focuses on shipping and can appeal to XAVIER for final production decisions.",
-  },
-  {
-    slug: "kali",
-    name: "KALI",
-    tagline: "Growth + create assist",
-    color: "#39FF14",
-    skillIds: ["seo", "revenue", "publish", "create", "repo", "vibe"],
-    overview:
-      "KALI drives growth and assists CHARLOTTE with direct web creation: SEO, revenue architecture, publish gate, and the new 187CREATE skill for landing pages and campaign assets. She can appeal to NATASHA/YELENA for security gates and to XAVIER for final ship calls.",
-  },
-  {
-    slug: "xavier",
-    name: "XAVIER",
-    tagline: "Final creation + council",
-    color: "#a855f7",
-    skillIds: ["docs", "version", "publish", "launch", "natasha", "test"],
-    overview:
-      "XAVIER is the only male-coded agent and the crew's final creation / production lead. He sees across all crews, can call a council huddle or Q&A, and owns the publish/launch/version skills that turn work into shipped artifacts.",
-  },
-];
+const AGENTS: AgentKit[] = [natashaKit, yelenaKit, charlotteKit, kaliKit, xavierKit];
 
 const skillById = new Map([...FIRST_CLASS_SKILLS, ...SUBSKILLS].map((s) => [s.id, s]));
 
@@ -85,8 +31,8 @@ function skillMeta(id: string): SkillShowcaseData | undefined {
   return skillShowcaseIndex.get(id);
 }
 
-function AgentCard({ agent, index }: { agent: AgentConfig; index: number }) {
-  const skills = agent.skillIds
+function AgentCard({ agent, index }: { agent: AgentKit; index: number }) {
+  const skills = agent.skills
     .map((id) => ({ skill: skillById.get(id), meta: skillMeta(id) }))
     .filter((item): item is { skill: SuiteSkill; meta: SkillShowcaseData | undefined } => Boolean(item.skill));
 
