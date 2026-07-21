@@ -61,7 +61,7 @@ const agent: AgentConfig = {
   color: "#a855f7",
   skillIds: ["docs", "version", "publish", "launch", "natasha", "test"],
   overview:
-    "XAVIER is the only male-coded agent on the crew. He owns final creation and production responsibility, cross-crew vision, and the council command. He can call huddles, interject across teams, and appeal to any 1st, 2nd, or 3rd class skill to ship the final artifact.",
+    "XAVIER owns final creation and production responsibility, cross-crew vision, and the council command. He can call huddles, interject across teams, and appeal to any 1st, 2nd, or 3rd class skill to ship the final artifact.",
 };
 
 export const metadata: Metadata = {
@@ -236,7 +236,7 @@ const AGENTS: AgentConfig[] = [
     color: "#a855f7",
     skillIds: ["docs", "version", "publish", "launch", "natasha", "test"],
     overview:
-      "XAVIER is the only male-coded agent and the crew's final creation / production lead. He sees across all crews, can call a council huddle or Q&A, and owns the publish/launch/version skills that turn work into shipped artifacts.",
+      "XAVIER is the crew's final creation / production lead. He sees across all crews, can call a council huddle or Q&A, and owns the publish/launch/version skills that turn work into shipped artifacts.",
   },
 ];
 ```

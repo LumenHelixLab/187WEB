@@ -61,4 +61,24 @@ export const demos: DemoMeta[] = [
     description: "Spring, loop, stagger, and scrub primitives from the 187WEB motion library.",
     component: dynamic(() => import("./MotionHooksDemo").then((mod) => mod.MotionHooksDemo), { ssr: false }),
   },
+  {
+    id: "magnetic",
+    title: "Magnetic mascot",
+    description: "Cursor pull on the badge and wireframe marks with proximity glow.",
+    component: dynamic(() => import("./MagneticMascot").then((mod) => mod.MagneticMascot), { ssr: false }),
+  },
+  {
+    id: "flip",
+    title: "Flip layout",
+    description: "Triangle grid morphs into a lockup + full mascot detail panel.",
+    component: dynamic(() => import("./FlipPageSampler").then((mod) => mod.FlipPageSampler), { ssr: false }),
+  },
+  {
+    id: "scroll-reveal",
+    title: "Scroll brand stack",
+    description: "Wireframe, wordmark, and badge reveal as you scroll inside the card.",
+    component: dynamic(() => import("./ScrollRevealSampler").then((mod) => mod.ScrollRevealSampler), {
+      ssr: false,
+    }),
+  },
 ];

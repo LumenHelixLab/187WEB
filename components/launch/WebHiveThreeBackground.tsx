@@ -22,29 +22,34 @@ import { useGsapTimeline } from "@/lib/motion/useGsapTimeline";
 import { gsap } from "@/lib/motion/gsap";
 
 const NEON = "#39FF14";
+/** RGYB app palette — background lines slowly shift through these. */
+const HIVE_RGYB = ["#f43f5e", "#39FF14", "#facc15", "#3b82f6"] as const;
 
 const GIANT_RADIUS = 18;
 const GIANT_SPOKES = 48;
 const GIANT_RINGS = 16;
-const GIANT_OPACITY = 0.05;
+const GIANT_OPACITY = 0.028;
 
-const HONEY_RADIUS = 0.5;
-const HONEY_RINGS = 4;
-const HONEY_OPACITY = 0.09;
+/** Small hex cells; many rings so the field bleeds past the viewport edges. */
+const HONEY_RADIUS = 0.22;
+const HONEY_RINGS = 18;
+const HONEY_OPACITY = 0.045;
+/** Extra scale so the lattice extends fully off-screen at camera distance. */
+const HONEY_LAYER_SCALE = 1.55;
 
 const MID_RADIUS = 9;
 const MID_SPOKES = 40;
 const MID_RINGS = 14;
-const MID_OPACITY = 0.08;
+const MID_OPACITY = 0.045;
 
 const OVERLAY_RADIUS = 5;
 const OVERLAY_SPOKES = 32;
 const OVERLAY_RINGS = 12;
-const OVERLAY_OPACITY = 0.16;
+const OVERLAY_OPACITY = 0.09;
 
 const WEB_TELEMETRY = 32;
-const HONEY_TELEMETRY = 24;
-const CONNECTOR_OPACITY = 0.04;
+const HONEY_TELEMETRY = 40;
+const CONNECTOR_OPACITY = 0.025;
 
 function lerp(a: number, b: number, t: number) {
   return a + (b - a) * t;
@@ -173,9 +178,9 @@ function WebHiveScene({ enableBloom }: WebHiveSceneProps) {
         GIANT_RADIUS,
         GIANT_SPOKES,
         GIANT_RINGS,
-        HONEY_RADIUS,
+        HONEY_RADIUS * HONEY_LAYER_SCALE,
         HONEY_RINGS,
-        -1.6,
+        -0.4,
       ),
     [],
   );
@@ -249,11 +254,39 @@ function WebHiveScene({ enableBloom }: WebHiveSceneProps) {
     return tl;
   }, []);
 
+  const palette = useMemo(() => HIVE_RGYB.map((h) => new THREE.Color(h)), []);
+  const colorA = useMemo(() => new THREE.Color(), []);
+  const colorB = useMemo(() => new THREE.Color(), []);
+  const hiveTint = useMemo(() => new THREE.Color(), []);
+
   useFrame((_, rawDelta) => {
     if (!rootRef.current || reducedMotion) return;
     const delta = Math.min(rawDelta, 0.1);
-    timeRef.current += delta;
+    // Slower organic drift than before
+    timeRef.current += delta * 0.55;
     const t = timeRef.current;
+
+    // Soft RGYB wash across all hive line/point materials
+    {
+      const phase = t * 0.07;
+      const n = palette.length;
+      const wrapped = ((phase % n) + n) % n;
+      const idx = Math.floor(wrapped);
+      const next = (idx + 1) % n;
+      const frac = wrapped - idx;
+      const s = frac * frac * (3 - 2 * frac);
+      hiveTint.copy(colorA.copy(palette[idx])).lerp(colorB.copy(palette[next]), s);
+      rootRef.current.traverse((obj) => {
+        const mat = (obj as THREE.Mesh).material as THREE.Material | THREE.Material[] | undefined;
+        if (!mat) return;
+        const list = Array.isArray(mat) ? mat : [mat];
+        for (const m of list) {
+          if ("color" in m && (m as THREE.MeshBasicMaterial).color) {
+            (m as THREE.MeshBasicMaterial).color.copy(hiveTint);
+          }
+        }
+      });
+    }
 
     const scrollProgress = scrollProxy.current.progress;
     const energy = scrollProxy.current.energy;
@@ -281,13 +314,15 @@ function WebHiveScene({ enableBloom }: WebHiveSceneProps) {
       giantRef.current.position.y = Math.sin(t * 0.22) * 0.1;
     }
 
-    // Honeycomb field: offset vertically so it slices through the webs
+    // Honeycomb field: fine lattice, oversized so edges leave the frame
     if (honeyRef.current) {
-      honeyRef.current.rotation.y = t * 0.075 + scrollProgress * 0.07 - px * 0.06;
-      honeyRef.current.rotation.x = 0.18 + Math.sin(t * 0.13) * 0.025;
-      honeyRef.current.rotation.z = Math.cos(t * 0.07) * 0.015;
-      honeyRef.current.position.y = -1.6 + Math.sin(t * 0.25) * 0.1;
-      honeyRef.current.position.x = -px * 0.2;
+      honeyRef.current.rotation.y = t * 0.04 + scrollProgress * 0.05 - px * 0.04;
+      honeyRef.current.rotation.x = 0.12 + Math.sin(t * 0.1) * 0.02;
+      honeyRef.current.rotation.z = Math.cos(t * 0.06) * 0.012;
+      honeyRef.current.position.y = -0.4 + Math.sin(t * 0.18) * 0.08;
+      honeyRef.current.position.x = -px * 0.15;
+      const breath = 1 + Math.sin(t * 0.12) * 0.012;
+      honeyRef.current.scale.setScalar(HONEY_LAYER_SCALE * breath);
     }
 
     // Mid web: crosses through honeycomb vertically
@@ -455,7 +490,7 @@ function WebHiveScene({ enableBloom }: WebHiveSceneProps) {
         />
       </group>
 
-      <group ref={honeyRef} position={[0, -1.6, -2.4]}>
+      <group ref={honeyRef} position={[0, -0.4, -2.0]} scale={HONEY_LAYER_SCALE}>
         <lineSegments geometry={honeyGeometry}>
           <lineBasicMaterial
             {...baseLineProps}
@@ -517,11 +552,11 @@ export function WebHiveThreeBackground() {
 
   return (
     <div
-      className="pointer-events-none fixed inset-0 z-0"
+      className="pointer-events-none fixed inset-0 z-0 opacity-55 brightness-[0.62] contrast-[1.05]"
       aria-hidden="true"
       style={{
         background:
-          "radial-gradient(circle at 50% 45%, #07100a 0%, #050608 65%, #000 100%)",
+          "radial-gradient(circle at 50% 45%, #060a08 0%, #050608 65%, #000 100%)",
       }}
     >
       <Canvas
@@ -534,8 +569,8 @@ export function WebHiveThreeBackground() {
         {enableBloom && (
           <EffectComposer>
             <Bloom
-              intensity={0.6}
-              luminanceThreshold={0.2}
+              intensity={0.28}
+              luminanceThreshold={0.35}
               luminanceSmoothing={0.9}
               mipmapBlur
             />

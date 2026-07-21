@@ -2,7 +2,7 @@
 
 <br>
 
-<img src="public/images/187suite-hero.jpg" alt="187WEB — A killer AI-powered web suite" width="72%" />
+<img src="public/images/187web_lockup_horizontal.png" alt="187WEB — A killer AI-powered web suite" width="72%" />
 
 <h1>Contributing to 187WEB</h1>
 <p><strong>Every element earns its place or it gets cut.</strong></p>

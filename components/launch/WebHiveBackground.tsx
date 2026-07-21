@@ -1,39 +1,38 @@
 "use client";
 
-import { useId } from "react";
-
 /**
  * Fixed SVG background: a spiderweb + beehive hybrid.
- *
- * - Radial web lines from the viewport center.
- * - Hexagonal honeycomb cells around the center.
- * - Thin neon lines on the dark brand background (#050608).
- * - Very slow rotation on the honeycomb group and a subtle pulse on nodes.
- * - Respects prefers-reduced-motion.
+ * Coordinates are rounded so SSR and client always emit identical attributes.
  */
 
 const STROKE = "#39FF14";
 const CENTER = 600;
 const VIEWBOX = 1200;
+/** Stable gradient/mask ids — avoid useId() which can diverge across trees. */
+const MASK_FADE = "webhive-fade";
+const MASK_VIGNETTE = "webhive-vignette";
 
-function hexPoints(cx: number, cy: number, r: number): string {
+function r2(n: number) {
+  return Math.round(n * 100) / 100;
+}
+
+function hexPoints(cx: number, cy: number, radius: number): string {
   const points: string[] = [];
   for (let i = 0; i < 6; i++) {
     const angle = (Math.PI / 3) * i - Math.PI / 6;
-    points.push(`${cx + r * Math.cos(angle)},${cy + r * Math.sin(angle)}`);
+    points.push(`${r2(cx + radius * Math.cos(angle))},${r2(cy + radius * Math.sin(angle))}`);
   }
   return points.join(" ");
 }
 
-function hexGrid(r: number, rings: number): { cx: number; cy: number }[] {
+function hexGrid(cellR: number, rings: number): { cx: number; cy: number }[] {
   const centers: { cx: number; cy: number }[] = [{ cx: CENTER, cy: CENTER }];
-  const w = Math.sqrt(3) * r;
-  const h = 1.5 * r;
+  const w = Math.sqrt(3) * cellR;
+  const h = 1.5 * cellR;
 
   for (let ring = 1; ring <= rings; ring++) {
     for (let side = 0; side < 6; side++) {
       for (let step = 0; step < ring; step++) {
-        // Start at the top-right direction (pointy-top hex), then walk around the ring.
         const startAngle = Math.PI / 6;
         const sx = CENTER + ring * w * Math.cos(startAngle + (side * Math.PI) / 3);
         const sy = CENTER + ring * h * Math.sin(startAngle + (side * Math.PI) / 3);
@@ -41,7 +40,10 @@ function hexGrid(r: number, rings: number): { cx: number; cy: number }[] {
         const nx = CENTER + ring * w * Math.cos(nextAngle);
         const ny = CENTER + ring * h * Math.sin(nextAngle);
         const t = step / ring;
-        centers.push({ cx: sx + (nx - sx) * t, cy: sy + (ny - sy) * t });
+        centers.push({
+          cx: r2(sx + (nx - sx) * t),
+          cy: r2(sy + (ny - sy) * t),
+        });
       }
     }
   }
@@ -50,11 +52,9 @@ function hexGrid(r: number, rings: number): { cx: number; cy: number }[] {
 }
 
 export function WebHiveBackground() {
-  const maskId = useId();
   const cellR = 44;
   const grid = hexGrid(cellR, 5);
 
-  // Filter grid to a generous circular window so we do not render off-screen cells.
   const visibleGrid = grid.filter(({ cx, cy }) => {
     const dx = cx - CENTER;
     const dy = cy - CENTER;
@@ -62,10 +62,7 @@ export function WebHiveBackground() {
   });
 
   return (
-    <div
-      className="pointer-events-none fixed inset-0 z-0 overflow-hidden"
-      aria-hidden="true"
-    >
+    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden="true">
       <svg
         className="absolute left-1/2 top-1/2 h-[150vmax] w-[150vmax] -translate-x-1/2 -translate-y-1/2"
         viewBox={`0 0 ${VIEWBOX} ${VIEWBOX}`}
@@ -73,23 +70,22 @@ export function WebHiveBackground() {
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
-          <radialGradient id={`${maskId}-fade`} cx="50%" cy="50%" r="50%">
+          <radialGradient id={MASK_FADE} cx="50%" cy="50%" r="50%">
             <stop offset="0%" stopColor="#000" stopOpacity="1" />
             <stop offset="70%" stopColor="#000" stopOpacity="0.55" />
             <stop offset="100%" stopColor="#000" stopOpacity="0" />
           </radialGradient>
-          <mask id={`${maskId}-vignette`}>
-            <rect x="0" y="0" width={VIEWBOX} height={VIEWBOX} fill={`url(#${maskId}-fade)`} />
+          <mask id={MASK_VIGNETTE}>
+            <rect x="0" y="0" width={VIEWBOX} height={VIEWBOX} fill={`url(#${MASK_FADE})`} />
           </mask>
         </defs>
 
-        <g mask={`url(#${maskId}-vignette)`}>
-          {/* Radial web spokes */}
+        <g mask={`url(#${MASK_VIGNETTE})`}>
           <g className="webhive-spokes opacity-15">
             {Array.from({ length: 24 }).map((_, i) => {
               const angle = (i * Math.PI) / 12;
-              const x2 = CENTER + 580 * Math.cos(angle);
-              const y2 = CENTER + 580 * Math.sin(angle);
+              const x2 = r2(CENTER + 580 * Math.cos(angle));
+              const y2 = r2(CENTER + 580 * Math.sin(angle));
               return (
                 <line
                   key={`spoke-${i}`}
@@ -104,16 +100,15 @@ export function WebHiveBackground() {
             })}
           </g>
 
-          {/* Concentric web rings */}
           <g className="webhive-rings opacity-10">
             {Array.from({ length: 8 }).map((_, i) => {
-              const r = 70 + i * 70;
+              const radius = 70 + i * 70;
               return (
                 <circle
                   key={`ring-${i}`}
                   cx={CENTER}
                   cy={CENTER}
-                  r={r}
+                  r={radius}
                   fill="none"
                   stroke={STROKE}
                   strokeWidth={0.6}
@@ -122,7 +117,6 @@ export function WebHiveBackground() {
             })}
           </g>
 
-          {/* Honeycomb cells */}
           <g
             className="webhive-hive opacity-10 motion-safe:animate-[spin_60s_linear_infinite]"
             style={{ transformOrigin: `${CENTER}px ${CENTER}px`, transformBox: "fill-box" }}
@@ -139,7 +133,6 @@ export function WebHiveBackground() {
             ))}
           </g>
 
-          {/* Connection web between nearby cells */}
           <g className="webhive-links opacity-10">
             {visibleGrid.slice(0, 90).map((a, i) =>
               visibleGrid.slice(i + 1, i + 8).map((b, j) => {
@@ -163,9 +156,14 @@ export function WebHiveBackground() {
             )}
           </g>
 
-          {/* Pulsing nodes at cell centers and center hub */}
           <g className="webhive-nodes opacity-20">
-            <circle cx={CENTER} cy={CENTER} r={5} fill={STROKE} className="motion-safe:animate-[pulse_4s_ease-in-out_infinite]" />
+            <circle
+              cx={CENTER}
+              cy={CENTER}
+              r={5}
+              fill={STROKE}
+              className="motion-safe:animate-[pulse_4s_ease-in-out_infinite]"
+            />
             {visibleGrid.slice(0, 60).map(({ cx, cy }, i) => (
               <circle
                 key={`node-${i}`}

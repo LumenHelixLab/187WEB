@@ -5,8 +5,13 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import { brandAssets } from "@/lib/brand-assets";
 import { WebHiveBackground } from "./WebHiveBackground";
+import { WebHiveNetworkOverlay } from "./WebHiveNetworkOverlay";
+import { WebHiveTelemetryOverlay } from "./WebHiveTelemetryOverlay";
+import { useClientMounted } from "@/lib/motion/useClientMounted";
 
 const REPO = "https://github.com/LumenHelixLab/187WEB";
+/** Freeze year for SSR/client parity (avoid Date() hydration drift near year boundaries). */
+const COPYRIGHT_YEAR = 2026;
 
 const WebHiveThreeBackground = dynamic(
   () => import("./WebHiveThreeBackground").then((mod) => mod.WebHiveThreeBackground),
@@ -27,11 +32,21 @@ function Header() {
           <span className="hidden sm:inline">187WEB</span>
         </Link>
         <div className="hidden items-center gap-6 text-sm text-white/60 md:flex">
-          <Link href="/#skills" className="transition hover:text-[#39FF14]">Skills</Link>
-          <Link href="/#agents" className="transition hover:text-[#39FF14]">Agents</Link>
-          <Link href="/187" className="transition hover:text-[#39FF14]">/187</Link>
-          <Link href="/showcase" className="transition hover:text-[#39FF14]">Showcase</Link>
-          <Link href="/install" className="transition hover:text-[#39FF14]">Install</Link>
+          <Link href="/#skills" className="transition hover:text-[#39FF14]">
+            Skills
+          </Link>
+          <Link href="/#agents" className="transition hover:text-[#39FF14]">
+            Agents
+          </Link>
+          <Link href="/187" className="transition hover:text-[#39FF14]">
+            /187
+          </Link>
+          <Link href="/showcase" className="transition hover:text-[#39FF14]">
+            Showcase
+          </Link>
+          <Link href="/install" className="transition hover:text-[#39FF14]">
+            Install
+          </Link>
         </div>
         <a
           href={REPO}
@@ -58,8 +73,8 @@ function Footer() {
             <img src={brandAssets.labWordmark} alt="LumenHelix Lab" className="h-5 opacity-90" />
           </div>
           <p className="text-sm text-white/50">
-            © {new Date().getFullYear()} LumenHelix Lab · 187WEB · Custom Noncommercial License with Reserved Knotstore
-            IP
+            © {COPYRIGHT_YEAR} LumenHelix Lab · 187WEB · Custom Noncommercial License with Reserved
+            Knotstore IP
           </p>
         </div>
         <div className="flex flex-wrap items-center justify-center gap-6">
@@ -72,12 +87,32 @@ function Footer() {
           <Link href="/install" className="text-sm text-white/50 transition hover:text-[#39FF14]">
             Install
           </Link>
-          <a href={REPO} target="_blank" rel="noreferrer noopener" className="text-sm text-white/50 transition hover:text-[#39FF14]">
+          <a
+            href={REPO}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="text-sm text-white/50 transition hover:text-[#39FF14]"
+          >
             GitHub
           </a>
         </div>
       </div>
     </footer>
+  );
+}
+
+function HiveAtmosphere({ reducedMotion }: { reducedMotion: boolean }) {
+  return (
+    <div className="pointer-events-none fixed inset-0 z-0" aria-hidden>
+      {reducedMotion ? <WebHiveBackground /> : <WebHiveThreeBackground />}
+      {!reducedMotion && (
+        <>
+          <WebHiveNetworkOverlay />
+          <WebHiveTelemetryOverlay />
+        </>
+      )}
+      <div className="absolute inset-0 bg-[#050608]/35 backdrop-brightness-[0.85]" />
+    </div>
   );
 }
 
@@ -88,7 +123,8 @@ export function ProductShell({
   children: React.ReactNode;
   className?: string;
 }) {
-  const [reducedMotion, setReducedMotion] = useState(true);
+  const mounted = useClientMounted();
+  const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -100,7 +136,15 @@ export function ProductShell({
 
   return (
     <div className={`relative min-h-screen overflow-x-hidden bg-[#050608] text-[#ECEDF7] ${className}`.trim()}>
-      {reducedMotion ? <WebHiveBackground /> : <WebHiveThreeBackground />}
+      {/*
+        Decorative hive is client-only after mount so SVG float math / PRNG /
+        media-query never diverge between SSR HTML and the first client paint.
+      */}
+      {mounted ? (
+        <HiveAtmosphere reducedMotion={reducedMotion} />
+      ) : (
+        <div className="pointer-events-none fixed inset-0 z-0 bg-[#050608]" aria-hidden />
+      )}
       <Header />
       <main className="relative z-10">{children}</main>
       <Footer />

@@ -59,31 +59,38 @@ function Hero() {
       <HeroOrbs />
       <div className="container-x relative">
         <div className="mx-auto max-w-5xl text-center">
+          {/* Primary brand stack: large blueprint mascot → wordmark → tagline */}
           <Reveal>
-            <div className="mx-auto mb-6 flex max-w-3xl flex-col items-center gap-4">
+            <div className="relative mx-auto flex max-w-3xl flex-col items-center">
               {/* eslint-disable-next-line @next/next/no-img-element -- basePath-safe static export */}
               <img
-                src={brandAssets.headerLockup}
-                alt="187WEB — A killer AI-powered web suite"
-                className="w-full max-w-2xl drop-shadow-[0_0_40px_rgba(57,255,20,0.25)]"
+                src={brandAssets.heroBadge}
+                alt="187WEB"
+                width={1024}
+                height={1024}
+                decoding="async"
+                fetchPriority="high"
+                className="h-auto w-full max-w-[16rem] object-contain drop-shadow-[0_0_48px_rgba(57,255,20,0.22)] sm:max-w-[20rem] md:max-w-[24rem] lg:max-w-[28rem]"
               />
-            </div>
-          </Reveal>
-
-          <Reveal delay={100}>
-            <div className="relative mx-auto max-w-4xl">
-              <div className="absolute -inset-4 rounded-full bg-[#39FF14]/10 blur-3xl" />
               {/* eslint-disable-next-line @next/next/no-img-element -- basePath-safe static export */}
               <img
-                src={brandAssets.headerInfographic}
-                alt="187WEB killer web design solutions: 187REPO, 187CRAFT, 187VIBE, 187LAUNCH"
-                className="relative w-full rounded-2xl border border-white/10 shadow-2xl shadow-black/40"
+                src={brandAssets.wordmark}
+                alt="187WEB wordmark"
+                width={800}
+                height={200}
+                decoding="async"
+                className="mt-5 h-auto w-full max-w-md object-contain sm:mt-7 sm:max-w-lg md:max-w-xl"
               />
+              <p className="brand-hero-tagline mt-5 max-w-xl text-center sm:mt-6">
+                a Killer{" "}
+                <span className="sc-grad-text">AI-Powered</span>{" "}
+                <span className="text-[#39FF14]">WEB</span> Toolkit Suite
+              </p>
             </div>
           </Reveal>
 
           <Reveal delay={200}>
-            <h1 className="mt-8 text-[clamp(2.5rem,1.2rem+6vw,5.5rem)] font-bold leading-[0.95] tracking-tight text-white">
+            <h1 className="mt-10 text-[clamp(2.5rem,1.2rem+6vw,5.5rem)] font-bold leading-[0.95] tracking-tight text-white sm:mt-12">
               Type one command. <span className="sc-grad-text">Ship the whole surface.</span>
             </h1>
           </Reveal>

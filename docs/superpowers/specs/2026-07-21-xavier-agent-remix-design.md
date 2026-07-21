@@ -6,7 +6,7 @@
 
 ## 1. Goals
 
-- Rename the fifth agent from **Krishna** to **Xavier** and establish him as the only male-coded agent: final creation/production responsibility, cross-crew vision, and the ability to call huddles (council) and spawn subagents (brood).
+- Rename the fifth agent from **Krishna** to **Xavier** and establish the role as final creation/production responsibility, cross-crew vision, and the ability to call huddles (council) and spawn subagents (brood).
 - Recolor the agent roster: **Xavier purple**, **Kali green**, **Charlotte blue**, **Yelena yellow**, **Natasha rose**.
 - Split security duties cleanly:
   - **Natasha** → external / post-launch security + applications.
