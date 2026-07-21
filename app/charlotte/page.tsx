@@ -6,9 +6,9 @@ const agent: AgentConfig = {
   name: "CHARLOTTE",
   tagline: "Orchestrate + solve + recycle",
   color: "#39FF14",
-  skillIds: ["repo", "craft", "vibe", "launch", "write", "research", "access-plus", "include", "test"],
+  skillIds: ["repo", "craft", "vibe", "launch", "write", "research"],
   overview:
-    "CHARLOTTE threads intent into retrievable info, recycled and upcycled solutions, design-system hybrids, launch plans, and conflict-resolved public copy. She shares security and safety gates with NATASHA and is the green-team counterweight to NATASHA's red team.",
+    "CHARLOTTE threads intent into retrievable info, recycled and upcycled solutions, design-system hybrids, launch plans, and conflict-resolved public copy. With NATASHA and YELENA owning security, she focuses on orchestrating application work, assigning subagents, and appealing to KRISHNA for SkillChains.",
 };
 
 export const metadata: Metadata = {

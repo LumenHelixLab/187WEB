@@ -6,9 +6,9 @@ const agent: AgentConfig = {
   name: "NATASHA",
   tagline: "Security + red-team ethos",
   color: "#f43f5e",
-  skillIds: ["natasha", "chain", "test", "access-plus", "include"],
+  skillIds: ["natasha", "chain", "test"],
   overview:
-    "NATASHA is the 187WEB red-team / security function. She audits threat surfaces, assures contracts and tests, reviews access and inclusion gates, and researches risks with source-backed claim discipline. She shares safety gates with CHARLOTTE.",
+    "NATASHA is the 187WEB red-team / offensive security function. She audits threat surfaces, assures contracts, and drives test-driven validation. She shares security duties with YELENA, freeing CHARLOTTE and KALI for application work. She can call CHARLOTTE, KALI, or KRISHNA for SkillChain support.",
 };
 
 export const metadata: Metadata = {

@@ -8,7 +8,7 @@ const agent: AgentConfig = {
   color: "#a855f7",
   skillIds: ["seo", "revenue", "publish", "craft", "repo", "vibe"],
   overview:
-    "KALI drives growth and assists CHARLOTTE with direct web design and development. She audits SEO, designs revenue systems, runs the publish gate, and contributes hands-on craft, repo, and vibe work.",
+    "KALI drives growth and assists CHARLOTTE with direct web design and development: SEO, revenue systems, publish gate, craft, repo, and vibe. With security handled by NATASHA and YELENA, she is free for application work and can appeal to KRISHNA for SkillChains.",
 };
 
 export const metadata: Metadata = {

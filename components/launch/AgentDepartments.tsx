@@ -11,15 +11,15 @@ import { FIRST_CLASS_SKILLS, SUBSKILLS, type SuiteSkill } from "@/lib/first-clas
  * Top-level 187WEB agent ecosystem.
  *
  * Agent → skill mapping:
- * - NATASHA: natasha, chain, test, access-plus, include (security + red-team ethos + shared safety gates)
- * - CHARLOTTE: repo, craft, vibe, launch, write, research, access-plus, include, test (orchestrate + solve + recycle + shared safety gates)
- * - KALI: seo, revenue, publish, craft, repo, vibe (growth + direct web design/dev assist to CHARLOTTE)
- * - KRISHNA: free, docs, learn, test, version, natasha (knowledge + validation + security assist + SkillChains)
+ * - NATASHA: natasha, chain, test (security + red-team / offensive assurance)
+ * - YELENA: natasha, test, access-plus, include (security + blue-team / safety gates)
+ * - CHARLOTTE: repo, craft, vibe, launch, write, research (orchestrate + solve + recycle)
+ * - KALI: seo, revenue, publish, craft, repo, vibe (growth + direct web design/dev assist)
+ * - KRISHNA: free, docs, learn, test, version, natasha (knowledge + validation + SkillChains)
  *
- * NATASHA and CHARLOTTE now share security and safety gates. KALI supports
- * CHARLOTTE with hands-on design and development. KRISHNA assists NATASHA with
- * security validation and builds SkillChains — real end-to-end skill combos
- * that ship artifacts.
+ * NATASHA and YELENA now share security duties so CHARLOTTE and KALI can focus
+ * on application work. Any agent can jump in, assign subagents, call any 1st/2nd/3rd
+ * class skill when triggered, or appeal to KRISHNA to provide or create a SkillChain.
  */
 
 type AgentConfig = {
@@ -37,18 +37,27 @@ const AGENTS: AgentConfig[] = [
     name: "NATASHA",
     tagline: "Security + red-team ethos",
     color: "#f43f5e",
-    skillIds: ["natasha", "chain", "test", "access-plus", "include"],
+    skillIds: ["natasha", "chain", "test"],
     overview:
-      "NATASHA is the red-team / security function: threat-surface audits, contract and test assurance, access-gate review, inclusion safety checks, and source-backed risk research with claim discipline. She shares safety gates with CHARLOTTE.",
+      "NATASHA is the red-team / offensive security function: threat-surface audits, contract assurance, and test-driven validation. She shares security duties with YELENA and can call on CHARLOTTE, KALI, or KRISHNA for application, growth, or SkillChain support.",
+  },
+  {
+    slug: "yelena",
+    name: "YELENA",
+    tagline: "Security + blue-team operations",
+    color: "#f97316",
+    skillIds: ["natasha", "test", "access-plus", "include"],
+    overview:
+      "YELENA shares security duties with NATASHA from the blue-team side: access gates, inclusion checks, test-driven assurance, and safety-net validation. She frees CHARLOTTE and KALI to focus on application work while standing ready to assist any agent that triggers a security or safety review.",
   },
   {
     slug: "charlotte",
     name: "CHARLOTTE",
     tagline: "Orchestrate + solve + recycle",
     color: "#39FF14",
-    skillIds: ["repo", "craft", "vibe", "launch", "write", "research", "access-plus", "include", "test"],
+    skillIds: ["repo", "craft", "vibe", "launch", "write", "research"],
     overview:
-      "CHARLOTTE threads intent into retrievable info, recycled and upcycled solutions, design-system hybrids, launch plans, and conflict-resolved public copy. She shares security and safety gates with NATASHA and is the green-team counterweight to NATASHA's red team.",
+      "CHARLOTTE threads intent into retrievable info, recycled and upcycled solutions, design-system hybrids, launch plans, and conflict-resolved public copy. Security is now handled by NATASHA and YELENA, freeing her to orchestrate application work, assign subagents, and appeal to KRISHNA for SkillChains.",
   },
   {
     slug: "kali",
@@ -57,16 +66,16 @@ const AGENTS: AgentConfig[] = [
     color: "#a855f7",
     skillIds: ["seo", "revenue", "publish", "craft", "repo", "vibe"],
     overview:
-      "KALI drives growth and assists CHARLOTTE with direct web design and development: SEO, revenue systems, publish gate, plus hands-on craft, repo, and vibe work.",
+      "KALI drives growth and assists CHARLOTTE with direct web design and development: SEO, revenue systems, publish gate, craft, repo, and vibe. She can jump in when called, assign subagents, or appeal to NATASHA/YELENA for security gates and KRISHNA for SkillChains.",
   },
   {
     slug: "krishna",
     name: "KRISHNA",
-    tagline: "Knowledge + security assist + SkillChains",
+    tagline: "Knowledge + validation + SkillChains",
     color: "#3b82f6",
     skillIds: ["free", "docs", "learn", "test", "version", "natasha"],
     overview:
-      "KRISHNA curates knowledge, assists NATASHA with security validation, designs learning experiences, builds assessments, controls release versions, and builds SkillChains — end-to-end combinations of 1st, 2nd, and 3rd class skills that produce real artifacts.",
+      "KRISHNA curates knowledge, validates releases, and controls versions. He assists NATASHA and YELENA with security-flavored research, and any agent can appeal to him to provide or create a SkillChain — an end-to-end combination of 1st, 2nd, and 3rd class skills that produces a real artifact.",
   },
 ];
 
@@ -175,14 +184,14 @@ export function AgentDepartments() {
         <Reveal className="mx-auto mb-12 max-w-3xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#39FF14]">First-class agents</p>
           <h2 className="mt-4 text-[clamp(2rem,1.2rem+3vw,3.5rem)] font-bold tracking-tight text-white">
-            Four agents. One web hive.
+            Five agents. One web hive.
           </h2>
           <p className="mt-4 text-white/60">
             Each agent routes related skills into a coherent crew. Click through to see modules, triggers, and skill pages.
           </p>
         </Reveal>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {AGENTS.map((agent, i) => (
             <AgentCard key={agent.slug} agent={agent} index={i} />
           ))}
