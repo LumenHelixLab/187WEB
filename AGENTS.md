@@ -164,6 +164,15 @@ npm run db:push
 npm run db:seed
 ```
 
+## Multi-agent surface (Xavier Phase 2+)
+
+- **AgentKit parity:** `lib/agents/*-kit.ts` (charlotte, kali, natasha, yelena, xavier) + shared `agent-kit.ts` types. Pages under `/xavier`, `/natasha`, etc. render via `components/launch/AgentPage.tsx`.
+- **Xavier control plane** (premium UI, in-session only): `XavierControlPlane` wires `XavierCouncil` → `XavierBrood` → `XavierAuditLedger`. Shared audit events live in `lib/agents/xavier-audit.ts` (brood cap default **5**, kill-all confirm, Markdown export).
+- **WebHive shell:** `ProductShell` mounts SVG/R3F background + optional `WebHiveNetworkOverlay` / `WebHiveTelemetryOverlay` (both no-op under `prefers-reduced-motion`).
+- **Design source:** `docs/superpowers/specs/2026-07-21-xavier-agent-remix-design.md`. Branch work: `feat/xavier-phase2`.
+
+Golden path for operators: open `/xavier` → call council → spawn brood clones → export audit MD. Runtime dispatch of real subagents is not wired yet; UI is the control-plane contract.
+
 ## Current state
 
 - `/` serves the dark 187WEB showcase.
@@ -173,6 +182,7 @@ npm run db:seed
 - `/install` is the cross-platform CLI installer page + documentation.
 - `/187repo` is the slash-command reference for the 187SKILLS suite.
 - `/187ai-eye` serves **187aiEYE** — standalone Local Brain command UI (multi-agent rail + module toggles).
+- `/xavier` serves **XAVIER** — final ship + council/brood/audit multi-agent control plane.
 - `/knotstore` is the Vault-style KNOTstore preview page.
 - `lib/knotstore/` is the pluggable agentic data layer (SQLite, KNOT point, hybrid backends).
 - `/187free`, `/187research`, `/187seo`, `/187revenue`, `/187docs`, `/187learn`, `/187test`, `/187access`, `/187version`, `/187publish` are skill showcase pages.
