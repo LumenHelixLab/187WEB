@@ -18,8 +18,8 @@ const MASCOT_FRAME: Record<Size, string> = {
 };
 
 /**
- * Transparent / monochrome wireframe mascot, recolored with agent color only.
- * Uses the real PNG (line detail + 187 mark) + mix-blend color — no glow, no plate.
+ * Transparent wireframe mascot — PNG alpha preserved; only opaque line art is
+ * filled with the agent color via CSS mask (no plate, no blend overlay, no glow).
  */
 export function AgentMascot({
   color,
@@ -40,6 +40,7 @@ export function AgentMascot({
       role="img"
       aria-label={`${name} mascot`}
     >
+      {/* Hidden img keeps the asset warm in cache / for priority fetch */}
       {/* eslint-disable-next-line @next/next/no-img-element -- basePath-safe static export */}
       <img
         src={brandAssets.mascotWireframe}
@@ -49,14 +50,23 @@ export function AgentMascot({
         decoding="async"
         loading={priority ? "eager" : "lazy"}
         fetchPriority={priority ? "high" : "auto"}
-        className="absolute inset-0 m-auto h-full w-full object-contain"
+        className="pointer-events-none absolute h-px w-px opacity-0"
         aria-hidden
       />
-      {/* Colorize line art only — preserves wireframe detail */}
+      {/* Masked color plate = transparent outside the wireframe alpha */}
       <div
-        className="pointer-events-none absolute inset-0"
-        style={{ backgroundColor: color, mixBlendMode: "color" }}
-        aria-hidden
+        className="absolute inset-0"
+        style={{
+          backgroundColor: color,
+          WebkitMaskImage: `url(${brandAssets.mascotWireframe})`,
+          maskImage: `url(${brandAssets.mascotWireframe})`,
+          WebkitMaskSize: "contain",
+          maskSize: "contain",
+          WebkitMaskRepeat: "no-repeat",
+          maskRepeat: "no-repeat",
+          WebkitMaskPosition: "center",
+          maskPosition: "center",
+        }}
       />
     </div>
   );
