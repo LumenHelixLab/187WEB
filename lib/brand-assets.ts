@@ -20,7 +20,9 @@ export const brandAssets = {
   wordmarkTagline: withBase("/images/187web_wordmark_tagline.png"),
   /** Clean 187WEB wordmark (hero primary) */
   wordmark: withBase("/images/187web_wordmark.png"),
-  /** Red blueprint mascot — large hero figure */
+  /** Large hero badge / spider mark above wordmark */
+  heroBadge: withBase("/images/187web_hero_badge.png"),
+  /** Red blueprint mascot — alternate figure surfaces */
   mascotBlueprint: withBase("/images/187web_mascot_blueprint.png"),
   /** NATASHA technical blueprint — mascot geometry / vibe board */
   blueprint: withBase("/images/187web_technical_blueprint_coordinate_grid.png"),

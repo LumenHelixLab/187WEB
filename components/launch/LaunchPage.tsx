@@ -64,22 +64,22 @@ function Hero() {
             <div className="relative mx-auto flex max-w-3xl flex-col items-center">
               {/* eslint-disable-next-line @next/next/no-img-element -- basePath-safe static export */}
               <img
-                src={brandAssets.mascotBlueprint}
-                alt="187WEB blueprint mascot"
-                width={720}
-                height={720}
+                src={brandAssets.heroBadge}
+                alt="187WEB"
+                width={1024}
+                height={1024}
                 decoding="async"
                 fetchPriority="high"
-                className="h-auto w-full max-w-[18rem] object-contain sm:max-w-[22rem] md:max-w-[26rem] lg:max-w-[28rem]"
+                className="h-auto w-full max-w-[16rem] object-contain drop-shadow-[0_0_48px_rgba(57,255,20,0.22)] sm:max-w-[20rem] md:max-w-[24rem] lg:max-w-[28rem]"
               />
               {/* eslint-disable-next-line @next/next/no-img-element -- basePath-safe static export */}
               <img
                 src={brandAssets.wordmark}
-                alt="187WEB"
+                alt="187WEB wordmark"
                 width={800}
                 height={200}
                 decoding="async"
-                className="mt-6 h-auto w-full max-w-md object-contain sm:mt-8 sm:max-w-lg md:max-w-xl"
+                className="mt-5 h-auto w-full max-w-md object-contain sm:mt-7 sm:max-w-lg md:max-w-xl"
               />
               <p className="brand-hero-tagline mt-5 max-w-xl text-center sm:mt-6">
                 a Killer{" "}
