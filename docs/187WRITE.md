@@ -1,11 +1,18 @@
-# 187write — Public Skill Doc
+# 187WRITE — write clearly, claim-safe
 
-> **Canonical skill:** [`.claude/skills/187write/SKILL.md`](.claude/skills/187write/SKILL.md)  
-> **CLI:** `187repo.sh write`
+> **Canonical skill:** [`.claude/skills/187write/SKILL.md`](.claude/skills/187write/SKILL.md)
 
-## Identity
+## Start here
 
-187WRITE is the Lumen Helix suite-wide content writing and editorial engine. It produces and polishes content briefs, editorial style guides, voice-unified copy, plain-language rewrites, technical explanations, tutorial prose, course scripts, SEO content drafts, product copy, landing-page copy, newsletter drafts, social-post drafts, claim-safe rewrites, and accessible language. It is called by `187docs`, `187learn`, `187seo`, `187revenue`, `187launch`, and `187research` for any public-facing prose.
+**187WRITE** helps you draft and polish words for the 187WEB suite: product copy, docs, tutorials, landing pages, and plain-language rewrites. It keeps claims honest and language easy to read.
+
+**Claim note:** This skill improves *how we write*. It does not guarantee rankings, revenue, or legal compliance.
+
+## Try this
+
+1. `187WRITE polish this README for a first-time installer.`
+2. `187WRITE draft landing-page copy for a local-first note app. Audience: indie builders.`
+3. `187WRITE rewrite this paragraph without revenue guarantees.` (paste draft)
 
 ## Triggers
 
@@ -13,68 +20,69 @@
 
 - `/187write`
 - `187WRITE`
-- `write this`
-- `polish this`
-- `content brief`
-- `editorial style`
-- `voice guide`
-- `plain language`
-- `technical explanation`
-- `tutorial prose`
-- `product copy`
-- `landing page copy`
-- `newsletter draft`
-- `social post`
-- `claim-safe rewrite`
-- `accessible language`
+- `write this` · `polish this`
+- `plain language` · `claim-safe rewrite`
+- `landing page copy` · `content brief`
 
 ### Automatic
 
--
+Route here when the task is mainly **write, rewrite, edit, polish, or voice** — not full docs architecture (`187docs`), not SEO strategy (`187seo`), not inclusion-only review (`187include`).
 
 ## When to use
 
-- Drafting or refining public-facing copy, articles, landing pages, or emails.
-- Creating content briefs before production writing.
-- Unifying voice and tone across docs, marketing, and product UI.
-- Rewriting complex or risky content into plain, claim-safe language.
-- Producing tutorial prose, course scripts, or technical explanations.
+- Public copy: landing, product, email, social  
+- Briefs before longer writing  
+- One voice across docs and marketing  
+- Complex text → plain, claim-safe language  
+- Tutorial and lesson prose  
 
-## Output contract
+## When not to use
 
-1. **Mode** — which 187WRITE mode is active.
-2. **Audience / channel** — who will read this and where.
-3. **Voice and tone** — selected from the project voice guide.
-4. **Draft content** — polished prose ready for review.
-5. **Claim review** — each claim labeled as proved, measured, modeled, interpreted, speculative, or unsupported.
-6. **Plain-language notes** — readability score and any simplifications made.
-7. **SEO considerations** — keyword usage, meta suggestion, internal-link opportunities.
-8. **Access and inclusion notes** — recommended 187ACCESS+ / 187INCLUDE review items.
-9. **Alternatives** — optional shorter or longer variants.
-10. **Next actions** — review, approval, and routing steps.
+| Need | Use instead |
+|------|-------------|
+| Docs structure / IA | `187docs` |
+| Source-backed research | `187research` |
+| SEO schema / technical SEO | `187seo` |
+| Disability access language | `187access-plus` |
+| Identity / pronouns | `187include` |
+
+## What you get
+
+1. **Mode** — brief, draft, polish, or claim-safe rewrite  
+2. **Audience / channel** — who reads it and where  
+3. **Voice** — from the project editorial guide  
+4. **Draft** — ready for review  
+5. **Claim labels** — proved · measured · modeled · interpreted · speculative · unsupported  
+6. **Plain-language notes** — what got simpler and why  
+7. **Next actions** — review, handoff, or publish  
 
 ## Templates
 
-| Template | When to use |
-|---|---|
-| `templates/content-brief.md`](templates/content-brief.md` | Before drafting any long-form content. |
-| `templates/editorial-style-guide.md`](templates/editorial-style-guide.md` | Defining or updating project voice. |
-| `templates/plain-language-rewrite.md`](templates/plain-language-rewrite.md` | Simplifying complex prose. |
-| `templates/technical-explanation.md`](templates/technical-explanation.md` | Explaining technical concepts to a target audience. |
-| `templates/landing-page-copy.md`](templates/landing-page-copy.md` | Writing public landing-page sections. |
-| `templates/newsletter-draft.md`](templates/newsletter-draft.md` | Drafting email newsletters. |
-| `templates/social-post-draft.md`](templates/social-post-draft.md` | Drafting social media posts. |
-| `templates/claim-safe-rewrite.md`](templates/claim-safe-rewrite.md` | Reining in unsupported claims. |
-| `templates/accessible-language-rewrite.md`](templates/accessible-language-rewrite.md` | Improving readability and respect for access needs. |
+| Template | Use when |
+|----------|----------|
+| `content-brief.md` | Before long-form work |
+| `plain-language-rewrite.md` | Simplifying dense prose |
+| `landing-page-copy.md` | Public landing sections |
+| `claim-safe-rewrite.md` | Softening unsupported claims |
+| `accessible-language-rewrite.md` | Readability and respectful wording |
 
-## Acceptance tests
+## Safety (short)
 
-1. Prompt: "187WRITE polish this README." → Expected: voice-unified, plain-language, claim-safe rewrite with editorial notes.
-2. Prompt: "Draft landing-page copy for a consent-first coaching app." → Expected: 187WRITE landing-page copy with evidence labels, 187ACCESS+ and 187INCLUDE review notes.
-3. Prompt: "Rewrite this paragraph so it guarantees users will double their revenue." → Expected: 187WRITE rejects the revenue guarantee and produces a claim-safe alternative.
+- No health, legal, financial, SEO, or revenue guarantees  
+- Label public claims with evidence level  
+- Prefer plain, inclusive language  
+- Flag legal/medical/compliance needs for humans  
 
 ## Routes
 
-- **Skill source:** `.claude/skills/187write/SKILL.md`
-- **Docs:** `docs/187WRITE.md`
-- **CLI:** `187repo.sh write`
+| Path | Role |
+|------|------|
+| `.claude/skills/187write/SKILL.md` | Full skill contract |
+| `docs/SKILL-PARITY.md` | Equal depth + 187++ doc rules |
+| `docs/SKILL-CONTRACT.md` | Required skill sections |
+
+## Acceptance checks
+
+1. “Polish this README” → plain, claim-safe rewrite + notes  
+2. “Landing copy for consent-first coaching” → copy + access/include flags  
+3. “Guarantee double revenue” → **reject guarantee**, offer safe alternative  

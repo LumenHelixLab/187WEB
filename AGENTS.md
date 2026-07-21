@@ -164,6 +164,10 @@ npm run db:push
 npm run db:seed
 ```
 
+## Skill parity (187++)
+
+Public skill cards share equal prompt/trigger depth. Standard: [`docs/SKILL-PARITY.md`](docs/SKILL-PARITY.md). Check: `npm run skills:parity`.
+
 ## Multi-agent surface (Xavier Phase 2+)
 
 - **AgentKit parity:** `lib/agents/*-kit.ts` (charlotte, kali, natasha, yelena, xavier) + shared `agent-kit.ts` types. Pages under `/xavier`, `/natasha`, etc. render via `components/launch/AgentPage.tsx`.

@@ -27,6 +27,7 @@
     "adapters:generate": "python scripts/generate-model-adapters.py",
     "adapters:drift": "node scripts/check-adapter-drift.mjs",
     "showcase:sync": "node scripts/check-showcase-sync.mjs",
+    "skills:parity": "npx tsx scripts/check-skill-parity.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:ui": "vitest --ui",
