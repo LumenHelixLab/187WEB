@@ -11,13 +11,15 @@ import { FIRST_CLASS_SKILLS, SUBSKILLS, type SuiteSkill } from "@/lib/first-clas
  * Top-level 187WEB agent ecosystem.
  *
  * Agent → skill mapping:
- * - NATASHA: natasha, chain, test, access-plus (security + red-team ethos)
- * - CHARLOTTE: repo, craft, vibe, launch, write, research (orchestrate + solve + recycle)
- * - KALI: seo, revenue, publish, include (growth + inclusion gates)
- * - KRISHNA: free, docs, learn, version (knowledge + release control)
+ * - NATASHA: natasha, chain, test, access-plus, include (security + red-team ethos + shared safety gates)
+ * - CHARLOTTE: repo, craft, vibe, launch, write, research, access-plus, include, test (orchestrate + solve + recycle + shared safety gates)
+ * - KALI: seo, revenue, publish, craft, repo, vibe (growth + direct web design/dev assist to CHARLOTTE)
+ * - KRISHNA: free, docs, learn, test, version, natasha (knowledge + validation + security assist + SkillChains)
  *
- * NATASHA owns the red-team / assurance lens; CHARLOTTE threads intent into
- * retrievable info, recycled/upcycled solutions, hybrids, and shipped surfaces.
+ * NATASHA and CHARLOTTE now share security and safety gates. KALI supports
+ * CHARLOTTE with hands-on design and development. KRISHNA assists NATASHA with
+ * security validation and builds SkillChains — real end-to-end skill combos
+ * that ship artifacts.
  */
 
 type AgentConfig = {
@@ -35,36 +37,36 @@ const AGENTS: AgentConfig[] = [
     name: "NATASHA",
     tagline: "Security + red-team ethos",
     color: "#f43f5e",
-    skillIds: ["natasha", "chain", "test", "access-plus"],
+    skillIds: ["natasha", "chain", "test", "access-plus", "include"],
     overview:
-      "NATASHA is the red-team / security function: threat-surface audits, contract and test assurance, access-gate review, and source-backed risk research with claim discipline.",
+      "NATASHA is the red-team / security function: threat-surface audits, contract and test assurance, access-gate review, inclusion safety checks, and source-backed risk research with claim discipline. She shares safety gates with CHARLOTTE.",
   },
   {
     slug: "charlotte",
     name: "CHARLOTTE",
     tagline: "Orchestrate + solve + recycle",
     color: "#39FF14",
-    skillIds: ["repo", "craft", "vibe", "launch", "write", "research"],
+    skillIds: ["repo", "craft", "vibe", "launch", "write", "research", "access-plus", "include", "test"],
     overview:
-      "CHARLOTTE threads intent into retrievable info, recycled and upcycled solutions, design-system hybrids, launch plans, and conflict-resolved public copy. She is the green-team counterweight to NATASHA's red team.",
+      "CHARLOTTE threads intent into retrievable info, recycled and upcycled solutions, design-system hybrids, launch plans, and conflict-resolved public copy. She shares security and safety gates with NATASHA and is the green-team counterweight to NATASHA's red team.",
   },
   {
     slug: "kali",
     name: "KALI",
-    tagline: "Growth + safety gates",
+    tagline: "Growth + design/dev assist",
     color: "#a855f7",
-    skillIds: ["seo", "revenue", "access-plus", "publish", "include"],
+    skillIds: ["seo", "revenue", "publish", "craft", "repo", "vibe"],
     overview:
-      "KALI handles SEO, revenue architecture, accessibility, inclusion review, and the final publish gate.",
+      "KALI drives growth and assists CHARLOTTE with direct web design and development: SEO, revenue systems, publish gate, plus hands-on craft, repo, and vibe work.",
   },
   {
     slug: "krishna",
     name: "KRISHNA",
-    tagline: "Knowledge + validation",
+    tagline: "Knowledge + security assist + SkillChains",
     color: "#3b82f6",
-    skillIds: ["free", "docs", "learn", "test", "version"],
+    skillIds: ["free", "docs", "learn", "test", "version", "natasha"],
     overview:
-      "KRISHNA finds free stacks, writes docs, designs learning experiences, builds assessments, and controls release versions.",
+      "KRISHNA curates knowledge, assists NATASHA with security validation, designs learning experiences, builds assessments, controls release versions, and builds SkillChains — end-to-end combinations of 1st, 2nd, and 3rd class skills that produce real artifacts.",
   },
 ];
 

@@ -4,11 +4,11 @@ import { AgentPage, type AgentConfig } from "@/components/launch/AgentPage";
 const agent: AgentConfig = {
   slug: "kali",
   name: "KALI",
-  tagline: "Growth + safety gates",
+  tagline: "Growth + design/dev assist",
   color: "#a855f7",
-  skillIds: ["seo", "revenue", "access-plus", "publish", "include"],
+  skillIds: ["seo", "revenue", "publish", "craft", "repo", "vibe"],
   overview:
-    "KALI owns growth and public-safety gates. She audits SEO, designs revenue systems, checks accessibility and inclusion, and runs the final publish gate.",
+    "KALI drives growth and assists CHARLOTTE with direct web design and development. She audits SEO, designs revenue systems, runs the publish gate, and contributes hands-on craft, repo, and vibe work.",
 };
 
 export const metadata: Metadata = {
