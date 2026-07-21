@@ -161,7 +161,8 @@ export function SiteNav() {
               {moreOpen && (
                 <div
                   role="menu"
-                  className="absolute right-0 top-full z-50 mt-2 min-w-[13rem] rounded-xl border border-white/12 bg-[#0A0C14]/98 p-2 shadow-2xl shadow-black/50 backdrop-blur-md"
+                  className="absolute right-0 top-full z-[60] mt-2 min-w-[14.5rem] rounded-xl border border-white/15 bg-[#0A0C14] p-2 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.95)] ring-1 ring-black/80"
+                  style={{ backgroundColor: "#0A0C14", opacity: 1 }}
                 >
                   {MORE.map((item) => (
                     <Link
@@ -169,11 +170,11 @@ export function SiteNav() {
                       href={item.href}
                       role="menuitem"
                       onClick={() => setMoreOpen(false)}
-                      className="block rounded-lg px-3 py-2 text-sm text-white/75 transition hover:bg-white/5 hover:text-[#39FF14]"
+                      className="block rounded-lg px-3 py-2.5 text-sm text-white/80 transition hover:bg-white/10 hover:text-[#39FF14]"
                     >
-                      <span className="font-medium text-white">{item.label}</span>
+                      <span className="font-semibold text-white">{item.label}</span>
                       {item.hint ? (
-                        <span className="mt-0.5 block text-[11px] text-white/40">{item.hint}</span>
+                        <span className="mt-0.5 block text-[11px] leading-snug text-white/55">{item.hint}</span>
                       ) : null}
                     </Link>
                   ))}
