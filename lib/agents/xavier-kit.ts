@@ -6,7 +6,7 @@ export const xavierKit: AgentKit = {
   color: "#a855f7",
   tagline: "Final creation + council",
   overview:
-    "XAVIER is the only male-coded agent on the crew. He owns final creation and production responsibility, cross-crew vision, and the council command. He can call huddles, interject across teams, and appeal to any 1st, 2nd, or 3rd class skill to ship the final artifact.",
+    "XAVIER owns final creation and production responsibility, cross-crew vision, and the council command. He can call huddles, interject across teams, and appeal to any 1st, 2nd, or 3rd class skill to ship the final artifact.",
   skills: ["docs", "version", "publish", "launch", "natasha", "test"],
   prompts: [
     {
