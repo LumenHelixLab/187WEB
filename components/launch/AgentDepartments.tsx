@@ -2,11 +2,11 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { Reveal } from "@/components/Reveal";
 import { skillShowcaseIndex, type SkillShowcaseData } from "@/lib/skill-showcase-data";
 import { FIRST_CLASS_SKILLS, SUBSKILLS, type SuiteSkill } from "@/lib/first-class-skills";
 import { natashaKit, yelenaKit, charlotteKit, kaliKit, xavierKit, type AgentKit } from "@/lib/agents";
 import { AgentMascot } from "./AgentMascot";
+import { KineticHeadline } from "@/components/type/KineticHeadline";
 import { gsap, registerGsap } from "@/lib/motion/gsap";
 import { useReducedMotion } from "@/lib/motion/useReducedMotion";
 
@@ -237,16 +237,19 @@ export function AgentDepartments() {
   return (
     <section id="agents" className="relative z-10 border-y border-white/10 bg-[#080808]/92 px-4 py-20 sm:px-6 sm:py-28">
       <div className="mx-auto w-full max-w-[92rem]">
-        <Reveal className="mx-auto mb-14 max-w-3xl text-center">
+        <div className="mx-auto mb-14 max-w-3xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#39FF14]">First-class agents</p>
-          <h2 className="mt-4 text-[clamp(2rem,1.2rem+3vw,3.5rem)] font-bold tracking-tight text-white">
-            Five agents. One web hive.
-          </h2>
+          <KineticHeadline
+            text="Five agents."
+            accent="One web hive."
+            as="h2"
+            className="mt-4 text-[clamp(2rem,1.2rem+3vw,3.5rem)] font-bold leading-[0.95] tracking-tight text-white"
+          />
           <p className="mt-4 text-white/60">
             Each agent routes related skills into a coherent crew. Click through to see modules, triggers, and skill
             pages.
           </p>
-        </Reveal>
+        </div>
 
         {/* Equal-height portrait columns — matches reference row of five */}
         <div

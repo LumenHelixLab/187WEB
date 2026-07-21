@@ -3,14 +3,14 @@
 import { useState } from "react";
 import Link from "next/link";
 import { brandAssets } from "@/lib/brand-assets";
-import { skillShowcases, type SkillShowcaseData, skillColorValue, skillIsRainbow, skillRainbowTextClass } from "@/lib/skill-showcase-data";
 import { COMMANDS } from "@/components/187/command-data";
 import { CommandPalette } from "@/components/187/CommandPalette";
 import { Reveal } from "@/components/Reveal";
-import { Tooltip } from "@/components/Tooltip";
+import { KineticHeadline } from "@/components/type/KineticHeadline";
 import { ProductShell } from "./ProductShell";
 import { AgentDepartments } from "./AgentDepartments";
 import { AccessIncludeCTA } from "./AccessIncludeCTA";
+import { SkillCardsGrid } from "./SkillCardsGrid";
 import { charlotteModules, quickStats, installSnippets } from "./launch-data";
 
 const REPO = "https://github.com/LumenHelixLab/187WEB";
@@ -90,9 +90,12 @@ function Hero() {
           </Reveal>
 
           <Reveal delay={200}>
-            <h1 className="mt-10 text-[clamp(2.5rem,1.2rem+6vw,5.5rem)] font-bold leading-[0.95] tracking-tight text-white sm:mt-12">
-              Type one command. <span className="sc-grad-text">Ship the whole surface.</span>
-            </h1>
+            <KineticHeadline
+              as="h1"
+              text="Type one command."
+              accent="Ship the whole surface."
+              className="mt-10 text-[clamp(2.5rem,1.2rem+6vw,5.5rem)] font-bold leading-[0.95] tracking-tight text-white sm:mt-12"
+            />
           </Reveal>
 
           <Reveal delay={300}>
@@ -283,107 +286,6 @@ function BrandIntelligence() {
   );
 }
 
-function SkillCard({ skill, index }: { skill: SkillShowcaseData; index: number }) {
-  const alias = skill.triggers[0]?.replace("/187", "").trim() ?? skill.id;
-  const useCase = skill.useCases[0] ?? "";
-  const output = skill.outputs[0] ?? "";
-  const solidColor = skillColorValue(skill.color);
-  const taglineClass = skillIsRainbow(skill.color) ? skillRainbowTextClass() : "";
-
-  return (
-    <Reveal delay={index * 40}>
-      <Tooltip
-        content={
-          <>
-            <strong className="text-white">{skill.name}</strong> — {skill.description}{" "}
-            <Link href={`/187${skill.id}`} className="mt-2 block text-[#39FF14] underline">
-              Open {skill.name} →
-            </Link>
-          </>
-        }
-      >
-        <Link
-          href={`/187${skill.id}`}
-          className="group flex h-full flex-col rounded-2xl border border-white/10 bg-[#0A0C14] p-5 transition hover:-translate-y-1 hover:border-[#39FF14]/30"
-          style={{ boxShadow: `0 0 0 1px rgba(255,255,255,0.03), 0 24px 60px -24px ${solidColor}22` }}
-        >
-          <div className="flex items-start justify-between gap-3">
-            <div>
-              <h3 className="font-bold text-white">{skill.name}</h3>
-              <p className={`text-sm ${taglineClass}`} style={skillIsRainbow(skill.color) ? undefined : { color: solidColor }}>
-                {skill.tagline}
-              </p>
-            </div>
-            <span
-              className={`grid h-9 w-9 flex-shrink-0 place-items-center rounded-lg text-xs font-bold ${
-                skillIsRainbow(skill.color) ? "text-white" : "text-[#050608]"
-              }`}
-              style={skillIsRainbow(skill.color) ? {} : { backgroundColor: solidColor }}
-            >
-              {skillIsRainbow(skill.color) ? (
-                <span className="bg-gradient-to-r from-red-500 via-yellow-500 via-green-500 via-blue-500 to-purple-500 bg-clip-text text-transparent">
-                  {alias.slice(0, 2).toUpperCase()}
-                </span>
-              ) : (
-                alias.slice(0, 2).toUpperCase()
-              )}
-            </span>
-          </div>
-          <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-white/60">{skill.description}</p>
-          <div className="mt-4 space-y-2">
-            <code className="block rounded bg-white/5 px-2 py-1 text-xs text-[#39FF14]">/187 {alias}</code>
-            <p className="text-xs text-white/40">
-              <span className="text-white/60">Use case:</span> {useCase}
-            </p>
-            <p className="text-xs text-white/40">
-              <span className="text-white/60">Delivers:</span> {output}
-            </p>
-          </div>
-          <div
-            className="mt-auto flex items-center gap-1 pt-4 text-sm font-medium"
-            style={{ color: solidColor }}
-          >
-            <span>Explore {skill.name}</span>
-            <svg
-              className="h-4 w-4 transition group-hover:translate-x-1"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path d="M5 12h14" />
-              <path d="m12 5 7 7-7 7" />
-            </svg>
-          </div>
-        </Link>
-      </Tooltip>
-    </Reveal>
-  );
-}
-
-function SkillsGrid() {
-  return (
-    <section id="skills" className="relative px-6 py-20 sm:py-28">
-      <div className="container-x">
-        <Reveal className="mx-auto mb-12 max-w-3xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#39FF14]">First-class skills</p>
-          <h2 className="mt-4 text-[clamp(2rem,1.2rem+3vw,3.5rem)] font-bold tracking-tight text-white">
-            27 commands. One surface.
-          </h2>
-          <p className="mt-4 text-white/60">
-            Every card is a routable skill page. Click through to see triggers, outputs, templates, and routing.
-          </p>
-        </Reveal>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {skillShowcases.map((skill, i) => (
-            <SkillCard key={skill.id} skill={skill} index={i} />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function CharlotteModules() {
   return (
     <section id="charlotte" className="relative border-y border-white/10 bg-[#080808]/80 px-6 py-20 sm:py-28">
@@ -514,40 +416,52 @@ function commandPurpose(chip: string): string {
   const cmd = chip.replace("/187 ", "").trim();
   return (
     COMMANDS.find((c) => c.cmd === chip || c.alias === cmd)?.purpose ??
-    `Run ${chip}`
+    `Loads the ${chip} skill into the palette.`
   );
 }
 
 function CommandSurface() {
   const [commandInput, setCommandInput] = useState("/187 ");
+  const [hint, setHint] = useState("Pick a chip or type — purpose appears here.");
   return (
     <section id="command" className="relative border-y border-white/10 bg-[#080808]/80 px-6 py-20 sm:py-28">
       <div className="container-x">
-        <Reveal className="mx-auto mb-10 max-w-3xl text-center">
+        <div className="mx-auto mb-10 max-w-3xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#39FF14]">Interactive command surface</p>
-          <h2 className="mt-4 text-[clamp(2rem,1.2rem+3vw,3.5rem)] font-bold tracking-tight text-white">
-            Try a slash command
-          </h2>
+          <KineticHeadline
+            text="Try a slash"
+            accent="command."
+            as="h2"
+            className="mt-4 text-[clamp(2rem,1.2rem+3vw,3.5rem)] font-bold leading-[0.95] tracking-tight text-white"
+          />
           <p className="mt-4 text-white/60">
             Tap a chip or type your own. The same registry powers the CLI, docs, and this page.
           </p>
-        </Reveal>
+        </div>
 
         <Reveal delay={100}>
           <div className="mx-auto max-w-4xl">
-            <div className="mb-4 flex flex-wrap justify-center gap-2">
+            <div className="mb-3 flex flex-wrap justify-center gap-2">
               {COMMAND_CHIPS.map((chip) => (
-                <Tooltip key={chip} content={commandPurpose(chip)}>
-                  <button
-                    type="button"
-                    onClick={() => setCommandInput(chip)}
-                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-white/70 transition hover:border-[#39FF14]/40 hover:text-[#39FF14]"
-                  >
-                    {chip}
-                  </button>
-                </Tooltip>
+                <button
+                  key={chip}
+                  type="button"
+                  onClick={() => {
+                    setCommandInput(chip);
+                    setHint(commandPurpose(chip));
+                  }}
+                  onFocus={() => setHint(commandPurpose(chip))}
+                  onMouseEnter={() => setHint(commandPurpose(chip))}
+                  aria-label={`${chip}. ${commandPurpose(chip)}`}
+                  className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-white/70 transition hover:border-[#39FF14]/40 hover:text-[#39FF14]"
+                >
+                  {chip}
+                </button>
               ))}
             </div>
+            <p className="mb-4 min-h-[1.25rem] text-center text-xs text-white/45" aria-live="polite">
+              {hint}
+            </p>
             <CommandPalette value={commandInput} onChange={setCommandInput} className="border-[#39FF14]/20" />
           </div>
         </Reveal>
@@ -632,7 +546,7 @@ export function LaunchPage() {
       <StatsStrip />
       <MarqueeStrip />
       <BrandIntelligence />
-      <SkillsGrid />
+      <SkillCardsGrid />
       <AgentDepartments />
       <AccessIncludeCTA />
       <CharlotteModules />

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
-import { Tooltip } from "@/components/Tooltip";
 import { CommandPalette } from "@/components/187/CommandPalette";
 import { AbilityTabs } from "./AbilityTabs";
 import { ScenarioDemo } from "./ScenarioDemo";
@@ -9,6 +8,7 @@ import { DesignMotionLab } from "./DesignMotionLab";
 import { MotionLabSection } from "@/components/motion-lab/MotionLabSection";
 import { ProductShell } from "@/components/launch/ProductShell";
 import { AccessIncludeCTA } from "@/components/launch/AccessIncludeCTA";
+import { KineticHeadline } from "@/components/type/KineticHeadline";
 import { skillShowcaseIndex, skillColorValue, skillIsRainbow, skillRainbowTextClass } from "@/lib/skill-showcase-data";
 import { PUBLIC_SKILLS, type SuiteSkill } from "@/lib/first-class-skills";
 
@@ -47,58 +47,53 @@ function VisualSkillCard({ skill, index }: { skill: SuiteSkill; index: number })
 
   return (
     <Reveal delay={index * 40}>
-      <Tooltip
-        content={
-          <>
-            <strong className="text-white">{skill.name}</strong> — {meta?.description ?? example}{" "}
-            <Link href={`/187${skill.id}`} className="mt-2 block text-[#39FF14] underline">
-              Open {skill.name} →
-            </Link>
-          </>
-        }
+      <Link
+        href={`/187${skill.id}`}
+        className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0A0C14] p-5 transition hover:-translate-y-1 hover:border-white/20"
+        style={{ boxShadow: `0 0 0 1px rgba(255,255,255,0.04), 0 24px 60px -24px ${color}22` }}
+        aria-label={`${skill.name}: ${skillTagline(skill)}. Open skill page.`}
       >
-        <Link
-          href={`/187${skill.id}`}
-          className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0A0C14] p-5 transition hover:-translate-y-1 hover:border-white/20"
-          style={{ boxShadow: `0 0 0 1px rgba(255,255,255,0.04), 0 24px 60px -24px ${color}22` }}
+        <div className="flex items-start justify-between gap-3">
+          <div
+            className={`grid h-11 w-11 place-items-center rounded-xl text-sm font-bold ${
+              skillIsRainbow(meta?.color ?? "") ? "text-white" : "text-[#050608]"
+            }`}
+            style={skillIsRainbow(meta?.color ?? "") ? undefined : { backgroundColor: color }}
+            aria-hidden
+          >
+            {skillIsRainbow(meta?.color ?? "") ? (
+              <span className="bg-gradient-to-r from-red-500 via-yellow-500 via-green-500 via-blue-500 to-purple-500 bg-clip-text text-transparent">
+                {alias}
+              </span>
+            ) : (
+              alias
+            )}
+          </div>
+          <code className="rounded bg-white/5 px-2 py-1 text-xs text-[#39FF14]">{trigger}</code>
+        </div>
+        <h3 className="mt-4 font-bold text-white">{skill.name}</h3>
+        <p
+          className={`text-sm ${skillIsRainbow(meta?.color ?? "") ? skillRainbowTextClass() : ""}`}
+          style={skillIsRainbow(meta?.color ?? "") ? undefined : { color }}
         >
-          <div className="flex items-start justify-between gap-3">
-            <div
-              className={`grid h-11 w-11 place-items-center rounded-xl text-sm font-bold ${
-                skillIsRainbow(meta?.color ?? "") ? "text-white" : "text-[#050608]"
-              }`}
-              style={skillIsRainbow(meta?.color ?? "") ? {} : { backgroundColor: color }}
-            >
-              {skillIsRainbow(meta?.color ?? "") ? (
-                <span className="bg-gradient-to-r from-red-500 via-yellow-500 via-green-500 via-blue-500 to-purple-500 bg-clip-text text-transparent">
-                  {alias}
-                </span>
-              ) : (
-                alias
-              )}
-            </div>
-            <code className="rounded bg-white/5 px-2 py-1 text-xs text-[#39FF14]">{trigger}</code>
-          </div>
-          <h3 className="mt-4 font-bold text-white">{skill.name}</h3>
-          <p className={`text-sm ${skillIsRainbow(meta?.color ?? "") ? skillRainbowTextClass() : ""}`} style={skillIsRainbow(meta?.color ?? "") ? undefined : { color }}>
-            {skillTagline(skill)}
-          </p>
-          <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-white/60">{example}</p>
-          <div className="mt-auto flex items-center gap-1 pt-5 text-sm font-medium" style={{ color }}>
-            <span>Explore {skill.name}</span>
-            <svg
-              className="h-4 w-4 transition group-hover:translate-x-1"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path d="M5 12h14" />
-              <path d="m12 5 7 7-7 7" />
-            </svg>
-          </div>
-        </Link>
-      </Tooltip>
+          {skillTagline(skill)}
+        </p>
+        <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-white/60">{example}</p>
+        <div className="mt-auto flex items-center gap-1 pt-5 text-sm font-medium" style={{ color }}>
+          <span>Explore {skill.name}</span>
+          <svg
+            className="h-4 w-4 transition group-hover:translate-x-1"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            aria-hidden
+          >
+            <path d="M5 12h14" />
+            <path d="m12 5 7 7-7 7" />
+          </svg>
+        </div>
+      </Link>
     </Reveal>
   );
 }
@@ -107,15 +102,19 @@ function VisualSkillGrid() {
   return (
     <section id="docs-grid" className="relative px-6 py-20 sm:py-28">
       <div className="container-x">
-        <Reveal className="mx-auto mb-12 max-w-3xl text-center">
+        <div className="mx-auto mb-12 max-w-3xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#39FF14]">Visual skill gallery</p>
-          <h2 className="mt-4 text-[clamp(2rem,1.2rem+3vw,3.5rem)] font-bold tracking-tight text-white">
-            Every skill, one card away
-          </h2>
+          <KineticHeadline
+            text="Every skill,"
+            accent="one card away"
+            as="h2"
+            className="mt-4 text-[clamp(2rem,1.2rem+3vw,3.5rem)] font-bold leading-[0.95] tracking-tight text-white"
+          />
           <p className="mt-4 text-white/60">
-            First-class skills plus subskills. Each card links to a dedicated page with triggers, outputs, routing, and templates.
+            First-class skills plus subskills. Each card links to triggers, outputs, routing, and templates — no
+            redundant hover layers.
           </p>
-        </Reveal>
+        </div>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {PUBLIC_SKILLS.map((skill, i) => (
