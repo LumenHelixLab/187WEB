@@ -1,12 +1,14 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
-import { Tooltip } from "@/components/Tooltip";
 import { skillShowcaseIndex, type SkillShowcaseData } from "@/lib/skill-showcase-data";
 import { FIRST_CLASS_SKILLS, SUBSKILLS, type SuiteSkill } from "@/lib/first-class-skills";
 import { natashaKit, yelenaKit, charlotteKit, kaliKit, xavierKit, type AgentKit } from "@/lib/agents";
 import { AgentMascotStack } from "./AgentMascot";
+import { gsap, registerGsap } from "@/lib/motion/gsap";
+import { useReducedMotion } from "@/lib/motion/useReducedMotion";
 
 /**
  * Top-level 187WEB agent ecosystem.
@@ -17,10 +19,6 @@ import { AgentMascotStack } from "./AgentMascot";
  * - CHARLOTTE: repo, craft, vibe, launch, write, research (application orchestration)
  * - KALI: seo, revenue, publish, create, repo, vibe (growth + create assist)
  * - XAVIER: docs, version, publish, launch, natasha, test (final creation / production + council)
- *
- * NATASHA and YELENA split security duties so CHARLOTTE and KALI stay focused
- * on application work. Any agent can jump in, assign subagents, call any 1st/2nd/3rd
- * class skill when triggered, or appeal to XAVIER for a council or SkillChain.
  */
 
 const AGENTS: AgentKit[] = [natashaKit, yelenaKit, charlotteKit, kaliKit, xavierKit];
@@ -31,104 +29,214 @@ function skillMeta(id: string): SkillShowcaseData | undefined {
   return skillShowcaseIndex.get(id);
 }
 
-function AgentCard({ agent, index }: { agent: AgentKit; index: number }) {
+function AgentCard({
+  agent,
+  cardRef,
+}: {
+  agent: AgentKit;
+  cardRef: (el: HTMLAnchorElement | null) => void;
+}) {
   const skills = agent.skills
     .map((id) => ({ skill: skillById.get(id), meta: skillMeta(id) }))
     .filter((item): item is { skill: SuiteSkill; meta: SkillShowcaseData | undefined } => Boolean(item.skill));
 
   return (
-    <Reveal delay={index * 80}>
-      <Tooltip content={<>{agent.overview}</>}>
-        <Link
-          href={`/${agent.slug}`}
-          className="group flex h-full flex-col rounded-2xl border border-white/10 bg-[#0A0C14] transition hover:-translate-y-1 hover:border-white/20"
-        >
-          <div className="flex items-center justify-center px-4 pt-8 pb-2">
-            <AgentMascotStack
-              color={agent.color}
-              name={agent.name}
-              size="lg"
-              showWordmark={false}
-            />
-          </div>
+    <Link
+      ref={cardRef}
+      href={`/${agent.slug}`}
+      data-agent-card
+      className="group flex h-full min-h-[28rem] flex-col rounded-2xl border border-white/10 bg-[#0A0C14]/90 p-1 will-change-transform"
+      style={{ borderColor: `${agent.color}33` }}
+    >
+      <div
+        className="flex flex-1 flex-col rounded-[0.9rem] px-5 pb-6 pt-8 sm:px-6"
+        style={{
+          background: `linear-gradient(180deg, ${agent.color}12 0%, transparent 42%)`,
+        }}
+      >
+        <div data-agent-mascot className="flex items-center justify-center py-4">
+          <AgentMascotStack color={agent.color} name={agent.name} size="lg" showWordmark={false} />
+        </div>
 
-          <div className="flex flex-1 flex-col p-5 sm:p-6">
-            <div className="flex items-start justify-between gap-3">
-              <div>
-                <h3 className="text-xl font-bold text-white">{agent.name}</h3>
-                <p className="text-sm" style={{ color: agent.color }}>
-                  {agent.tagline}
-                </p>
-              </div>
-            </div>
+        <div className="mt-2 flex flex-1 flex-col">
+          <h3 className="text-xl font-bold tracking-tight text-white sm:text-2xl">{agent.name}</h3>
+          <p className="mt-1 text-sm font-medium" style={{ color: agent.color }}>
+            {agent.tagline}
+          </p>
 
-            <p className="mt-3 text-sm leading-relaxed text-white/60">{agent.overview}</p>
+          <p className="mt-4 text-sm leading-relaxed text-white/60 line-clamp-4">{agent.overview}</p>
 
-            <div className="mt-5 flex flex-wrap gap-2">
-              {skills.map(({ skill, meta }) => (
-                <Tooltip
-                  key={skill.id}
-                  content={
-                    <>
-                      <strong className="text-white">{skill.name}</strong> — {meta?.description ?? `Open ${skill.name}`}{" "}
-                      <Link href={`/187${skill.id}`} className="mt-2 block text-[#39FF14] underline">
-                        Go to {skill.name} →
-                      </Link>
-                    </>
-                  }
-                >
-                  <span
-                    className="rounded-full px-3 py-1 text-xs font-medium"
-                    style={{
-                      backgroundColor: `${agent.color}18`,
-                      color: agent.color,
-                      border: `1px solid ${agent.color}30`,
-                    }}
-                  >
-                    {skill.name}
-                    {meta && <span className="ml-1.5 text-white/50">{meta.triggers[0]}</span>}
-                  </span>
-                </Tooltip>
-              ))}
-            </div>
-
-            <div className="mt-auto flex items-center gap-1 pt-5 text-sm font-medium" style={{ color: agent.color }}>
-              <span>Open {agent.name}</span>
-              <svg
-                className="h-4 w-4 transition group-hover:translate-x-1"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
+          <div className="mt-5 flex flex-wrap gap-2">
+            {skills.map(({ skill }) => (
+              <span
+                key={skill.id}
+                className="rounded-full px-3 py-1 text-xs font-medium"
+                style={{
+                  backgroundColor: `${agent.color}18`,
+                  color: agent.color,
+                  border: `1px solid ${agent.color}30`,
+                }}
               >
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
-            </div>
+                {skill.name}
+              </span>
+            ))}
           </div>
-        </Link>
-      </Tooltip>
-    </Reveal>
+
+          <div
+            className="mt-auto flex items-center gap-1 pt-6 text-sm font-semibold"
+            style={{ color: agent.color }}
+          >
+            <span>Open {agent.name}</span>
+            <svg
+              data-agent-arrow
+              className="h-4 w-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              aria-hidden
+            >
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </Link>
   );
 }
 
 export function AgentDepartments() {
+  const reducedMotion = useReducedMotion();
+  const gridRef = useRef<HTMLDivElement>(null);
+  const cardEls = useRef<(HTMLAnchorElement | null)[]>([]);
+
+  useEffect(() => {
+    registerGsap();
+    const cards = cardEls.current.filter(Boolean) as HTMLAnchorElement[];
+    if (cards.length === 0) return;
+
+    if (reducedMotion) {
+      gsap.set(cards, { clearProps: "all", opacity: 1, y: 0, scale: 1 });
+      return;
+    }
+
+    const listenerCleanups: Array<() => void> = [];
+
+    const ctx = gsap.context(() => {
+      // Staggered hive entrance
+      gsap.fromTo(
+        cards,
+        { opacity: 0, y: 48, scale: 0.92, rotateX: 8 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          rotateX: 0,
+          duration: 0.75,
+          stagger: 0.1,
+          ease: "power3.out",
+          clearProps: "rotateX",
+        }
+      );
+
+      // Soft idle float on mascots (desynced)
+      cards.forEach((card, i) => {
+        const mascot = card.querySelector<HTMLElement>("[data-agent-mascot]");
+        if (!mascot) return;
+        gsap.to(mascot, {
+          y: -6,
+          duration: 2.2 + i * 0.15,
+          ease: "sine.inOut",
+          yoyo: true,
+          repeat: -1,
+          delay: i * 0.2,
+        });
+      });
+
+      // Hover: lift card + nudge mascot + arrow slide
+      cards.forEach((card) => {
+        const mascot = card.querySelector<HTMLElement>("[data-agent-mascot]");
+        const arrow = card.querySelector<HTMLElement>("[data-agent-arrow]");
+        const color = getComputedStyle(card).borderColor;
+
+        const onEnter = () => {
+          gsap.to(card, {
+            y: -10,
+            scale: 1.02,
+            boxShadow: `0 28px 60px -28px ${color}`,
+            borderColor: color,
+            duration: 0.35,
+            ease: "power2.out",
+            overwrite: "auto",
+          });
+          if (mascot) {
+            gsap.to(mascot, { scale: 1.06, duration: 0.35, ease: "power2.out", overwrite: "auto" });
+          }
+          if (arrow) {
+            gsap.to(arrow, { x: 6, duration: 0.3, ease: "power2.out", overwrite: "auto" });
+          }
+        };
+
+        const onLeave = () => {
+          gsap.to(card, {
+            y: 0,
+            scale: 1,
+            boxShadow: "0 0 0 0 transparent",
+            duration: 0.4,
+            ease: "power2.out",
+            overwrite: "auto",
+          });
+          if (mascot) {
+            gsap.to(mascot, { scale: 1, duration: 0.4, ease: "power2.out", overwrite: "auto" });
+          }
+          if (arrow) {
+            gsap.to(arrow, { x: 0, duration: 0.35, ease: "power2.out", overwrite: "auto" });
+          }
+        };
+
+        card.addEventListener("pointerenter", onEnter);
+        card.addEventListener("pointerleave", onLeave);
+        listenerCleanups.push(() => {
+          card.removeEventListener("pointerenter", onEnter);
+          card.removeEventListener("pointerleave", onLeave);
+        });
+      });
+    }, gridRef);
+
+    return () => {
+      listenerCleanups.forEach((fn) => fn());
+      ctx.revert();
+    };
+  }, [reducedMotion]);
+
   return (
-    <section id="agents" className="relative border-y border-white/10 bg-[#080808]/80 px-6 py-20 sm:py-28">
-      <div className="container-x">
-        <Reveal className="mx-auto mb-12 max-w-3xl text-center">
+    <section id="agents" className="relative border-y border-white/10 bg-[#080808]/80 px-4 py-20 sm:px-6 sm:py-28">
+      <div className="mx-auto w-full max-w-[90rem]">
+        <Reveal className="mx-auto mb-14 max-w-3xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#39FF14]">First-class agents</p>
           <h2 className="mt-4 text-[clamp(2rem,1.2rem+3vw,3.5rem)] font-bold tracking-tight text-white">
             Five agents. One web hive.
           </h2>
           <p className="mt-4 text-white/60">
-            Each agent routes related skills into a coherent crew. Click through to see modules, triggers, and skill pages.
+            Each agent routes related skills into a coherent crew. Click through to see modules, triggers, and skill
+            pages.
           </p>
         </Reveal>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        <div
+          ref={gridRef}
+          className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3 xl:grid-cols-5 xl:gap-6"
+          style={{ perspective: "1200px" }}
+        >
           {AGENTS.map((agent, i) => (
-            <AgentCard key={agent.slug} agent={agent} index={i} />
+            <AgentCard
+              key={agent.slug}
+              agent={agent}
+              cardRef={(el) => {
+                cardEls.current[i] = el;
+              }}
+            />
           ))}
         </div>
       </div>
