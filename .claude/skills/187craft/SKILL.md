@@ -4,8 +4,8 @@ description: Use when designing, building, or auditing UI/UX for a 187WEB projec
 suite: 187SKILLS
 skill_version: 2.0.0
 contract_version: 2.0.0
-last_updated: 2026-07-09
-last_verified: 2026-07-09
+last_updated: 2026-07-21
+last_verified: 2026-07-21
 status: active
 replaces: none
 deprecated: false
@@ -83,6 +83,21 @@ constraints (brand, tech stack, accessibility needs), and the desired outcome
 - Route inclusion-only language reviews to `187include`.
 - Route SEO implications to `187seo`.
 - Route launch copy to `187launch` + `187write`.
+- **Motion Lab (do not swallow these under craft):**
+
+| Need | Route |
+|------|--------|
+| Hero animation / WebGL hero | `187hero` |
+| Scroll choreography / scrub decks | `187scroll` |
+| GSAP timelines / ScrollTrigger | `187gsap` |
+| 3D product viewer | `187model` |
+| Kinetic typography | `187type` |
+| Network / data scenes | `187viz` |
+| Reusable motion hooks | `187motion` |
+| Audio-reactive geometry | `187audio` |
+| Palette / fonts / tokens | `187theme` |
+
+- `/187 craft palette` and `/187 craft fonts` **route to 187THEME**.
 
 ## Safety / ethics guardrails
 
@@ -144,10 +159,10 @@ python scripts/generate-model-adapters.py
 | `/187craft design` | `187webdesign` + `187webdev-design-system` | Generate/update design system |
 | `/187craft ui` | `187webdesign` | Generate UI components |
 | `/187craft a11y` | `a11y-linting-agent` + `187webdev-qa` | Run accessibility audit |
-| `/187craft palette` | `187webdesign` | Suggest color palette |
-| `/187craft fonts` | `187webdesign` | Suggest font pairings |
+| `/187craft palette` | `187theme` | Suggest / apply palette (187THEME) |
+| `/187craft fonts` | `187theme` | Font pairing via 187THEME |
 | `/187craft polish` | `187webdesign` + `ui-aesthetic-auditor` | Run baseline polish |
-| `/187craft motion` | `187webdesign` | Fix motion performance |
+| `/187craft motion` | Motion Lab skills | Route hero/scroll/gsap/type — not a mono craft path |
 
 ## Design tokens
 

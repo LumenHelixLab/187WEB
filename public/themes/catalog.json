@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "skill": "187THEME",
+  "themes": [
+    {
+      "id": "abyssal-killer",
+      "name": "Abyssal Killer",
+      "description": "Default 187WEB dark surface: near-black void, neon green primary, violet accent.",
+      "colors": {
+        "background": "#050608",
+        "surface": "#0A0C14",
+        "text": "#ECEDF7",
+        "muted": "#9aa1bd",
+        "primary": "#39FF14",
+        "secondary": "#a855f7",
+        "accent": "#22d3ee"
+      }
+    },
+    {
+      "id": "warm-blueprint",
+      "name": "Warm Blueprint",
+      "description": "Paper + ink marketing pole: warm off-white, deep slate, electric blueprint blue.",
+      "colors": {
+        "background": "#fafaf7",
+        "surface": "#ffffff",
+        "text": "#11131a",
+        "muted": "#5b6170",
+        "primary": "#2440e6"
+      }
+    },
+    {
+      "id": "neon-security",
+      "name": "Neon Security",
+      "description": "NATASHA-forward palette: rose primary on deep carbon for threat and audit surfaces.",
+      "colors": {
+        "background": "#0a0608",
+        "surface": "#140a0f",
+        "text": "#fce7f3",
+        "muted": "#c4a0b0",
+        "primary": "#f43f5e",
+        "secondary": "#facc15"
+      }
+    },
+    {
+      "id": "motion-lab",
+      "name": "Motion Lab",
+      "description": "Cyan and lime highlights for GSAP/R3F demos and kinetic type samples.",
+      "colors": {
+        "background": "#050810",
+        "surface": "#0a1018",
+        "text": "#e8f4ff",
+        "muted": "#7a93a8",
+        "primary": "#22d3ee",
+        "secondary": "#85c918"
+      }
+    },
+    {
+      "id": "cinematic-launch",
+      "name": "Cinematic Launch",
+      "description": "High-contrast launch deck: black stage, white type, electric accents for scroll heroes.",
+      "colors": {
+        "background": "#000000",
+        "surface": "#0c0c0c",
+        "text": "#f5f5f5",
+        "muted": "#a3a3a3",
+        "primary": "#ffffff",
+        "secondary": "#39FF14",
+        "accent": "#7c3aed"
+      }
+    }
+  ]
+}

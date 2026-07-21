@@ -1383,6 +1383,53 @@ export const skillShowcases: SkillShowcaseData[] = [
     ],
     related: ["access", "docs", "write", "publish"],
   },
+  {
+    id: "theme",
+    name: "187THEME",
+    tagline: "Palettes, fonts, semantic tokens",
+    color: "#a78bfa",
+    description:
+      "List, preview, apply, create, audit, and export design themes. Owns color and type tokens — not hero or scroll animation (those stay Motion Lab).",
+    triggers: [
+      "/187theme",
+      "/187 theme",
+      "187THEME",
+      "theme",
+      "thm",
+      "theme list",
+      "theme preview",
+      "palette",
+      "font pairing",
+      "design tokens",
+      "theme apply",
+      "theme export",
+    ],
+    useCases: [
+      "List curated themes for a surface",
+      "Preview palette and typography before apply",
+      "Apply CSS variables / token map to a shell",
+      "Audit contrast and token completeness",
+      "Export theme JSON or CSS for handoff",
+    ],
+    outputs: [
+      "Theme list or ThemeContract",
+      "Token / CSS variable map",
+      "Contrast and completeness notes",
+      "Export artifact (JSON / CSS / Tailwind)",
+      "Next actions (craft, access+, publish)",
+    ],
+    routesTo: [
+      { name: "187CRAFT", when: "full UI implementation after tokens are set" },
+      { name: "187HERO", when: "themed immersive hero build" },
+      { name: "187ACCESS+", when: "contrast or motion access review" },
+      { name: "187PUBLISH", when: "shipping themed surfaces" },
+    ],
+    templates: [
+      { name: "theme-brief.md", when: "Scoping a new theme" },
+      { name: "token-export.css", when: "Exporting CSS variables" },
+    ],
+    related: ["craft", "hero", "type", "access", "publish"],
+  },
 ];
 
 export const skillShowcaseIndex = new Map(skillShowcases.map((s) => [s.id, s]));

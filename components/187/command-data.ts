@@ -152,7 +152,31 @@ export const COMMANDS: CommandEntry[] = [
     "alias": "craft",
     "id": "187CRAFT",
     "status": "core",
-    "purpose": "Design, UX, frontend, components, polish."
+    "purpose": "Design, UX, frontend, components, polish. Routes palette/fonts to 187THEME."
+  },
+  {
+    "category": "Core Suite",
+    "cmd": "/187 theme",
+    "alias": "theme",
+    "id": "187THEME",
+    "status": "core",
+    "purpose": "List, preview, apply, create, audit, export palettes and font tokens."
+  },
+  {
+    "category": "Core Suite",
+    "cmd": "/187 hero",
+    "alias": "hero",
+    "id": "187HERO",
+    "status": "core",
+    "purpose": "Immersive WebGL/R3F hero systems and scroll-linked CTAs."
+  },
+  {
+    "category": "Core Suite",
+    "cmd": "/187 gsap",
+    "alias": "gsap",
+    "id": "187GSAP",
+    "status": "core",
+    "purpose": "GSAP timelines, ScrollTrigger, and reduced-motion-safe motion."
   },
   {
     "category": "Core Suite",

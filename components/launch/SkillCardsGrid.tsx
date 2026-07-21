@@ -18,7 +18,7 @@ const FILTERS: { id: string; label: string; match: (s: SkillShowcaseData) => boo
   {
     id: "build",
     label: "Build",
-    match: (s) => ["repo", "craft", "create", "kit", "vibe", "command", "flow"].includes(s.id),
+    match: (s) => ["repo", "craft", "create", "kit", "vibe", "command", "flow", "theme"].includes(s.id),
   },
   {
     id: "motion",

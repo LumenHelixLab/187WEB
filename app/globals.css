@@ -214,7 +214,7 @@
   text-wrap: balance;
 }
 
-/* 187TYPE kinetic headlines */
+/* 187TYPE / 187HERO kinetic headlines — fixed layout box, no tracking stretch */
 .kinetic-headline {
   font-family: var(--font-display), var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   text-wrap: balance;
@@ -223,6 +223,11 @@
   .kinetic-headline [data-kword],
   .kinetic-headline [data-kaccent] {
     opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+  .kinetic-headline [data-kscan] {
+    opacity: 0.7 !important;
     transform: none !important;
   }
 }

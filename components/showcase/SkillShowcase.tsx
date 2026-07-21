@@ -84,7 +84,13 @@ function SkillHero({ skill }: { skill: SkillShowcaseData }) {
   );
 }
 
-export function SkillShowcase({ skill }: { skill: SkillShowcaseData }) {
+export function SkillShowcase({
+  skill,
+  children,
+}: {
+  skill: SkillShowcaseData;
+  children?: React.ReactNode;
+}) {
   return (
     <ProductShell>
       <SkillHero skill={skill} />
@@ -297,6 +303,8 @@ export function SkillShowcase({ skill }: { skill: SkillShowcaseData }) {
           </div>
         </div>
       </section>
+
+      {children}
     </ProductShell>
   );
 }

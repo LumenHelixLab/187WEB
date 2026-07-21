@@ -37,6 +37,18 @@ export default function CommandReferencePage() {
               >
                 /187++ access &amp; inclusion sweep
               </Link>
+              <Link
+                href="/brain"
+                className="inline-flex h-11 items-center justify-center rounded border border-white/15 bg-white/5 px-5 text-sm font-semibold text-white transition hover:bg-white/10"
+              >
+                Local brain &amp; Obsidian
+              </Link>
+              <Link
+                href="/187theme"
+                className="inline-flex h-11 items-center justify-center rounded border border-white/15 bg-white/5 px-5 text-sm font-semibold text-white transition hover:bg-white/10"
+              >
+                187THEME
+              </Link>
             </div>
           </section>
 

@@ -168,6 +168,14 @@ npm run db:seed
 
 Public skill cards share equal prompt/trigger depth. Standard: [`docs/SKILL-PARITY.md`](docs/SKILL-PARITY.md). Check: `npm run skills:parity`.
 
+### 187THEME
+
+First-class skill for palettes/fonts/tokens (`/187theme`). Motion Lab skills remain separate. Catalog: `lib/themes/catalog.ts`. Vendor slot: `third_party/anthropic/theme-factory/`.
+
+### Local brain
+
+Operator explainer: `/brain` — local skills, NATASHA modules, Obsidian vault, trigger layers.
+
 ## Multi-agent surface (Xavier Phase 2+)
 
 - **AgentKit parity:** `lib/agents/*-kit.ts` (charlotte, kali, natasha, yelena, xavier) + shared `agent-kit.ts` types. Pages under `/xavier`, `/natasha`, etc. render via `components/launch/AgentPage.tsx`.

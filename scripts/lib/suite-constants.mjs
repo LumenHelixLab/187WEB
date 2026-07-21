@@ -29,6 +29,7 @@ export const FIRST_CLASS_SKILLS = [
   { id: "viz", name: "187VIZ", route: "viz", docs: "187VIZ" },
   { id: "motion", name: "187MOTION", route: "motion", docs: "187MOTION" },
   { id: "hero", name: "187HERO", route: "hero", docs: "187HERO" },
+  { id: "theme", name: "187THEME", route: "theme", docs: "187THEME" },
 ];
 
 export const SUBSKILLS = [

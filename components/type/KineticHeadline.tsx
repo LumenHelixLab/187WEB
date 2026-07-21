@@ -5,27 +5,23 @@ import { gsap, registerGsap } from "@/lib/motion/gsap";
 import { useReducedMotion } from "@/lib/motion/useReducedMotion";
 
 type KineticHeadlineProps = {
-  /** Plain text; words are staggered. Use `accent` for gradient words. */
   text: string;
-  /** Optional trailing phrase with sc-grad-text treatment */
   accent?: string;
   as?: "h1" | "h2" | "h3" | "p";
   className?: string;
-  /** Letter-spacing oscillates slowly for a variable-font feel */
-  variable?: boolean;
   align?: "left" | "center";
 };
 
 /**
- * 187TYPE-style kinetic headline: staggered word entrance + optional gradient accent.
- * Reduced-motion: static render, no timeline.
+ * 187TYPE / 187HERO headline: futuristic clip-reveal + neon scan on accent.
+ * Never animates letter-spacing or width — layout box stays fixed.
+ * Reduced-motion: static text, no timeline.
  */
 export function KineticHeadline({
   text,
   accent,
   as: Tag = "h2",
   className = "",
-  variable = true,
   align = "center",
 }: KineticHeadlineProps) {
   const rootRef = useRef<HTMLElement>(null);
@@ -39,54 +35,68 @@ export function KineticHeadline({
 
     const wordEls = root.querySelectorAll<HTMLElement>("[data-kword]");
     const accentEl = root.querySelector<HTMLElement>("[data-kaccent]");
+    const scan = root.querySelector<HTMLElement>("[data-kscan]");
 
     const ctx = gsap.context(() => {
-      gsap.fromTo(
-        wordEls,
-        { y: "0.55em", opacity: 0, rotateX: 18 },
-        {
-          y: 0,
-          opacity: 1,
-          rotateX: 0,
-          duration: 0.85,
-          stagger: 0.06,
-          ease: "power3.out",
-          clearProps: "rotateX",
-        }
-      );
+      gsap.set(wordEls, { clipPath: "inset(0 0 100% 0)", yPercent: 12, opacity: 0.35 });
+      gsap.to(wordEls, {
+        clipPath: "inset(0 0 0% 0)",
+        yPercent: 0,
+        opacity: 1,
+        duration: 0.7,
+        stagger: 0.05,
+        ease: "power3.out",
+      });
 
       if (accentEl) {
         gsap.fromTo(
           accentEl,
-          { y: "0.4em", opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.9, delay: 0.25, ease: "power3.out" }
+          { clipPath: "inset(0 100% 0 0)", opacity: 0.4 },
+          {
+            clipPath: "inset(0 0% 0 0)",
+            opacity: 1,
+            duration: 0.85,
+            delay: 0.15,
+            ease: "power2.out",
+          }
         );
       }
 
-      if (variable) {
-        gsap.to(root, {
-          letterSpacing: "0.02em",
-          duration: 4.5,
+      if (scan) {
+        gsap.fromTo(
+          scan,
+          { scaleX: 0, opacity: 0 },
+          {
+            scaleX: 1,
+            opacity: 1,
+            duration: 0.9,
+            delay: 0.35,
+            ease: "power2.out",
+          }
+        );
+        gsap.to(scan, {
+          opacity: 0.45,
+          duration: 2.4,
           ease: "sine.inOut",
           yoyo: true,
           repeat: -1,
+          delay: 1.2,
         });
       }
     }, root);
 
     return () => ctx.revert();
-  }, [reduced, text, accent, variable]);
+  }, [reduced, text, accent]);
 
   return (
     <Tag
       ref={rootRef as React.RefObject<HTMLHeadingElement>}
       className={`kinetic-headline ${align === "center" ? "text-center" : "text-left"} ${className}`.trim()}
-      style={{ perspective: "800px" }}
     >
       <span className="inline">
         {words.map((word, i) => (
-          <span key={`${word}-${i}`} className="inline-block overflow-hidden align-bottom">
-            <span data-kword className="inline-block will-change-transform">
+          <span key={`${word}-${i}`} className="inline-block overflow-hidden align-bottom pb-[0.06em]">
+            <span data-kword className="inline-block will-change-[clip-path,transform,opacity]">
               {word}
               {i < words.length - 1 ? "\u00A0" : ""}
             </span>
@@ -95,10 +105,18 @@ export function KineticHeadline({
         {accent ? (
           <>
             {" "}
-            <span className="inline-block overflow-hidden align-bottom">
-              <span data-kaccent className="sc-grad-text inline-block will-change-transform">
+            <span className="relative inline-block overflow-hidden align-bottom pb-[0.12em]">
+              <span
+                data-kaccent
+                className="sc-grad-text relative z-[1] inline-block will-change-[clip-path,opacity]"
+              >
                 {accent}
               </span>
+              <span
+                data-kscan
+                aria-hidden
+                className="pointer-events-none absolute bottom-0 left-0 h-[2px] w-full origin-left rounded-full bg-gradient-to-r from-transparent via-[#39FF14] to-[#a855f7] shadow-[0_0_12px_rgba(57,255,20,0.55)]"
+              />
             </span>
           </>
         ) : null}
