@@ -80,14 +80,15 @@ function HiveAtmosphere({ reducedMotion }: { reducedMotion: boolean }) {
   return (
     <div className="pointer-events-none fixed inset-0 z-0" aria-hidden>
       {reducedMotion ? <WebHiveBackground /> : <WebHiveThreeBackground />}
-      <WebHiveHoloMascot />
       {!reducedMotion && (
         <>
           <WebHiveNetworkOverlay />
           <WebHiveTelemetryOverlay />
         </>
       )}
+      {/* Dim the 3D/network layers first so the holo spider stays readable */}
       <div className="absolute inset-0 bg-[#050608]/35 backdrop-brightness-[0.85]" />
+      <WebHiveHoloMascot />
     </div>
   );
 }
