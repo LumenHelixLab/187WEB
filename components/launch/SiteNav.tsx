@@ -12,27 +12,27 @@ const REPO = "https://github.com/LumenHelixLab/187WEB";
 
 type NavLink = { href: string; label: string; hint?: string };
 
-/** Primary nav — expanded for craft/motion operators + brain */
+/** Primary nav — Access+/Include+ premier, then skills/agents */
 const PRIMARY: NavLink[] = [
+  { href: "/#access-include", label: "Access+", hint: "Disability + inclusion systems" },
+  { href: "/187plusplus", label: "/187++", hint: "Full access & inclusion sweep" },
   { href: "/#skills", label: "Skills", hint: "Filterable skill cards" },
   { href: "/#agents", label: "Agents", hint: "Crew control plane" },
   { href: "/187", label: "/187", hint: "Slash command reference" },
-  { href: "/brain", label: "Brain", hint: "Local brain + Obsidian" },
   { href: "/about", label: "About", hint: "LumenHelix Lab + credits" },
-  { href: "/showcase", label: "Showcase", hint: "Motion lab demos" },
 ];
 
 const MORE: NavLink[] = [
+  { href: "/187access", label: "ACCESS+", hint: "Disability access + assistive tech" },
+  { href: "/187include", label: "INCLUDE+", hint: "Neurodivergence + identity safety" },
+  { href: "/brain", label: "Brain", hint: "Local brain + Obsidian" },
   { href: "/187craft", label: "Craft", hint: "UI / UX / design system" },
+  { href: "/187create", label: "Create", hint: "Growth landings & creatives" },
   { href: "/187motion", label: "Motion", hint: "R3F + GSAP hooks" },
-  { href: "/187hero", label: "Hero", hint: "Immersive WebGL heroes" },
+  { href: "/showcase", label: "Showcase", hint: "Motion lab demos" },
   { href: "/187theme", label: "Theme", hint: "Palettes & tokens" },
-  { href: "/187type", label: "Type", hint: "Kinetic headlines" },
-  { href: "/187seo", label: "SEO", hint: "Search & structured data" },
-  { href: "/187vibe", label: "Vibe", hint: "Delight & retention" },
   { href: "/install", label: "Install", hint: "CLI + skill packs" },
   { href: "/187version", label: "Version", hint: "SemVer & changelog" },
-  { href: "/187gsap", label: "GSAP", hint: "Timelines & ScrollTrigger" },
 ];
 
 function isActive(pathname: string, href: string) {

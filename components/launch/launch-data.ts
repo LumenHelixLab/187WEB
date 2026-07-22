@@ -62,9 +62,9 @@ export const charlotteModules: NatashaModule[] = [
 ];
 
 export const quickStats = [
+  { label: "Premier access systems", value: "2" },
+  { label: "Unified sweep", value: "/187++" },
   { label: "First-class skills", value: "27+" },
-  { label: "CHARLOTTE modules", value: "8" },
-  { label: "Install packs", value: "6" },
   { label: "Command grammar", value: "/187" },
 ];
 

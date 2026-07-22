@@ -10,6 +10,7 @@ type KineticHeadlineProps = {
   as?: "h1" | "h2" | "h3" | "p";
   className?: string;
   align?: "left" | "center";
+  id?: string;
 };
 
 /**
@@ -23,6 +24,7 @@ export function KineticHeadline({
   as: Tag = "h2",
   className = "",
   align = "center",
+  id,
 }: KineticHeadlineProps) {
   const rootRef = useRef<HTMLElement>(null);
   const reduced = useReducedMotion();
@@ -90,6 +92,7 @@ export function KineticHeadline({
 
   return (
     <Tag
+      id={id}
       ref={rootRef as React.RefObject<HTMLHeadingElement>}
       className={`kinetic-headline ${align === "center" ? "text-center" : "text-left"} ${className}`.trim()}
     >

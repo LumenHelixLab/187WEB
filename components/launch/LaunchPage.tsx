@@ -102,60 +102,63 @@ function Hero() {
 
             <KineticHeadline
               as="h1"
-              text="Type one command."
-              accent="Ship the whole surface."
-              className="mt-10 text-[clamp(2.5rem,1.2rem+6vw,5.5rem)] font-bold leading-[0.95] tracking-tight text-white sm:mt-12"
+              text="Access is the product."
+              accent="Inclusion is the system."
+              className="mt-10 text-[clamp(2.4rem,1.15rem+5.5vw,5.25rem)] font-bold leading-[0.95] tracking-tight text-white sm:mt-12"
             />
 
             <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-white/65">
-              187WEB is a command-driven AI web suite that turns intent into research-grade pages, design systems, docs,
-              launch plans, and publish gates — each skill usable alone or chained through the{" "}
-              <code className="text-[#39FF14]">/187</code> command surface.
+              187WEB is the AI web suite that treats{" "}
+              <strong className="text-white">Access+</strong> and{" "}
+              <strong className="text-white">Include+</strong> as premier, first-class skill systems — disability
+              access, ADHD/neurodivergent usability, LGBTQ+ and identity safety — engineered into craft, test, and
+              publish chains. Not a compliance sticker. Core engineering. Run the full sweep with{" "}
+              <code className="text-[#39FF14]">/187++</code>.
             </p>
 
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <span data-hero-pill>
-                <OutcomePill>Ship a conversion landing this afternoon</OutcomePill>
+                <OutcomePill>Disability access as a skill system</OutcomePill>
               </span>
               <span data-hero-pill>
-                <OutcomePill>Spin ad creatives with /187create</OutcomePill>
+                <OutcomePill>ADHD / neurodivergent UX by design</OutcomePill>
               </span>
               <span data-hero-pill>
-                <OutcomePill>Systemize winners with /187craft</OutcomePill>
+                <OutcomePill>LGBTQ+ & identity-safe forms</OutcomePill>
               </span>
               <span data-hero-pill>
-                <OutcomePill>Gate publish with audits</OutcomePill>
+                <OutcomePill>/187++ full access &amp; inclusion sweep</OutcomePill>
               </span>
             </div>
 
             <div className="mt-10 flex flex-wrap justify-center gap-3">
               <Link
                 data-hero-cta
-                href="/187create"
-                className="sc-glow sc-glow-pulse inline-flex h-12 items-center justify-center rounded bg-[#39FF14] px-6 text-sm font-semibold text-[#050608] will-change-transform"
+                href="/187plusplus"
+                className="sc-glow sc-glow-pulse inline-flex h-12 min-h-[44px] items-center justify-center rounded bg-[#39FF14] px-6 text-sm font-semibold text-[#050608] will-change-transform"
               >
-                Start with /187create
+                Run /187++
               </Link>
               <Link
                 data-hero-cta
-                href="/#skills"
-                className="inline-flex h-12 items-center justify-center rounded border border-[#39FF14]/30 bg-[#39FF14]/5 px-6 text-sm font-semibold text-[#39FF14] will-change-transform"
+                href="/#access-include"
+                className="inline-flex h-12 min-h-[44px] items-center justify-center rounded border border-[#ec4899]/40 bg-[#ec4899]/10 px-6 text-sm font-semibold text-[#ec4899] will-change-transform"
               >
-                Browse skill dossiers
+                Access+ &amp; Include+
               </Link>
               <Link
                 data-hero-cta
-                href="/187"
-                className="inline-flex h-12 items-center justify-center rounded border border-white/10 bg-white/5 px-6 text-sm font-semibold text-white will-change-transform"
+                href="/187access"
+                className="inline-flex h-12 min-h-[44px] items-center justify-center rounded border border-white/10 bg-white/5 px-6 text-sm font-semibold text-white will-change-transform"
               >
-                /187 command surface
+                187ACCESS+
               </Link>
               <Link
                 data-hero-cta
-                href="/install"
-                className="inline-flex h-12 items-center justify-center rounded border border-white/10 bg-white/5 px-6 text-sm font-semibold text-white will-change-transform"
+                href="/187include"
+                className="inline-flex h-12 min-h-[44px] items-center justify-center rounded border border-white/10 bg-white/5 px-6 text-sm font-semibold text-white will-change-transform"
               >
-                Install
+                187INCLUDE+
               </Link>
             </div>
           </div>
@@ -186,31 +189,27 @@ function StatsStrip() {
 
 function MarqueeStrip() {
   const items = [
-    "187REPO",
-    "187CRAFT",
-    "187VIBE",
-    "187LAUNCH",
-    "187FREE",
-    "187RESEARCH",
-    "187SEO",
-    "187REVENUE",
-    "187DOCS",
-    "187LEARN",
-    "187TEST",
     "187ACCESS+",
     "187INCLUDE+",
-    "187VERSION",
+    "/187++",
+    "DISABILITY ACCESS",
+    "ADHD UX",
+    "NEURODIVERGENT",
+    "LGBTQ+ SAFETY",
+    "WCAG+",
+    "PLAIN LANGUAGE",
+    "SENSORY SAFE",
+    "187CRAFT",
+    "187CREATE",
+    "187TEST",
     "187PUBLISH",
-    "187NATASHA",
-    "187CHAIN",
-    "187GSAP",
-    "187TYPE",
-    "187MODEL",
-    "187SCROLL",
-    "187AUDIO",
-    "187VIZ",
+    "187WRITE",
+    "187SCAN",
+    "187REPO",
+    "187LAUNCH",
+    "187RESEARCH",
     "187MOTION",
-    "187HERO",
+    "187GSAP",
   ];
   return (
     <section className="relative overflow-hidden border-y border-white/10 bg-[#050608] py-4">
@@ -416,14 +415,14 @@ function ResearchLab() {
 }
 
 const COMMAND_CHIPS = [
-  "/187 create",
+  "/187++",
+  "/187access",
+  "/187include",
   "/187 craft",
-  "/187 launch",
-  "/187 seo",
-  "/187 research",
-  "/187 free",
+  "/187 create",
+  "/187 test",
   "/187 publish",
-  "/187 th",
+  "/187 write",
 ];
 
 function commandPurpose(chip: string): string {
@@ -507,18 +506,18 @@ function CreateGrowthHook() {
   const hooks = [
     {
       title: "Landing in one afternoon",
-      body: "One offer, one audience, one CTA — ship a conversion surface before the campaign meeting ends.",
-      cmd: "/187create",
+      body: "One offer, one audience, one CTA — ship a conversion surface with access checks baked in, not bolted on.",
+      cmd: "/187create → /187access",
     },
     {
       title: "Ad creatives that hand off",
-      body: "Three variants with hook, visual direction, and CTA — then route winners into 187CRAFT.",
-      cmd: "/187 create · ad kit",
+      body: "Three variants with hook, visual direction, and CTA — then route winners into craft + inclusion review.",
+      cmd: "/187create · /187include",
     },
     {
-      title: "Growth MVP → systemize",
-      body: "Validate fast, then promote the winner into design-system components and a publish gate.",
-      cmd: "/187create → /187craft → /187publish",
+      title: "Growth MVP → access gate",
+      body: "Validate fast, systemize with craft, then /187++ before publish so access and inclusion are engineering gates.",
+      cmd: "/187create → /187++ → /187publish",
     },
   ];
 
@@ -545,7 +544,8 @@ function CreateGrowthHook() {
             className="mt-4 font-display text-[clamp(2rem,1.2rem+3vw,3.5rem)] font-bold leading-[0.95] tracking-tight text-white"
           />
           <p className="mt-4 text-lg text-white/60">
-            Skip the blank canvas. Hook → offer → proof → CTA. Then hand the winner to craft and publish.
+            Skip the blank canvas. Hook → offer → proof → CTA — then Access+/Include+ skillchains before publish.
+            Growth without access is incomplete product work.
           </p>
         </div>
 
@@ -646,13 +646,13 @@ export function LaunchPage() {
   return (
     <ProductShell>
       <Hero />
+      <AccessIncludeCTA />
       <StatsStrip />
       <MarqueeStrip />
       <CreateGrowthHook />
       <BrandIntelligence />
       <SkillCardsGrid />
       <AgentDepartments />
-      <AccessIncludeCTA />
       <CharlotteModules />
       <ResearchLab />
       <CommandSurface />

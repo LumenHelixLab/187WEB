@@ -17,6 +17,11 @@ import { useReducedMotion } from "@/lib/motion/useReducedMotion";
 const FILTERS: { id: string; label: string; match: (s: SkillShowcaseData) => boolean }[] = [
   { id: "all", label: "All", match: () => true },
   {
+    id: "access",
+    label: "Access+",
+    match: (s) => ["access", "include", "test", "write", "scan", "standard", "publish"].includes(s.id),
+  },
+  {
     id: "build",
     label: "Build",
     match: (s) => ["repo", "craft", "create", "kit", "vibe", "command", "flow", "theme"].includes(s.id),
@@ -34,8 +39,7 @@ const FILTERS: { id: string; label: string; match: (s: SkillShowcaseData) => boo
   {
     id: "trust",
     label: "Trust",
-    match: (s) =>
-      ["natasha", "chain", "test", "access", "include", "scan", "standard", "report"].includes(s.id),
+    match: (s) => ["natasha", "chain", "test", "scan", "standard", "report"].includes(s.id),
   },
   {
     id: "lab",
