@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { brandAssets } from "@/lib/brand-assets";
@@ -12,6 +11,7 @@ import { SiteNav } from "./SiteNav";
 import { SiteVersionBadge } from "@/components/version/SiteVersionBadge";
 import { useClientMounted } from "@/lib/motion/useClientMounted";
 import { SpiderVibe } from "@/components/vibe/SpiderVibe";
+import { CalmModeProvider, CalmModeToggle, useCalmMode } from "@/lib/motion/calm-mode";
 
 const REPO = "https://github.com/LumenHelixLab/187WEB";
 /** Freeze year for SSR/client parity (avoid Date() hydration drift near year boundaries). */
@@ -77,19 +77,48 @@ function Footer() {
   );
 }
 
-function HiveAtmosphere({ reducedMotion }: { reducedMotion: boolean }) {
+function HiveAtmosphere() {
+  const { motionSuppressed } = useCalmMode();
   return (
     <div className="pointer-events-none fixed inset-0 z-0" aria-hidden>
-      {reducedMotion ? <WebHiveBackground /> : <WebHiveThreeBackground />}
-      {!reducedMotion && (
+      {motionSuppressed ? <WebHiveBackground /> : <WebHiveThreeBackground />}
+      {!motionSuppressed && (
         <>
           <WebHiveNetworkOverlay />
           <WebHiveTelemetryOverlay />
         </>
       )}
-      {/* Dim the 3D/network layers first so the holo spider stays readable */}
       <div className="absolute inset-0 bg-[#050608]/35 backdrop-brightness-[0.85]" />
-      <WebHiveHoloMascot />
+      {!motionSuppressed ? <WebHiveHoloMascot /> : null}
+    </div>
+  );
+}
+
+function ProductShellInner({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  const mounted = useClientMounted();
+  const { motionSuppressed } = useCalmMode();
+
+  return (
+    <div className={`relative min-h-screen overflow-x-hidden bg-[#050608] text-[#ECEDF7] ${className}`.trim()}>
+      {mounted ? (
+        <HiveAtmosphere />
+      ) : (
+        <div className="pointer-events-none fixed inset-0 z-0 bg-[#050608]" aria-hidden />
+      )}
+      <SiteNav />
+      {/* Not <main> — root layout owns the single main landmark (#main). */}
+      <div className="relative z-10">{children}</div>
+      {mounted && !motionSuppressed ? <SpiderVibe /> : null}
+      <div className="fixed bottom-4 right-4 z-[60] sm:bottom-6 sm:right-6">
+        <CalmModeToggle />
+      </div>
+      <Footer />
     </div>
   );
 }
@@ -101,33 +130,9 @@ export function ProductShell({
   children: React.ReactNode;
   className?: string;
 }) {
-  const mounted = useClientMounted();
-  const [reducedMotion, setReducedMotion] = useState(false);
-
-  useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReducedMotion(mq.matches);
-    const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
-    mq.addEventListener("change", handler);
-    return () => mq.removeEventListener("change", handler);
-  }, []);
-
   return (
-    <div className={`relative min-h-screen overflow-x-hidden bg-[#050608] text-[#ECEDF7] ${className}`.trim()}>
-      {/*
-        Decorative hive is client-only after mount so SVG float math / PRNG /
-        media-query never diverge between SSR HTML and the first client paint.
-      */}
-      {mounted ? (
-        <HiveAtmosphere reducedMotion={reducedMotion} />
-      ) : (
-        <div className="pointer-events-none fixed inset-0 z-0 bg-[#050608]" aria-hidden />
-      )}
-      <SiteNav />
-      <main className="relative z-10">{children}</main>
-      {/* 187VIBE: spider companion (cursor follow on showcase, wander elsewhere) */}
-      {mounted && !reducedMotion ? <SpiderVibe /> : null}
-      <Footer />
-    </div>
+    <CalmModeProvider>
+      <ProductShellInner className={className}>{children}</ProductShellInner>
+    </CalmModeProvider>
   );
 }

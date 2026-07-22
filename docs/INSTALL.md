@@ -1,6 +1,6 @@
 
 <!-- 187SKILLS first-class roster (release:validate) -->
-<!-- 187REPO 187CRAFT 187CREATE 187VIBE 187LAUNCH 187FREE 187RESEARCH 187SEO 187REVENUE 187DOCS 187LEARN 187TEST 187ACCESS+ 187VERSION 187PUBLISH 187NATASHA 187CHAIN 187GSAP 187TYPE 187MODEL 187SCROLL 187AUDIO 187VIZ 187MOTION 187HERO -->
+<!-- 187REPO 187CRAFT 187CREATE 187VIBE 187LAUNCH 187FREE 187RESEARCH 187SEO 187REVENUE 187DOCS 187LEARN 187TEST 187ACCESS+ 187VERSION 187PUBLISH 187NATASHA 187CHAIN 187GSAP 187TYPE 187MODEL 187SCROLL 187AUDIO 187VIZ 187MOTION 187HERO 187THEME -->
 # Install 187WEB
 
 The fastest way to wire the 187WEB ecosystem into your environment.
@@ -117,6 +117,7 @@ After install, the following short-name entry points are on your PATH. Run `187r
 | `viz` / `vz` | **187VIZ** | 3D network / node-edge data visualization |
 | `motion` / `mot` | **187MOTION** | Reusable R3F/GSAP animation hooks |
 | `hero` / `hr` | **187HERO** | Full-screen immersive 3D hero systems |
+| `theme` / `thm` | **187THEME** | Motion theming, visual systems, and environment orchestration |
 
 See `docs/187-NAMES.md` and `config/187-aliases.json` for the complete alias map.
 

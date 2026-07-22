@@ -35,12 +35,16 @@ export function CommandPalette({
         <p className="text-sm text-white/45">{COMMANDS.length} registered commands</p>
       </div>
 
-      <input
-        value={value}
-        onChange={(event) => setValue(event.target.value)}
-        className="mt-6 h-14 w-full rounded-2xl border border-[#39FF14]/30 bg-[#05060A] px-4 font-mono text-base text-white outline-none transition placeholder:text-white/25 focus:border-[#39FF14]"
-        placeholder={COMMAND_GRAMMAR}
-      />
+      <label className="mt-6 block">
+        <span className="mb-2 block text-sm font-medium text-white/80">Command input</span>
+        <input
+          value={value}
+          onChange={(event) => setValue(event.target.value)}
+          aria-label="Type a /187 slash command"
+          className="h-14 w-full rounded-2xl border border-[#39FF14]/30 bg-[#05060A] px-4 font-mono text-base text-white outline-none transition placeholder:text-white/40 focus:border-[#39FF14] focus-visible:ring-2 focus-visible:ring-[#39FF14]/50"
+          placeholder={COMMAND_GRAMMAR}
+        />
+      </label>
 
       <div className="mt-4 grid gap-3">
         {suggestions.map((command) => (

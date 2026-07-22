@@ -24,6 +24,8 @@ Use **187WEB** everywhere public; use `187webdesign` only for package/repo ident
 - **Database:** Prisma 6 + PostgreSQL (preview mode works without a DB)
 - **Validation:** Zod
 - **Tooling:** ESLint, Prettier, GitHub Actions CI + Pages deploy
+- **Gemini API resilience utility:** `lib/gemini/gemini-client.ts` (429 handling with Retry-After + exponential backoff + jitter)
+- **Gemini request helper:** `lib/gemini/generate-content.ts` (`generateContent` endpoint wrapper that uses resilient retries)
 
 ## Skill architecture
 

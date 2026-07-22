@@ -136,7 +136,7 @@ function Hero() {
 
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <PrideCta data-hero-cta href="/187plusplus" spectrum="full">
-                Run /187++
+                Explore /187++
               </PrideCta>
               <PrideCta data-hero-cta href="/187access" spectrum="access">
                 187ACCESS+
@@ -184,26 +184,33 @@ function MarqueeStrip() {
     "NEURODIVERGENT",
     "LGBTQ+ SAFETY",
     "WCAG+",
-    "PLAIN LANGUAGE",
-    "SENSORY SAFE",
     "187CRAFT",
     "187CREATE",
     "187TEST",
     "187PUBLISH",
-    "187WRITE",
-    "187SCAN",
-    "187REPO",
-    "187LAUNCH",
-    "187RESEARCH",
-    "187MOTION",
-    "187GSAP",
   ];
+  const [paused, setPaused] = useState(false);
   return (
-    <section className="relative overflow-hidden border-y border-white/10 bg-[#050608] py-4">
+    <section className="relative overflow-hidden border-y border-white/10 bg-[#050608] py-3">
+      <div className="container-x mb-2 flex justify-end">
+        <button
+          type="button"
+          aria-pressed={paused}
+          onClick={() => setPaused((p) => !p)}
+          className="min-h-[44px] rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-semibold text-white/70 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#39FF14]"
+        >
+          {paused ? "Play marquee" : "Pause marquee"}
+        </button>
+      </div>
       <div className="sc-mask-x">
-        <div className="sc-marquee flex w-max items-center gap-8 whitespace-nowrap">
+        <div
+          className={`sc-marquee flex w-max items-center gap-8 whitespace-nowrap ${paused ? "[animation-play-state:paused]" : ""}`}
+        >
           {[...items, ...items].map((item, i) => (
-            <span key={`${item}-${i}`} className="flex items-center gap-8 text-sm font-semibold uppercase tracking-wider text-white/40">
+            <span
+              key={`${item}-${i}`}
+              className="flex items-center gap-8 text-sm font-semibold uppercase tracking-wider text-white/55"
+            >
               {item}
               <span className="h-1.5 w-1.5 rounded-full bg-[#39FF14]/60" aria-hidden="true" />
             </span>
@@ -235,10 +242,10 @@ function BrandIntelligence() {
       skill: "187LAUNCH",
       color: "#f59e0b",
       bullets: [
-        "CI/CD Build Pipelines",
-        "Multi-Cloud Kubernetes",
-        "Multi-Environment Deployment Engines",
-        "Instant Zero-Downtime Rollbacks",
+        "Launch checklists & asset plans",
+        "Channel + measurement framing",
+        "Gate handoffs to Access+ / Include+",
+        "Status: Prompt Skill (not multi-cloud ops)",
       ],
     },
   ];
@@ -248,11 +255,16 @@ function BrandIntelligence() {
       <div className="container-x">
         <Reveal className="mx-auto mb-10 max-w-3xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#39FF14]">
-            Extracted from the brand header
+            Capability honesty
           </p>
           <h2 className="mt-4 text-[clamp(2rem,1.2rem+3vw,3rem)] font-bold tracking-tight text-white">
-            What the spider orb is built to ship
+            What the suite ships today
           </h2>
+          <p className="mt-3 text-sm text-white/50">
+            Labels: <strong className="text-white/70">Prompt Skill</strong> = skill definitions & agent kits;{" "}
+            <strong className="text-white/70">Interactive Demo</strong> = this site;{" "}
+            <strong className="text-white/70">Roadmap</strong> = not claimed as runtime.
+          </p>
         </Reveal>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {intel.map((item, i) => (
@@ -261,10 +273,15 @@ function BrandIntelligence() {
                 className="h-full rounded-2xl border border-white/10 bg-[#0A0C14] p-5"
                 style={{ boxShadow: `0 0 0 1px rgba(255,255,255,0.03), 0 24px 60px -24px ${item.color}22` }}
               >
-                <h3 className="font-bold text-white">{item.skill}</h3>
+                <div className="flex items-center justify-between gap-2">
+                  <h3 className="font-bold text-white">{item.skill}</h3>
+                  <span className="rounded-full border border-white/15 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-white/55">
+                    Prompt Skill
+                  </span>
+                </div>
                 <ul className="mt-4 space-y-2">
                   {item.bullets.map((bullet) => (
-                    <li key={bullet} className="flex items-start gap-2 text-sm text-white/60">
+                    <li key={bullet} className="flex items-start gap-2 text-sm text-white/70">
                       <span style={{ color: item.color }}>›</span>
                       {bullet}
                     </li>
@@ -586,50 +603,92 @@ function CreateGrowthHook() {
 
 function InstallSection() {
   const [tab, setTab] = useState<keyof typeof installSnippets>("macos");
+  const skillHosts = [
+    { name: "Claude Code", path: ".claude/skills/", note: "Canonical skill tree" },
+    { name: "Grok", path: ".grok/skills/", note: "Adapter mirror" },
+    { name: "ChatGPT / Codex", path: ".chatgpt/ · .codex/", note: "Generated adapters" },
+    { name: "Gemini / Kimi / Ollama / Hermes", path: ".gemini/ · .kimi/ · .ollama/ · .herme/", note: "npm run adapters:generate" },
+  ];
   return (
     <section id="install" className="relative px-6 py-20 sm:py-28">
       <DrawingAccent />
       <div className="container-x">
         <Reveal className="mx-auto mb-10 max-w-3xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#39FF14]">Install</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#39FF14]">Install · two paths</p>
           <h2 className="mt-4 text-[clamp(2rem,1.2rem+3vw,3.5rem)] font-bold tracking-tight text-white">
-            Spin up the web suite in seconds
+            Skills for agents. Showcase for demos.
           </h2>
-          <p className="mt-4 text-white/60">
-            Clone, install, seed the SQLite layer, and start the Next.js dev server.
+          <p className="mt-4 text-white/65">
+            This site is an <strong className="text-white/85">Interactive Demo</strong>. 187SKILLS install into your
+            agent host. The commands below only run the Next.js showcase locally.
           </p>
         </Reveal>
 
-        <Reveal delay={100}>
-          <div className="mx-auto max-w-3xl rounded-3xl border border-white/10 bg-[#0A0C14] p-6 sm:p-8">
-            <div className="flex flex-wrap gap-2" role="tablist" aria-label="Install commands">
-              {(Object.keys(installSnippets) as Array<keyof typeof installSnippets>).map((key) => (
-                <button
-                  key={key}
-                  type="button"
-                  role="tab"
-                  aria-selected={tab === key}
-                  onClick={() => setTab(key)}
-                  className={`rounded-full px-4 py-2 text-xs font-semibold transition ${
-                    tab === key
-                      ? "bg-[#39FF14] text-[#050608]"
-                      : "border border-white/10 bg-white/5 text-white/70 hover:bg-white/10"
-                  }`}
-                >
-                  {key === "macos" ? "macOS / Linux" : key === "windows" ? "Windows" : "Git Bash / WSL"}
-                </button>
-              ))}
+        <div className="mx-auto grid max-w-5xl gap-6 lg:grid-cols-2">
+          <Reveal delay={80}>
+            <div className="h-full rounded-3xl border border-white/10 bg-[#0A0C14] p-6 sm:p-8">
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#39FF14]">Path A · 187SKILLS</p>
+              <h3 className="mt-2 font-display text-xl font-bold text-white">Install skills into your agent</h3>
+              <p className="mt-2 text-sm text-white/60">
+                Clone the repo and load skills from the host folders (or regenerate adapters). Status:{" "}
+                <span className="text-white/80">Prompt Skill</span> definitions — not a hosted runtime.
+              </p>
+              <ul className="mt-5 space-y-3 text-sm text-white/70">
+                {skillHosts.map((h) => (
+                  <li key={h.name} className="rounded-xl border border-white/10 bg-black/30 px-3 py-2">
+                    <strong className="text-white">{h.name}</strong>
+                    <span className="mt-0.5 block font-mono text-xs text-[#39FF14]">{h.path}</span>
+                    <span className="text-xs text-white/45">{h.note}</span>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="https://github.com/LumenHelixLab/187WEB"
+                className="mt-6 inline-flex min-h-[44px] items-center text-sm font-semibold text-[#39FF14] underline-offset-2 hover:underline"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                Clone on GitHub →
+              </a>
             </div>
-            <div className="mt-5 overflow-x-auto rounded-2xl border border-white/10 bg-[#050608] p-5">
-              <pre className="font-mono text-sm leading-7 text-[#39FF14]">
-                <code>{installSnippets[tab]}</code>
-              </pre>
+          </Reveal>
+
+          <Reveal delay={120}>
+            <div className="h-full rounded-3xl border border-white/10 bg-[#0A0C14] p-6 sm:p-8">
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/50">Path B · showcase site</p>
+              <h3 className="mt-2 font-display text-xl font-bold text-white">Run this demo locally</h3>
+              <p className="mt-2 text-sm text-white/60">
+                Interactive Demo of ProductShell, Access+/Include+ surfaces, and the /187 command explorer.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-2" role="tablist" aria-label="Local demo install OS">
+                {(Object.keys(installSnippets) as Array<keyof typeof installSnippets>).map((key) => (
+                  <button
+                    key={key}
+                    type="button"
+                    role="tab"
+                    aria-selected={tab === key}
+                    onClick={() => setTab(key)}
+                    className={`min-h-[44px] rounded-full px-4 py-2 text-xs font-semibold transition ${
+                      tab === key
+                        ? "bg-[#39FF14] text-[#050608]"
+                        : "border border-white/10 bg-white/5 text-white/70 hover:bg-white/10"
+                    }`}
+                  >
+                    {key === "macos" ? "macOS / Linux" : key === "windows" ? "Windows" : "Git Bash / WSL"}
+                  </button>
+                ))}
+              </div>
+              <div className="mt-4 overflow-x-auto rounded-2xl border border-white/10 bg-[#050608] p-4">
+                <pre className="font-mono text-sm leading-7 text-[#39FF14]">
+                  <code>{installSnippets[tab]}</code>
+                </pre>
+              </div>
+              <p className="mt-3 text-xs text-white/45">
+                Source-available under custom noncommercial license (not OSI open-source).
+              </p>
             </div>
-            <p className="mt-4 text-center text-xs text-white/40">
-              Tested on Windows 11, macOS Sonoma, Ubuntu 22.04/24.04, and modern mobile browsers.
-            </p>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
@@ -644,7 +703,7 @@ export function LaunchPage() {
       <MarqueeStrip />
       <CreateGrowthHook />
       <BrandIntelligence />
-      <SkillCardsGrid />
+      <SkillCardsGrid compact />
       <AgentDepartments />
       <CharlotteModules />
       <ResearchLab />

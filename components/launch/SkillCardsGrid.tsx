@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+// Link used for explore-all CTA
 import {
   skillShowcases,
   type SkillShowcaseData,
@@ -188,16 +189,25 @@ function SkillCard({ skill, index }: { skill: SkillShowcaseData; index: number }
   );
 }
 
+/** Homepage: short critical path — six representative skills + explore-all. */
+const HOME_SKILL_IDS = ["access", "include", "create", "craft", "natasha", "publish"] as const;
+
 /**
  * Filterable, searchable skill gallery — infographic cards + GSAP stagger.
+ * @param compact — landing page: 6 featured skills only (cognitive load).
  */
-export function SkillCardsGrid() {
+export function SkillCardsGrid({ compact = false }: { compact?: boolean }) {
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState("all");
   const gridRef = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
 
   const visible = useMemo(() => {
+    if (compact) {
+      return HOME_SKILL_IDS.map((id) => skillShowcases.find((s) => s.id === id)).filter(
+        (s): s is NonNullable<typeof s> => Boolean(s)
+      );
+    }
     const q = query.trim().toLowerCase();
     return skillShowcases.filter((s) => {
       const cat = FILTERS.find((f) => f.id === filter) ?? FILTERS[0];
@@ -208,7 +218,7 @@ export function SkillCardsGrid() {
         .toLowerCase();
       return hay.includes(q);
     });
-  }, [query, filter]);
+  }, [query, filter, compact]);
 
   useEffect(() => {
     if (reduced || !gridRef.current) return;
@@ -238,56 +248,61 @@ export function SkillCardsGrid() {
       <div className="container-x">
         <div className="mx-auto mb-10 max-w-3xl text-center">
           <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.28em] text-[#39FF14]">
-            First-class skills · registry
+            {compact ? "Featured skills · short path" : "First-class skills · full registry"}
           </p>
           <KineticHeadline
-            text="Every skill."
-            accent="One surface."
+            text={compact ? "Start here." : "Every skill."}
+            accent={compact ? "Then explore all." : "One surface."}
             as="h2"
             className="mt-4 font-display text-[clamp(2rem,1.2rem+3vw,3.5rem)] font-bold leading-[0.95] tracking-tight text-white"
           />
-          <p className="mt-4 text-white/60">
-            Infographic dossiers with triggers, outputs, and signal strength. Filter, search, open.
+          <p className="mt-4 text-white/65">
+            {compact
+              ? "Six representative dossiers — Access+, Include+, create, craft, security, publish. Full catalog lives on /187."
+              : "Infographic dossiers with triggers, outputs, and signal strength. Filter, search, open."}
           </p>
         </div>
 
-        <div className="mx-auto mb-8 flex max-w-4xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <label className="relative block min-w-0 flex-1">
-            <span className="sr-only">Search skills</span>
-            <input
-              type="search"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search skills, triggers, jobs…"
-              className="w-full rounded-full border border-white/10 bg-white/5 py-2.5 pl-4 pr-4 text-sm text-white placeholder:text-white/35 focus:border-[#39FF14]/40 focus:outline-none focus:ring-1 focus:ring-[#39FF14]/40"
-            />
-          </label>
-          <div className="flex flex-wrap gap-2 sm:justify-end" role="group" aria-label="Skill categories">
-            {FILTERS.map((f) => {
-              const active = filter === f.id;
-              return (
-                <button
-                  key={f.id}
-                  type="button"
-                  onClick={() => setFilter(f.id)}
-                  aria-pressed={active}
-                  className={`rounded-full border px-3 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-wider transition ${
-                    active
-                      ? "border-[#39FF14]/50 bg-[#39FF14]/15 text-[#39FF14]"
-                      : "border-white/10 bg-white/5 text-white/65 hover:border-white/25 hover:text-white"
-                  }`}
-                >
-                  {f.label}
-                </button>
-              );
-            })}
+        {!compact ? (
+          <div className="mx-auto mb-8 flex max-w-4xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <label className="relative block min-w-0 flex-1">
+              <span className="sr-only">Search skills</span>
+              <input
+                type="search"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Search skills, triggers, jobs…"
+                className="w-full rounded-full border border-white/10 bg-white/5 py-2.5 pl-4 pr-4 text-sm text-white placeholder:text-white/40 focus:border-[#39FF14]/40 focus:outline-none focus:ring-2 focus:ring-[#39FF14]/40"
+              />
+            </label>
+            <div className="flex flex-wrap gap-2 sm:justify-end" role="group" aria-label="Skill categories">
+              {FILTERS.map((f) => {
+                const active = filter === f.id;
+                return (
+                  <button
+                    key={f.id}
+                    type="button"
+                    onClick={() => setFilter(f.id)}
+                    aria-pressed={active}
+                    className={`min-h-[44px] rounded-full border px-3 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-wider transition ${
+                      active
+                        ? "border-[#39FF14]/50 bg-[#39FF14]/15 text-[#39FF14]"
+                        : "border-white/10 bg-white/5 text-white/70 hover:border-white/25 hover:text-white"
+                    }`}
+                  >
+                    {f.label}
+                  </button>
+                );
+              })}
+            </div>
           </div>
-        </div>
+        ) : null}
 
-        <p className="mb-4 text-center font-mono text-[11px] uppercase tracking-wider text-white/40" aria-live="polite">
+        <p className="mb-4 text-center font-mono text-[11px] uppercase tracking-wider text-white/50" aria-live="polite">
           {visible.length} dossier{visible.length === 1 ? "" : "s"}
-          {filter !== "all" ? ` · ${FILTERS.find((f) => f.id === filter)?.label}` : ""}
-          {query.trim() ? ` · “${query.trim()}”` : ""}
+          {compact ? ` · of ${skillShowcases.length} total` : ""}
+          {!compact && filter !== "all" ? ` · ${FILTERS.find((f) => f.id === filter)?.label}` : ""}
+          {!compact && query.trim() ? ` · “${query.trim()}”` : ""}
         </p>
 
         {visible.length === 0 ? (
@@ -299,7 +314,7 @@ export function SkillCardsGrid() {
                 setQuery("");
                 setFilter("all");
               }}
-              className="mt-4 text-sm font-semibold text-[#39FF14] underline-offset-2 hover:underline"
+              className="mt-4 min-h-[44px] text-sm font-semibold text-[#39FF14] underline-offset-2 hover:underline"
             >
               Clear search & filters
             </button>
@@ -307,7 +322,7 @@ export function SkillCardsGrid() {
         ) : (
           <div
             ref={gridRef}
-            className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+            className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
             style={{ perspective: "1200px" }}
           >
             {visible.map((skill, i) => (
@@ -315,6 +330,23 @@ export function SkillCardsGrid() {
             ))}
           </div>
         )}
+
+        {compact ? (
+          <div className="mt-10 flex flex-wrap justify-center gap-3">
+            <Link
+              href="/187"
+              className="inline-flex min-h-[44px] items-center justify-center rounded-full bg-[#39FF14] px-6 text-sm font-semibold text-[#050608] transition hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#39FF14]"
+            >
+              Explore all {skillShowcases.length} skills on /187
+            </Link>
+            <Link
+              href="/187plusplus"
+              className="inline-flex min-h-[44px] items-center justify-center rounded-full border border-white/15 bg-white/5 px-6 text-sm font-semibold text-white transition hover:border-white/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            >
+              Explore /187++
+            </Link>
+          </div>
+        ) : null}
       </div>
     </section>
   );

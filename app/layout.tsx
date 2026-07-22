@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/lib/content";
+import { JsonLd } from "@/components/seo/JsonLd";
 
 const fontSans = Inter({
   subsets: ["latin"],
@@ -16,25 +17,41 @@ const fontDisplay = Space_Grotesk({
   display: "swap",
 });
 
+/** Canonical public origin (no trailing slash). Avoids /187WEB/187WEB/ OG double-prefix. */
+const SITE_ORIGIN = siteConfig.url.replace(/\/$/, "");
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  metadataBase: new URL(SITE_ORIGIN),
   title: {
     default: `${siteConfig.name} — ${siteConfig.tagline}`,
     template: `%s · ${siteConfig.name}`,
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,
-  authors: [{ name: "LumenHelix Lab" }],
+  authors: [{ name: siteConfig.org }],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
+    url: siteConfig.url,
     title: `${siteConfig.name} — ${siteConfig.tagline}`,
     description: siteConfig.description,
     siteName: siteConfig.name,
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1200,
+        height: 1200,
+        alt: "187WEB — Access is the product. Inclusion is the system.",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} — ${siteConfig.tagline}`,
     description: siteConfig.description,
+    images: [siteConfig.ogImage],
   },
 };
 
@@ -44,6 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body
         className={`${fontSans.variable} ${fontDisplay.variable} bg-[#060713] text-[#ECEDF7] antialiased`}
       >
+        <JsonLd />
         {/* Keep scroll-revealed content visible when JavaScript is disabled. */}
         <noscript>
           <style>{`.reveal{opacity:1 !important;transform:none !important}`}</style>
@@ -56,7 +74,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
 
-        <main id="main">{children}</main>
+        {/* Single landmark: page shells must not nest another <main>. */}
+        <div id="main" tabIndex={-1} className="outline-none">
+          {children}
+        </div>
       </body>
     </html>
   );

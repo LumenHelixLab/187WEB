@@ -148,13 +148,21 @@ export function SiteNav() {
             ))}
 
             {/* More menu — craft / motion / theme / install */}
-            <div className="relative" data-nav-link>
+            <div
+              className="relative"
+              data-nav-link
+              onKeyDown={(e) => {
+                if (e.key === "Escape") setMoreOpen(false);
+              }}
+            >
               <button
                 type="button"
                 aria-expanded={moreOpen}
                 aria-haspopup="menu"
+                aria-controls="site-more-menu"
+                id="site-more-button"
                 onClick={() => setMoreOpen((v) => !v)}
-                className="flex items-center gap-1 px-1 py-1 text-sm text-white/60 transition hover:text-white"
+                className="flex min-h-[44px] items-center gap-1 px-2 py-1 text-sm text-white/70 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#39FF14]"
               >
                 More
                 <svg
@@ -168,7 +176,9 @@ export function SiteNav() {
               </button>
               {moreOpen && (
                 <div
+                  id="site-more-menu"
                   role="menu"
+                  aria-labelledby="site-more-button"
                   className="absolute right-0 top-full z-[60] mt-2 min-w-[14.5rem] rounded-xl border border-white/15 bg-[#0A0C14] p-2 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.95)] ring-1 ring-black/80"
                   style={{ backgroundColor: "#0A0C14", opacity: 1 }}
                 >
@@ -178,7 +188,7 @@ export function SiteNav() {
                       href={item.href}
                       role="menuitem"
                       onClick={() => setMoreOpen(false)}
-                      className="block rounded-lg px-3 py-2.5 text-sm text-white/80 transition hover:bg-white/10 hover:text-[#39FF14]"
+                      className="block rounded-lg px-3 py-2.5 text-sm text-white/80 transition hover:bg-white/10 hover:text-[#39FF14] focus-visible:bg-white/10 focus-visible:text-[#39FF14] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-[#39FF14]"
                     >
                       <span className="font-semibold text-white">{item.label}</span>
                       {item.hint ? (

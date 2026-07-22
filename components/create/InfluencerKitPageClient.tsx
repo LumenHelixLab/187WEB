@@ -6,7 +6,7 @@ import { brandAssets } from "@/lib/brand-assets";
 import { Reveal } from "@/components/Reveal";
 import { KineticHeadline } from "@/components/type/KineticHeadline";
 import {
-  AutismPuzzleIcon,
+  InfinityMark,
   GRAD_ACCESS,
   GRAD_INCLUDE,
   GRAD_PRIDE_FULL,
@@ -107,7 +107,7 @@ Suite: [your tracked link]
     platform: "X / Twitter thread",
     body: `1/ Hot take: if a11y only shows up in your launch checklist, you don’t have an access system—you have anxiety.
 2/ 187WEB ships Access+ and Include+ as premier skills (disability, ND/ADHD UX, identity safety)—not decorative pride month art.
-3/ Operators run /187++ for the full sweep, then hand winners into craft/test/publish.
+3/ Operators Explore /187++ for the full sweep, then hand winners into craft/test/publish.
 4/ Try it: [your tracked link] · GitHub: LumenHelixLab/187WEB`,
   },
   {
@@ -120,7 +120,7 @@ Worth a look if you ship public surfaces: [your tracked link]`,
   {
     id: "news",
     platform: "Newsletter (≈60 words)",
-    body: `Tool of the week: 187WEB — an AI web suite that treats disability access and LGBTQ+/neurodivergent inclusion as skills, not stickers. Run /187++ for a combined Access+ and Include+ sweep, or start with growth landings via /187create. Open showcase: [your tracked link].`,
+    body: `Tool of the week: 187WEB — an AI web suite that treats disability access and LGBTQ+ inclusion and Access+ neurodivergent usability as skills, not stickers. Explore /187++ for a combined Access+ and Include+ sweep, or start with growth landings via /187create. Open showcase: [your tracked link].`,
   },
 ];
 
@@ -188,7 +188,7 @@ export function InfluencerKitPageClient() {
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <PrideCta href="/187plusplus" spectrum="full">
-              Open /187++
+              Explore /187++
             </PrideCta>
             <PrideCta href="/" spectrum="access" variant="outline">
               Live suite
@@ -198,9 +198,9 @@ export function InfluencerKitPageClient() {
             </PrideCta>
           </div>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-            <AutismPuzzleIcon spectrum="access" className="h-8 w-8" decorative />
-            <AutismPuzzleIcon spectrum="include" className="h-8 w-8" decorative />
-            <AutismPuzzleIcon spectrum="full" className="h-8 w-8" decorative />
+            <InfinityMark spectrum="access" className="h-8 w-8" decorative />
+            <InfinityMark spectrum="include" className="h-8 w-8" decorative />
+            <InfinityMark spectrum="full" className="h-8 w-8" decorative />
           </div>
         </section>
 
@@ -411,7 +411,7 @@ export function InfluencerKitPageClient() {
                   Open 187WEB
                 </PrideCta>
                 <PrideCta href="/187plusplus" spectrum="access">
-                  Run /187++
+                  Explore /187++
                 </PrideCta>
                 <PrideCta href="/kali" spectrum="include" variant="outline">
                   KALI agent

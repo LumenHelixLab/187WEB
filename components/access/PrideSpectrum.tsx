@@ -37,10 +37,10 @@ const SPECTRUM_GRAD: Record<Spectrum, string> = {
 };
 
 /**
- * Autism-awareness interlocking puzzle mark.
- * Four pieces colored by spectrum half (or full pride).
+ * Rainbow infinity / woven-lemniscate mark (neurodiversity-aligned).
+ * Replaces the outdated puzzle-piece symbol. Spectrum half or full pride stroke.
  */
-export function AutismPuzzleIcon({
+export function InfinityMark({
   spectrum = "full",
   className = "h-6 w-6",
   decorative = false,
@@ -49,43 +49,70 @@ export function AutismPuzzleIcon({
   className?: string;
   decorative?: boolean;
 }) {
-  const fills =
+  const gradId = `inf-${spectrum}-${decorative ? "d" : "l"}`;
+  const stops =
     spectrum === "access"
-      ? [PRIDE.red, PRIDE.orange, PRIDE.yellow, PRIDE.green]
+      ? [
+          [0, PRIDE.red],
+          [0.35, PRIDE.orange],
+          [0.65, PRIDE.yellow],
+          [1, PRIDE.green],
+        ]
       : spectrum === "include"
-        ? [PRIDE.green, PRIDE.blue, PRIDE.indigo, PRIDE.purple]
-        : [PRIDE.red, PRIDE.yellow, PRIDE.green, PRIDE.purple];
+        ? [
+            [0, PRIDE.green],
+            [0.35, PRIDE.blue],
+            [0.7, PRIDE.indigo],
+            [1, PRIDE.purple],
+          ]
+        : [
+            [0, PRIDE.red],
+            [0.2, PRIDE.orange],
+            [0.4, PRIDE.yellow],
+            [0.55, PRIDE.green],
+            [0.75, PRIDE.blue],
+            [1, PRIDE.purple],
+          ];
 
   return (
     <svg
-      viewBox="0 0 64 64"
+      viewBox="0 0 64 40"
       className={className}
       aria-hidden={decorative ? true : undefined}
       role={decorative ? undefined : "img"}
-      aria-label={decorative ? undefined : "Autism awareness puzzle mark"}
+      aria-label={decorative ? undefined : "Rainbow infinity mark — neurodiversity and inclusion"}
       focusable="false"
     >
-      {!decorative ? <title>Autism awareness puzzle mark</title> : null}
-      {/* 2×2 classic puzzle tiles with tab/blank */}
+      {!decorative ? <title>Rainbow infinity mark</title> : null}
+      <defs>
+        <linearGradient id={gradId} x1="0%" y1="50%" x2="100%" y2="50%">
+          {stops.map(([o, c]) => (
+            <stop key={String(o)} offset={`${Number(o) * 100}%`} stopColor={String(c)} />
+          ))}
+        </linearGradient>
+      </defs>
+      {/* Lemniscate (∞) path — thick stroke, woven ends */}
       <path
-        fill={fills[0]}
-        d="M4 8h18c0 4 3 7 7 7s7-3 7-7h6c2.2 0 4 1.8 4 4v14c-4 0-7 3-7 7s3 7 7 7v6c0 2.2-1.8 4-4 4H28c0-4-3-7-7-7s-7 3-7 7H8c-2.2 0-4-1.8-4-4V30c4 0 7-3 7-7s-3-7-7-7V12c0-2.2 1.8-4 4-4z"
+        d="M8 20c0-7 6-12 14-12 6 0 10 3 10 12 0 9-4 12-10 12-8 0-14-5-14-12zm28 0c0 7 6 12 14 12 6 0 10-3 10-12 0-9-4-12-10-12-8 0-14 5-14 12z"
+        fill="none"
+        stroke={`url(#${gradId})`}
+        strokeWidth="5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
-        fill={fills[1]}
-        d="M36 8h18c2.2 0 4 1.8 4 4v6c-4 0-7 3-7 7s3 7 7 7v14c0 2.2-1.8 4-4 4H42c0-4-3-7-7-7s-7 3-7 7h-6c-2.2 0-4-1.8-4-4V30c4 0 7-3 7-7s-3-7-7-7V12c0-2.2 1.8-4 4-4h6c0 4 3 7 7 7s7-3 7-7z"
-      />
-      <path
-        fill={fills[2]}
-        d="M4 36h10c0 4 3 7 7 7s7-3 7-7h14c2.2 0 4 1.8 4 4v6c-4 0-7 3-7 7s3 7 7 7v2c0 2.2-1.8 4-4 4H28c0-4-3-7-7-7s-7 3-7 7H8c-2.2 0-4-1.8-4-4V48c4 0 7-3 7-7s-3-7-7-7v-5c0-2.2 1.8-4 4-4z"
-      />
-      <path
-        fill={fills[3]}
-        d="M36 36h18c2.2 0 4 1.8 4 4v5c-4 0-7 3-7 7s3 7 7 7v1c0 2.2-1.8 4-4 4H42c0-4-3-7-7-7s-7 3-7 7h-6c-2.2 0-4-1.8-4-4v-2c4 0 7-3 7-7s-3-7-7-7v-6c0-2.2 1.8-4 4-4h6c0 4 3 7 7 7s7-3 7-7z"
+        d="M22 20c0-4 2.5-7 6-7s6 3 6 7-2.5 7-6 7-6-3-6-7z"
+        fill="none"
+        stroke={`url(#${gradId})`}
+        strokeWidth="3"
+        opacity="0.55"
       />
     </svg>
   );
 }
+
+/** @deprecated Use InfinityMark — alias for older imports. */
+export const AutismPuzzleIcon = InfinityMark;
 
 type PrideCtaProps = {
   href: string;
@@ -94,12 +121,13 @@ type PrideCtaProps = {
   variant?: "filled" | "outline";
   className?: string;
   showPuzzle?: boolean;
+  showMark?: boolean;
   "data-hero-cta"?: boolean | string;
 };
 
 /**
- * Pride-spectrum CTA with autism puzzle mark + GSAP hover lift.
- * Filled: solid gradient + dark text (contrast). Outline: spectrum border.
+ * Pride-spectrum CTA with infinity mark + GSAP hover lift.
+ * Filled: solid gradient + near-black text for WCAG contrast on bright stops.
  */
 export function PrideCta({
   href,
@@ -107,9 +135,11 @@ export function PrideCta({
   children,
   variant = "filled",
   className = "",
-  showPuzzle = true,
+  showPuzzle,
+  showMark = true,
   ...rest
 }: PrideCtaProps) {
+  const mark = showMark && showPuzzle !== false;
   const ref = useRef<HTMLAnchorElement>(null);
   const reduced = useReducedMotion();
   const mounted = useClientMounted();
@@ -156,8 +186,8 @@ export function PrideCta({
       }
       {...rest}
     >
-      {showPuzzle ? <AutismPuzzleIcon spectrum={spectrum} className="h-5 w-5 shrink-0 drop-shadow-sm" decorative /> : null}
-      <span>{children}</span>
+      {mark ? <InfinityMark spectrum={spectrum} className="h-5 w-5 shrink-0 drop-shadow-sm" decorative /> : null}
+      <span className={filled ? "text-[#0a0a0a]" : "text-white"}>{children}</span>
     </Link>
   );
 }

@@ -5,23 +5,23 @@ import { brandAssets } from "@/lib/brand-assets";
 import { gsap, registerGsap } from "@/lib/motion/gsap";
 import { useReducedMotion } from "@/lib/motion/useReducedMotion";
 import { useClientMounted } from "@/lib/motion/useClientMounted";
+import { useCalmMode } from "@/lib/motion/calm-mode";
 
 /**
  * 187VIBE spider companion (site-wide):
  * - CORE mascot follows the pointer on a permanent silk line from the top.
- * - Idle >2s: escalate every 3s → wiggle → pace → spin → detach & swing.
- * - Pointer move: snap back to mouse, kill idle timelines.
- * - Rare wander tricks only when idle; frequency rises with idle depth.
- * Transform/opacity only; reduced-motion disables entirely.
+ * - Idle escalation when motion allowed; suppressed in Calm Mode / reduced-motion.
+ * - Rare wander only when idle and motion allowed.
  */
 export function SpiderVibe() {
   const mounted = useClientMounted();
   const reduced = useReducedMotion();
-  if (!mounted || reduced) return null;
+  const { motionSuppressed, calm } = useCalmMode();
+  if (!mounted || reduced || motionSuppressed) return null;
   return (
     <>
-      <SpiderMouseFollower />
-      <SpiderWandererIdleBoost />
+      <SpiderMouseFollower allowIdleEscalation={!calm} />
+      {!calm ? <SpiderWandererIdleBoost /> : null}
     </>
   );
 }
@@ -31,7 +31,7 @@ const IDLE_STEP_MS = 3000;
 
 type IdleLevel = 0 | 1 | 2 | 3 | 4;
 
-function SpiderMouseFollower() {
+function SpiderMouseFollower({ allowIdleEscalation = true }: { allowIdleEscalation?: boolean }) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const imgRef = useRef<HTMLImageElement>(null);
   const silkRef = useRef<SVGLineElement>(null);
@@ -179,10 +179,11 @@ function SpiderMouseFollower() {
 
   const scheduleIdle = useCallback(() => {
     clearIdleTimers();
+    if (!allowIdleEscalation) return;
     idleTimerRef.current = window.setTimeout(() => {
       startIdleEscalation();
     }, IDLE_START_MS);
-  }, [clearIdleTimers, startIdleEscalation]);
+  }, [allowIdleEscalation, clearIdleTimers, startIdleEscalation]);
 
   const snapBackToMouse = useCallback(() => {
     const wrap = wrapRef.current;

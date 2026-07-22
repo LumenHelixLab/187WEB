@@ -41,7 +41,7 @@
 
 - **Ship faster.** One command generates a landing page, component kit, doc set, or research artifact instead of wiring boilerplate.
 - **Launch with standards.** SEO, accessibility, inclusion, revenue architecture, and publish gates are built into the workflow.
-- **Own your stack.** Local-first, deterministic, and open-core — run offline, audit every change, and deploy anywhere.
+- **Own your stack.** Local-first, deterministic, and source-available — run offline, audit every change, and deploy anywhere.
 
 ## Quick start
 
@@ -100,7 +100,7 @@ Public slash-command surfaces in the 187 suite:
 | Learn & access | **187LEARN**, **187TEST**, **187ACCESS+**, **187INCLUDE+** |
 | Release | **187VERSION**, **187PUBLISH** |
 | NATASHA multi-agent | **187NATASHA**, **187CHAIN** |
-| Motion lab | **187GSAP**, **187TYPE**, **187MODEL**, **187SCROLL**, **187AUDIO**, **187VIZ**, **187MOTION**, **187HERO** |
+| Motion lab | **187GSAP**, **187TYPE**, **187MODEL**, **187SCROLL**, **187AUDIO**, **187VIZ**, **187MOTION**, **187HERO**, **187THEME** |
 
 Workflow support includes `/187 handoff` (`agentic-sprint-handoff`) for phased multi-agent coding handoffs. See [docs/NATASHA-AGENTIC-HANDOFFS.md](docs/NATASHA-AGENTIC-HANDOFFS.md).
 

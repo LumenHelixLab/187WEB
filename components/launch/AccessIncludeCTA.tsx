@@ -6,7 +6,7 @@ import { skillShowcaseIndex } from "@/lib/skill-showcase-data";
 import { Reveal } from "@/components/Reveal";
 import { KineticHeadline } from "@/components/type/KineticHeadline";
 import {
-  AutismPuzzleIcon,
+  InfinityMark,
   GRAD_ACCESS,
   GRAD_INCLUDE,
   GRAD_PRIDE_FULL,
@@ -19,6 +19,7 @@ import {
 const access = skillShowcaseIndex.get("access")!;
 const include = skillShowcaseIndex.get("include")!;
 
+/** Canonical split: Access+ = disability + neurodivergent access; Include+ = LGBTQ+/identity. */
 const ENGINEERING_PILLARS = [
   {
     id: "disability",
@@ -30,21 +31,21 @@ const ENGINEERING_PILLARS = [
   {
     id: "adhd",
     title: "ADHD & neurodivergent UX",
-    body: "Predictable structure, reduced cognitive load, clear next actions, sensory-safe motion, plain language — usable for brains that are not “default.”",
-    href: "/187include",
-    spectrum: "include" as const,
+    body: "Predictable structure, reduced cognitive load, clear next actions, sensory-safe motion — owned by 187ACCESS+, not a marketing reassignment.",
+    href: "/187access",
+    spectrum: "access" as const,
   },
   {
     id: "lgbtq",
     title: "LGBTQ+ & identity safety",
-    body: "Pronoun-safe systems, inclusive fields, anti-bias copy, community safety language — identity is data architecture, not a sticker.",
+    body: "Pronoun-safe systems, inclusive fields, anti-bias copy, community safety — 187INCLUDE+ identity architecture, not a sticker.",
     href: "/187include",
     spectrum: "include" as const,
   },
   {
     id: "chain",
     title: "Skillchains, not checklists",
-    body: "Access+ and Include+ route into craft, write, test, docs, scan, standard, and publish — the same pipeline that ships features.",
+    body: "Access+ and Include+ route into craft, write, test, docs, and publish — the same pipeline that ships features. Explore /187++ for the combined sweep.",
     href: "/187plusplus",
     spectrum: "full" as const,
   },
@@ -83,7 +84,7 @@ function PillarCard({
         <div className="h-1.5 w-full" style={{ backgroundImage: grad }} aria-hidden />
         <div className="flex flex-1 flex-col p-5">
           <div className="mb-2 flex items-center gap-2">
-            <AutismPuzzleIcon spectrum={spectrum} className="h-7 w-7" decorative />
+            <InfinityMark spectrum={spectrum} className="h-7 w-7" decorative />
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/35">
               CORE · {String(index + 1).padStart(2, "0")}
             </p>
@@ -141,11 +142,11 @@ export function AccessIncludeCTA() {
       <div className="container-x relative">
         <div className="mx-auto mb-6 max-w-4xl text-center">
           <div className="mb-4 flex items-center justify-center gap-3">
-            <AutismPuzzleIcon spectrum="access" className="h-9 w-9" decorative />
+            <InfinityMark spectrum="access" className="h-9 w-9" decorative />
             <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.28em] text-white/70">
               Premier systems · pride spectrum · autism-aware
             </p>
-            <AutismPuzzleIcon spectrum="include" className="h-9 w-9" decorative />
+            <InfinityMark spectrum="include" className="h-9 w-9" decorative />
           </div>
           <KineticHeadline
             id="access-include-heading"
@@ -192,16 +193,16 @@ export function AccessIncludeCTA() {
                     style={{ backgroundImage: GRAD_ACCESS }}
                     aria-hidden
                   >
-                    <AutismPuzzleIcon spectrum="access" className="h-9 w-9" decorative />
+                    <InfinityMark spectrum="access" className="h-9 w-9" decorative />
                   </span>
                 </div>
                 <p className="mt-4 text-sm leading-relaxed text-white/60">{access.description}</p>
                 <ul className="mt-5 space-y-2 text-sm text-white/70">
                   {[
                     "Blind / screen-reader + keyboard / switch paths",
+                    "ADHD / autism / cognitive structure & load",
                     "Captions, transcripts, audio description",
-                    "Contrast, zoom, reflow, focus order",
-                    "Motion & photosensitive safety",
+                    "Contrast, zoom, reflow, sensory & motion safety",
                     "WCAG / ARIA findings with severity",
                   ].map((line) => (
                     <li key={line} className="flex items-start gap-2">
@@ -242,17 +243,17 @@ export function AccessIncludeCTA() {
                     style={{ backgroundImage: GRAD_INCLUDE }}
                     aria-hidden
                   >
-                    <AutismPuzzleIcon spectrum="include" className="h-9 w-9" decorative />
+                    <InfinityMark spectrum="include" className="h-9 w-9" decorative />
                   </span>
                 </div>
                 <p className="mt-4 text-sm leading-relaxed text-white/60">{include.description}</p>
                 <ul className="mt-5 space-y-2 text-sm text-white/70">
                   {[
-                    "Autism / ADHD / OCD / dyslexia-friendly UX",
-                    "Sensory-safe, predictable interfaces",
-                    "Plain language & cognitive-load reduction",
-                    "Pronouns, identity fields, anti-bias copy",
-                    "Community & emotional safety language",
+                    "LGBTQ+ inclusive language and UI patterns",
+                    "Pronouns, names, and identity field design",
+                    "Anti-bias copy and privacy-aware collection",
+                    "Community safety and support-response language",
+                    "Pairs with Access+ for disability / ND access",
                   ].map((line) => (
                     <li key={line} className="flex items-start gap-2">
                       <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full" style={{ background: PRIDE.indigo }} aria-hidden />
@@ -287,7 +288,7 @@ export function AccessIncludeCTA() {
               <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
                 <div className="max-w-xl">
                   <div className="flex items-center gap-2">
-                    <AutismPuzzleIcon spectrum="full" className="h-8 w-8" decorative />
+                    <InfinityMark spectrum="full" className="h-8 w-8" decorative />
                     <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.24em] pride-text-full">
                       Unified command · /187++ · full pride
                     </p>
@@ -303,7 +304,7 @@ export function AccessIncludeCTA() {
                 </div>
                 <div className="flex flex-wrap gap-3">
                   <PrideCta href="/187plusplus" spectrum="full">
-                    Run /187++
+                    Explore /187++
                   </PrideCta>
                   <PrideCta href="/187access" spectrum="access" variant="outline">
                     Access+ only

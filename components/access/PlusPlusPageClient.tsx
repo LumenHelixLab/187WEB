@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 import { KineticHeadline } from "@/components/type/KineticHeadline";
 import {
-  AutismPuzzleIcon,
+  InfinityMark,
   GRAD_ACCESS,
   GRAD_INCLUDE,
   GRAD_PRIDE_FULL,
@@ -29,11 +29,11 @@ export function PlusPlusPageClient() {
       <div className="container-x">
         <section className="mx-auto max-w-4xl text-center">
           <div className="mb-4 flex items-center justify-center gap-3">
-            <AutismPuzzleIcon spectrum="access" className="h-10 w-10" decorative />
+            <InfinityMark spectrum="access" className="h-10 w-10" decorative />
             <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.28em] text-white/70">
               Unified command · full pride spectrum
             </p>
-            <AutismPuzzleIcon spectrum="include" className="h-10 w-10" decorative />
+            <InfinityMark spectrum="include" className="h-10 w-10" decorative />
           </div>
 
           <h1 className="font-display text-[clamp(2.5rem,1.4rem+5vw,5rem)] font-bold leading-[0.95] tracking-tight text-white">
@@ -86,7 +86,7 @@ export function PlusPlusPageClient() {
                     style={{ backgroundImage: GRAD_ACCESS }}
                     aria-hidden
                   >
-                    <AutismPuzzleIcon spectrum="access" className="h-9 w-9" decorative />
+                    <InfinityMark spectrum="access" className="h-9 w-9" decorative />
                   </span>
                 </div>
                 <ul className="mt-5 space-y-2 text-sm text-white/70">
@@ -133,7 +133,7 @@ export function PlusPlusPageClient() {
                     style={{ backgroundImage: GRAD_INCLUDE }}
                     aria-hidden
                   >
-                    <AutismPuzzleIcon spectrum="include" className="h-9 w-9" decorative />
+                    <InfinityMark spectrum="include" className="h-9 w-9" decorative />
                   </span>
                 </div>
                 <ul className="mt-5 space-y-2 text-sm text-white/70">
@@ -169,7 +169,7 @@ export function PlusPlusPageClient() {
             <div className="h-1.5 w-full" style={{ backgroundImage: GRAD_PRIDE_FULL }} aria-hidden />
             <div className="p-6 sm:p-8">
               <div className="flex items-center gap-2">
-                <AutismPuzzleIcon spectrum="full" className="h-8 w-8" decorative />
+                <InfinityMark spectrum="full" className="h-8 w-8" decorative />
                 <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.24em] pride-text-full">
                   Engineering skillchain · not a checklist
                 </p>
@@ -225,7 +225,7 @@ export function PlusPlusPageClient() {
           <div className="mx-auto mt-12 max-w-3xl overflow-hidden rounded-3xl border border-white/10 bg-[#0A0C14] text-center">
             <div className="h-1.5 w-full" style={{ backgroundImage: GRAD_PRIDE_FULL }} aria-hidden />
             <div className="p-8 sm:p-12">
-              <AutismPuzzleIcon spectrum="full" className="mx-auto h-12 w-12" decorative />
+              <InfinityMark spectrum="full" className="mx-auto h-12 w-12" decorative />
               <h2 className="mt-4 font-display text-[clamp(1.5rem,1rem+2vw,2.25rem)] font-semibold tracking-tight text-white">
                 Run the full sweep
               </h2>

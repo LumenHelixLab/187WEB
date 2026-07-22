@@ -148,9 +148,13 @@ export const checklistTotal = checklistCategories.reduce((sum, c) => sum + c.cou
 
 export const siteConfig = {
   name: "187WEB",
-  tagline: "A killer AI-powered web suite: spin sharper sites, ship smarter systems.",
+  tagline: "Access is the product. Inclusion is the system.",
   description:
-    "187WEB is a killer AI-powered web suite for building sharper sites and shipping smarter systems with AI-assisted skills for repos, design, docs, launch, research, SEO, revenue, testing, accessibility, versioning, and publishing.",
-  repo: "https://github.com/lumenhelixlab/187WEB",
+    "187WEB is a source-available AI web skill suite from LumenHelix Lab. 187ACCESS+ and 187INCLUDE+ are premier first-class skills for disability access, ADHD/neurodivergent usability, and LGBTQ+ identity safety—combined via /187++ and chained into craft, test, and publish.",
+  repo: "https://github.com/LumenHelixLab/187WEB",
   url: "https://lumenhelixlab.github.io/187WEB/",
+  /** Absolute OG image — no basePath doubling. */
+  ogImage: "https://lumenhelixlab.github.io/187WEB/og.png",
+  org: "LumenHelix Lab",
+  orgUrl: "https://lumenhelix.com",
 };
