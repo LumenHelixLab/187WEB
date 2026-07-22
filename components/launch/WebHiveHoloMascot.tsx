@@ -7,14 +7,14 @@ import { useReducedMotion } from "@/lib/motion/useReducedMotion";
 import { useClientMounted } from "@/lib/motion/useClientMounted";
 
 /**
- * Clean transparent wireframe mascot in the hive background.
- * No glow, no blend, no filter — PNG alpha only + gentle drift.
+ * CORE mascot as a quiet ambient layer behind content.
+ * Low opacity only — no glow, no blend, no filter — so it never dominates the UI.
  */
 export function WebHiveHoloMascot() {
   const mounted = useClientMounted();
   const reduced = useReducedMotion();
   const imgRef = useRef<HTMLImageElement>(null);
-  const src = `${brandAssets.mascotHoloBg}?v=holo-clean-1`;
+  const src = brandAssets.mascotCore;
 
   useEffect(() => {
     if (!mounted || reduced || !imgRef.current) return;
@@ -22,8 +22,8 @@ export function WebHiveHoloMascot() {
     const el = imgRef.current;
     const ctx = gsap.context(() => {
       gsap.to(el, {
-        y: -12,
-        duration: 8,
+        y: -10,
+        duration: 9,
         ease: "sine.inOut",
         yoyo: true,
         repeat: -1,
@@ -44,10 +44,10 @@ export function WebHiveHoloMascot() {
         ref={imgRef}
         src={src}
         alt=""
-        width={1026}
-        height={1007}
+        width={800}
+        height={800}
         decoding="async"
-        className="max-h-[min(90vh,56rem)] w-auto max-w-[min(96vw,48rem)] object-contain opacity-100"
+        className="max-h-[min(78vh,42rem)] w-auto max-w-[min(80vw,36rem)] object-contain opacity-[0.14]"
       />
     </div>
   );
