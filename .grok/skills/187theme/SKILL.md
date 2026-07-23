@@ -1,20 +1,11 @@
 ---
 name: 187theme
-description: Palettes, fonts, semantic tokens, theme list/preview/apply/create/audit/export for 187WEB surfaces.
-suite: 187SKILLS
-skill_version: 1.0.0
-contract_version: 2.0.0
-last_updated: 2026-07-21
-last_verified: 2026-07-21
-status: active
-replaces: none
-deprecated: false
-compatible_with:
-  - 187webdesign >=0.3.0
-requires:
-  - docs/SKILL-CONTRACT.md
-  - lib/themes/catalog.ts
+description: >-
+  Palettes, fonts, semantic tokens, theme list/preview/apply/create/audit/export for 187WEB surfaces.
+model_adapter: grok
 ---
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/187theme/SKILL.md`](../../.claude/skills/187theme/SKILL.md).
 
 # 187THEME — Theme & Token Skill
 
@@ -94,3 +85,4 @@ Theme id or brief; optional target (shell, marketing, motion-lab); export format
 1. `/187 theme list` → catalog ids  
 2. `/187 craft palette` → routes to 187THEME  
 3. Theme export → valid ThemeContract JSON  
+

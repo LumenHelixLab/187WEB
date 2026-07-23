@@ -1,0 +1,2086 @@
+{
+  "source": "docs/handoffs/187-motion-gsap-skill-registry-v3.md",
+  "generated_by": "scripts/parse-motion-registry.py",
+  "count": 207,
+  "owners": {
+    "187gsap": "187GSAP \u2014 core GSAP mechanics (sliders, cursors, transitions, nav, forms, loaders)",
+    "187type": "187TYPE \u2014 kinetic / variable / reactive typography",
+    "187model": "187MODEL \u2014 3D product / carousel / perspective object systems",
+    "187scroll": "187SCROLL \u2014 scroll-driven camera, parallax, and pinned narratives",
+    "187audio": "187AUDIO \u2014 audio playback and audio-reactive geometry",
+    "187viz": "187VIZ \u2014 3D / data-driven visualization",
+    "187hero": "187HERO \u2014 full-screen immersive hero and first-impression systems"
+  },
+  "entries": [
+    {
+      "id": 1,
+      "command": "/187locator",
+      "source_resource": "Store Locator (Mapbox)",
+      "name": "Adaptive Proximity Store Finder",
+      "logic": "Mapbox GL with `projection:mercator`; `watchPosition` for live geolocation; cluster markers via `supercluster`; auto-flyTo on load.",
+      "triggers": "*\"store map\"*, *\"mapbox pins\"*, *\"find nearest store\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 2,
+      "command": "/187gradwave",
+      "source_resource": "Gradient Wave Text on Scroll",
+      "name": "Staggered Chromatic Scroll Wave",
+      "logic": "Split text into `<span>`s; apply conic gradients; `ScrollTrigger` with `scrub:1.5` animates `background-position` sinusoidally (delay = index * 0.02).",
+      "triggers": "*\"rainbow scroll text\"*, *\"gradient wave\"*",
+      "hybrid": false,
+      "owner": "187type"
+    },
+    {
+      "id": 3,
+      "command": "/187spotlight",
+      "source_resource": "Spotlight Cursor (Unicorn)",
+      "name": "Aperture-Based Dynamic Spotlight",
+      "logic": "Radial gradient overlay with `mix-blend-mode:screen`; `gsap.quickTo()` with 0.2s lag; scales on hover over interactive targets.",
+      "triggers": "*\"torch cursor\"*, *\"spotlight effect\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 4,
+      "command": "/187graineff",
+      "source_resource": "Film Grain Effect",
+      "name": "Canvas Noise Overlay Engine",
+      "logic": "Offscreen canvas generates monochromatic noise (`fillRect`); capped at 30fps via frame-skipping; opacity tied to scroll/hover via `gsap.to`.",
+      "triggers": "*\"film grain\"*, *\"noise texture\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 5,
+      "command": "/187radial3d",
+      "source_resource": "Radial Cards Slider (GSAP)",
+      "name": "Inertia-Orbital 3D Carousel",
+      "logic": "Cards in `rotateY` + `translateZ` circle; `Draggable` with `type:\"rotation\"`; `InertiaPlugin` snap; `onPress` pauses autoplay.",
+      "triggers": "*\"radial 3d slider\"*, *\"orbital cards\"*",
+      "hybrid": false,
+      "owner": "187model"
+    },
+    {
+      "id": 6,
+      "command": "/187steptime",
+      "source_resource": "Step-by-step Timeline",
+      "name": "Pinned Scroll-Journey Timeline",
+      "logic": "Pin wrapper; `ScrollTrigger` with `scrub:1` drives master timeline; connector line morphs (`scaleY`); content staggers in.",
+      "triggers": "*\"step timeline\"*, *\"scroll journey\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 7,
+      "command": "/187cube3d",
+      "source_resource": "3D Cube Page Transition",
+      "name": "Hardware-Accelerated Cube Flip",
+      "logic": "Four panels with `preserve-3d`; tween `rotateY` by 90\u00b0; `backface-visibility:hidden`; `ease:\"power4.inOut\"`; keyboard arrow support.",
+      "triggers": "*\"3d cube transition\"*, *\"flip page cube\"*",
+      "hybrid": false,
+      "owner": "187model"
+    },
+    {
+      "id": 8,
+      "command": "/187expandnav",
+      "source_resource": "Expanding Bottom Navigation",
+      "name": "Full-Screen Bottom Drawer",
+      "logic": "Height from `60px`\u2192`100dvh`; stagger links with `y:50`; `backdrop-filter:blur(20px)`; focus trap inside drawer.",
+      "triggers": "*\"expanding bottom nav\"*, *\"fullscreen drawer\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 9,
+      "command": "/187dropcards",
+      "source_resource": "Dropping Cards Loading Animation",
+      "name": "Bounce-Physics Loader Stack",
+      "logic": "Cards fall from `y:-200` with `ease:\"bounce.out\"`; `stagger:0.08`; onComplete emits `loaded` event; loader fades out.",
+      "triggers": "*\"dropping cards loader\"*, *\"bounce stack\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 10,
+      "command": "/187layerslider",
+      "source_resource": "Layered Image Slider",
+      "name": "Deck-Style Swipe Slider",
+      "logic": "Stack images with `x:20`/`scale:0.95`; `Draggable`; on release, top card flings off (`x:500`) and recycles to bottom.",
+      "triggers": "*\"layered slider\"*, *\"deck swiper\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 11,
+      "command": "/187radialmarq",
+      "source_resource": "Radial Cards Marquee (CSS)",
+      "name": "CSS-Perpetual Radial Ticker",
+      "logic": "Pure CSS `@keyframes` rotating parent; child items counter-rotate; `animation-play-state:paused` on hover.",
+      "triggers": "*\"css radial marquee\"*, *\"circular ticker\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 12,
+      "command": "/187fittext",
+      "source_resource": "Fit Text to Width",
+      "name": "Binary-Search Text Squeeze",
+      "logic": "Uses `canvas.measureText` or `scrollWidth`; binary search between min/max font-size; debounced on resize.",
+      "triggers": "*\"fit text\"*, *\"auto scale text\"*",
+      "hybrid": false,
+      "owner": "187type"
+    },
+    {
+      "id": 13,
+      "command": "/187tornado3d",
+      "source_resource": "3D Cards Tornado",
+      "name": "Helical Funnel Card Tornado",
+      "logic": "Cards arranged in helix (`rotateY` + `translateZ`); container spins continuously; scroll maps to `translateZ` offset for funnel effect.",
+      "triggers": "*\"3d tornado\"*, *\"helix funnel\"*",
+      "hybrid": false,
+      "owner": "187model"
+    },
+    {
+      "id": 14,
+      "command": "/187toggleswitch",
+      "source_resource": "Toggle Switch",
+      "name": "Accessible Animated Pill",
+      "logic": "Hidden `input[type=checkbox]`; styled pill with `::after`; `prefers-reduced-motion` disables animation; emits `change` event.",
+      "triggers": "*\"toggle switch\"*, *\"pill toggle\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 15,
+      "command": "/187infgridmason",
+      "source_resource": "Infinite Draggable Grid (Masonry)",
+      "name": "Infinite Masonry Drag Wall",
+      "logic": "Masonry via CSS `columns`; wrap x/y with `gsap.utils.wrap`; `Draggable` with `inertia`; reposition offscreen tiles on drag end.",
+      "triggers": "*\"infinite masonry\"*, *\"draggable pinterest\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 16,
+      "command": "/187parallaxhoriz",
+      "source_resource": "Parallax Image Slider (Smooothy)",
+      "name": "Multi-Plane Horizontal Parallax",
+      "logic": "Pin container; `ScrollTrigger` scrubs `xPercent`; layers with `data-speed`; backgrounds move at fraction of foreground.",
+      "triggers": "*\"horizontal parallax\"*, *\"scroll slides\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 17,
+      "command": "/187depthtiles",
+      "source_resource": "Depth Tiles Infinite Loop",
+      "name": "Perspective Tile Scroll Loop",
+      "logic": "Tile grid shifts via timeline; offscreen tiles wrap; center tiles scale up (1.2) vs edges (0.8) via distance clamping.",
+      "triggers": "*\"depth tiles\"*, *\"perspective grid loop\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 18,
+      "command": "/187maskwindow",
+      "source_resource": "Masked Window Page Transition",
+      "name": "Reveal-Mask Page Transition",
+      "logic": "SVG `clipPath` circle/rect; animate `r`/`width` from 0\u2192max; incoming page behind; `ease:\"power3.inOut\"`.",
+      "triggers": "*\"masked transition\"*, *\"circular reveal\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 19,
+      "command": "/187datepicker",
+      "source_resource": "Events Calendar (Date Picker)",
+      "name": "Stateful Event Calendar",
+      "logic": "Generate day grid; highlight today; store selected in `Set`; prev/next month slides via `gsap.to`.",
+      "triggers": "*\"event calendar\"*, *\"date picker\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 20,
+      "command": "/187tocarticle",
+      "source_resource": "Table of Contents for Article",
+      "name": "Sticky Scroll-Spy TOC",
+      "logic": "Parse `h2/h3`; build TOC; `ScrollTrigger` highlights active section; click triggers Lenis smooth scroll.",
+      "triggers": "*\"table of contents\"*, *\"scroll spy\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 21,
+      "command": "/187infgridbase",
+      "source_resource": "Infinite Draggable Grid (Basic)",
+      "name": "Unbounded Uniform Drag Grid",
+      "logic": "Uniform grid; `gsap.utils.wrap` on both axes; `Draggable` with `inertia`; bounds dynamically update.",
+      "triggers": "*\"basic infinite grid\"*, *\"drag tiles\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 22,
+      "command": "/187readtime",
+      "source_resource": "Display Read Time",
+      "name": "Reading Duration Estimator",
+      "logic": "Count text nodes via `TreeWalker`; divide by 200; inject \"X min read\"; `MutationObserver` for dynamic content.",
+      "triggers": "*\"read time\"*, *\"reading estimate\"*",
+      "hybrid": false,
+      "owner": "187type"
+    },
+    {
+      "id": 23,
+      "command": "/187undernav",
+      "source_resource": "Fixed Underlay Navigation",
+      "name": "Z-Index Underlay Fixed Nav",
+      "logic": "Fixed nav `z-index:1`; hero `z-index:2`; `ScrollTrigger` toggles class for solid background; `pointer-events` auto.",
+      "triggers": "*\"underlay nav\"*, *\"fixed under nav\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 24,
+      "command": "/187orbittiles",
+      "source_resource": "Orbit Tiles Infinite Loop",
+      "name": "Elliptical Orbital Tile Loop",
+      "logic": "Positions via `Math.sin/cos`; increment angle; wrap at 2PI; simulate depth with `translateZ`.",
+      "triggers": "*\"orbit tiles\"*, *\"circular loop\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 25,
+      "command": "/187comparetable",
+      "source_resource": "Comparison Table (Basic)",
+      "name": "Sticky Header/Col Matrix",
+      "logic": "Table with sticky header/first column; `ScrollTrigger` for horizontal pin; hover row highlights via `gsap.to`.",
+      "triggers": "*\"comparison table\"*, *\"feature matrix\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 26,
+      "command": "/187shutterpage",
+      "source_resource": "Shutter Page Transition",
+      "name": "Quad-Shutter Camera Wipe",
+      "logic": "Four panels (top/bottom/left/right); animate `scaleX`/`scaleY` 0\u21941; staggered `0.1s`; `ease:\"power4.inOut\"`.",
+      "triggers": "*\"shutter transition\"*, *\"camera wipe\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 27,
+      "command": "/187clickzoom",
+      "source_resource": "Click to Zoom (Basic)",
+      "name": "Modal-Free Zoom Lens",
+      "logic": "Scale `1\u21921.5`; overlay `opacity:0\u21920.7`; click outside reverts; `ease:\"back.out(1.2)\"`.",
+      "triggers": "*\"click zoom\"*, *\"image magnify\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 28,
+      "command": "/187progblur",
+      "source_resource": "Progressive Blur",
+      "name": "Depth-of-Field Progressive Blur",
+      "logic": "`filter:blur()` mapped via `gsap.utils.mapRange`; throttled to `rAF`; uses `will-change:filter`.",
+      "triggers": "*\"progressive blur\"*, *\"dof blur scroll\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 29,
+      "command": "/187scrollsnap",
+      "source_resource": "Scroll to Next Page",
+      "name": "Full-Section Scroll Snapper",
+      "logic": "`ScrollTrigger` `onEnter` with `toggleActions`; `window.scrollTo` smooth; debounced to prevent queue-jumping.",
+      "triggers": "*\"scroll snap\"*, *\"fullpage sections\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 30,
+      "command": "/187scrrambletxt",
+      "source_resource": "Scramble Text Cursor",
+      "name": "Entropy Text Scrambler",
+      "logic": "On hover, split chars; `setInterval` cycles random chars; final frame decodes; reduced-motion skips scramble.",
+      "triggers": "*\"scramble text\"*, *\"glitch hover\"*",
+      "hybrid": false,
+      "owner": "187type"
+    },
+    {
+      "id": 31,
+      "command": "/187shutterscroll",
+      "source_resource": "Shutter Scroll Transition",
+      "name": "Scroll-Driven Shutter Reveal",
+      "logic": "Same as shutter but driven by `ScrollTrigger` `scrub:2`; panels open/close with scroll progress.",
+      "triggers": "*\"shutter scroll\"*, *\"scroll wipe\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 32,
+      "command": "/187glassmorph",
+      "source_resource": "Glass Effect (Background)",
+      "name": "Frosted Glass Backdrop",
+      "logic": "CSS `backdrop-filter:blur(16px)` + `saturate(1.4)`; border `rgba(255,255,255,0.2)`; no GSAP overhead.",
+      "triggers": "*\"glass effect\"*, *\"frosted panel\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 33,
+      "command": "/187pixelscroll",
+      "source_resource": "Pixelated Scroll Transition",
+      "name": "Retro Pixel-Disintegration Scroll",
+      "logic": "Clip-path stepping + blur; `steps(10)` for pixel feel; outgoing pixelates, incoming sharpens.",
+      "triggers": "*\"pixelated scroll\"*, *\"retro pixel transition\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 34,
+      "command": "/187curvewipe",
+      "source_resource": "Curved Wipe Page Transition",
+      "name": "Bezier-Curved Organic Wipe",
+      "logic": "SVG bezier path as mask; animate `scaleX` 0\u21921; `ease:\"power3.inOut\"`; organic reveal.",
+      "triggers": "*\"curved wipe\"*, *\"organic page transition\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 35,
+      "command": "/187odometer",
+      "source_resource": "Number Odometer",
+      "name": "Reel-Style Number Odometer",
+      "logic": "Tween `{val:0}`\u2192`{val:target}`; `onUpdate` formats with commas; layered digit sprites via `background-position`.",
+      "triggers": "*\"odometer\"*, *\"counter reel\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 36,
+      "command": "/187stackbounce",
+      "source_resource": "Stacking Sticky Cards (Bounce)",
+      "name": "Elastic-Stack Sticky Cards",
+      "logic": "Pin each card; `y` tweens `0\u2192-20` with `back.out(0.5)`; `scale` `0.95\u21921`; reverse on scroll back.",
+      "triggers": "*\"stacking cards\"*, *\"bounce sticky\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 37,
+      "command": "/187globe3d",
+      "source_resource": "Interactive Globe (Mapbox)",
+      "name": "Mapbox Projection Globe",
+      "logic": "Mapbox GL with `projection:{name:'globe'}`; `pitch`/`bearing` tweened via `gsap.to`; markers with popups.",
+      "triggers": "*\"interactive globe\"*, *\"3d mapbox globe\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 38,
+      "command": "/187mediacontroller",
+      "source_resource": "Media Setup (Autoplay/Hover/Click)",
+      "name": "Universal Viewport-Aware Media Driver",
+      "logic": "IntersectionObserver for autoPlay; `mouseenter` play/`mouseleave` pause; click toggle; `preload:\"metadata\"`.",
+      "triggers": "*\"video autoplay\"*, *\"hover play video\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 39,
+      "command": "/187meganav",
+      "source_resource": "Mega Navigation (Directional)",
+      "name": "Direction-Aware Mega-Menu",
+      "logic": "Detect enter direction via `getBoundingClientRect`; animate `clip-path` from that side; stagger sub-links.",
+      "triggers": "*\"mega navigation\"*, *\"dropdown direction\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 40,
+      "command": "/187sticksteps",
+      "source_resource": "Sticky Steps (Basic)",
+      "name": "Stepped Sticky Progress Indicator",
+      "logic": "Horizontal/vertical steps; `ScrollTrigger` pins each; connector line fills via `scaleX`/`scaleY`; step dots scale.",
+      "triggers": "*\"sticky steps\"*, *\"step indicator\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 41,
+      "command": "/187pathcursor",
+      "source_resource": "Draw Path Cursor Effect",
+      "name": "SVG Path Drawing Trail",
+      "logic": "On `mousemove`, update SVG `d` with `M x y L x y`; `gsap.to` smooths; cap trail to 50 segments.",
+      "triggers": "*\"draw path cursor\"*, *\"cursor trail svg\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 42,
+      "command": "/187pixelwave",
+      "source_resource": "Pixelated Wave Page Transition",
+      "name": "Pixel-Grid Wave Assembler",
+      "logic": "20x20 grid divs; transition out with delay based on row+col (wave); transition in reverse; `steps(1)` ease.",
+      "triggers": "*\"pixel wave\"*, *\"grid disintegrate\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 43,
+      "command": "/187cascadedeck",
+      "source_resource": "Cascading Slider",
+      "name": "Tinder-Style Cascading Deck",
+      "logic": "Stack offsets; `Draggable` `type:\"x\"`; fling if threshold exceeded; animate next in; `InertiaPlugin`.",
+      "triggers": "*\"cascading slider\"*, *\"tinder deck\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 44,
+      "command": "/187fanoutcards",
+      "source_resource": "Stacked Cards Page Transition",
+      "name": "Fan-Out Stacked Page Transition",
+      "logic": "Current page splits into 6 segments; each rotates/scales (fan) to reveal incoming; `stagger:0.05`; `transform-origin:bottom`.",
+      "triggers": "*\"fan out pages\"*, *\"stacked transition\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 45,
+      "command": "/187highlighter",
+      "source_resource": "Highlight Marker Text Reveal",
+      "name": "Marker-Pen Scroll Reveal",
+      "logic": "SplitText lines; tween `background-size:0%\u2192100%`; color `rgba(255,255,0,0.4)`; `ScrollTrigger` batch.",
+      "triggers": "*\"highlight text\"*, *\"marker reveal\"*",
+      "hybrid": false,
+      "owner": "187type"
+    },
+    {
+      "id": 46,
+      "command": "/187gridvisual",
+      "source_resource": "Animated Grid Overlay (Columns)",
+      "name": "Rhythmic Column Visualizer",
+      "logic": "Vertical bars with `scaleY`; wave pattern via `stagger` from center; `sine.inOut`; continuous loop.",
+      "triggers": "*\"grid visualizer\"*, *\"column animation\"*",
+      "hybrid": false,
+      "owner": "187viz"
+    },
+    {
+      "id": 47,
+      "command": "/187drawsvgwipe",
+      "source_resource": "Draw SVG Page Transition",
+      "name": "SVG Stroke-Draw Page Wipe",
+      "logic": "Large SVG path; `DrawSVGPlugin` draws 0\u2192100%; reveals new page; `ease:\"power2.inOut\"`.",
+      "triggers": "*\"draw svg transition\"*, *\"stroke wipe\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 48,
+      "command": "/187sidebyside",
+      "source_resource": "Side by Side Page Transition",
+      "name": "Split-Screen Slide Transition",
+      "logic": "Old slides left (`x:-100%`); new slides from right; overlap briefly; `ease:\"power3.inOut\"`.",
+      "triggers": "*\"side by side\"*, *\"split slide\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 49,
+      "command": "/187titlewipe",
+      "source_resource": "Page Name Transition (Wipe)",
+      "name": "Typographic Wipe Title",
+      "logic": "Title `clip-path:inset(0 100% 0 0)`\u2192`inset(0 0 0 0)`; overlaps incoming; `ease:\"power4.out\"`.",
+      "triggers": "*\"title wipe\"*, *\"page name transition\"*",
+      "hybrid": false,
+      "owner": "187type"
+    },
+    {
+      "id": 50,
+      "command": "/187overlapfix",
+      "source_resource": "Overlapping Parallax Transition",
+      "name": "Overlapping Parallax Stack",
+      "logic": "Old scales down (`0.9`) & fades; new zooms in (`1.1\u21921`) & fades; overlap in middle; `power2.inOut`.",
+      "triggers": "*\"overlapping parallax\"*, *\"stack transition\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 51,
+      "command": "/187colwipe",
+      "source_resource": "Column Wipe Page Transition",
+      "name": "Column-Sequential Curtain Wipe",
+      "logic": "10 vertical columns; each `scaleX`/`x` staggered `0.03s`; `power2.inOut`; curtain effect.",
+      "triggers": "*\"column wipe\"*, *\"curtain transition\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 52,
+      "command": "/187crossfade",
+      "source_resource": "Cross Fade Page Transition",
+      "name": "Classic Opacity Cross-Fade",
+      "logic": "Outgoing `1\u21920`; incoming `0\u21921`; `power1.inOut`; preload incoming assets.",
+      "triggers": "*\"cross fade\"*, *\"fade transition\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 53,
+      "command": "/187pixelbasic",
+      "source_resource": "Basic Pixelated Page Transition",
+      "name": "Simple Pixelate In/Out",
+      "logic": "`filter:blur()` + `image-rendering:pixelated`; scrub blur 0\u219210px; reverse for incoming.",
+      "triggers": "*\"basic pixelate\"*, *\"blur pixel transition\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 54,
+      "command": "/187linetestimonial",
+      "source_resource": "Line Reveal Testimonials",
+      "name": "Line-Draw Testimonial Revealer",
+      "logic": "SVG line draws with `DrawSVGPlugin`; text fades with stagger; `ScrollTrigger` triggers each.",
+      "triggers": "*\"line reveal testimonials\"*, *\"quote with line\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 55,
+      "command": "/187showreel",
+      "source_resource": "Mini Showreel Player",
+      "name": "Minimalist Showreel Controller",
+      "logic": "Custom video controls (play/progress/volume); progress updates via `timeupdate`; click to seek.",
+      "triggers": "*\"mini showreel\"*, *\"compact video\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 56,
+      "command": "/187twostepnav",
+      "source_resource": "Two-step Scaling Navigation",
+      "name": "Dual-Phase Scaling Header",
+      "logic": "Phase 1: logo shrinks; Phase 2: background solidifies; `ScrollTrigger` with markers.",
+      "triggers": "*\"two step nav\"*, *\"phased header shrink\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 57,
+      "command": "/187dropstack",
+      "source_resource": "Dropping Cards Stack",
+      "name": "Gravity-Drop Card Stack",
+      "logic": "Cards fall from above to form vertical stack; `bounce.out`; `stagger:0.06`; reusable outside loader.",
+      "triggers": "*\"dropping stack\"*, *\"falling deck\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 58,
+      "command": "/187expandpill",
+      "source_resource": "Expanding Feature Pills",
+      "name": "Morphing Feature Pill Expander",
+      "logic": "Pill `border-radius:50px\u21928px`; width expands; content fades; reverse on outside click.",
+      "triggers": "*\"expanding pills\"*, *\"feature expander\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 59,
+      "command": "/187rotatetrail",
+      "source_resource": "Rotating Image Trail",
+      "name": "Directional Rotation Cursor Trail",
+      "logic": "Cloned images trail cursor; each rotates via `Math.atan2(deltaY,deltaX)`; `quickTo` positions; trail capped at 8.",
+      "triggers": "*\"rotating trail\"*, *\"spin cursor\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 60,
+      "command": "/187varfont",
+      "source_resource": "Variable Font Weight Hover",
+      "name": "Variable Weight Typography",
+      "logic": "Tween `font-weight` via CSS custom property `--wght`; `power1.out`; requires variable font.",
+      "triggers": "*\"variable font\"*, *\"weight hover\"*",
+      "hybrid": false,
+      "owner": "187type"
+    },
+    {
+      "id": 61,
+      "command": "/187zoomtobg",
+      "source_resource": "Image to Background (Zoom)",
+      "name": "Thumbnail-to-Background Zoom",
+      "logic": "Thumbnail `scale`/`position` interpolated to fullscreen; `ScrollTrigger` scrub; `transform-origin` from click.",
+      "triggers": "*\"zoom to background\"*, *\"thumbnail hero\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 62,
+      "command": "/187seqscroll",
+      "source_resource": "Image Sequence on Scroll",
+      "name": "Canvas Frame-Sequence Scrub",
+      "logic": "Preload 120 frames; `ScrollTrigger` scrubs `currentFrame`; `onUpdate` draws to canvas.",
+      "triggers": "*\"image sequence\"*, *\"frame scrub\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 63,
+      "command": "/187csstooltip",
+      "source_resource": "Tooltip (CSS Only)",
+      "name": "Pure CSS Data-Attribute Tooltip",
+      "logic": "`::before`/`::after` with `content:attr(data-tooltip)`; appears on `:hover`; no JS.",
+      "triggers": "*\"css tooltip\"*, *\"data tip\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 64,
+      "command": "/187dragmarq",
+      "source_resource": "Draggable Marquee (Directional)",
+      "name": "Inertia-Driven Draggable Ticker",
+      "logic": "Horizontal marquee; `Draggable` `type:\"x\"`; `inertia`; dynamic bounds; snap on drag end.",
+      "triggers": "*\"draggable marquee\"*, *\"drag ticker\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 65,
+      "command": "/187radialtxt",
+      "source_resource": "Radial Text Marquee",
+      "name": "CSS Circular Text Rotator",
+      "logic": "Text arcs via `transform`; parent rotates continuously; pause on hover.",
+      "triggers": "*\"radial text\"*, *\"circular ticker\"*",
+      "hybrid": false,
+      "owner": "187type"
+    },
+    {
+      "id": 66,
+      "command": "/187snowfall",
+      "source_resource": "Snowflake Effect",
+      "name": "Falling Particle Emitter",
+      "logic": "Spawn divs with `border-radius:50%`; random x/size/duration; `gsap.to` y; recycle on complete.",
+      "triggers": "*\"snowflake\"*, *\"falling particles\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 67,
+      "command": "/187bigtypo",
+      "source_resource": "Big Typo Scroll Preview (Infinite)",
+      "name": "Infinite Wrapping Type Ticker",
+      "logic": "Clone text nodes; `ScrollTrigger` drives `xPercent`; `gsap.utils.wrap` for infinite loop.",
+      "triggers": "*\"big typo scroll\"*, *\"infinite text ticker\"*",
+      "hybrid": false,
+      "owner": "187type"
+    },
+    {
+      "id": 68,
+      "command": "/187rotatetext",
+      "source_resource": "Rotating Text",
+      "name": "Rotating Word Carousel",
+      "logic": "Word array; timeline loops: fade out, slide next in (`y:20\u21920`); `repeat:-1`; `power2.inOut`.",
+      "triggers": "*\"rotating text\"*, *\"word cycle\"*",
+      "hybrid": false,
+      "owner": "187type"
+    },
+    {
+      "id": 69,
+      "command": "/187stacktrail",
+      "source_resource": "Stacking Image Trail",
+      "name": "Vertical Stacking Image Trail",
+      "logic": "Images stack vertically behind cursor with `y` offset; each fades `opacity`; trail limit 10.",
+      "triggers": "*\"stacking trail\"*, *\"image pile\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 70,
+      "command": "/187pathscroll",
+      "source_resource": "Draw Path on Scroll",
+      "name": "Scroll-Driven Path Follower",
+      "logic": "`MotionPathPlugin` positions dot; `stroke-dashoffset` draws path; both scrubbed by `ScrollTrigger`; `autoRotate`.",
+      "triggers": "*\"draw path scroll\"*, *\"motion path\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 71,
+      "command": "/187livesearch",
+      "source_resource": "Live Search (List.js)",
+      "name": "Real-Time List.js Filter",
+      "logic": "Instantiate `List.js`; search triggers `list.search()`; debounce 300ms; highlight matches.",
+      "triggers": "*\"live search\"*, *\"list filter\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 72,
+      "command": "/187overlapslide",
+      "source_resource": "Overlapping Slider",
+      "name": "Overlapping Card Swipe",
+      "logic": "Slides overlap by 30%; `Draggable` `type:\"x\"`; `inertia`; snap to card index.",
+      "triggers": "*\"overlapping slider\"*, *\"overlap cards\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 73,
+      "command": "/187willemloader",
+      "source_resource": "Willem Loading Animation",
+      "name": "Mascot-Walking Splash Loader",
+      "logic": "SVG character walks (sprite/morph); loader progress mapped to walk cycle; fades on complete.",
+      "triggers": "*\"willem loader\"*, *\"mascot loading\"*",
+      "hybrid": false,
+      "owner": "187hero"
+    },
+    {
+      "id": 74,
+      "command": "/187dlbutton",
+      "source_resource": "Download Button",
+      "name": "Stateful Download Trigger",
+      "logic": "Click triggers download; button shows spinner; on success morphs to checkmark via `gsap.to`; resets after 3s.",
+      "triggers": "*\"download button\"*, *\"download state\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 75,
+      "command": "/187crisploader",
+      "source_resource": "Crisp Loading Animation",
+      "name": "Step-Based Geometric Loader",
+      "logic": "Geometric shapes animate with `steps(4)`; crisp staccato loading sequence.",
+      "triggers": "*\"crisp loader\"*, *\"stepped loader\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 76,
+      "command": "/187refractglass",
+      "source_resource": "Refracted Glass (Unicorn)",
+      "name": "Mouse-Driven Refraction Distortion",
+      "logic": "Canvas pixel displacement; mouse controls warp grid; `gsap.utils.lerp` smoothing.",
+      "triggers": "*\"refracted glass\"*, *\"warp distortion\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 77,
+      "command": "/187fullnav",
+      "source_resource": "Bold Full Screen Navigation",
+      "name": "Oversized Typography Full Nav",
+      "logic": "Overlay menu; links scale `0.8\u21921`; stagger in with `y:-30`; `backdrop-filter` blur.",
+      "triggers": "*\"bold fullscreen nav\"*, *\"big type menu\"*",
+      "hybrid": false,
+      "owner": "187type"
+    },
+    {
+      "id": 78,
+      "command": "/187coordcursor",
+      "source_resource": "Cursor Coordinates",
+      "name": "Live Mouse Coordinate Display",
+      "logic": "Two spans for X/Y; update via `mousemove`; `gsap.to` for smooth visual; click to copy.",
+      "triggers": "*\"cursor coordinates\"*, *\"xy display\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 79,
+      "command": "/187elasticbtn",
+      "source_resource": "Elastic Pulse Button (Bouncy)",
+      "name": "Elastic Pulse Interaction",
+      "logic": "Hover scales with `elastic.out(1,0.3)`; click pulses `0.9\u21921.1\u21921`; timeline ease.",
+      "triggers": "*\"elastic button\"*, *\"bouncy btn\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 80,
+      "command": "/187horizscroll",
+      "source_resource": "Horizontal Scrolling Sections",
+      "name": "Horizontally Pinned Scroller",
+      "logic": "Container pinned; `ScrollTrigger` scrubs `x`; optional snap for section alignment.",
+      "triggers": "*\"horizontal scroll\"*, *\"side scroll sections\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 81,
+      "command": "/187timetable",
+      "source_resource": "Opening Hours (Timetable)",
+      "name": "Live-Updated Weekly Timetable",
+      "logic": "Grid layout; `getDay()` highlights current; store hours in object; dynamic classes.",
+      "triggers": "*\"opening hours\"*, *\"weekly timetable\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 82,
+      "command": "/187perspective3d",
+      "source_resource": "3D Perspective Hover",
+      "name": "Mouse-Tilt 3D Card",
+      "logic": "`mousemove` calculates `rotateX/Y` via `mapRange`; clamp \u00b115deg; `perspective:1000px`; `quickTo`.",
+      "triggers": "*\"3d perspective\"*, *\"tilt card\"*",
+      "hybrid": false,
+      "owner": "187model"
+    },
+    {
+      "id": 83,
+      "command": "/187footerparallax",
+      "source_resource": "Footer Parallax Effect",
+      "name": "Bottom-Reveal Parallax Footer",
+      "logic": "Footer `position:sticky`; as content scrolls up, footer accelerates via `translateY`.",
+      "triggers": "*\"footer parallax\"*, *\"sticky footer\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 84,
+      "command": "/187gridflip",
+      "source_resource": "Layout Grid Flip",
+      "name": "Layout State Flip Animator",
+      "logic": "`Flip.getState` before class change; `Flip.from` animates grid layout changes.",
+      "triggers": "*\"grid flip\"*, *\"layout state change\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 85,
+      "command": "/187socialshare",
+      "source_resource": "Social Share Buttons",
+      "name": "Native Share-Intent Group",
+      "logic": "Click opens `window.open` for Twitter/LinkedIn/Facebook; `navigator.share` on mobile.",
+      "triggers": "*\"social share\"*, *\"share links\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 86,
+      "command": "/187swiperset",
+      "source_resource": "Swiper Slider Setup",
+      "name": "Swiper.js Instantiation Wizard",
+      "logic": "Configure Swiper with pagination/navigation/autoplay; breakpoints; pause on hover.",
+      "triggers": "*\"swiper setup\"*, *\"swiper init\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 87,
+      "command": "/187countdown",
+      "source_resource": "Countdown",
+      "name": "Live Date-Difference Countdown",
+      "logic": "`setInterval` computes diff; converts to days/hrs/mins/secs; stops at zero; emits `complete`.",
+      "triggers": "*\"countdown\"*, *\"date timer\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 88,
+      "command": "/187magneticbtn",
+      "source_resource": "Magnetic Cursor",
+      "name": "Magnetic Attraction Button",
+      "logic": "On hover, button `x`/`y` shifts toward mouse with `clamp`; `quickTo`; snaps back on leave.",
+      "triggers": "*\"magnetic cursor\"*, *\"attract hover\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 89,
+      "command": "/187hlsadvlight",
+      "source_resource": "Custom Bunny HLS Lightbox (Adv)",
+      "name": "Advanced HLS Lightbox",
+      "logic": "HLS.js with quality selector, PIP, custom controls; volume persists in localStorage.",
+      "triggers": "*\"hls advanced\"*, *\"bunny lightbox\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 90,
+      "command": "/187hlsbg",
+      "source_resource": "Bunny HLS Background Video",
+      "name": "Muted HLS Background Stream",
+      "logic": "HLS.js auto-loads; `muted:true`; `autoplay:true`; fallback poster on error.",
+      "triggers": "*\"hls background\"*, *\"bunny bg video\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 91,
+      "command": "/187hlsbasic",
+      "source_resource": "Custom Bunny HLS Player (Basic)",
+      "name": "Minimal Custom HLS Player",
+      "logic": "HLS.js with play/pause + volume slider; error recovery.",
+      "triggers": "*\"basic hls\"*, *\"bunny player\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 92,
+      "command": "/187logoload",
+      "source_resource": "Logo Reveal Loader",
+      "name": "Morphing Logo Splash Loader",
+      "logic": "Logo SVG morphs via `MorphSVGPlugin`; scales up then settles; `power4.out`; fades loader.",
+      "triggers": "*\"logo reveal\"*, *\"splash loader\"*",
+      "hybrid": false,
+      "owner": "187hero"
+    },
+    {
+      "id": 93,
+      "command": "/187hlsadv",
+      "source_resource": "Custom Bunny HLS Player (Adv)",
+      "name": "Full-Featured HLS Suite",
+      "logic": "HLS.js + scrubber, speed (0.5-2x), quality, fullscreen; keyboard shortcuts.",
+      "triggers": "*\"advanced hls\"*, *\"hls full controls\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 94,
+      "command": "/187stickfeat",
+      "source_resource": "Sticky Features",
+      "name": "Sticky Feature Stack Carousel",
+      "logic": "Features pin and stack vertically; each pushes previous up; `ScrollTrigger` with `pinSpacing`.",
+      "triggers": "*\"sticky features\"*, *\"scroll stacking\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 95,
+      "command": "/187globeaccel",
+      "source_resource": "Accelerating Globe on Scroll",
+      "name": "Scroll-Accelerated 3D Globe",
+      "logic": "Globe rotation speed mapped to scroll depth via `mapRange`; `scrub:2`; smooth deceleration.",
+      "triggers": "*\"accelerating globe\"*, *\"speed globe\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 96,
+      "command": "/187slntreveal",
+      "source_resource": "Button with Slanted Reveal",
+      "name": "Diagonal Slant Background Button",
+      "logic": "`::before` with `skewX`; `scaleX` 0\u21921 on hover; `transform-origin:left`; diagonal reveal.",
+      "triggers": "*\"slanted button\"*, *\"diagonal hover\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 97,
+      "command": "/187cursormarq",
+      "source_resource": "Cursor with Marquee Effect",
+      "name": "Marquee-Text Embedded Cursor",
+      "logic": "Custom cursor div contains scrolling text; `translateX` loop; size adapts to text length.",
+      "triggers": "*\"cursor marquee\"*, *\"text cursor\"*",
+      "hybrid": false,
+      "owner": "187type"
+    },
+    {
+      "id": 98,
+      "command": "/187stackparallax",
+      "source_resource": "Stacking Cards Parallax",
+      "name": "Internal Parallax in Stacked Cards",
+      "logic": "Each card has background layer; `ScrollTrigger` moves background at different speed; creates depth.",
+      "triggers": "*\"stack parallax\"*, *\"card depth\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 99,
+      "command": "/187multifilter",
+      "source_resource": "Multi Filter Setup (Multi Match)",
+      "name": "AND-Logic Multi-Category Filter",
+      "logic": "Selected tags in Set; show items where ALL selected; `Array.every`; animated show/hide.",
+      "triggers": "*\"multi filter\"*, *\"and logic filter\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 100,
+      "command": "/187filterbasic",
+      "source_resource": "Basic Filter Setup (Multi Match)",
+      "name": "Single-Category Toggle Filter",
+      "logic": "Radio/button group; show only selected category; `data-category` match; `power1.out`.",
+      "triggers": "*\"basic filter\"*, *\"category filter\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 101,
+      "command": "/187revealbatch",
+      "source_resource": "Elements Reveal on Scroll",
+      "name": "Staggered Viewport-Reveal Engine",
+      "logic": "`ScrollTrigger.batch()` on `.reveal`; `from` opacity/y; `stagger:0.05`; auto threshold.",
+      "triggers": "*\"elements reveal\"*, *\"batch scroll\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 102,
+      "command": "/187pixelimg",
+      "source_resource": "Pixelate Image Render Effect",
+      "name": "Pixelated Image Disintegration",
+      "logic": "`filter:blur()` + `pixelated` + `clip-path:inset()` stepped; dissolves on hover.",
+      "triggers": "*\"pixelate image\"*, *\"pixel hover\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 103,
+      "command": "/187cylcarousel",
+      "source_resource": "3D Image Carousel",
+      "name": "3D Cylindrical Carousel",
+      "logic": "Images on `rotateY` increments; `Draggable` `type:\"rotation\"`; `InertiaPlugin` snap.",
+      "triggers": "*\"3d carousel\"*, *\"cylinder slider\"*",
+      "hybrid": false,
+      "owner": "187model"
+    },
+    {
+      "id": 104,
+      "command": "/187dirhover",
+      "source_resource": "Directional List Hover",
+      "name": "Direction-Aware Slide List",
+      "logic": "Detect enter direction via `bound`; animate item sliding from that side; `power2.out`.",
+      "triggers": "*\"directional list\"*, *\"slide from side\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 105,
+      "command": "/187prevcursor",
+      "source_resource": "Image Preview Cursor Follower",
+      "name": "Dynamic Image-Preview Cursor",
+      "logic": "Cursor changes to thumbnail of hovered link; `quickTo`; preload via `new Image()`.",
+      "triggers": "*\"image preview cursor\"*, *\"thumbnail follower\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 106,
+      "command": "/187logowall",
+      "source_resource": "Logo Wall Cycle",
+      "name": "Breathing Logo Wall Animation",
+      "logic": "Logos cycle opacity/scale in wave pattern; stagger based on grid position; infinite loop.",
+      "triggers": "*\"logo wall\"*, *\"breathing logos\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 107,
+      "command": "/187masonry",
+      "source_resource": "Masonry Grid",
+      "name": "Responsive CSS Masonry Grid",
+      "logic": "Uses CSS `columns` with `break-inside:avoid`; no JS needed.",
+      "triggers": "*\"masonry\"*, *\"pinterest layout\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 108,
+      "command": "/187flickswipe",
+      "source_resource": "Flick Cards Slider",
+      "name": "Tinder-Style Flick Swiper",
+      "logic": "Card follows `x`/`rotation` on drag; if threshold exceeded, fling off; next animates in; `InertiaPlugin`.",
+      "triggers": "*\"flick cards\"*, *\"tinder swipe\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 109,
+      "command": "/187backtop",
+      "source_resource": "Back To Top Button",
+      "name": "Smart Back-to-Top Button",
+      "logic": "Appears after 400px via `ScrollTrigger`; click tweens `window.scrollTo` with `power2.inOut`; hides at bottom.",
+      "triggers": "*\"back to top\"*, *\"scroll up\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 110,
+      "command": "/187mascotface",
+      "source_resource": "Face Follow Cursor (Mascot)",
+      "name": "Cognizant Mascot Face Tracker",
+      "logic": "SVG pupils track mouse via `clamp`; blink timeline every 4s; head tilts slightly.",
+      "triggers": "*\"mascot eyes\"*, *\"face follow\"*",
+      "hybrid": false,
+      "owner": "187hero"
+    },
+    {
+      "id": 111,
+      "command": "/187multinav",
+      "source_resource": "Multilevel Navigation",
+      "name": "Nested Multi-Level Accordion Menu",
+      "logic": "3-level deep dropdown; each submenu slides in (`x:20\u21920`); `aria-expanded` toggled.",
+      "triggers": "*\"multilevel nav\"*, *\"deep dropdown\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 112,
+      "command": "/187tiltbouncebtn",
+      "source_resource": "Tilting Bouncing Button",
+      "name": "Tilt & Bounce Hybrid Button",
+      "logic": "On hover, tilts `rotateX/Y` \u00b15deg and bounces `y` with `elastic.out`; combines perspective + physics.",
+      "triggers": "*\"tilting bounce\"*, *\"bounce tilt btn\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 113,
+      "command": "/187gsapslider",
+      "source_resource": "Basic GSAP Slider (Watch CSS)",
+      "name": "Core GSAP Slide Translator",
+      "logic": "Basic slide via `x`; next/prev buttons; `power2.inOut`; autoplay optional.",
+      "triggers": "*\"basic gsap slider\"*, *\"image slide\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 114,
+      "command": "/187motionpathscroll",
+      "source_resource": "Follow SVG Path on Scroll",
+      "name": "SVG Path Element Scrubber",
+      "logic": "Element follows path via `MotionPathPlugin`; `ScrollTrigger` drives `progress`; `autoRotate`.",
+      "triggers": "*\"follow path\"*, *\"path follower\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 115,
+      "command": "/187locomotive",
+      "source_resource": "Locomotive Smooth Scroll Setup",
+      "name": "Locomotive + ScrollTrigger Proxy",
+      "logic": "Integrates `locomotive-scroll` with `ScrollTrigger.scrollerProxy`; syncs GSAP with smooth scroll.",
+      "triggers": "*\"locomotive\"*, *\"smooth scroll setup\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 116,
+      "command": "/187lottie",
+      "source_resource": "Lottie Setup",
+      "name": "Lottie Web Playback Controller",
+      "logic": "Load JSON via `lottie.loadAnimation`; play/pause/seek; `loop:true`; resize observer.",
+      "triggers": "*\"lottie\"*, *\"json animation\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 117,
+      "command": "/187csscursor",
+      "source_resource": "Custom Cursor (CSS)",
+      "name": "Static CSS URI Cursor",
+      "logic": "`cursor: url('path.png') 16 16, auto`; no JS.",
+      "triggers": "*\"css cursor\"*, *\"png cursor\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 118,
+      "command": "/187lazyvideo",
+      "source_resource": "Play Video on Hover (Lazy)",
+      "name": "Lazy-Load Play-on-Hover Video",
+      "logic": "`preload:\"none\"`; `mouseenter` loads+plays; `mouseleave` pauses+unloads; `IntersectionObserver`.",
+      "triggers": "*\"lazy video\"*, *\"hover play\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 119,
+      "command": "/187whatsappqr",
+      "source_resource": "WhatsApp Modal (Generate QR)",
+      "name": "WhatsApp QR Code Modal",
+      "logic": "QRCode.js generates `wa.me` link; modal overlay; click to download QR.",
+      "triggers": "*\"whatsapp qr\"*, *\"qr modal\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 120,
+      "command": "/187stackcards",
+      "source_resource": "Stacked Cards Slider",
+      "name": "Stacked Drag-to-Reveal Deck",
+      "logic": "Cards offset by `y:10`; drag top card to reveal; snap to open/closed; `back.out`.",
+      "triggers": "*\"stacked cards\"*, *\"card peek\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 121,
+      "command": "/187globalparallax",
+      "source_resource": "Global Parallax Setup",
+      "name": "Data-Attribute Global Parallax",
+      "logic": "Select `[data-speed]`; scroll maps `data-speed` to `yPercent`; `will-change` optimization.",
+      "triggers": "*\"global parallax\"*, *\"data-speed layers\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 122,
+      "command": "/187gravitytxt",
+      "source_resource": "Falling Text with Gravity",
+      "name": "Physics-Based Falling Text",
+      "logic": "`Physics2DPlugin` with `gravity:500`; chars fall; `bounce:0.7`; recycle on complete.",
+      "triggers": "*\"falling text\"*, *\"gravity drop\"*",
+      "hybrid": false,
+      "owner": "187type"
+    },
+    {
+      "id": 123,
+      "command": "/187scrollhighlight",
+      "source_resource": "Highlight Text on Scroll",
+      "name": "Scroll-Activated Word Highlighter",
+      "logic": "`SplitText` words; `ScrollTrigger` toggles `active`; background sweep; `stagger:0.02`.",
+      "triggers": "*\"scroll highlight\"*, *\"word highlight\"*",
+      "hybrid": false,
+      "owner": "187type"
+    },
+    {
+      "id": 124,
+      "command": "/187randunderline",
+      "source_resource": "Draw Random Underline",
+      "name": "Squiggly Random Underline Draw",
+      "logic": "SVG path with random `d` curve; `drawSVG` 0\u2192100% on hover; regenerates each hover.",
+      "triggers": "*\"random underline\"*, *\"squiggly line\"*",
+      "hybrid": false,
+      "owner": "187type"
+    },
+    {
+      "id": 125,
+      "command": "/187welcomewords",
+      "source_resource": "Welcoming Words Loader",
+      "name": "Typing-Intro Loader Sequence",
+      "logic": "`SplitText` chars; stagger opacity/y from bottom; `power2.out`; fades loader on complete.",
+      "triggers": "*\"welcome loader\"*, *\"typing splash\"*",
+      "hybrid": false,
+      "owner": "187type"
+    },
+    {
+      "id": 126,
+      "command": "/187minigame",
+      "source_resource": "404 Error Minigame",
+      "name": "404 Interactive Distractor",
+      "logic": "Canvas game (dino jump/snake); `rAF`; keyboard controls; high score in sessionStorage.",
+      "triggers": "*\"404 minigame\"*, *\"error game\"*",
+      "hybrid": false,
+      "owner": "187hero"
+    },
+    {
+      "id": 127,
+      "command": "/187maskreveal",
+      "source_resource": "Masked Text Reveal (SplitText)",
+      "name": "Clip-Path Text Reveal",
+      "logic": "`SplitText` lines; `clip-path:inset(0 100% 0 0)`\u2192`inset(0 0 0 0)`; `power3.out`.",
+      "triggers": "*\"masked reveal\"*, *\"clip text\"*",
+      "hybrid": false,
+      "owner": "187type"
+    },
+    {
+      "id": 128,
+      "command": "/187ariaattr",
+      "source_resource": "Javascript Toggle (Attributes)",
+      "name": "Accessibility Attribute Toggler",
+      "logic": "Toggle `aria-expanded`, `aria-hidden`; `setAttribute`; `prefers-reduced-motion` check.",
+      "triggers": "*\"aria toggle\"*, *\"attribute toggle\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 129,
+      "command": "/187centernav",
+      "source_resource": "Centered Scaling Navigation Bar",
+      "name": "Hero-to-Header Scale Nav",
+      "logic": "Nav scales from hero-center to header-top-left; `ScrollTrigger` maps scale/y/x; `transform-origin` adapts.",
+      "triggers": "*\"centered nav\"*, *\"hero shrink\"*",
+      "hybrid": false,
+      "owner": "187hero"
+    },
+    {
+      "id": 130,
+      "command": "/187displaycount",
+      "source_resource": "Display Count",
+      "name": "Dynamic Numeric DOM Injector",
+      "logic": "Takes `data-count` target; inserts number with `gsap.to` on `innerText`.",
+      "triggers": "*\"display count\"*, *\"inject number\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 131,
+      "command": "/187stickers",
+      "source_resource": "Draggable Stickers",
+      "name": "Freeform Draggable Sticker Canvas",
+      "logic": "`Draggable` with `type:\"x,y\"`; `bounds` parent; `inertia:false`; snap to grid optional.",
+      "triggers": "*\"draggable stickers\"*, *\"moveable stickers\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 132,
+      "command": "/187vimeolight",
+      "source_resource": "Custom Vimeo Lightbox (Advanced)",
+      "name": "Advanced Vimeo Lightbox",
+      "logic": "Vimeo Player API; custom controls (play/progress/quality); autoplay on open.",
+      "triggers": "*\"vimeo lightbox\"*, *\"vimeo advanced\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 133,
+      "command": "/187stickytitle",
+      "source_resource": "Sticky Title Scroll Effect",
+      "name": "Pinned Section Title Overlay",
+      "logic": "Title pins to top via `pin`; content scrolls underneath; fades at section end.",
+      "triggers": "*\"sticky title\"*, *\"pinned title\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 134,
+      "command": "/187flipscroll",
+      "source_resource": "Scaling Element on Scroll (Flip)",
+      "name": "Scroll-Triggered Flip State Change",
+      "logic": "`Flip.getState` before tween; `Flip.from` animates state; `ScrollTrigger` drives.",
+      "triggers": "*\"flip scroll\"*, *\"gsap flip\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 135,
+      "command": "/187copyemail",
+      "source_resource": "Copy Email to Clipboard Button",
+      "name": "Clipboard Email Copier",
+      "logic": "`navigator.clipboard.writeText`; button changes to \"Copied!\"; resets after 2s; fallback prompt.",
+      "triggers": "*\"copy email\"*, *\"clipboard\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 136,
+      "command": "/187matterfall",
+      "source_resource": "Falling 2D Objects (MatterJS)",
+      "name": "Matter.js Collision Physics",
+      "logic": "Matter.js engine; drop rectangles/circles; collision events; GSAP removal.",
+      "triggers": "*\"matter fall\"*, *\"physics drop\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 137,
+      "command": "/187centerloop",
+      "source_resource": "Centered Looping Slider",
+      "name": "Center-Focused Infinite Looper",
+      "logic": "Current slide centered/scaled 1.2; neighbors 0.8; auto-loop timeline; drag to interrupt.",
+      "triggers": "*\"centered loop\"*, *\"focus slider\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 138,
+      "command": "/187progressnav",
+      "source_resource": "One-page Progress Navigation",
+      "name": "Vertical Scroll-Progress Sidebar",
+      "logic": "Side dots; connecting line `scaleY`; `ScrollTrigger` highlights; click scrolls to section.",
+      "triggers": "*\"progress nav\"*, *\"side dots\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 139,
+      "command": "/187rotateiconbtn",
+      "source_resource": "Button with Rotating Icon",
+      "name": "360\u00b0 Rotating Icon on Hover",
+      "logic": "`gsap.to` icon `rotate:360`; `power2.out`; supports SVG inline.",
+      "triggers": "*\"rotate icon\"*, *\"spin btn\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 140,
+      "command": "/187parallaxthumb",
+      "source_resource": "Parallax Image Gallery with Thumbnails",
+      "name": "Thumbnail-Driven Main Parallax",
+      "logic": "Hover thumbnail triggers main image transition with `x`/`scale` parallax; `power3.out`.",
+      "triggers": "*\"parallax thumb\"*, *\"thumbnail swap\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 141,
+      "command": "/187hamscale",
+      "source_resource": "Scaling Hamburger Navigation",
+      "name": "Hamburger-to-Close Morph Scale",
+      "logic": "Three lines: top rotates 45\u00b0, middle fades, bottom -45\u00b0; `power2.inOut`; scale transition.",
+      "triggers": "*\"hamburger morph\"*, *\"close icon\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 142,
+      "command": "/187beforeafter",
+      "source_resource": "Before/After Split Slider",
+      "name": "Draggable Split Comparator",
+      "logic": "Two images; `clip-path:inset(0 X% 0 0)` controlled by `Draggable` handle.",
+      "triggers": "*\"before after\"*, *\"split comparator\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 143,
+      "command": "/187videoscroll",
+      "source_resource": "Play/Pause Video on Scroll",
+      "name": "Scroll-Progress Video Scrubber",
+      "logic": "Tween `video.currentTime` via `ScrollTrigger` scrub; duration mapped to video length.",
+      "triggers": "*\"video scroll\"*, *\"scrub video\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 144,
+      "command": "/187skeleton",
+      "source_resource": "Skeleton Loader Text",
+      "name": "Shimmering Skeleton Text Loader",
+      "logic": "CSS `linear-gradient` shimmer at 45\u00b0; `background-size:200%`; infinite animation.",
+      "triggers": "*\"skeleton\"*, *\"shimmer loader\"*",
+      "hybrid": false,
+      "owner": "187type"
+    },
+    {
+      "id": 145,
+      "command": "/187flickity",
+      "source_resource": "Flickity Slider Setup",
+      "name": "Flickity Cell Carousel",
+      "logic": "Instantiate `Flickity` with `wrapAround`, `cellAlign`; custom arrows.",
+      "triggers": "*\"flickity\"*, *\"flickity carousel\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 146,
+      "command": "/187pixelgrid",
+      "source_resource": "Interactive Pixel Grid",
+      "name": "Proximity-Activated Pixel Grid",
+      "logic": "Grid cells; `gsap.utils.distance` to mouse; map to scale/brightness; `quickTo`; throttled.",
+      "triggers": "*\"pixel grid\"*, *\"mouse proximity\"*",
+      "hybrid": false,
+      "owner": "187viz"
+    },
+    {
+      "id": 147,
+      "command": "/187cssmarq",
+      "source_resource": "CSS Marquee",
+      "name": "CSS Keyframe Infinite Marquee",
+      "logic": "`@keyframes` `translateX` 0\u2192-100%; `linear infinite`; pause on hover.",
+      "triggers": "*\"css marquee\"*, *\"infinite ticker\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 148,
+      "command": "/187velocitycur",
+      "source_resource": "Velocity Based Custom Cursor",
+      "name": "Velocity-Responsive Dynamic Cursor",
+      "logic": "Calculate delta per frame; map to scale (1-3) and hue rotation; `gsap.to` updates.",
+      "triggers": "*\"velocity cursor\"*, *\"speed reactive\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 149,
+      "command": "/187stopmotion",
+      "source_resource": "Stop Motion Button (CSS Steps)",
+      "name": "CSS Steps Stop-Motion Button",
+      "logic": "`animation: sprite 1s steps(4) infinite`; background-position shifts frame by frame.",
+      "triggers": "*\"stop motion\"*, *\"steps sprite\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 150,
+      "command": "/187darkmode",
+      "source_resource": "Dark/Light Mode with Cookie",
+      "name": "Persistent Theme System",
+      "logic": "CSS custom properties; toggle `class=\"dark\"`; store in localStorage; `prefers-color-scheme` fallback.",
+      "triggers": "*\"dark mode\"*, *\"theme toggle\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 151,
+      "command": "/187lightbox",
+      "source_resource": "Lightbox Setup",
+      "name": "Vanilla JS Image Lightbox",
+      "logic": "Modal with `img`; navigation arrows; `Esc` close; focus trap; `gsap` scale open.",
+      "triggers": "*\"lightbox\"*, *\"image modal\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 152,
+      "command": "/187howler",
+      "source_resource": "Audio Player (with Howler.js)",
+      "name": "Howler.js Custom Audio Player",
+      "logic": "Howl instance; custom scrubber, volume, speed; UI updates via `onplay`/`onend`.",
+      "triggers": "*\"audio player\"*, *\"howler audio\"*",
+      "hybrid": false,
+      "owner": "187audio"
+    },
+    {
+      "id": 153,
+      "command": "/187autocycle",
+      "source_resource": "Auto Image Cycle (Slideshow)",
+      "name": "Auto-Fading Image Slideshow",
+      "logic": "Timeline loops; fade between images; pause on hover; `power2.inOut`.",
+      "triggers": "*\"auto slideshow\"*, *\"image cycle\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 154,
+      "command": "/187scrambletri",
+      "source_resource": "Text Scramble (Load/Scroll/Hover)",
+      "name": "Unified Text Scramble Engine",
+      "logic": "Triggers on load/scroll/hover; char loop; `setInterval` random; decodes to target.",
+      "triggers": "*\"scramble tri\"*, *\"multi-trigger scramble\"*",
+      "hybrid": false,
+      "owner": "187type"
+    },
+    {
+      "id": 155,
+      "command": "/187imagetrail",
+      "source_resource": "Image Trail Following Cursor",
+      "name": "Trailing Image Path Behind Cursor",
+      "logic": "Cloned images trail cursor with delay; new images added on move; cap at 15.",
+      "triggers": "*\"image trail\"*, *\"cursor trail images\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 156,
+      "command": "/187filterone",
+      "source_resource": "Basic Filter Setup",
+      "name": "Single-Category Basic Filter",
+      "logic": "Single select; hide/show via `data-category`; `power1.out` for grid items.",
+      "triggers": "*\"basic filter\"*, *\"single filter\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 157,
+      "command": "/187csstabs",
+      "source_resource": "Sticky Section Tabs (CSS Only)",
+      "name": "CSS-Only :target Tab System",
+      "logic": "Uses `:target` or radio buttons; no JS.",
+      "triggers": "*\"css tabs\"*, *\":target tabs\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 158,
+      "command": "/187titleleave",
+      "source_resource": "Change Page Title on Leave",
+      "name": "Tab-Blur Page Title Swap",
+      "logic": "`document.addEventListener('visibilitychange')`; on hidden, change title; restore on visible.",
+      "triggers": "*\"page title leave\"*, *\"tab blur title\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 159,
+      "command": "/187vimeobg",
+      "source_resource": "Vimeo Background Video",
+      "name": "Muted Vimeo Background",
+      "logic": "Vimeo Player API; autoplay muted; loop.",
+      "triggers": "*\"vimeo background\"*, *\"vimeo bg\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 160,
+      "command": "/187tabautoplay",
+      "source_resource": "Tab System with Autoplay Option",
+      "name": "Auto-Rotating Tab System",
+      "logic": "Tabs cycle automatically with fade; pause on hover; `gsap.timeline` loop.",
+      "triggers": "*\"tab autoplay\"*, *\"rotating tabs\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 161,
+      "command": "/187charstagger",
+      "source_resource": "Button with CSS Character Stagger",
+      "name": "CSS Character-Stagger Button",
+      "logic": "Text split into spans; each animated with CSS `animation-delay` stagger.",
+      "triggers": "*\"char stagger\"*, *\"css stagger btn\"*",
+      "hybrid": false,
+      "owner": "187type"
+    },
+    {
+      "id": 162,
+      "command": "/187modal",
+      "source_resource": "Basic Modal Setup",
+      "name": "Scale/Fade Basic Modal",
+      "logic": "Modal opens with `scale`/`fade`; overlay close; X button; focus trap.",
+      "triggers": "*\"basic modal\"*, *\"popup modal\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 163,
+      "command": "/187csstoggle",
+      "source_resource": "Toggle (CSS Only Trick)",
+      "name": "Checkbox-Hack CSS Toggle",
+      "logic": "Hidden checkbox + `:checked` pseudo-class; toggles states without JS.",
+      "triggers": "*\"css toggle\"*, *\"checkbox hack\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 164,
+      "command": "/187formvalbasic",
+      "source_resource": "Live Form Validation (Basic)",
+      "name": "Basic Live Form Validation",
+      "logic": "Validate on input/blur; display error messages; required/email patterns.",
+      "triggers": "*\"form validation\"*, *\"live validate\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 165,
+      "command": "/187sectiontheme",
+      "source_resource": "Check Section Theme on Scroll",
+      "name": "Scroll-Activated Section Theming",
+      "logic": "Detect active section via `ScrollTrigger`; change nav/page theme color dynamically.",
+      "triggers": "*\"section theme\"*, *\"scroll theme\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 166,
+      "command": "/187burger",
+      "source_resource": "Burger Menu Button",
+      "name": "Hamburger-to-Close Morph",
+      "logic": "Three lines; top/bottom rotate to X; middle fades; `power2.inOut`.",
+      "triggers": "*\"burger menu\"*, *\"hamburger morph\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 167,
+      "command": "/187drawcanvas",
+      "source_resource": "Draw On Element with Cursor",
+      "name": "Cursor Drawing Canvas",
+      "logic": "Canvas element; `mousemove` draws lines; `lineTo`; `stroke`; configurable color/size.",
+      "triggers": "*\"draw canvas\"*, *\"sketchpad\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 168,
+      "command": "/187vimeobasic",
+      "source_resource": "Custom Vimeo Player (Basic)",
+      "name": "Basic Custom Vimeo Player",
+      "logic": "Vimeo Player API; play/pause + progress.",
+      "triggers": "*\"basic vimeo\"*, *\"vimeo custom\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 169,
+      "command": "/187vimeoadv",
+      "source_resource": "Custom Vimeo Player (Advanced)",
+      "name": "Advanced Custom Vimeo Player",
+      "logic": "Full controls: quality, speed, volume, fullscreen.",
+      "triggers": "*\"advanced vimeo\"*, *\"vimeo full controls\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 170,
+      "command": "/187accordion",
+      "source_resource": "Accordion CSS Animation",
+      "name": "CSS Max-Height Accordion",
+      "logic": "`max-height` transition; pure CSS; `overflow:hidden`.",
+      "triggers": "*\"accordion\"*, *\"css accordion\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 171,
+      "command": "/187dirmarq",
+      "source_resource": "Marquee with Scroll Direction",
+      "name": "Scroll-Direction Reversing Marquee",
+      "logic": "Detects scroll direction; changes `translateX` direction accordingly.",
+      "triggers": "*\"directional marquee\"*, *\"scroll direction ticker\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 172,
+      "command": "/187scrolldir",
+      "source_resource": "Detect Scrolling Direction (Up/Down)",
+      "name": "Scroll Direction Detector",
+      "logic": "Compare `window.scrollY` with previous; output 'up'/'down' via event.",
+      "triggers": "*\"scroll direction\"*, *\"up down detector\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 173,
+      "command": "/187magnethover",
+      "source_resource": "Magnetic Hover Effect",
+      "name": "Magnetic Hover Attraction",
+      "logic": "Button moves toward cursor with clamp; `quickTo`; `power2.out`; snap back.",
+      "triggers": "*\"magnetic hover\"*, *\"attract hover\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 174,
+      "command": "/187lenisanchor",
+      "source_resource": "Lenis Scroll-To Anchor Target",
+      "name": "Lenis Smooth Anchor Scroll",
+      "logic": "`lenis.scrollTo` with offset; click nav links; smooth easing.",
+      "triggers": "*\"lenis anchor\"*, *\"smooth scroll to\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 175,
+      "command": "/187lenis",
+      "source_resource": "Lenis Smooth Scroll Setup",
+      "name": "Lenis Smooth Scroll Engine",
+      "logic": "Initialize Lenis with easing/wheel; integrate with GSAP.",
+      "triggers": "*\"lenis setup\"*, *\"smooth scroll lenis\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 176,
+      "command": "/187confetti",
+      "source_resource": "Mouse Cursor Confetti (Physics2D)",
+      "name": "Physics2D Cursor Confetti",
+      "logic": "On click, burst 30 colored divs; `Physics2DPlugin` with random velocity/angle/gravity.",
+      "triggers": "*\"confetti\"*, *\"cursor burst\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 177,
+      "command": "/187clock",
+      "source_resource": "Dynamic Current Time",
+      "name": "Live Real-Time Clock",
+      "logic": "`setInterval` updates hours:minutes:seconds; `toLocaleTimeString`.",
+      "triggers": "*\"live clock\"*, *\"current time\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 178,
+      "command": "/187morphplay",
+      "source_resource": "Morphing Play/Pause (MorphSVG)",
+      "name": "Play-to-Pause SVG Morph",
+      "logic": "`MorphSVGPlugin` morphs triangle to two bars on click.",
+      "triggers": "*\"morph play\"*, *\"play pause svg\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 179,
+      "command": "/187progressnum",
+      "source_resource": "Scroll Progress Number",
+      "name": "Scroll Percentage Number",
+      "logic": "`ScrollTrigger` updates 0-100%; `onUpdate` sets `innerText`.",
+      "triggers": "*\"scroll progress\"*, *\"percentage scroll\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 180,
+      "command": "/187progressbar",
+      "source_resource": "Scroll Progress Bar",
+      "name": "Top Scroll Progress Bar",
+      "logic": "Horizontal bar; `ScrollTrigger` updates `scaleX` from 0\u21921.",
+      "triggers": "*\"progress bar\"*, *\"scroll bar\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 181,
+      "command": "/187emojirain",
+      "source_resource": "Emoji Rain Effect",
+      "name": "Falling Emoji Rain",
+      "logic": "Spawn emojis with random sizes/speeds; fall with `gsap.to`; recycle.",
+      "triggers": "*\"emoji rain\"*, *\"falling emojis\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 182,
+      "command": "/187basiccursor",
+      "source_resource": "Basic Custom Cursor",
+      "name": "Simple Lagging Custom Cursor",
+      "logic": "Circle cursor; `quickTo` with 0.2s lag; `opacity`/`scale` toggles.",
+      "triggers": "*\"basic cursor\"*, *\"simple custom cursor\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 183,
+      "command": "/187dirbtn",
+      "source_resource": "Directional Button Hover",
+      "name": "Direction-Sensing Button Background",
+      "logic": "Background slides from mouse enter direction; `bound` detection.",
+      "triggers": "*\"directional button\"*, *\"hover direction\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 184,
+      "command": "/187numloader",
+      "source_resource": "Number Loader in 3 Steps",
+      "name": "3-Step Percentage Loader",
+      "logic": "Counts 0\u2192100% in three phases; each with different ease; `onUpdate`.",
+      "triggers": "*\"number loader\"*, *\"step loader\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 185,
+      "command": "/187bubblearrow",
+      "source_resource": "Button with Bubble Arrow",
+      "name": "Arrow-to-Speech-Bubble Morph",
+      "logic": "Arrow morphs into bubble tail on hover; `gsap.to` path/background.",
+      "triggers": "*\"bubble arrow\"*, *\"speech btn\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 186,
+      "command": "/187underline",
+      "source_resource": "Underline Link Animation",
+      "name": "Draw-In Underline on Hover",
+      "logic": "`::after` with `scaleX` 0\u21921; `transform-origin:left`; `power2.out`.",
+      "triggers": "*\"underline link\"*, *\"draw underline\"*",
+      "hybrid": false,
+      "owner": "187type"
+    },
+    {
+      "id": 187,
+      "command": "/187formvaladv",
+      "source_resource": "Live Form Validation (Advanced)",
+      "name": "Advanced Multi-Rule Form Validator",
+      "logic": "Custom rules (password match, min length, pattern); real-time feedback; submit handler.",
+      "triggers": "*\"advanced form\"*, *\"live validate advanced\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 188,
+      "command": "/187expirebadge",
+      "source_resource": "Expiring New Badge/Label",
+      "name": "Time-Based Expiring Badge",
+      "logic": "Checks sessionStorage or date; removes \"New\" badge after X days or first view.",
+      "triggers": "*\"expiring badge\"*, *\"new label\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 189,
+      "command": "/187textcursor",
+      "source_resource": "Dynamic Text Cursor",
+      "name": "Context-Aware Text Cursor",
+      "logic": "Cursor text changes based on hovered element (`data-cursor` attribute); `quickTo`.",
+      "triggers": "*\"text cursor\"*, *\"dynamic cursor text\"*",
+      "hybrid": false,
+      "owner": "187type"
+    },
+    {
+      "id": 190,
+      "command": "/187infslider",
+      "source_resource": "Draggable Infinite Slider (GSAP)",
+      "name": "Classic Infinite Draggable Slider",
+      "logic": "Clones slides; `Draggable` with `type:\"x\"`; `InertiaPlugin`; `gsap.utils.wrap`; snap on drag end.",
+      "triggers": "*\"infinite slider\"*, *\"draggable infinite\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 191,
+      "command": "/187sidenavwipe",
+      "source_resource": "Side Navigation with Wipe Effect",
+      "name": "Off-Canvas Side Nav with Wipe",
+      "logic": "Side nav slides in; content behind wipes (clip-path) away; `timeline`.",
+      "triggers": "*\"side nav wipe\"*, *\"off-canvas wipe\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 192,
+      "command": "/187osmofluid",
+      "source_resource": "Osmo Scaling System",
+      "name": "Fluid Viewport Scaling System",
+      "logic": "`gsap.utils.mapRange` maps viewport width to font-size/scale; `ResizeObserver` rebinds.",
+      "triggers": "*\"osmo scale\"*, *\"fluid system\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 193,
+      "command": "/187copyright",
+      "source_resource": "Dynamic Current Year",
+      "name": "Auto-Copyright Year Injector",
+      "logic": "`new Date().getFullYear()`; injects into footer.",
+      "triggers": "*\"copyright year\"*, *\"current year\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 194,
+      "command": "/187parallaxlayers",
+      "source_resource": "Parallax Image Layers",
+      "name": "Multi-Layer Image Parallax",
+      "logic": "Foreground/middle/background layers; `ScrollTrigger` moves each at different speeds.",
+      "triggers": "*\"parallax layers\"*, *\"image depth\"*",
+      "hybrid": false,
+      "owner": "187scroll"
+    },
+    {
+      "id": 195,
+      "command": "/187appledock",
+      "source_resource": "Apple Dock Navigation Bar",
+      "name": "Apple-Style Scaling Dock",
+      "logic": "Icons scale up on mouse approach; neighboring icons scale slightly; `quickTo` with distance.",
+      "triggers": "*\"apple dock\"*, *\"macos dock\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 196,
+      "command": "/187loopselector",
+      "source_resource": "Looping Words with Selector",
+      "name": "Rotating Word Selector with Highlight",
+      "logic": "Word array; current word highlighted via underline/background; cycles with timeline.",
+      "triggers": "*\"looping words\"*, *\"selector highlight\"*",
+      "hybrid": false,
+      "owner": "187type"
+    },
+    {
+      "id": 197,
+      "command": "/187pixelreveal",
+      "source_resource": "Pixelated Image Reveal",
+      "name": "Pixelated-to-Sharp Image Reveal",
+      "logic": "Image starts pixelated (`blur`/`pixelated`); sharpens on scroll/hover.",
+      "triggers": "*\"pixel reveal\"*, *\"sharp reveal\"*",
+      "hybrid": false,
+      "owner": "187gsap"
+    },
+    {
+      "id": 198,
+      "command": "/187shaderwipe",
+      "source_resource": null,
+      "name": "GLSL Disintegration Page Transition",
+      "logic": "Replaces CSS clip-paths with a Three.js `ShaderPass`. On scroll/click, GSAP scrubs a `uniform uProgress` (0\u21921). The fragment shader displaces the old page using a water ripple or glitch matrix effect while assembling the new page.",
+      "triggers": "*\"shader transition\"*, *\"glsl wipe\"*",
+      "hybrid": true,
+      "owner": "187hero"
+    },
+    {
+      "id": 199,
+      "command": "/187morphsphere",
+      "source_resource": null,
+      "name": "Scroll-Driven 3D Topological Morph",
+      "logic": "A Three.js mesh with 500 vertices morphs between a Cube, Sphere, and TorusKnot. GSAP listens to `ScrollTrigger` and maps progress to the `morphTargetInfluences` array. Uses `onUpdate` to recalculate normals.",
+      "triggers": "*\"morph 3d\"*, *\"topology change\"*",
+      "hybrid": true,
+      "owner": "187scroll"
+    },
+    {
+      "id": 200,
+      "command": "/187pointcloudocean",
+      "source_resource": null,
+      "name": "Interactive 3D Point Cloud Depth",
+      "logic": "Uses Three.js `Points` with 50,000 vertices arranged in a flat grid. On `mousemove`, GSAP `quickTo` applies a wave displacement to the `z` axis of nearby vertices (simulating an ocean surface), layered with a `sin` time uniform.",
+      "triggers": "*\"point cloud ocean\"*, *\"3d depth grid\"*",
+      "hybrid": true,
+      "owner": "187viz"
+    },
+    {
+      "id": 201,
+      "command": "/187volumefog",
+      "source_resource": null,
+      "name": "Volumetric Light Ray Cursor",
+      "logic": "Combines Three.js `FogExp2` with a custom `Mesh` (cone) that follows the mouse. GSAP animates the `opacity` and `scale` of the volumetric cone. As the cursor moves, it dynamically \"illuminates\" floating dust particles (Points).",
+      "triggers": "*\"volumetric light\"*, *\"god rays cursor\"*",
+      "hybrid": true,
+      "owner": "187hero"
+    },
+    {
+      "id": 202,
+      "command": "/187physicscascade",
+      "source_resource": null,
+      "name": "3D Matter.js + Three.js Hybrid Physics",
+      "logic": "Matter.js runs the 2D physics engine (collisions/gravity) but drives the `position` and `rotation` of Three.js 3D rendered cubes (extruded boxes). GSAP orchestrates the initial cascade drop (staggered release of 30 physics bodies).",
+      "triggers": "*\"3d physics drop\"*, *\"matter three hybrid\"*",
+      "hybrid": true,
+      "owner": "187model"
+    },
+    {
+      "id": 203,
+      "command": "/187fiberorb",
+      "source_resource": null,
+      "name": "Real-time WebGL Glowing Orbs",
+      "logic": "Generates 20 animated Three.js `SphereGeometry` meshes with `MeshPhysicalMaterial` (clearcoat/roughness). GSAP continuously loops a stagger animation, tweening their `scale` and `position` along a spherical Lissajous curve. Uses `unrealBloomPass` for a glowing, ethereal aesthetic.",
+      "triggers": "*\"glowing orbs\"*, *\"bloom spheres\"*",
+      "hybrid": true,
+      "owner": "187viz"
+    },
+    {
+      "id": 204,
+      "command": "/187sketchline",
+      "source_resource": null,
+      "name": "3D Fat Cursor Drawing Trail",
+      "logic": "Uses `three-mesh-bvh` or `MeshLine` library. The cursor draws an extruded 3D tube/path in real-time. GSAP records mouse deltas and feeds them to the geometry's `setPoints()`, creating a dynamic, ribbon-like 3D sculpture that follows the user.",
+      "triggers": "*\"3d draw cursor\"*, *\"fat ribbon trail\"*",
+      "hybrid": true,
+      "owner": "187gsap"
+    },
+    {
+      "id": 205,
+      "command": "/187holointeract",
+      "source_resource": null,
+      "name": "Holographic Image Deconstruction",
+      "logic": "An image is mapped onto a Three.js `PlaneGeometry` with 100x100 subdivisions. On hover, GSAP triggers a shader where the vertices scale outward from the center (breaking apart like hologram shards) while applying a scanline fragment effect.",
+      "triggers": "*\"hologram shatter\"*, *\"3d image break\"*",
+      "hybrid": true,
+      "owner": "187hero"
+    },
+    {
+      "id": 206,
+      "command": "/187noiseterrain",
+      "source_resource": null,
+      "name": "Scroll-Activated Simplex Terrain",
+      "logic": "Generates a flat `PlaneGeometry`. Using `simplex-noise` inside a custom shader, GSAP scrolls a `uTime` uniform that moves the vertices up/down (mountains/valleys) in real-time. A Three.js `DirectionalLight` highlights the terrain as it morphs.",
+      "triggers": "*\"3d terrain\"*, *\"scroll landscape\"*",
+      "hybrid": true,
+      "owner": "187scroll"
+    },
+    {
+      "id": 207,
+      "command": "/187colorwaveaudio",
+      "source_resource": null,
+      "name": "Audio-Reactive WebGL Visualizer",
+      "logic": "Uses `WebAudio` `AnalyserNode` to process microphone or an audio file. GSAP doesn't loop; instead, it pipes the frequency data to Three.js uniforms. The `SphereGeometry` or `BoxGeometry` vertices stretch outward based on bass/treble, creating a 3D oscilloscope inside the hero section.",
+      "triggers": "*\"audio visualizer\"*, *\"3d music reactive\"*",
+      "hybrid": true,
+      "owner": "187audio"
+    }
+  ]
+}

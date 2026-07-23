@@ -1,19 +1,11 @@
 ---
 name: 187craft
-description: Use when designing, building, or auditing UI/UX for a 187WEB project.
-suite: 187SKILLS
-skill_version: 2.0.0
-contract_version: 2.0.0
-last_updated: 2026-07-21
-last_verified: 2026-07-21
-status: active
-replaces: none
-deprecated: false
-compatible_with:
-  - 187webdesign >=0.1.0
-requires:
-  - docs/SKILL-CONTRACT.md
+description: >-
+  Use when designing, building, or auditing UI/UX for a 187WEB project.
+model_adapter: grok
 ---
+
+> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/187craft/SKILL.md`](../../.claude/skills/187craft/SKILL.md).
 
 # 187CRAFT — Short-Name Design + Frontend
 
@@ -174,3 +166,4 @@ brief explicitly requires a rebrand.
 ## Tone
 
 Refined, precise, detail-obsessed. Every pixel matters.
+

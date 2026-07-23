@@ -1,11 +1,11 @@
 ---
-name: 187CREATE
+name: 187create
 description: >-
   Use when building growth-first landing pages, ad creatives, influencer kits, or conversion-focused surfaces for a 187WEB project.
-model_adapter: grok
+model_adapter: kimi
 ---
 
-> **Grok adapter:** Load as repository skill instructions. Canonical source: [`../../.claude/skills/187CREATE/SKILL.md`](../../.claude/skills/187CREATE/SKILL.md).
+> **Kimi adapter:** Load via the Kimi Skill tool or place in your Kimi skills directory. Source: [`../../.claude/skills/187create/SKILL.md`](../../.claude/skills/187create/SKILL.md).
 
 # 187CREATE — Growth-First Creation
 
@@ -14,7 +14,7 @@ model_adapter: grok
 187CREATE is Kali's growth-first creation skill for the 187WEB ecosystem. It
 prioritizes speed and conversion over systemization, building landing-page MVPs,
 ad creative variants, influencer kits, and conversion-focused surfaces that plug
-directly into the 187WEB suite. It is the counterpart to Charlotte's 187CRAFT:
+directly into the 187WEB suite. It is the counterpart to 187CRAFT:
 ship fast, validate, then hand off winners for systemization.
 
 ## Manual triggers

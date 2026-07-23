@@ -1,11 +1,13 @@
 ---
-name: 187CREATE
+name: 187create
 description: >-
   Use when building growth-first landing pages, ad creatives, influencer kits, or conversion-focused surfaces for a 187WEB project.
-model_adapter: hermes
+model_adapter: gemini
+system_instruction: >-
+  187CREATE is Kali's growth-first creation skill for the 187WEB ecosystem. It prioritizes speed and conversion over systemization, building landing-page MVPs, ad creative variants, influencer kits, and conversion-focused surfaces that plug directly into the 187WEB suite. It is the counterpart to 187CRAFT: ship fast, validate, then hand off winners for systemization.
 ---
 
-> **Hermes adapter:** Use `system.md` as the system message for Hermes-based local LLMs (Ollama, lm-studio, etc.). Source: [`../../.claude/skills/187CREATE/SKILL.md`](../../.claude/skills/187CREATE/SKILL.md).
+> **Gemini adapter:** Load as a system instruction. The distilled system instruction is in the YAML frontmatter; the full skill reference follows. Source: [`../../.claude/skills/187create/SKILL.md`](../../.claude/skills/187create/SKILL.md).
 
 # 187CREATE — Growth-First Creation
 
@@ -14,7 +16,7 @@ model_adapter: hermes
 187CREATE is Kali's growth-first creation skill for the 187WEB ecosystem. It
 prioritizes speed and conversion over systemization, building landing-page MVPs,
 ad creative variants, influencer kits, and conversion-focused surfaces that plug
-directly into the 187WEB suite. It is the counterpart to Charlotte's 187CRAFT:
+directly into the 187WEB suite. It is the counterpart to 187CRAFT:
 ship fast, validate, then hand off winners for systemization.
 
 ## Manual triggers

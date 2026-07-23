@@ -1,5 +1,5 @@
 ---
-name: 187CREATE
+name: 187create
 description: Use when building growth-first landing pages, ad creatives, influencer kits, or conversion-focused surfaces for a 187WEB project.
 suite: 187SKILLS
 skill_version: 1.0.0
