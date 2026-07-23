@@ -6,8 +6,9 @@ import { Html, Cylinder, Box, Torus, Sphere, Cone } from "@react-three/drei";
 import * as THREE from "three";
 import { gsap } from "@/lib/motion/gsap";
 import { useReducedMotion } from "@/lib/motion/useReducedMotion";
+import { MOTION_LAB_PRIMARY } from "@/lib/motion/palette";
 
-const ACCENT = "#39FF14";
+const ACCENT = MOTION_LAB_PRIMARY;
 
 interface PartDef {
   id: string;
@@ -190,7 +191,7 @@ function ProductContent() {
           {part.component}
           <Html distanceFactor={6} position={[0.5, 0.4, 0]} style={{ pointerEvents: "none" }}>
             <span
-              className={`whitespace-nowrap rounded bg-black/70 px-2 py-1 text-xs font-medium text-[${ACCENT}] backdrop-blur-sm transition-opacity ${
+              className={`whitespace-nowrap rounded bg-black/70 px-2 py-1 text-xs font-medium backdrop-blur-sm transition-opacity ${
                 exploded ? "opacity-100" : "opacity-0"
               }`}
               style={{ color: ACCENT }}
@@ -209,7 +210,7 @@ function ProductContent() {
 
 export function ProductViewer() {
   return (
-    <div className="relative h-80 w-full overflow-hidden rounded-2xl bg-gradient-to-b from-[#0a0c14] to-[#050608]">
+    <div className="relative h-80 w-full overflow-hidden rounded-2xl bg-gradient-to-b from-sc-panel to-sc-void">
       <Canvas
         camera={{ position: [0, 0, 5], fov: 50, near: 0.1, far: 20 }}
         frameloop="demand"

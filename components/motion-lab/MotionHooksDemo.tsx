@@ -4,12 +4,19 @@ import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/motion/gsap";
 import { useGsapTimeline } from "@/lib/motion/useGsapTimeline";
 import { useReducedMotion } from "@/lib/motion/useReducedMotion";
+import {
+  MOTION_LAB_VOID,
+  MOTION_LAB_PRIMARY,
+  MOTION_LAB_SECONDARY,
+  MOTION_LAB_CYAN,
+  MOTION_LAB_ROSE,
+} from "@/lib/motion/palette";
 
 function DemoBox({ color, label }: { color: string; label: string }) {
   return (
     <div
       className="flex h-16 w-16 items-center justify-center rounded-lg text-[0.6rem] font-bold uppercase tracking-wide"
-      style={{ backgroundColor: color, color: "#050608" }}
+      style={{ backgroundColor: color, color: MOTION_LAB_VOID }}
     >
       {label}
     </div>
@@ -83,31 +90,31 @@ export function MotionHooksDemo() {
   }, [reducedMotion]);
 
   return (
-    <div className="grid min-h-[18rem] grid-cols-2 gap-4 rounded-2xl bg-gradient-to-b from-[#0a0c14] to-[#050608] p-5 sm:grid-cols-4">
+    <div className="grid min-h-[18rem] grid-cols-2 gap-4 rounded-2xl bg-gradient-to-b from-sc-panel to-sc-void p-5 sm:grid-cols-4">
       <div className="flex flex-col items-center justify-center gap-3 rounded-xl bg-white/5 p-3">
         <p className="text-xs font-semibold uppercase tracking-wide text-white/50">Spring</p>
         <div ref={springRef}>
-          <DemoBox color="#39FF14" label="Spring" />
+          <DemoBox color={MOTION_LAB_PRIMARY} label="Spring" />
         </div>
       </div>
       <div className="flex flex-col items-center justify-center gap-3 rounded-xl bg-white/5 p-3">
         <p className="text-xs font-semibold uppercase tracking-wide text-white/50">Loop</p>
         <div ref={loopRef}>
-          <DemoBox color="#7c3aed" label="Loop" />
+          <DemoBox color={MOTION_LAB_SECONDARY} label="Loop" />
         </div>
       </div>
       <div className="flex flex-col items-center justify-center gap-3 rounded-xl bg-white/5 p-3">
         <p className="text-xs font-semibold uppercase tracking-wide text-white/50">Stagger</p>
         <div ref={staggerRef} className="flex gap-1">
-          <DemoBox color="#22d3ee" label="A" />
-          <DemoBox color="#22d3ee" label="B" />
-          <DemoBox color="#22d3ee" label="C" />
+          <DemoBox color={MOTION_LAB_CYAN} label="A" />
+          <DemoBox color={MOTION_LAB_CYAN} label="B" />
+          <DemoBox color={MOTION_LAB_CYAN} label="C" />
         </div>
       </div>
       <div className="flex flex-col items-center justify-center gap-3 rounded-xl bg-white/5 p-3">
         <p className="text-xs font-semibold uppercase tracking-wide text-white/50">Scrub</p>
         <div ref={scrubRef}>
-          <DemoBox color="#f43f5e" label="Scrub" />
+          <DemoBox color={MOTION_LAB_ROSE} label="Scrub" />
         </div>
       </div>
     </div>

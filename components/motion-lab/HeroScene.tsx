@@ -6,10 +6,11 @@ import { Icosahedron, Torus } from "@react-three/drei";
 import * as THREE from "three";
 import { gsap } from "@/lib/motion/gsap";
 import { useReducedMotion } from "@/lib/motion/useReducedMotion";
+import { MOTION_LAB_PRIMARY, MOTION_LAB_SECONDARY, MOTION_LAB_CYAN } from "@/lib/motion/palette";
 
-const ACCENT = "#39FF14";
-const SECONDARY = "#7c3aed";
-const TERTIARY = "#22d3ee";
+const ACCENT = MOTION_LAB_PRIMARY;
+const SECONDARY = MOTION_LAB_SECONDARY;
+const TERTIARY = MOTION_LAB_CYAN;
 
 function easeOutCubic(t: number): number {
   return 1 - Math.pow(1 - t, 3);
@@ -125,7 +126,7 @@ function HeroContent() {
 
 export function HeroScene() {
   return (
-    <div className="relative h-80 w-full overflow-hidden rounded-2xl bg-gradient-to-b from-[#0a0c14] to-[#050608]">
+    <div className="relative h-80 w-full overflow-hidden rounded-2xl bg-gradient-to-b from-sc-panel to-sc-void">
       <Canvas
         camera={{ position: [0, 0, 5.5], fov: 55, near: 0.1, far: 20 }}
         frameloop="demand"
@@ -134,7 +135,7 @@ export function HeroScene() {
       >
         <HeroContent />
       </Canvas>
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#050608] to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-sc-void to-transparent" />
     </div>
   );
 }

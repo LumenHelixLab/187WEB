@@ -24,6 +24,14 @@ const config: Config = {
         },
         success: "rgb(var(--success) / <alpha-value>)",
         danger: "rgb(var(--danger) / <alpha-value>)",
+        sc: {
+          void: "rgb(var(--sc-void) / <alpha-value>)",
+          panel: "rgb(var(--sc-panel) / <alpha-value>)",
+          primary: "rgb(var(--sc-primary) / <alpha-value>)",
+          secondary: "rgb(var(--sc-secondary) / <alpha-value>)",
+          cyan: "rgb(var(--sc-cyan) / <alpha-value>)",
+          rose: "rgb(var(--sc-rose) / <alpha-value>)",
+        },
       },
       fontFamily: {
         sans: ["var(--font-sans)", "ui-sans-serif", "system-ui", "sans-serif"],

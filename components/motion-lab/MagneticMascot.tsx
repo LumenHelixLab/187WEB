@@ -70,7 +70,7 @@ export function MagneticMascot() {
   return (
     <div
       ref={rootRef}
-      className="relative flex h-full min-h-[18rem] w-full items-center justify-center overflow-hidden bg-[#050608]"
+      className="relative flex h-full min-h-[18rem] w-full items-center justify-center overflow-hidden bg-sc-void"
       aria-label="Magnetic mascot sampler — move pointer to pull the brand marks"
     >
       <div

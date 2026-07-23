@@ -8,9 +8,10 @@ import { gsap } from "@/lib/motion/gsap";
 import { useReducedMotion } from "@/lib/motion/useReducedMotion";
 import { useScrollProgress } from "@/lib/motion/useScrollProgress";
 import { useGsapTimeline } from "@/lib/motion/useGsapTimeline";
+import { MOTION_LAB_PRIMARY, MOTION_LAB_SECONDARY, MOTION_LAB_CYAN, MOTION_LAB_ROSE } from "@/lib/motion/palette";
 
-const ACCENT = "#39FF14";
-const SECONDARY = "#7c3aed";
+const ACCENT = MOTION_LAB_PRIMARY;
+const SECONDARY = MOTION_LAB_SECONDARY;
 
 function StageContent() {
   const groupRef = useRef<THREE.Group>(null);
@@ -23,8 +24,8 @@ function StageContent() {
       [
         { position: [-2.2, 0.5, 0] as [number, number, number], scale: 0.7, color: ACCENT, type: "icosahedron" as const },
         { position: [0, -0.6, 1.2] as [number, number, number], scale: 0.9, color: SECONDARY, type: "torus" as const },
-        { position: [2.1, 0.4, -0.5] as [number, number, number], scale: 0.6, color: "#22d3ee", type: "octahedron" as const },
-        { position: [0, 1.4, -0.8] as [number, number, number], scale: 0.5, color: "#f43f5e", type: "sphere" as const },
+        { position: [2.1, 0.4, -0.5] as [number, number, number], scale: 0.6, color: MOTION_LAB_CYAN, type: "octahedron" as const },
+        { position: [0, 1.4, -0.8] as [number, number, number], scale: 0.5, color: MOTION_LAB_ROSE, type: "sphere" as const },
       ] as const,
     [],
   );
@@ -116,7 +117,7 @@ function StageContent() {
 
 export function ScrollNarrative() {
   return (
-    <div className="relative h-96 w-full overflow-hidden rounded-2xl bg-gradient-to-b from-[#0a0c14] to-[#050608]">
+    <div className="relative h-96 w-full overflow-hidden rounded-2xl bg-gradient-to-b from-sc-panel to-sc-void">
       <Canvas
         camera={{ position: [0, 0, 6], fov: 50, near: 0.1, far: 20 }}
         frameloop="demand"

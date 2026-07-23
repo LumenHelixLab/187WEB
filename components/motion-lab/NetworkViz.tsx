@@ -6,10 +6,11 @@ import { Line } from "@react-three/drei";
 import * as THREE from "three";
 import { gsap } from "@/lib/motion/gsap";
 import { useReducedMotion } from "@/lib/motion/useReducedMotion";
+import { MOTION_LAB_PRIMARY } from "@/lib/motion/palette";
 
 const NODE_COUNT = 48;
 const RADIUS = 3;
-const ACCENT = "#39FF14";
+const ACCENT = MOTION_LAB_PRIMARY;
 
 function NetworkContent() {
   const meshRef = useRef<THREE.InstancedMesh>(null);
@@ -109,7 +110,7 @@ function NetworkContent() {
 
 export function NetworkViz() {
   return (
-    <div className="relative h-80 w-full overflow-hidden rounded-2xl bg-gradient-to-b from-[#0a0c14] to-[#050608]">
+    <div className="relative h-80 w-full overflow-hidden rounded-2xl bg-gradient-to-b from-sc-panel to-sc-void">
       <Canvas
         camera={{ position: [0, 0, 7], fov: 50, near: 0.1, far: 30 }}
         frameloop="demand"

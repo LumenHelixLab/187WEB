@@ -58,7 +58,7 @@ export function ScrollRevealSampler() {
   }, [reducedMotion]);
 
   return (
-    <div className="relative flex h-full min-h-[18rem] w-full flex-col overflow-hidden bg-[#050608]">
+    <div className="relative flex h-full min-h-[18rem] w-full flex-col overflow-hidden bg-sc-void">
       <div
         ref={scrollerRef}
         className="flex-1 overflow-y-auto overscroll-contain px-4 py-6"

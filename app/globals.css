@@ -27,6 +27,18 @@
   --radius-sm: 8px;
   --radius: 12px;
   --radius-lg: 20px;
+
+  /* Motion-lab dark palette — RGB channels so Tailwind's <alpha-value>
+     composition works (e.g. bg-sc-void/80). Mirrors the "Abyssal Killer"
+     187THEME catalog entry (public/themes/catalog.json). Lives in :root,
+     not scoped to .showcase (nothing in app/ actually applies that as a
+     className), so the sc- prefixed utilities resolve everywhere. */
+  --sc-void: 5 6 8; /* #050608 */
+  --sc-panel: 10 12 20; /* #0a0c14 */
+  --sc-primary: 57 255 20; /* #39ff14 neon green */
+  --sc-secondary: 124 58 237; /* #7c3aed violet */
+  --sc-cyan: 34 211 238; /* #22d3ee */
+  --sc-rose: 244 63 94; /* #f43f5e */
 }
 
 /* ---------------------------------------------------------------- base ---- */

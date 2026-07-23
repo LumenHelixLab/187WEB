@@ -4,10 +4,11 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 import { useReducedMotion } from "@/lib/motion/useReducedMotion";
+import { MOTION_LAB_PRIMARY } from "@/lib/motion/palette";
 
 const GRID_SIZE = 16;
 const COUNT = GRID_SIZE * GRID_SIZE;
-const ACCENT = "#39FF14";
+const ACCENT = MOTION_LAB_PRIMARY;
 
 function AudioContent({ isPlaying }: { isPlaying: boolean }) {
   const meshRef = useRef<THREE.InstancedMesh>(null);
@@ -100,7 +101,7 @@ export function AudioMesh() {
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
-    <div className="relative h-80 w-full overflow-hidden rounded-2xl bg-gradient-to-b from-[#0a0c14] to-[#050608]">
+    <div className="relative h-80 w-full overflow-hidden rounded-2xl bg-gradient-to-b from-sc-panel to-sc-void">
       <Canvas
         camera={{ position: [0, 4, 5], fov: 55, near: 0.1, far: 30 }}
         frameloop="demand"
@@ -114,7 +115,7 @@ export function AudioMesh() {
       <button
         type="button"
         onClick={() => setIsPlaying((v) => !v)}
-        className="absolute bottom-4 left-1/2 z-10 -translate-x-1/2 rounded-full bg-[#39FF14] px-4 py-2 text-xs font-bold text-[#050608] shadow-lg transition hover:brightness-110"
+        className="absolute bottom-4 left-1/2 z-10 -translate-x-1/2 rounded-full bg-sc-primary px-4 py-2 text-xs font-bold text-sc-void shadow-lg transition hover:brightness-110"
       >
         {isPlaying ? "Stop audio" : "Start audio"}
       </button>

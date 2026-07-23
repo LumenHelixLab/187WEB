@@ -48,7 +48,7 @@ export function FlipPageSampler() {
   return (
     <div
       ref={rootRef}
-      className="relative flex h-full min-h-[18rem] w-full flex-col overflow-hidden bg-[#050608] p-4"
+      className="relative flex h-full min-h-[18rem] w-full flex-col overflow-hidden bg-sc-void p-4"
       aria-label="Flip layout sampler"
     >
       {!open ? (
@@ -59,7 +59,7 @@ export function FlipPageSampler() {
               type="button"
               data-flip-id={`tile-${id}`}
               onClick={() => captureAndToggle(id)}
-              className="group flex flex-col items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 p-3 transition hover:border-[#39FF14]/40 hover:bg-white/10"
+              className="group flex flex-col items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 p-3 transition hover:border-sc-primary/40 hover:bg-white/10"
             >
               {/* eslint-disable-next-line @next/next/no-img-element -- basePath-safe static export */}
               <img
@@ -101,12 +101,12 @@ export function FlipPageSampler() {
             decoding="async"
           />
           <p className="text-xs text-white/50">
-            Detail · <span className="uppercase tracking-wider text-[#39FF14]">{active}</span>
+            Detail · <span className="uppercase tracking-wider text-sc-primary">{active}</span>
           </p>
           <button
             type="button"
             onClick={() => captureAndToggle()}
-            className="rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold text-white/80 transition hover:border-[#39FF14]/40 hover:text-[#39FF14]"
+            className="rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold text-white/80 transition hover:border-sc-primary/40 hover:text-sc-primary"
           >
             Back to grid
           </button>
