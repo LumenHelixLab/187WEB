@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 import { demos } from "./index";
 
@@ -70,6 +71,13 @@ export function MotionLabSection() {
             narratives, audio reactivity, network graphs, motion hooks, and the GSAP plugin toolkit —
             plus a few extra samplers for page transitions and cursor interaction.
           </p>
+          <Link
+            href="/187gsap#registry"
+            className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-sc-primary transition hover:brightness-110"
+          >
+            Browse all 207 catalogued patterns
+            <span aria-hidden>→</span>
+          </Link>
         </Reveal>
 
         <div className="grid gap-6 md:grid-cols-2">
