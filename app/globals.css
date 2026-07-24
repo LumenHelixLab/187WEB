@@ -777,6 +777,26 @@
 }
 .tp-vizbar { animation: tp-vizbar 1.1s ease-in-out infinite; }
 
+/* 187HERO lab loops */
+@keyframes tp-walk { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+.tp-walk { animation: tp-walk 0.5s ease-in-out infinite; }
+@keyframes tp-loadbar { 0% { width: 0; } 60%, 82% { width: 100%; } 100% { width: 0; } }
+.tp-loadbar { width: 0; animation: tp-loadbar 2.6s cubic-bezier(0.65, 0, 0.35, 1) infinite; }
+@keyframes tp-logopop {
+  0% { transform: scale(0) rotate(-40deg); opacity: 0; }
+  35% { transform: scale(1.12) rotate(6deg); opacity: 1; }
+  50% { transform: scale(1) rotate(0deg); }
+  82% { transform: scale(1) rotate(0deg); opacity: 1; }
+  100% { transform: scale(0.5) rotate(20deg); opacity: 0; }
+}
+.tp-logopop { transform-origin: center; animation: tp-logopop 3s cubic-bezier(0.23, 1, 0.32, 1) infinite; }
+@keyframes tp-centernav {
+  0%, 14% { transform: translate(-50%, -50%) scale(1.9); }
+  46%, 76% { transform: translate(calc(-50% - 34%), calc(-50% - 44px)) scale(0.72); }
+  100% { transform: translate(-50%, -50%) scale(1.9); }
+}
+.tp-centernav { left: 50%; top: 50%; animation: tp-centernav 4s cubic-bezier(0.65, 0, 0.35, 1) infinite; }
+
 /* WebHive telemetry overlay: honeycomb + spiderweb data layers. */
 @keyframes wh-matrix-fall {
   0% {

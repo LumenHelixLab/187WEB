@@ -1,11 +1,12 @@
 
 <!-- 187SKILLS first-class roster (release:validate) -->
-<!-- 187REPO 187CRAFT 187VIBE 187LAUNCH 187FREE 187RESEARCH 187SEO 187REVENUE 187DOCS 187LEARN 187TEST 187ACCESS+ 187VERSION 187PUBLISH 187NATASHA 187CHAIN 187GSAP 187TYPE 187MODEL 187SCROLL 187AUDIO 187VIZ 187MOTION 187HERO -->
+<!-- 187REPO 187CRAFT 187VIBE 187LAUNCH 187FREE 187RESEARCH 187SEO 187REVENUE 187DOCS 187LEARN 187TEST 187ACCESS+ 187VERSION 187PUBLISH 187NATASHA 187CHAIN 187GSAP 187TYPE 187MODEL 187SCROLL 187AUDIO 187VIZ 187MOTION 187HERO 187THEME 187AGENT-UI -->
 # Changelog
 
 ## [Unreleased]
 
 ### Added
+- Agentic-web frontend first-class skill `187AGENT-UI` — streaming-token DOM rendering, HITL input mechanics, pub/sub agent event bus, and agent-flavored data-viz mapping, with a 6-demo interactive lab at `/187agent-ui`. Routes GSAP/motion, WebGL rendering, and resilience concerns to their owning skills.
 - Growth-first first-class skill `187CREATE` with canonical skill file, docs, showcase route, and model adapters.
 - Motion-lab first-class skills: `187GSAP`, `187TYPE`, `187MODEL`, `187SCROLL`, `187AUDIO`, `187VIZ`, `187MOTION`, `187HERO`.
 - Public routes `/187gsap`, `/187type`, `/187model`, `/187scroll`, `/187audio`, `/187viz`, `/187motion`, `/187hero`.

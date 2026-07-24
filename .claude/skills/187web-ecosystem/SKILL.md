@@ -17,7 +17,7 @@ requires:
   - docs/SKILL-CONTRACT.md
 ---
 <!-- 187SKILLS first-class roster (release:validate) -->
-<!-- 187REPO 187CRAFT 187CREATE 187VIBE 187LAUNCH 187FREE 187RESEARCH 187SEO 187REVENUE 187DOCS 187LEARN 187TEST 187ACCESS+ 187INCLUDE+ 187VERSION 187PUBLISH 187NATASHA 187CHAIN 187GSAP 187TYPE 187MODEL 187SCROLL 187AUDIO 187VIZ 187MOTION 187HERO 187THEME -->
+<!-- 187REPO 187CRAFT 187CREATE 187VIBE 187LAUNCH 187FREE 187RESEARCH 187SEO 187REVENUE 187DOCS 187LEARN 187TEST 187ACCESS+ 187INCLUDE+ 187VERSION 187PUBLISH 187NATASHA 187CHAIN 187GSAP 187TYPE 187MODEL 187SCROLL 187AUDIO 187VIZ 187MOTION 187HERO 187THEME 187AGENT-UI -->
 # 187WEB Ecosystem v3.0 — NATASHA Integration
 
 **Suite:** 187WEB multi-agent operating layer. Core modules:
@@ -96,6 +96,7 @@ delegating to an external coding agent or extended SCOUT/LAB execution.
 |-------|------|
 | `187quantum` | Quantum algorithms & circuits |
 | `187chain` | Smart-contract & DeFi assurance |
+| [`187agent-ui`](../187agent-ui/SKILL.md) | Agentic-web frontend engineering (streaming DOM, HITL, event bus, agent data viz) — full tree landed |
 
 ## Short-name aliases
 
@@ -133,6 +134,7 @@ audio | aud → 187audio
 viz | vz → 187viz
 motion | mot → 187motion
 hero | hr → 187hero
+agent-ui | aui → 187agent-ui
 ```
 
 Deprecated: `char`, `ch`, `agent-charlotte` → route to **SCOUT** with deprecation notice.

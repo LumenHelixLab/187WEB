@@ -101,6 +101,17 @@ Public slash-command surfaces in the 187 suite:
 | Release | **187VERSION**, **187PUBLISH** |
 | NATASHA multi-agent | **187NATASHA**, **187CHAIN** |
 | Motion lab | **187GSAP**, **187TYPE**, **187MODEL**, **187SCROLL**, **187AUDIO**, **187VIZ**, **187MOTION**, **187HERO**, **187THEME** |
+| Agentic UI | **187AGENT-UI** |
+
+Every motion-lab and agentic-UI skill ships a live, interactive demo lab on its
+own showcase page (`/187hero`, `/187audio`, `/187agent-ui`, …) — not static
+screenshots. **187AGENT-UI** is the newest addition: it builds the UI shell
+around a live agent (streaming-token rendering, human-in-the-loop override
+controls, a typed pub/sub event bus, agent-flavored data viz) and explicitly
+routes tweens, WebGL rendering, and cleanup depth to the skills that already
+own them rather than duplicating that territory. See
+[`docs/187AGENT-UI.md`](docs/187AGENT-UI.md) and
+[`.claude/skills/187agent-ui/SKILL.md`](.claude/skills/187agent-ui/SKILL.md).
 
 Workflow support includes `/187 handoff` (`agentic-sprint-handoff`) for phased multi-agent coding handoffs. See [docs/NATASHA-AGENTIC-HANDOFFS.md](docs/NATASHA-AGENTIC-HANDOFFS.md).
 

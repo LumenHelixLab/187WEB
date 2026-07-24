@@ -445,6 +445,53 @@ export const skillShowcases: SkillShowcaseData[] = [
     ],
     related: ["scroll", "model", "type", "motion"],
   },
+  {
+    id: "agent-ui",
+    name: "187AGENT-UI",
+    tagline: "The frontend cockpit for AI agents",
+    color: "#60a5fa",
+    description:
+      "Builds the UI shell around a live agent: streaming-token rendering, human-in-the-loop override controls, and a typed pub/sub event bus — routing tweens, WebGL, and cleanup to the skills that already own them.",
+    triggers: [
+      "/187agent-ui",
+      "187AGENT-UI",
+      "agent ui",
+      "agentic frontend",
+      "streaming token renderer",
+      "human in the loop",
+      "HITL controls",
+      "agent event bus",
+      "pub/sub agent state",
+      "agent status chip",
+    ],
+    useCases: [
+      "Render streamed LLM tokens into the DOM without jank",
+      "Build a drag-to-constrain override for an autonomous agent",
+      "Broadcast agent state to disconnected UI regions",
+      "Model an Idle/Thinking/Acting/Error status surface",
+      "Throttle or debounce rapid human commands to an agent",
+    ],
+    outputs: [
+      "Agent-state model (transition table, not booleans)",
+      "Render/batching strategy and frame budget",
+      "Event-bus wiring (publishers, subscribers, cleanup)",
+      "HITL contract (throttle/debounce values, interrupt path)",
+      "Reduced-motion and keyboard fallback notes",
+      "Next actions",
+    ],
+    routesTo: [
+      { name: "187GSAP", when: "a state transition needs an actual tween or timeline" },
+      { name: "187VIZ", when: "agent data needs a rendered 3D or canvas surface" },
+      { name: "187MOTION", when: "the pattern should become a reusable hook" },
+      { name: "187WEBDEV-RESILIENCE", when: "memory/cleanup goes beyond event-bus unsubscribe" },
+    ],
+    templates: [
+      { name: "agent-state-machine.md", when: "An Idle/Thinking/Acting/Error status surface" },
+      { name: "streaming-token-renderer.md", when: "Token-by-token streamed output" },
+      { name: "hitl-constraint-canvas.md", when: "A drag-to-constrain override control" },
+    ],
+    related: ["gsap", "viz", "motion", "hero"],
+  },
 
   {
     id: "free",

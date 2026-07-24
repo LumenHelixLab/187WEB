@@ -40,6 +40,7 @@ export const FIRST_CLASS_SKILLS: SuiteSkill[] = [
   { id: "motion", name: "187MOTION", route: "motion", docs: "187MOTION" },
   { id: "hero", name: "187HERO", route: "hero", docs: "187HERO" },
   { id: "theme", name: "187THEME", route: "theme", docs: "187THEME" },
+  { id: "agent-ui", name: "187AGENT-UI", route: "agent-ui", docs: "187AGENT-UI" },
 ];
 
 export const SUBSKILLS: SuiteSkill[] = [

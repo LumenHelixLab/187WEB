@@ -27,6 +27,7 @@ export const xavierKit: AgentKit = {
     "access-plus",
     "include",
     "research",
+    "agent-ui",
   ],
   prompts: [
     {
