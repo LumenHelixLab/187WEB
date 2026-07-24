@@ -748,6 +748,28 @@
   animation: tp-shimmer 1.4s linear infinite;
 }
 
+/* 187MODEL lab (components/model-lab) — CSS-3D loops */
+@keyframes tp-cube {
+  0% { transform: rotateX(-20deg) rotateY(0deg); }
+  100% { transform: rotateX(-20deg) rotateY(360deg); }
+}
+.tp-cube { animation: tp-cube 9s linear infinite; }
+@keyframes tp-tornado {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+.tp-tornado { animation: tp-tornado 11s linear infinite; }
+@keyframes tp-drop {
+  0% { transform: translateY(-120px); opacity: 0; animation-timing-function: cubic-bezier(0.4, 0, 1, 1); }
+  35% { opacity: 1; }
+  55% { transform: translateY(0); animation-timing-function: cubic-bezier(0.2, 0, 0, 1); }
+  68% { transform: translateY(-24px); }
+  82% { transform: translateY(0); }
+  90% { transform: translateY(-8px); }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.tp-drop { animation: tp-drop 2.6s ease-out infinite; }
+
 /* WebHive telemetry overlay: honeycomb + spiderweb data layers. */
 @keyframes wh-matrix-fall {
   0% {
