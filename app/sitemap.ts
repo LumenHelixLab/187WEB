@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/content";
 import { skillShowcases } from "@/lib/skill-showcase-data";
 
+export const dynamic = "force-static";
+
 const base = siteConfig.url.replace(/\/$/, "");
 
 /** Static sitemap for GitHub Pages (`output: "export"`). */
